@@ -4,6 +4,7 @@ import jsonp from 'jsonp';
 import axios from 'axios';
 import { SelectWithLabel, SwitchWithLabels } from 'p2pu-input-fields';
 import reactDom from 'react-dom';
+import moment from 'moment';
 
 var SearchBar = function SearchBar(_ref) {
   var placeholder = _ref.placeholder,
@@ -12647,4 +12648,141 @@ var BrowseCourses = function BrowseCourses(_ref) {
   );
 };
 
-export { CourseCard, BrowseCourses, Search };
+var LearningCircleCard = function LearningCircleCard(props) {
+  var learningCircle = props.learningCircle;
+
+  var startDate = moment(learningCircle.start_date + ' ' + learningCircle.meeting_time);
+  var endDate = moment(learningCircle.start_date + ' ' + learningCircle.end_time);
+  var formattedDate = startDate.format('MMMM Do, YYYY');
+  var formattedStartTime = startDate.format('h:mma');
+  var formattedEndTime = endDate.format('h:mma');
+  var schedule = learningCircle.day + ' from ' + formattedStartTime + ' to ' + formattedEndTime + ' (' + learningCircle.time_zone + ')';
+  var duration = learningCircle.weeks + ' weeks starting ' + formattedDate;
+  var name = learningCircle.course.title;
+
+  return React.createElement(
+    Card,
+    null,
+    React.createElement(
+      CardTitle,
+      null,
+      name
+    ),
+    learningCircle.image_url && React.createElement(
+      'div',
+      { className: 'image-container hidden-on-mobile' },
+      React.createElement(
+        'div',
+        { className: 'image' },
+        React.createElement('img', { src: learningCircle.image_url, alt: name })
+      )
+    ),
+    React.createElement(
+      CardBody,
+      null,
+      React.createElement(
+        'p',
+        { className: 'schedule' },
+        React.createElement(
+          'i',
+          { className: 'material-icons' },
+          'schedule'
+        ),
+        schedule
+      ),
+      React.createElement(
+        'p',
+        { className: 'duration' },
+        React.createElement(
+          'i',
+          { className: 'material-icons' },
+          'today'
+        ),
+        duration
+      ),
+      React.createElement(
+        'p',
+        { className: 'city-country' },
+        React.createElement(
+          'i',
+          { className: 'material-icons' },
+          'place'
+        ),
+        learningCircle.city
+      ),
+      React.createElement(
+        'p',
+        { className: 'facilitator' },
+        React.createElement(
+          'i',
+          { className: 'material-icons' },
+          'face'
+        ),
+        'Facilitated by ',
+        learningCircle.facilitator
+      ),
+      React.createElement(
+        'p',
+        { className: 'location' },
+        React.createElement(
+          'i',
+          { className: 'material-icons' },
+          'store'
+        ),
+        'Meeting at ',
+        learningCircle.venue
+      ),
+      React.createElement(
+        'div',
+        { className: 'actions' },
+        React.createElement(
+          'div',
+          { className: 'primary-cta' },
+          React.createElement(
+            'a',
+            { href: learningCircle.url },
+            React.createElement(
+              'button',
+              { className: 'btn p2pu-btn transparent' },
+              'Sign up'
+            )
+          )
+        )
+      )
+    )
+  );
+};
+
+var BrowseLearningCircles = function BrowseLearningCircles(_ref) {
+  var results = _ref.results;
+  return React.createElement(
+    lib,
+    { className: "search-results row grid" },
+    results.map(function (circle, index) {
+      return React.createElement(LearningCircleCard, {
+        key: 'learning-circle-' + index,
+        learningCircle: circle
+      });
+    }),
+    React.createElement(
+      'div',
+      { className: 'result-item grid-item col-md-4 col-sm-12 col-xs-12 start-learning-circle' },
+      React.createElement(
+        'div',
+        { className: 'circle' },
+        React.createElement(
+          'p',
+          null,
+          'Start a learning circle in your neighborhood'
+        ),
+        React.createElement(
+          'a',
+          { href: '/en/facilitate', className: 'btn p2pu-btn dark arrow' },
+          React.createElement('i', { className: 'fa fa-arrow-right', 'aria-hidden': 'true' })
+        )
+      )
+    )
+  );
+};
+
+export { CourseCard, BrowseCourses, BrowseLearningCircles, Search };
