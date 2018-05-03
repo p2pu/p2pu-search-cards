@@ -26,6 +26,8 @@ export default class TopicsFilterForm extends Component {
 
   _fetchTopics() {
     const resourceType = `${this.props.searchSubject}Topics`;
+    const ApiHelper = this.props.apiHelper
+    const api = new ApiHelper(resourceType);
     const params = {};
     const callback = (response) => {
       const topics = keys(response.topics).sort()
@@ -33,7 +35,7 @@ export default class TopicsFilterForm extends Component {
       this.setState({ options })
     }
 
-    this.props.fetchResource({ params, callback })
+    api.fetchResource({ params, callback })
   }
 
   _handleSelect(selected) {

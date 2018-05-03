@@ -34,8 +34,10 @@ export default class Search extends Component {
   _sendQuery() {
     const params = this.state;
     const opts = { params, callback: this.searchCallback };
+    const ApiHelper = this.props.apiHelper;
+    const api = new ApiHelper(this.props.searchSubject);
 
-    this.props.fetchResource(opts);
+    api.fetchResource(opts);
   }
 
   _updateQueryParams(params) {
