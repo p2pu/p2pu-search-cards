@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { keys, without, take } from 'lodash';
+import { compact, keys, without, take } from 'lodash';
+import jsonp from 'jsonp';
+import axios from 'axios';
 import { SelectWithLabel, SwitchWithLabels } from 'p2pu-input-fields';
 import reactDom from 'react-dom';
 
@@ -78,6 +80,58 @@ var Filter = function Filter(_ref) {
   );
 };
 
+var MEETING_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+var SEARCH_SUBJECTS = {
+  learningCircles: 'learning circles',
+  courses: 'courses'
+};
+
+var SEARCH_PROPS = {
+  learningCircles: {
+    filters: ['location', 'topics', 'meetingDays'],
+    placeholder: 'Keyword, organization, facilitator, etc...'
+  },
+  courses: {
+    filters: ['topics', 'orderCourses'],
+    placeholder: 'Title, subject, etc...'
+  }
+};
+
+var API_ENDPOINTS = {
+  learningCircle: '/api/learning-circle/',
+  registration: '/en/accounts/fe/register/',
+  login: '/en/accounts/fe/login/',
+  learningCircles: {
+    postUrl: '/api/learning-circle/',
+    baseUrl: '/api/learningcircles/?',
+    searchParams: ['q', 'topics', 'weekdays', 'latitude', 'longitude', 'distance', 'active', 'limit', 'offset', 'city', 'signup', 'team_id', 'id']
+  },
+  courses: {
+    baseUrl: '/api/courses/?',
+    searchParams: ['q', 'topics', 'order', 'course_id']
+  },
+  learningCirclesTopics: {
+    baseUrl: 'https://learningcircles.p2pu.org/api/learningcircles/topics/?',
+    searchParams: []
+  },
+  coursesTopics: {
+    baseUrl: 'https://learningcircles.p2pu.org/api/courses/topics/?',
+    searchParams: []
+  },
+  stats: {
+    baseUrl: 'https://learningcircles.p2pu.org/api/landing-page-stats/?',
+    searchParams: []
+  },
+  landingPage: {
+    baseUrl: 'https://learningcircles.p2pu.org/api/landing-page-learning-circles/?',
+    searchParams: []
+  },
+  images: {
+    postUrl: '/api/upload_image/'
+  }
+};
+
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -140,6 +194,94 @@ var possibleConstructorReturn = function (self, call) {
   return call && (typeof call === "object" || typeof call === "function") ? call : self;
 };
 
+var ApiHelper = function () {
+  function ApiHelper(resourceType) {
+    classCallCheck(this, ApiHelper);
+
+    this.resourceType = resourceType;
+    this.baseUrl = API_ENDPOINTS[resourceType].baseUrl;
+    this.validParams = API_ENDPOINTS[resourceType].searchParams;
+  }
+
+  createClass(ApiHelper, [{
+    key: 'generateUrl',
+    value: function generateUrl(params) {
+      var baseUrl = this.baseUrl;
+      var encodedParams = this.validParams.map(function (key) {
+        var value = params[key];
+        if (!!value) {
+          return key + '=' + encodeURIComponent(value);
+        }
+      });
+      var queryString = compact(encodedParams).join('&');
+
+      console.log('url', '' + baseUrl + queryString);
+      return '' + baseUrl + queryString;
+    }
+  }, {
+    key: 'fetchResource',
+    value: function fetchResource(opts) {
+      var url = this.generateUrl(opts.params);
+
+      jsonp(url, null, function (err, data) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(data);
+          opts.callback(data, opts);
+        }
+      });
+    }
+  }, {
+    key: 'createResource',
+    value: function createResource(opts) {
+      var url = API_ENDPOINTS[this.resourceType].postUrl;
+      var data = opts.data;
+      var config = opts.config;
+
+      axios({
+        url: url,
+        data: data,
+        config: config,
+        method: 'post',
+        responseType: 'json'
+      }).then(function (res) {
+        if (res.data.errors) {
+          return opts.onError(res.data);
+        }
+        opts.onSuccess(res.data);
+      }).catch(function (err) {
+        console.log(err);
+        opts.onFail(err);
+      });
+    }
+  }, {
+    key: 'updateResource',
+    value: function updateResource(opts, id) {
+      var url = '' + API_ENDPOINTS[this.resourceType].postUrl + id + '/';
+      var data = opts.data;
+      var config = opts.config;
+
+      axios({
+        url: url,
+        data: data,
+        config: config,
+        method: 'post',
+        responseType: 'json'
+      }).then(function (res) {
+        if (res.data.errors) {
+          return opts.onError(res.data);
+        }
+        opts.onSuccess(res.data);
+      }).catch(function (err) {
+        console.log(err);
+        opts.onFail(err);
+      });
+    }
+  }]);
+  return ApiHelper;
+}();
+
 var TopicsFilterForm = function (_Component) {
   inherits(TopicsFilterForm, _Component);
 
@@ -185,7 +327,6 @@ var TopicsFilterForm = function (_Component) {
       var _this2 = this;
 
       var resourceType = this.props.searchSubject + 'Topics';
-      var ApiHelper = this.props.apiHelper;
       var api = new ApiHelper(resourceType);
       var params = {};
       var callback = function callback(response) {
@@ -371,24 +512,6 @@ var SearchAndFilter = function SearchAndFilter(props) {
     }),
     React.createElement(FilterSection, props)
   );
-};
-
-var MEETING_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
-var SEARCH_SUBJECTS = {
-  learningCircles: 'learning circles',
-  courses: 'courses'
-};
-
-var SEARCH_PROPS = {
-  learningCircles: {
-    filters: ['location', 'topics', 'meetingDays'],
-    placeholder: 'Keyword, organization, facilitator, etc...'
-  },
-  courses: {
-    filters: ['topics', 'orderCourses'],
-    placeholder: 'Title, subject, etc...'
-  }
 };
 
 var SearchTag = function SearchTag(_ref) {
@@ -673,7 +796,6 @@ var Search = function (_Component) {
     value: function _sendQuery() {
       var params = this.state;
       var opts = { params: params, callback: this.searchCallback };
-      var ApiHelper = this.props.apiHelper;
       var api = new ApiHelper(this.props.searchSubject);
 
       api.fetchResource(opts);
