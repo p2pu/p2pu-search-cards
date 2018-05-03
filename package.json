@@ -16,6 +16,8 @@
     "react": ">=15.0.1",
     "react-dom": ">=15.0.1",
     "p2pu-input-fields": "^0.2.0",
+    "axios": "^0.18.0",
+    "jsonp": "^0.2.1",
     "lodash": "^4.17.4"
   },
   "devDependencies": {

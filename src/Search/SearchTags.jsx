@@ -1,6 +1,6 @@
 import React from 'react'
 import { without } from 'lodash';
-import { MEETING_DAYS, SEARCH_SUBJECTS } from '../constants';
+import { MEETING_DAYS, SEARCH_SUBJECTS } from '../utils/constants';
 
 
 const SearchTag = ({ value, onDelete }) => {

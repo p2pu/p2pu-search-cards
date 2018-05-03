@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { keys } from 'lodash'
+import ApiHelper from '../utils/apiHelper'
 
 import { CheckboxWithLabel, SelectWithLabel } from 'p2pu-input-fields'
 
@@ -26,7 +27,6 @@ export default class TopicsFilterForm extends Component {
 
   _fetchTopics() {
     const resourceType = `${this.props.searchSubject}Topics`;
-    const ApiHelper = this.props.apiHelper
     const api = new ApiHelper(resourceType);
     const params = {};
     const callback = (response) => {

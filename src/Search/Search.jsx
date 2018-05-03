@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import SearchAndFilter from './SearchAndFilter'
 import SearchTags from './SearchTags'
-import { SEARCH_PROPS } from '../constants'
+import { SEARCH_PROPS } from '../utils/constants'
+import ApiHelper from '../utils/apiHelper'
 
 export default class Search extends Component {
   constructor(props) {
@@ -34,7 +35,6 @@ export default class Search extends Component {
   _sendQuery() {
     const params = this.state;
     const opts = { params, callback: this.searchCallback };
-    const ApiHelper = this.props.apiHelper;
     const api = new ApiHelper(this.props.searchSubject);
 
     api.fetchResource(opts);
@@ -77,6 +77,7 @@ export default class Search extends Component {
           updateQueryParams={this.updateQueryParams}
           filterCollection={filterCollection}
           searchSubject={this.props.searchSubject}
+          apiHelper={this.props.apiHelper}
           {...this.state}
         />
         <SearchTags
