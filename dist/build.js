@@ -185,6 +185,8 @@ var TopicsFilterForm = function (_Component) {
       var _this2 = this;
 
       var resourceType = this.props.searchSubject + 'Topics';
+      var ApiHelper = this.props.apiHelper;
+      var api = new ApiHelper(resourceType);
       var params = {};
       var callback = function callback(response) {
         var topics = keys(response.topics).sort();
@@ -192,7 +194,7 @@ var TopicsFilterForm = function (_Component) {
         _this2.setState({ options: options });
       };
 
-      this.props.fetchResource({ params: params, callback: callback });
+      api.fetchResource({ params: params, callback: callback });
     }
   }, {
     key: '_handleSelect',
@@ -671,8 +673,10 @@ var Search = function (_Component) {
     value: function _sendQuery() {
       var params = this.state;
       var opts = { params: params, callback: this.searchCallback };
+      var ApiHelper = this.props.apiHelper;
+      var api = new ApiHelper(this.props.searchSubject);
 
-      this.props.fetchResource(opts);
+      api.fetchResource(opts);
     }
   }, {
     key: '_updateQueryParams',
