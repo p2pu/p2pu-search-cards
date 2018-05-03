@@ -1,0 +1,38 @@
+{
+  "name": "p2pu-search-cards",
+  "version": "0.1.0",
+  "description": "Search component used in P2PU projects",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p2pu/p2pu-search-cards.git"
+  },
+  "main": "dist/build.js",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "author": "Sharon Kennedy <sharon@p2pu.org>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=15.0.1",
+    "react-dom": ">=15.0.1",
+    "p2pu-input-fields": "^0.2.0",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "react": ">=15.0.1",
+    "react-dom": ">=15.0.1",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-commonjs": "^9.1.2",
+    "rollup-plugin-css-only": "^0.4.0",
+    "rollup-plugin-node-resolve": "^3.3.0"
+  },
+  "dependencies": {
+    "react-masonry-component": "^6.2.0",
+    "react-tooltip": "^3.5.0"
+  }
+}
