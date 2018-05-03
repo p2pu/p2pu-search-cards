@@ -77,7 +77,6 @@ export default class Search extends Component {
           updateQueryParams={this.updateQueryParams}
           filterCollection={filterCollection}
           searchSubject={this.props.searchSubject}
-          apiHelper={this.props.apiHelper}
           {...this.state}
         />
         <SearchTags
