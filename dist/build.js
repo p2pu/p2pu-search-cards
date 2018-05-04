@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { compact, keys, without, take } from 'lodash';
+import { compact, keys, pull, without, take } from 'lodash';
 import jsonp from 'jsonp';
 import axios from 'axios';
-import { SelectWithLabel, SwitchWithLabels } from 'p2pu-input-fields';
+import { CheckboxWithLabel, SelectWithLabel, SwitchWithLabels, RangeSliderWithLabel, CitySelect } from 'p2pu-input-fields';
 import reactDom from 'react-dom';
 import moment from 'moment';
 
@@ -416,6 +416,256 @@ var OrderCoursesForm = function OrderCoursesForm(props) {
   });
 };
 
+var LocationFilterForm = function (_Component) {
+  inherits(LocationFilterForm, _Component);
+
+  function LocationFilterForm(props) {
+    classCallCheck(this, LocationFilterForm);
+
+    var _this = possibleConstructorReturn(this, (LocationFilterForm.__proto__ || Object.getPrototypeOf(LocationFilterForm)).call(this, props));
+
+    _this.state = { useLocation: false };
+    _this.getLocation = function (checkboxValue) {
+      return _this._getLocation(checkboxValue);
+    };
+    _this.handleCitySelect = function (city) {
+      return _this._handleCitySelect(city);
+    };
+    _this.handleRangeChange = function (value) {
+      return _this._handleRangeChange(value);
+    };
+    _this.generateLocationLabel = function () {
+      return _this._generateLocationLabel();
+    };
+    _this.detectDistanceUnit = function (lat, lon) {
+      return _this._detectDistanceUnit(lat, lon);
+    };
+    _this.generateDistanceValue = function () {
+      return _this._generateDistanceValue();
+    };
+    _this.generateDistanceSliderLabel = function () {
+      return _this._generateDistanceSliderLabel();
+    };
+    return _this;
+  }
+
+  createClass(LocationFilterForm, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (this.props !== nextProps) {
+        if (nextProps.latitude === null && nextProps.longitude === null) {
+          this.setState({ useLocation: false });
+        }
+      }
+    }
+  }, {
+    key: '_getLocation',
+    value: function _getLocation(checkboxValue) {
+      var _this2 = this;
+
+      this.setState({ gettingLocation: checkboxValue, useLocation: checkboxValue });
+
+      if (checkboxValue === false) {
+        this.props.updateQueryParams({ latitude: null, longitude: null, useLocation: checkboxValue });
+        return;
+      }
+
+      var success = function success(position) {
+        _this2.props.updateQueryParams({ latitude: position.coords.latitude, longitude: position.coords.longitude, city: null });
+        _this2.detectDistanceUnit(position.coords.latitude, position.coords.longitude);
+        _this2.setState({ gettingLocation: false });
+        _this2.props.closeFilter();
+      };
+
+      var error = function error() {
+        _this2.setState({ error: 'Unable to detect location.' });
+      };
+
+      var options = {
+        timeout: 10000,
+        maximumAge: 60000
+      };
+
+      if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(success, error, options);
+      } else {
+        this.setState({ error: 'Geolocation is not supported by this browser.' });
+      }
+    }
+  }, {
+    key: '_detectDistanceUnit',
+    value: function _detectDistanceUnit(lat, lon) {
+      var _this3 = this;
+
+      var countriesUsingMiles = ['US', 'GB', 'LR', 'MM'];
+      var url = 'http://ws.geonames.org/countryCodeJSON?lat=' + lat + '&lng=' + lon + '&username=p2pu';
+
+      $.getJSON(url, function (res) {
+        console.log("country_code", res.countryCode);
+        var useMiles = countriesUsingMiles.indexOf(res.countryCode) >= 0;
+        _this3.props.updateQueryParams({ useMiles: useMiles });
+      });
+    }
+  }, {
+    key: '_generateLocationLabel',
+    value: function _generateLocationLabel() {
+      var label = 'Use my current location';
+
+      if (this.state.error) {
+        label = this.state.error;
+      } else if (this.state.gettingLocation) {
+        label = 'Detecting your location...';
+      } else if (!this.state.gettingLocation && this.props.latitude && this.props.longitude) {
+        label = 'Using your current location';
+      }
+
+      return label;
+    }
+  }, {
+    key: '_handleCitySelect',
+    value: function _handleCitySelect(city) {
+      this.props.updateQueryParams({ city: city, latitude: null, longitude: null, distance: 50 });
+      this.setState({ useLocation: false });
+      this.props.closeFilter();
+    }
+  }, {
+    key: '_handleRangeChange',
+    value: function _handleRangeChange(value) {
+      var distance = value;
+      if (this.props.useMiles) {
+        distance = value * 1.6;
+      }
+      this.props.updateQueryParams({ distance: distance });
+    }
+  }, {
+    key: '_generateDistanceSliderLabel',
+    value: function _generateDistanceSliderLabel() {
+      var unit = this.props.useMiles ? 'miles' : 'km';
+      var value = this.generateDistanceValue();
+      return 'Within ' + value + ' ' + unit;
+    }
+  }, {
+    key: '_generateDistanceValue',
+    value: function _generateDistanceValue() {
+      var value = this.props.useMiles ? this.props.distance * 0.62 : this.props.distance;
+      return Math.round(value / 10) * 10;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var distanceSliderLabel = this.generateDistanceSliderLabel();
+      var distanceValue = this.generateDistanceValue();
+
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(CheckboxWithLabel, {
+          classes: 'col-sm-12',
+          name: 'geolocation',
+          label: this.generateLocationLabel(),
+          checked: this.state.useLocation,
+          handleChange: this.getLocation
+        }),
+        React.createElement(RangeSliderWithLabel, {
+          classes: 'col-sm-12',
+          label: distanceSliderLabel,
+          name: 'distance-slider',
+          value: distanceValue,
+          handleChange: this.handleRangeChange,
+          min: 10,
+          max: 150,
+          step: 10,
+          disabled: !this.state.useLocation
+        }),
+        React.createElement(
+          'div',
+          { className: 'divider col-sm-12' },
+          React.createElement('div', { className: 'divider-line' }),
+          React.createElement(
+            'div',
+            { className: 'divider-text' },
+            'or'
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'select-with-label label-left col-sm-12' },
+          React.createElement(
+            'label',
+            { htmlFor: 'select-city' },
+            'Select a location:'
+          ),
+          React.createElement(CitySelect, {
+            classes: '',
+            name: 'select-city',
+            label: 'Select a location',
+            value: this.props.city,
+            handleSelect: this.handleCitySelect
+          })
+        )
+      );
+    }
+  }]);
+  return LocationFilterForm;
+}(Component);
+
+var MeetingDaysFilterForm = function (_Component) {
+  inherits(MeetingDaysFilterForm, _Component);
+
+  function MeetingDaysFilterForm(props) {
+    classCallCheck(this, MeetingDaysFilterForm);
+
+    var _this = possibleConstructorReturn(this, (MeetingDaysFilterForm.__proto__ || Object.getPrototypeOf(MeetingDaysFilterForm)).call(this, props));
+
+    _this.generateChangeHandler = function (day) {
+      return _this._generateChangeHandler(day);
+    };
+    return _this;
+  }
+
+  createClass(MeetingDaysFilterForm, [{
+    key: '_generateChangeHandler',
+    value: function _generateChangeHandler(dayIndex) {
+      var _this2 = this;
+
+      return function (checked) {
+        var newWeekdayList = _this2.props.weekdays || [];
+
+        if (checked) {
+          newWeekdayList.push(dayIndex);
+        } else {
+          newWeekdayList = pull(newWeekdayList, dayIndex);
+        }
+
+        _this2.props.updateQueryParams({ weekdays: newWeekdayList });
+      };
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      return React.createElement(
+        'div',
+        null,
+        MEETING_DAYS.map(function (day, index) {
+          var checked = _this3.props.weekdays && _this3.props.weekdays.indexOf(index) !== -1;
+          return React.createElement(CheckboxWithLabel, {
+            key: index,
+            classes: 'col-sm-12 col-md-6 col-lg-6',
+            name: day,
+            value: index,
+            label: day,
+            checked: checked,
+            handleChange: _this3.generateChangeHandler(index)
+          });
+        })
+      );
+    }
+  }]);
+  return MeetingDaysFilterForm;
+}(Component);
+
 var FilterForm = function FilterForm(props) {
   var closeFilter = function closeFilter() {
     props.updateActiveFilter(null);
@@ -428,6 +678,10 @@ var FilterForm = function FilterForm(props) {
         return React.createElement(TopicsFilterForm, props);
       case 'orderCourses':
         return React.createElement(OrderCoursesForm, props);
+      case 'location':
+        return React.createElement(LocationFilterForm, props);
+      case 'meetingDays':
+        return React.createElement(MeetingDaysFilterForm, props);
     }
   };
 

@@ -1,6 +1,8 @@
 import React from 'react'
 import TopicsFilterForm from './TopicsFilterForm'
 import OrderCoursesForm from './OrderCoursesForm'
+import LocationFilterForm from './LocationFilterForm'
+import MeetingDaysFilterForm from './MeetingDaysFilterForm'
 
 const FilterForm = (props) => {
   const closeFilter = () => { props.updateActiveFilter(null) };
@@ -12,6 +14,10 @@ const FilterForm = (props) => {
       return <TopicsFilterForm {...props} />;
       case 'orderCourses':
       return <OrderCoursesForm { ...props} />;
+      case 'location':
+      return <LocationFilterForm { ...props} />;
+      case 'meetingDays':
+      return <MeetingDaysFilterForm { ...props} />;
     }
   }
 
