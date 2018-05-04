@@ -1,12 +1,13 @@
-import { API_ENDPOINTS } from './constants';
+import { API_ENDPOINTS, DEFAULT_ORIGIN } from './constants';
 import { compact } from 'lodash';
 import jsonp from 'jsonp';
 import axios from 'axios';
 
 export default class ApiHelper {
-  constructor(resourceType) {
+  constructor(resourceType, origin=DEFAULT_ORIGIN) {
     this.resourceType = resourceType;
-    this.baseUrl = API_ENDPOINTS[resourceType].baseUrl;
+    this.urlOrigin = origin || DEFAULT_ORIGIN;
+    this.baseUrl = `${origin}${API_ENDPOINTS[resourceType].baseUrl}`;
     this.validParams = API_ENDPOINTS[resourceType].searchParams;
   }
 
@@ -38,7 +39,7 @@ export default class ApiHelper {
   }
 
   createResource(opts) {
-    const url = API_ENDPOINTS[this.resourceType].postUrl;
+    const url = `${this.urlOrigin}${API_ENDPOINTS[this.resourceType].postUrl}`;
     const data = opts.data;
     const config = opts.config;
 
@@ -60,7 +61,7 @@ export default class ApiHelper {
   }
 
   updateResource(opts, id) {
-    const url = `${API_ENDPOINTS[this.resourceType].postUrl}${id}/`;
+    const url = `${this.urlOrigin}${API_ENDPOINTS[this.resourceType].postUrl}${id}/`;
     const data = opts.data;
     const config = opts.config;
 

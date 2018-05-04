@@ -99,6 +99,8 @@ var SEARCH_PROPS = {
   }
 };
 
+var DEFAULT_ORIGIN = 'https://learningcircles.p2pu.org';
+
 var API_ENDPOINTS = {
   learningCircle: '/api/learning-circle/',
   registration: '/en/accounts/fe/register/',
@@ -106,27 +108,30 @@ var API_ENDPOINTS = {
   learningCircles: {
     postUrl: '/api/learning-circle/',
     baseUrl: '/api/learningcircles/?',
-    searchParams: ['q', 'topics', 'weekdays', 'latitude', 'longitude', 'distance', 'active', 'limit', 'offset', 'city', 'signup', 'team_id', 'id']
+    searchParams: ['q', 'topics', 'weekdays', 'latitude', 'longitude', 'distance', 'active', 'limit', 'offset', 'city', 'signup', 'team_id']
   },
   courses: {
     baseUrl: '/api/courses/?',
-    searchParams: ['q', 'topics', 'order', 'course_id']
+    searchParams: ['q', 'topics', 'order']
   },
   learningCirclesTopics: {
-    baseUrl: 'https://learningcircles.p2pu.org/api/learningcircles/topics/?',
+    baseUrl: '/api/learningcircles/topics/?',
     searchParams: []
   },
   coursesTopics: {
-    baseUrl: 'https://learningcircles.p2pu.org/api/courses/topics/?',
+    baseUrl: '/api/courses/topics/?',
     searchParams: []
   },
   stats: {
-    baseUrl: 'https://learningcircles.p2pu.org/api/landing-page-stats/?',
+    baseUrl: '/api/landing-page-stats/?',
     searchParams: []
   },
   landingPage: {
-    baseUrl: 'https://learningcircles.p2pu.org/api/landing-page-learning-circles/?',
+    baseUrl: '/api/landing-page-learning-circles/?',
     searchParams: []
+  },
+  whoami: {
+    baseUrl: '/en/accounts/fe/whoami/'
   },
   images: {
     postUrl: '/api/upload_image/'
@@ -197,10 +202,12 @@ var possibleConstructorReturn = function (self, call) {
 
 var ApiHelper = function () {
   function ApiHelper(resourceType) {
+    var origin = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : DEFAULT_ORIGIN;
     classCallCheck(this, ApiHelper);
 
     this.resourceType = resourceType;
-    this.baseUrl = API_ENDPOINTS[resourceType].baseUrl;
+    this.urlOrigin = origin || DEFAULT_ORIGIN;
+    this.baseUrl = '' + origin + API_ENDPOINTS[resourceType].baseUrl;
     this.validParams = API_ENDPOINTS[resourceType].searchParams;
   }
 
@@ -236,7 +243,7 @@ var ApiHelper = function () {
   }, {
     key: 'createResource',
     value: function createResource(opts) {
-      var url = API_ENDPOINTS[this.resourceType].postUrl;
+      var url = '' + this.urlOrigin + API_ENDPOINTS[this.resourceType].postUrl;
       var data = opts.data;
       var config = opts.config;
 
@@ -259,7 +266,7 @@ var ApiHelper = function () {
   }, {
     key: 'updateResource',
     value: function updateResource(opts, id) {
-      var url = '' + API_ENDPOINTS[this.resourceType].postUrl + id + '/';
+      var url = '' + this.urlOrigin + API_ENDPOINTS[this.resourceType].postUrl + id + '/';
       var data = opts.data;
       var config = opts.config;
 
@@ -797,7 +804,7 @@ var Search = function (_Component) {
     value: function _sendQuery() {
       var params = this.state;
       var opts = { params: params, callback: this.searchCallback };
-      var api = new ApiHelper(this.props.searchSubject);
+      var api = new ApiHelper(this.props.searchSubject, this.props.origin);
 
       api.fetchResource(opts);
     }
