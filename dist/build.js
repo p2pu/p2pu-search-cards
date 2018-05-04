@@ -15253,7 +15253,7 @@ var Card = function Card(props) {
     { className: "result-item grid-item col-md-4 col-sm-12 col-xs-12" },
     React.createElement(
       "div",
-      { className: "course-card" },
+      { className: "card" },
       props.children
     )
   );

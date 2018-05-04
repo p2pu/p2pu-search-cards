@@ -211,63 +211,69 @@ span.course-title {
       margin-right: 45px; }
       .search-results .result-item .image-container .image img {
         width: 100%; }
-  .search-results .result-item:nth-of-type(4n+1) .course-card .card-title, .search-results .result-item:nth-of-type(4n+1) .card .card-title {
+  .search-results .result-item:nth-of-type(4n+1) .card .card-title {
     background: #FC7100; }
-  .search-results .result-item:nth-of-type(4n+1) .course-card .card-body, .search-results .result-item:nth-of-type(4n+1) .card .card-body {
+  .search-results .result-item:nth-of-type(4n+1) .card .card-body {
     background: rgba(252, 113, 0, 0.15); }
-    .search-results .result-item:nth-of-type(4n+1) .course-card .card-body .primary-cta .p2pu-btn, .search-results .result-item:nth-of-type(4n+1) .card .card-body .primary-cta .p2pu-btn {
+    .search-results .result-item:nth-of-type(4n+1) .card .card-body .primary-cta .p2pu-btn {
       background: #FC7100;
       color: #FFFFFF; }
   .search-results .result-item:nth-of-type(4n+1) .image-container {
     background-image: linear-gradient(#FC7100, #FC7100 30%, rgba(252, 113, 0, 0.15) 30%, rgba(252, 113, 0, 0.15)); }
-  .search-results .result-item:nth-of-type(4n+2) .course-card .card-title, .search-results .result-item:nth-of-type(4n+2) .card .card-title {
+  .search-results .result-item:nth-of-type(4n+2) .card .card-title {
     background: #05C6B4; }
-  .search-results .result-item:nth-of-type(4n+2) .course-card .card-body, .search-results .result-item:nth-of-type(4n+2) .card .card-body {
+  .search-results .result-item:nth-of-type(4n+2) .card .card-body {
     background: rgba(5, 198, 180, 0.15); }
-    .search-results .result-item:nth-of-type(4n+2) .course-card .card-body .primary-cta .p2pu-btn, .search-results .result-item:nth-of-type(4n+2) .card .card-body .primary-cta .p2pu-btn {
+    .search-results .result-item:nth-of-type(4n+2) .card .card-body .primary-cta .p2pu-btn {
       background: #05C6B4;
       color: #FFFFFF; }
   .search-results .result-item:nth-of-type(4n+2) .image-container {
     background-image: linear-gradient(#05C6B4, #05C6B4 30%, rgba(5, 198, 180, 0.15) 30%, rgba(5, 198, 180, 0.15)); }
-  .search-results .result-item:nth-of-type(4n+3) .course-card .card-title, .search-results .result-item:nth-of-type(4n+3) .card .card-title {
+  .search-results .result-item:nth-of-type(4n+3) .card .card-title {
     background: #B7D500; }
-  .search-results .result-item:nth-of-type(4n+3) .course-card .card-body, .search-results .result-item:nth-of-type(4n+3) .card .card-body {
+  .search-results .result-item:nth-of-type(4n+3) .card .card-body {
     background: rgba(183, 213, 0, 0.15); }
-    .search-results .result-item:nth-of-type(4n+3) .course-card .card-body .primary-cta .p2pu-btn, .search-results .result-item:nth-of-type(4n+3) .card .card-body .primary-cta .p2pu-btn {
+    .search-results .result-item:nth-of-type(4n+3) .card .card-body .primary-cta .p2pu-btn {
       background: #B7D500;
       color: #FFFFFF; }
   .search-results .result-item:nth-of-type(4n+3) .image-container {
     background-image: linear-gradient(#B7D500, #B7D500 30%, rgba(183, 213, 0, 0.15) 30%, rgba(183, 213, 0, 0.15)); }
-  .search-results .result-item:nth-of-type(4n+4) .course-card .card-title, .search-results .result-item:nth-of-type(4n+4) .card .card-title {
+  .search-results .result-item:nth-of-type(4n+4) .card .card-title {
     background: #FFBC1A; }
-  .search-results .result-item:nth-of-type(4n+4) .course-card .card-body, .search-results .result-item:nth-of-type(4n+4) .card .card-body {
+  .search-results .result-item:nth-of-type(4n+4) .card .card-body {
     background: rgba(255, 188, 26, 0.15); }
-    .search-results .result-item:nth-of-type(4n+4) .course-card .card-body .primary-cta .p2pu-btn, .search-results .result-item:nth-of-type(4n+4) .card .card-body .primary-cta .p2pu-btn {
+    .search-results .result-item:nth-of-type(4n+4) .card .card-body .primary-cta .p2pu-btn {
       background: #FFBC1A;
       color: #FFFFFF; }
   .search-results .result-item:nth-of-type(4n+4) .image-container {
     background-image: linear-gradient(#FFBC1A, #FFBC1A 30%, rgba(255, 188, 26, 0.15) 30%, rgba(255, 188, 26, 0.15)); }
-  .search-results .result-item .course-card, .search-results .result-item .card {
+  .search-results .result-item .card {
     box-shadow: -2px 2px 6px 1px rgba(0, 0, 0, 0.1);
     font-size: 14px;
     display: flex;
     flex-direction: column;
     flex-grow: 1; }
-    .search-results .result-item .course-card .card-title, .search-results .result-item .card .card-title {
+    .search-results .result-item .card .card-title {
       padding: 10px;
       color: #FFFFFF; }
-    .search-results .result-item .course-card .card-body, .search-results .result-item .card .card-body {
+    .search-results .result-item .card .card-body {
       padding: 20px;
       color: #515665; }
-      .search-results .result-item .course-card .card-body p, .search-results .result-item .card .card-body p {
+      .search-results .result-item .card .card-body p {
         margin-bottom: 6px;
         display: flex; }
-        .search-results .result-item .course-card .card-body p.small-caps, .search-results .result-item .card .card-body p.small-caps {
+        .search-results .result-item .card .card-body p.small-caps {
           text-transform: uppercase;
           font-size: 0.8em; }
-      .search-results .result-item .course-card .card-body a, .search-results .result-item .card .card-body a {
+      .search-results .result-item .card .card-body a {
         color: #515665; }
-    .search-results .result-item .course-card .usage-badge, .search-results .result-item .card .usage-badge {
+        .search-results .result-item .card .card-body a:hover {
+          text-decoration: underline;
+          color: #515665;
+          cursor: pointer; }
+      .search-results .result-item .card .card-body a.p2pu-btn:hover {
+        text-decoration: none; }
+    .search-results .result-item .card .usage-badge {
       align-self: flex-end;
       position: absolute;
       background: #FCFCFC;
@@ -277,63 +283,59 @@ span.course-title {
       border-radius: 6px;
       box-shadow: -2px 2px 6px 1px rgba(0, 0, 0, 0.1);
       transform: translateY(-20px) translateX(-20px); }
-      .search-results .result-item .course-card .usage-badge .text, .search-results .result-item .card .usage-badge .text {
+      .search-results .result-item .card .usage-badge .text {
         padding: 6px;
         border: 1px dashed #515665;
         border-radius: 4px;
         font-size: 1.2em;
         font-weight: 900; }
-        .search-results .result-item .course-card .usage-badge .text i.material-icons, .search-results .result-item .card .usage-badge .text i.material-icons {
+        .search-results .result-item .card .usage-badge .text i.material-icons {
           margin-right: 4px; }
-      .search-results .result-item .course-card .usage-badge .p2pu-tooltip, .search-results .result-item .card .usage-badge .p2pu-tooltip {
+      .search-results .result-item .card .usage-badge .p2pu-tooltip {
         background-color: #515665 !important;
         padding: 8px !important; }
-        .search-results .result-item .course-card .usage-badge .p2pu-tooltip.place-bottom:after, .search-results .result-item .card .usage-badge .p2pu-tooltip.place-bottom:after {
+        .search-results .result-item .card .usage-badge .p2pu-tooltip.place-bottom:after {
           border-bottom-color: #515665 !important; }
-        .search-results .result-item .course-card .usage-badge .p2pu-tooltip.place-left:after, .search-results .result-item .card .usage-badge .p2pu-tooltip.place-left:after {
+        .search-results .result-item .card .usage-badge .p2pu-tooltip.place-left:after {
           border-left-color: #515665 !important; }
-    .search-results .result-item .course-card h4, .search-results .result-item .card h4 {
+    .search-results .result-item .card h4 {
       text-align: center; }
-    .search-results .result-item .course-card .actions, .search-results .result-item .card .actions {
+    .search-results .result-item .card .actions {
       display: flex;
       flex-direction: column; }
-      .search-results .result-item .course-card .actions a, .search-results .result-item .card .actions a {
+      .search-results .result-item .card .actions a {
         margin-right: 10px;
         flex-grow: 1; }
-      .search-results .result-item .course-card .actions .secondary-cta, .search-results .result-item .card .actions .secondary-cta {
+      .search-results .result-item .card .actions .secondary-cta {
         display: flex; }
-      .search-results .result-item .course-card .actions .primary-cta, .search-results .result-item .card .actions .primary-cta {
+      .search-results .result-item .card .actions .primary-cta {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-top: 10px;
         padding: 5px; }
-        .search-results .result-item .course-card .actions .primary-cta .p2pu-btn, .search-results .result-item .card .actions .primary-cta .p2pu-btn {
+        .search-results .result-item .card .actions .primary-cta .p2pu-btn {
           position: absolute;
           box-shadow: -2px 2px 6px 1px rgba(0, 0, 0, 0.1);
           font-size: 1em;
           padding: 10px 20px;
           font-weight: bold; }
-    .search-results .result-item .course-card i.material-icons, .search-results .result-item .card i.material-icons {
+    .search-results .result-item .card i.material-icons {
       font-size: 18px;
       vertical-align: middle;
       margin-right: 8px; }
-    .search-results .result-item .course-card .cta, .search-results .result-item .card .cta {
+    .search-results .result-item .card .cta {
       padding-top: 20px;
       display: flex;
       justify-content: center; }
-      .search-results .result-item .course-card .cta .p2pu-btn, .search-results .result-item .card .cta .p2pu-btn {
+      .search-results .result-item .card .cta .p2pu-btn {
         margin: 0 4px; }
-        .search-results .result-item .course-card .cta .p2pu-btn.submit, .search-results .result-item .card .cta .p2pu-btn.submit {
+        .search-results .result-item .card .cta .p2pu-btn.submit {
           font-size: 1em; }
-    .search-results .result-item .course-card .divider, .search-results .result-item .card .divider {
+    .search-results .result-item .card .divider {
       border-bottom: 1px dashed #515665;
       margin-top: 10px;
       margin-bottom: 10px; }
-    .search-results .result-item .course-card a:hover, .search-results .result-item .card a:hover {
-      text-decoration: underline;
-      color: #515665;
-      cursor: pointer; }
 
 .result-item.start-learning-circle {
   align-items: center; }
@@ -429,9 +431,6 @@ header {
       .alternate-cta .add-course .p2pu-btn i.material-icons, .alternate-cta .create-course .p2pu-btn i.material-icons {
         font-size: 18px;
         padding-right: 10px; }
-
-a.p2pu-btn:hover {
-  text-decoration: none; }
 
 .clear-search a {
   color: #AAB0BF; }

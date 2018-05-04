@@ -315,7 +315,7 @@ span.course-title {
     }
 
     &:nth-of-type(4n+1) {
-      .course-card, .card {
+      .card {
         .card-title {
           background: $p2pu-orange;
         }
@@ -338,7 +338,7 @@ span.course-title {
     }
 
     &:nth-of-type(4n+2) {
-      .course-card, .card {
+      .card {
         .card-title {
           background: $p2pu-blue;
         }
@@ -361,7 +361,7 @@ span.course-title {
     }
 
     &:nth-of-type(4n+3) {
-      .course-card, .card {
+      .card {
         .card-title {
           background: $p2pu-green;
         }
@@ -384,7 +384,7 @@ span.course-title {
     }
 
     &:nth-of-type(4n+4) {
-      .course-card, .card {
+      .card {
         .card-title {
           background: $p2pu-yellow;
         }
@@ -406,7 +406,7 @@ span.course-title {
       }
     }
 
-    .course-card, .card {
+    .card {
       box-shadow: -2px 2px 6px 1px rgba(0, 0, 0, 0.1);
       font-size: $font-size-small;
       display: flex;
@@ -434,6 +434,18 @@ span.course-title {
 
         a {
           color: $gray-darker;
+
+          &:hover {
+            text-decoration: underline;
+            color: $gray-darker;
+            cursor: pointer;
+          }
+        }
+
+        a.p2pu-btn {
+          &:hover {
+            text-decoration: none;
+          }
         }
       }
 
@@ -536,14 +548,6 @@ span.course-title {
         border-bottom: 1px dashed $gray-darker;
         margin-top: $padding-xs;
         margin-bottom: $padding-xs;
-      }
-
-      a {
-        &:hover {
-          text-decoration: underline;
-          color: $gray-darker;
-          cursor: pointer;
-        }
       }
     }
   }
@@ -667,12 +671,6 @@ header {
         padding-right: $padding-xs;
       }
     }
-  }
-}
-
-a.p2pu-btn {
-  &:hover {
-    text-decoration: none;
   }
 }
 
