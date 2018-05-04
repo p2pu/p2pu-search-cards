@@ -13,7 +13,8 @@ export default {
     'react',
     'react-dom',
     'lodash',
-    'axios'
+    'axios',
+    'p2pu-input-fields'
   ],
   plugins: [
     resolve({
