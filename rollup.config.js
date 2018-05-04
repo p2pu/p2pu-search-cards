@@ -16,9 +16,10 @@ export default {
     'react-dom',
     'lodash',
     'axios',
-    'p2pu-input-fields',
     'jsonp',
-    'moment'
+    'moment',
+    'rc-time-picker',
+    'moment-timezone'
   ],
   plugins: [
     resolve({

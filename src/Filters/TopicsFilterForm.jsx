@@ -4,8 +4,6 @@ import ApiHelper from '../utils/apiHelper'
 
 import { CheckboxWithLabel, SelectWithLabel } from 'p2pu-input-fields'
 
-import 'dist/bundle.css' from 'p2pu-input-fields';
-
 export default class TopicsFilterForm extends Component {
   constructor(props) {
     super(props)
