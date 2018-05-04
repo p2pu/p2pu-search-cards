@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
-import tty from 'tty';
-import util from 'util';
-import fs from 'fs';
-import net from 'net';
-import { compact, keys, without, take } from 'lodash';
-import axios from 'axios';
-import { SelectWithLabel, SwitchWithLabels } from 'p2pu-input-fields';
-import reactDom from 'react-dom';
-import moment from 'moment';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var React = require('react');
+var React__default = _interopDefault(React);
+var lodash = require('lodash');
+var jsonp = _interopDefault(require('jsonp'));
+var axios = _interopDefault(require('axios'));
+var p2puInputFields = require('p2pu-input-fields');
+var reactDom = _interopDefault(require('react-dom'));
+var moment = _interopDefault(require('moment'));
 
 var SearchBar = function SearchBar(_ref) {
   var placeholder = _ref.placeholder,
@@ -19,26 +23,26 @@ var SearchBar = function SearchBar(_ref) {
     updateQueryParams({ q: value });
   };
 
-  return React.createElement(
+  return React__default.createElement(
     'form',
     { className: 'search-bar' },
-    React.createElement(
+    React__default.createElement(
       'div',
       { className: 'label' },
       'Search'
     ),
-    React.createElement(
+    React__default.createElement(
       'div',
       { className: 'input' },
-      React.createElement(
+      React__default.createElement(
         'div',
         { className: 'wrapper' },
-        React.createElement(
+        React__default.createElement(
           'i',
           { className: 'material-icons' },
           'search'
         ),
-        React.createElement('input', {
+        React__default.createElement('input', {
           type: 'search',
           className: 'search-input',
           placeholder: placeholder,
@@ -69,13 +73,13 @@ var Filter = function Filter(_ref) {
     updateActiveFilter(newValue);
   };
 
-  return React.createElement(
+  return React__default.createElement(
     'div',
     { className: 'filter ' + activeClass },
-    React.createElement(
+    React__default.createElement(
       'button',
       { className: 'p2pu-btn light with-outline', onClick: handleClick },
-      React.createElement(
+      React__default.createElement(
         'span',
         { style: { display: 'flex', flexWrap: 'nowrap' } },
         filterNames[filter]
@@ -135,946 +139,6 @@ var API_ENDPOINTS = {
     postUrl: '/api/upload_image/'
   }
 };
-
-var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
-
-function unwrapExports (x) {
-	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
-}
-
-function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
-}
-
-/**
- * Helpers.
- */
-
-var s = 1000;
-var m = s * 60;
-var h = m * 60;
-var d = h * 24;
-var y = d * 365.25;
-
-/**
- * Parse or format the given `val`.
- *
- * Options:
- *
- *  - `long` verbose formatting [false]
- *
- * @param {String|Number} val
- * @param {Object} [options]
- * @throws {Error} throw an error if val is not a non-empty string or a number
- * @return {String|Number}
- * @api public
- */
-
-var ms = function(val, options) {
-  options = options || {};
-  var type = typeof val;
-  if (type === 'string' && val.length > 0) {
-    return parse(val);
-  } else if (type === 'number' && isNaN(val) === false) {
-    return options.long ? fmtLong(val) : fmtShort(val);
-  }
-  throw new Error(
-    'val is not a non-empty string or a valid number. val=' +
-      JSON.stringify(val)
-  );
-};
-
-/**
- * Parse the given `str` and return milliseconds.
- *
- * @param {String} str
- * @return {Number}
- * @api private
- */
-
-function parse(str) {
-  str = String(str);
-  if (str.length > 100) {
-    return;
-  }
-  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
-    str
-  );
-  if (!match) {
-    return;
-  }
-  var n = parseFloat(match[1]);
-  var type = (match[2] || 'ms').toLowerCase();
-  switch (type) {
-    case 'years':
-    case 'year':
-    case 'yrs':
-    case 'yr':
-    case 'y':
-      return n * y;
-    case 'days':
-    case 'day':
-    case 'd':
-      return n * d;
-    case 'hours':
-    case 'hour':
-    case 'hrs':
-    case 'hr':
-    case 'h':
-      return n * h;
-    case 'minutes':
-    case 'minute':
-    case 'mins':
-    case 'min':
-    case 'm':
-      return n * m;
-    case 'seconds':
-    case 'second':
-    case 'secs':
-    case 'sec':
-    case 's':
-      return n * s;
-    case 'milliseconds':
-    case 'millisecond':
-    case 'msecs':
-    case 'msec':
-    case 'ms':
-      return n;
-    default:
-      return undefined;
-  }
-}
-
-/**
- * Short format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtShort(ms) {
-  if (ms >= d) {
-    return Math.round(ms / d) + 'd';
-  }
-  if (ms >= h) {
-    return Math.round(ms / h) + 'h';
-  }
-  if (ms >= m) {
-    return Math.round(ms / m) + 'm';
-  }
-  if (ms >= s) {
-    return Math.round(ms / s) + 's';
-  }
-  return ms + 'ms';
-}
-
-/**
- * Long format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtLong(ms) {
-  return plural(ms, d, 'day') ||
-    plural(ms, h, 'hour') ||
-    plural(ms, m, 'minute') ||
-    plural(ms, s, 'second') ||
-    ms + ' ms';
-}
-
-/**
- * Pluralization helper.
- */
-
-function plural(ms, n, name) {
-  if (ms < n) {
-    return;
-  }
-  if (ms < n * 1.5) {
-    return Math.floor(ms / n) + ' ' + name;
-  }
-  return Math.ceil(ms / n) + ' ' + name + 's';
-}
-
-var debug = createCommonjsModule(function (module, exports) {
-/**
- * This is the common logic for both the Node.js and web browser
- * implementations of `debug()`.
- *
- * Expose `debug()` as the module.
- */
-
-exports = module.exports = createDebug.debug = createDebug['default'] = createDebug;
-exports.coerce = coerce;
-exports.disable = disable;
-exports.enable = enable;
-exports.enabled = enabled;
-exports.humanize = ms;
-
-/**
- * The currently active debug mode names, and names to skip.
- */
-
-exports.names = [];
-exports.skips = [];
-
-/**
- * Map of special "%n" handling functions, for the debug "format" argument.
- *
- * Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
- */
-
-exports.formatters = {};
-
-/**
- * Previous log timestamp.
- */
-
-var prevTime;
-
-/**
- * Select a color.
- * @param {String} namespace
- * @return {Number}
- * @api private
- */
-
-function selectColor(namespace) {
-  var hash = 0, i;
-
-  for (i in namespace) {
-    hash  = ((hash << 5) - hash) + namespace.charCodeAt(i);
-    hash |= 0; // Convert to 32bit integer
-  }
-
-  return exports.colors[Math.abs(hash) % exports.colors.length];
-}
-
-/**
- * Create a debugger with the given `namespace`.
- *
- * @param {String} namespace
- * @return {Function}
- * @api public
- */
-
-function createDebug(namespace) {
-
-  function debug() {
-    // disabled?
-    if (!debug.enabled) return;
-
-    var self = debug;
-
-    // set `diff` timestamp
-    var curr = +new Date();
-    var ms$$1 = curr - (prevTime || curr);
-    self.diff = ms$$1;
-    self.prev = prevTime;
-    self.curr = curr;
-    prevTime = curr;
-
-    // turn the `arguments` into a proper Array
-    var args = new Array(arguments.length);
-    for (var i = 0; i < args.length; i++) {
-      args[i] = arguments[i];
-    }
-
-    args[0] = exports.coerce(args[0]);
-
-    if ('string' !== typeof args[0]) {
-      // anything else let's inspect with %O
-      args.unshift('%O');
-    }
-
-    // apply any `formatters` transformations
-    var index = 0;
-    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
-      // if we encounter an escaped % then don't increase the array index
-      if (match === '%%') return match;
-      index++;
-      var formatter = exports.formatters[format];
-      if ('function' === typeof formatter) {
-        var val = args[index];
-        match = formatter.call(self, val);
-
-        // now we need to remove `args[index]` since it's inlined in the `format`
-        args.splice(index, 1);
-        index--;
-      }
-      return match;
-    });
-
-    // apply env-specific formatting (colors, etc.)
-    exports.formatArgs.call(self, args);
-
-    var logFn = debug.log || exports.log || console.log.bind(console);
-    logFn.apply(self, args);
-  }
-
-  debug.namespace = namespace;
-  debug.enabled = exports.enabled(namespace);
-  debug.useColors = exports.useColors();
-  debug.color = selectColor(namespace);
-
-  // env-specific initialization logic for debug instances
-  if ('function' === typeof exports.init) {
-    exports.init(debug);
-  }
-
-  return debug;
-}
-
-/**
- * Enables a debug mode by namespaces. This can include modes
- * separated by a colon and wildcards.
- *
- * @param {String} namespaces
- * @api public
- */
-
-function enable(namespaces) {
-  exports.save(namespaces);
-
-  exports.names = [];
-  exports.skips = [];
-
-  var split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
-  var len = split.length;
-
-  for (var i = 0; i < len; i++) {
-    if (!split[i]) continue; // ignore empty strings
-    namespaces = split[i].replace(/\*/g, '.*?');
-    if (namespaces[0] === '-') {
-      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
-    } else {
-      exports.names.push(new RegExp('^' + namespaces + '$'));
-    }
-  }
-}
-
-/**
- * Disable debug output.
- *
- * @api public
- */
-
-function disable() {
-  exports.enable('');
-}
-
-/**
- * Returns true if the given mode name is enabled, false otherwise.
- *
- * @param {String} name
- * @return {Boolean}
- * @api public
- */
-
-function enabled(name) {
-  var i, len;
-  for (i = 0, len = exports.skips.length; i < len; i++) {
-    if (exports.skips[i].test(name)) {
-      return false;
-    }
-  }
-  for (i = 0, len = exports.names.length; i < len; i++) {
-    if (exports.names[i].test(name)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-/**
- * Coerce `val`.
- *
- * @param {Mixed} val
- * @return {Mixed}
- * @api private
- */
-
-function coerce(val) {
-  if (val instanceof Error) return val.stack || val.message;
-  return val;
-}
-});
-var debug_1 = debug.coerce;
-var debug_2 = debug.disable;
-var debug_3 = debug.enable;
-var debug_4 = debug.enabled;
-var debug_5 = debug.humanize;
-var debug_6 = debug.names;
-var debug_7 = debug.skips;
-var debug_8 = debug.formatters;
-
-var browser = createCommonjsModule(function (module, exports) {
-/**
- * This is the web browser implementation of `debug()`.
- *
- * Expose `debug()` as the module.
- */
-
-exports = module.exports = debug;
-exports.log = log;
-exports.formatArgs = formatArgs;
-exports.save = save;
-exports.load = load;
-exports.useColors = useColors;
-exports.storage = 'undefined' != typeof chrome
-               && 'undefined' != typeof chrome.storage
-                  ? chrome.storage.local
-                  : localstorage();
-
-/**
- * Colors.
- */
-
-exports.colors = [
-  'lightseagreen',
-  'forestgreen',
-  'goldenrod',
-  'dodgerblue',
-  'darkorchid',
-  'crimson'
-];
-
-/**
- * Currently only WebKit-based Web Inspectors, Firefox >= v31,
- * and the Firebug extension (any Firefox version) are known
- * to support "%c" CSS customizations.
- *
- * TODO: add a `localStorage` variable to explicitly enable/disable colors
- */
-
-function useColors() {
-  // NB: In an Electron preload script, document will be defined but not fully
-  // initialized. Since we know we're in Chrome, we'll just detect this case
-  // explicitly
-  if (typeof window !== 'undefined' && window.process && window.process.type === 'renderer') {
-    return true;
-  }
-
-  // is webkit? http://stackoverflow.com/a/16459606/376773
-  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
-  return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
-    // is firebug? http://stackoverflow.com/a/398120/376773
-    (typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
-    // is firefox >= v31?
-    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
-    // double check webkit in userAgent just in case we are in a worker
-    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
-}
-
-/**
- * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
- */
-
-exports.formatters.j = function(v) {
-  try {
-    return JSON.stringify(v);
-  } catch (err) {
-    return '[UnexpectedJSONParseError]: ' + err.message;
-  }
-};
-
-
-/**
- * Colorize log arguments if enabled.
- *
- * @api public
- */
-
-function formatArgs(args) {
-  var useColors = this.useColors;
-
-  args[0] = (useColors ? '%c' : '')
-    + this.namespace
-    + (useColors ? ' %c' : ' ')
-    + args[0]
-    + (useColors ? '%c ' : ' ')
-    + '+' + exports.humanize(this.diff);
-
-  if (!useColors) return;
-
-  var c = 'color: ' + this.color;
-  args.splice(1, 0, c, 'color: inherit');
-
-  // the final "%c" is somewhat tricky, because there could be other
-  // arguments passed either before or after the %c, so we need to
-  // figure out the correct index to insert the CSS into
-  var index = 0;
-  var lastC = 0;
-  args[0].replace(/%[a-zA-Z%]/g, function(match) {
-    if ('%%' === match) return;
-    index++;
-    if ('%c' === match) {
-      // we only are interested in the *last* %c
-      // (the user may have provided their own)
-      lastC = index;
-    }
-  });
-
-  args.splice(lastC, 0, c);
-}
-
-/**
- * Invokes `console.log()` when available.
- * No-op when `console.log` is not a "function".
- *
- * @api public
- */
-
-function log() {
-  // this hackery is required for IE8/9, where
-  // the `console.log` function doesn't have 'apply'
-  return 'object' === typeof console
-    && console.log
-    && Function.prototype.apply.call(console.log, console, arguments);
-}
-
-/**
- * Save `namespaces`.
- *
- * @param {String} namespaces
- * @api private
- */
-
-function save(namespaces) {
-  try {
-    if (null == namespaces) {
-      exports.storage.removeItem('debug');
-    } else {
-      exports.storage.debug = namespaces;
-    }
-  } catch(e) {}
-}
-
-/**
- * Load `namespaces`.
- *
- * @return {String} returns the previously persisted debug modes
- * @api private
- */
-
-function load() {
-  var r;
-  try {
-    r = exports.storage.debug;
-  } catch(e) {}
-
-  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
-  if (!r && typeof process !== 'undefined' && 'env' in process) {
-    r = process.env.DEBUG;
-  }
-
-  return r;
-}
-
-/**
- * Enable namespaces listed in `localStorage.debug` initially.
- */
-
-exports.enable(load());
-
-/**
- * Localstorage attempts to return the localstorage.
- *
- * This is necessary because safari throws
- * when a user disables cookies/localstorage
- * and you attempt to access it.
- *
- * @return {LocalStorage}
- * @api private
- */
-
-function localstorage() {
-  try {
-    return window.localStorage;
-  } catch (e) {}
-}
-});
-var browser_1 = browser.log;
-var browser_2 = browser.formatArgs;
-var browser_3 = browser.save;
-var browser_4 = browser.load;
-var browser_5 = browser.useColors;
-var browser_6 = browser.storage;
-var browser_7 = browser.colors;
-
-var node = createCommonjsModule(function (module, exports) {
-/**
- * Module dependencies.
- */
-
-
-
-
-/**
- * This is the Node.js implementation of `debug()`.
- *
- * Expose `debug()` as the module.
- */
-
-exports = module.exports = debug;
-exports.init = init;
-exports.log = log;
-exports.formatArgs = formatArgs;
-exports.save = save;
-exports.load = load;
-exports.useColors = useColors;
-
-/**
- * Colors.
- */
-
-exports.colors = [6, 2, 3, 4, 5, 1];
-
-/**
- * Build up the default `inspectOpts` object from the environment variables.
- *
- *   $ DEBUG_COLORS=no DEBUG_DEPTH=10 DEBUG_SHOW_HIDDEN=enabled node script.js
- */
-
-exports.inspectOpts = Object.keys(process.env).filter(function (key) {
-  return /^debug_/i.test(key);
-}).reduce(function (obj, key) {
-  // camel-case
-  var prop = key
-    .substring(6)
-    .toLowerCase()
-    .replace(/_([a-z])/g, function (_, k) { return k.toUpperCase() });
-
-  // coerce string value into JS value
-  var val = process.env[key];
-  if (/^(yes|on|true|enabled)$/i.test(val)) val = true;
-  else if (/^(no|off|false|disabled)$/i.test(val)) val = false;
-  else if (val === 'null') val = null;
-  else val = Number(val);
-
-  obj[prop] = val;
-  return obj;
-}, {});
-
-/**
- * The file descriptor to write the `debug()` calls to.
- * Set the `DEBUG_FD` env variable to override with another value. i.e.:
- *
- *   $ DEBUG_FD=3 node script.js 3>debug.log
- */
-
-var fd = parseInt(process.env.DEBUG_FD, 10) || 2;
-
-if (1 !== fd && 2 !== fd) {
-  util.deprecate(function(){}, 'except for stderr(2) and stdout(1), any other usage of DEBUG_FD is deprecated. Override debug.log if you want to use a different log function (https://git.io/debug_fd)')();
-}
-
-var stream = 1 === fd ? process.stdout :
-             2 === fd ? process.stderr :
-             createWritableStdioStream(fd);
-
-/**
- * Is stdout a TTY? Colored output is enabled when `true`.
- */
-
-function useColors() {
-  return 'colors' in exports.inspectOpts
-    ? Boolean(exports.inspectOpts.colors)
-    : tty.isatty(fd);
-}
-
-/**
- * Map %o to `util.inspect()`, all on a single line.
- */
-
-exports.formatters.o = function(v) {
-  this.inspectOpts.colors = this.useColors;
-  return util.inspect(v, this.inspectOpts)
-    .split('\n').map(function(str) {
-      return str.trim()
-    }).join(' ');
-};
-
-/**
- * Map %o to `util.inspect()`, allowing multiple lines if needed.
- */
-
-exports.formatters.O = function(v) {
-  this.inspectOpts.colors = this.useColors;
-  return util.inspect(v, this.inspectOpts);
-};
-
-/**
- * Adds ANSI color escape codes if enabled.
- *
- * @api public
- */
-
-function formatArgs(args) {
-  var name = this.namespace;
-  var useColors = this.useColors;
-
-  if (useColors) {
-    var c = this.color;
-    var prefix = '  \u001b[3' + c + ';1m' + name + ' ' + '\u001b[0m';
-
-    args[0] = prefix + args[0].split('\n').join('\n' + prefix);
-    args.push('\u001b[3' + c + 'm+' + exports.humanize(this.diff) + '\u001b[0m');
-  } else {
-    args[0] = new Date().toUTCString()
-      + ' ' + name + ' ' + args[0];
-  }
-}
-
-/**
- * Invokes `util.format()` with the specified arguments and writes to `stream`.
- */
-
-function log() {
-  return stream.write(util.format.apply(util, arguments) + '\n');
-}
-
-/**
- * Save `namespaces`.
- *
- * @param {String} namespaces
- * @api private
- */
-
-function save(namespaces) {
-  if (null == namespaces) {
-    // If you set a process.env field to null or undefined, it gets cast to the
-    // string 'null' or 'undefined'. Just delete instead.
-    delete process.env.DEBUG;
-  } else {
-    process.env.DEBUG = namespaces;
-  }
-}
-
-/**
- * Load `namespaces`.
- *
- * @return {String} returns the previously persisted debug modes
- * @api private
- */
-
-function load() {
-  return process.env.DEBUG;
-}
-
-/**
- * Copied from `node/src/node.js`.
- *
- * XXX: It's lame that node doesn't expose this API out-of-the-box. It also
- * relies on the undocumented `tty_wrap.guessHandleType()` which is also lame.
- */
-
-function createWritableStdioStream (fd) {
-  var stream;
-  var tty_wrap = process.binding('tty_wrap');
-
-  // Note stream._type is used for test-module-load-list.js
-
-  switch (tty_wrap.guessHandleType(fd)) {
-    case 'TTY':
-      stream = new tty.WriteStream(fd);
-      stream._type = 'tty';
-
-      // Hack to have stream not keep the event loop alive.
-      // See https://github.com/joyent/node/issues/1726
-      if (stream._handle && stream._handle.unref) {
-        stream._handle.unref();
-      }
-      break;
-
-    case 'FILE':
-      var fs$$1 = fs;
-      stream = new fs$$1.SyncWriteStream(fd, { autoClose: false });
-      stream._type = 'fs';
-      break;
-
-    case 'PIPE':
-    case 'TCP':
-      var net$$1 = net;
-      stream = new net$$1.Socket({
-        fd: fd,
-        readable: false,
-        writable: true
-      });
-
-      // FIXME Should probably have an option in net.Socket to create a
-      // stream from an existing fd which is writable only. But for now
-      // we'll just add this hack and set the `readable` member to false.
-      // Test: ./node test/fixtures/echo.js < /etc/passwd
-      stream.readable = false;
-      stream.read = null;
-      stream._type = 'pipe';
-
-      // FIXME Hack to have stream not keep the event loop alive.
-      // See https://github.com/joyent/node/issues/1726
-      if (stream._handle && stream._handle.unref) {
-        stream._handle.unref();
-      }
-      break;
-
-    default:
-      // Probably an error on in uv_guess_handle()
-      throw new Error('Implement me. Unknown stream file type!');
-  }
-
-  // For supporting legacy API we put the FD here.
-  stream.fd = fd;
-
-  stream._isStdio = true;
-
-  return stream;
-}
-
-/**
- * Init logic for `debug` instances.
- *
- * Create a new `inspectOpts` object in case `useColors` is set
- * differently for a particular `debug` instance.
- */
-
-function init (debug$$1) {
-  debug$$1.inspectOpts = {};
-
-  var keys$$1 = Object.keys(exports.inspectOpts);
-  for (var i = 0; i < keys$$1.length; i++) {
-    debug$$1.inspectOpts[keys$$1[i]] = exports.inspectOpts[keys$$1[i]];
-  }
-}
-
-/**
- * Enable namespaces listed in `process.env.DEBUG` initially.
- */
-
-exports.enable(load());
-});
-var node_1 = node.init;
-var node_2 = node.log;
-var node_3 = node.formatArgs;
-var node_4 = node.save;
-var node_5 = node.load;
-var node_6 = node.useColors;
-var node_7 = node.colors;
-var node_8 = node.inspectOpts;
-
-var src = createCommonjsModule(function (module) {
-/**
- * Detect Electron renderer process, which is node, but we should
- * treat as a browser.
- */
-
-if (typeof process !== 'undefined' && process.type === 'renderer') {
-  module.exports = browser;
-} else {
-  module.exports = node;
-}
-});
-
-/**
- * Module dependencies
- */
-
-var debug$1 = src('jsonp');
-
-/**
- * Module exports.
- */
-
-var jsonp_1 = jsonp;
-
-/**
- * Callback index.
- */
-
-var count = 0;
-
-/**
- * Noop function.
- */
-
-function noop(){}
-
-/**
- * JSONP handler
- *
- * Options:
- *  - param {String} qs parameter (`callback`)
- *  - prefix {String} qs parameter (`__jp`)
- *  - name {String} qs parameter (`prefix` + incr)
- *  - timeout {Number} how long after a timeout error is emitted (`60000`)
- *
- * @param {String} url
- * @param {Object|Function} optional options / callback
- * @param {Function} optional callback
- */
-
-function jsonp(url, opts, fn){
-  if ('function' == typeof opts) {
-    fn = opts;
-    opts = {};
-  }
-  if (!opts) opts = {};
-
-  var prefix = opts.prefix || '__jp';
-
-  // use the callback name that was passed if one was provided.
-  // otherwise generate a unique name by incrementing our counter.
-  var id = opts.name || (prefix + (count++));
-
-  var param = opts.param || 'callback';
-  var timeout = null != opts.timeout ? opts.timeout : 60000;
-  var enc = encodeURIComponent;
-  var target = document.getElementsByTagName('script')[0] || document.head;
-  var script;
-  var timer;
-
-
-  if (timeout) {
-    timer = setTimeout(function(){
-      cleanup();
-      if (fn) fn(new Error('Timeout'));
-    }, timeout);
-  }
-
-  function cleanup(){
-    if (script.parentNode) script.parentNode.removeChild(script);
-    window[id] = noop;
-    if (timer) clearTimeout(timer);
-  }
-
-  function cancel(){
-    if (window[id]) {
-      cleanup();
-    }
-  }
-
-  window[id] = function(data){
-    debug$1('jsonp got', data);
-    cleanup();
-    if (fn) fn(null, data);
-  };
-
-  // add qs component
-  url += (~url.indexOf('?') ? '&' : '?') + param + '=' + enc(id);
-  url = url.replace('?&', '?');
-
-  debug$1('jsonp req "%s"', url);
-
-  // create script
-  script = document.createElement('script');
-  script.src = url;
-  target.parentNode.insertBefore(script, target);
-
-  return cancel;
-}
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -1157,7 +221,7 @@ var ApiHelper = function () {
           return key + '=' + encodeURIComponent(value);
         }
       });
-      var queryString = compact(encodedParams).join('&');
+      var queryString = lodash.compact(encodedParams).join('&');
 
       console.log('url', '' + baseUrl + queryString);
       return '' + baseUrl + queryString;
@@ -1167,7 +231,7 @@ var ApiHelper = function () {
     value: function fetchResource(opts) {
       var url = this.generateUrl(opts.params);
 
-      jsonp_1(url, null, function (err, data) {
+      jsonp(url, null, function (err, data) {
         if (err) {
           console.log(err);
         } else {
@@ -1274,7 +338,7 @@ var TopicsFilterForm = function (_Component) {
       var api = new ApiHelper(resourceType);
       var params = {};
       var callback = function callback(response) {
-        var topics = keys(response.topics).sort();
+        var topics = lodash.keys(response.topics).sort();
         var options = _this2.mapArrayToSelectOptions(topics);
         _this2.setState({ options: options });
       };
@@ -1306,10 +370,10 @@ var TopicsFilterForm = function (_Component) {
     value: function render() {
       var value = this.mapArrayToSelectOptions(this.props.topics || []);
 
-      return React.createElement(
+      return React__default.createElement(
         'div',
         { className: 'col-sm-12' },
-        React.createElement(SelectWithLabel, {
+        React__default.createElement(p2puInputFields.SelectWithLabel, {
           label: 'What topics are you interested in?',
           classes: 'no-flex',
           options: this.state.options,
@@ -1322,7 +386,7 @@ var TopicsFilterForm = function (_Component) {
     }
   }]);
   return TopicsFilterForm;
-}(Component);
+}(React.Component);
 
 var OrderCoursesForm = function OrderCoursesForm(props) {
   var formValues = {
@@ -1343,7 +407,7 @@ var OrderCoursesForm = function OrderCoursesForm(props) {
 
   var defaultChecked = props.order && props.order === formValues.true.value;
 
-  return React.createElement(SwitchWithLabels, {
+  return React__default.createElement(p2puInputFields.SwitchWithLabels, {
     name: 'order-courses',
     labelRight: formValues.true.label,
     labelLeft: formValues.false.label,
@@ -1361,19 +425,19 @@ var FilterForm = function FilterForm(props) {
   var internalForm = function internalForm() {
     switch (props.activeFilter) {
       case 'topics':
-        return React.createElement(TopicsFilterForm, props);
+        return React__default.createElement(TopicsFilterForm, props);
       case 'orderCourses':
-        return React.createElement(OrderCoursesForm, props);
+        return React__default.createElement(OrderCoursesForm, props);
     }
   };
 
-  return React.createElement(
+  return React__default.createElement(
     'div',
     { className: 'filter-form-dropdown ' + openClass },
-    React.createElement(
+    React__default.createElement(
       'div',
       { className: 'close', style: { textAlign: 'right', float: 'none' } },
-      React.createElement(
+      React__default.createElement(
         'i',
         { className: 'material-icons', onClick: closeFilter },
         'close'
@@ -1408,28 +472,28 @@ var FilterSection = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return React.createElement(
+      return React__default.createElement(
         'div',
         { className: 'filter-section' },
-        React.createElement(
+        React__default.createElement(
           'div',
           { className: 'label' },
           'Filter'
         ),
-        React.createElement(
+        React__default.createElement(
           'div',
           { className: 'filters-bar' },
           this.props.filterCollection.map(function (filter, index) {
             var isActive = _this2.state.activeFilter === filter;
-            return React.createElement(
+            return React__default.createElement(
               'div',
               { key: index, className: 'wrapper' },
-              React.createElement(Filter, {
+              React__default.createElement(Filter, {
                 filter: filter,
                 active: isActive,
                 updateActiveFilter: _this2.updateActiveFilter
               }),
-              isActive && React.createElement(FilterForm, _extends({
+              isActive && React__default.createElement(FilterForm, _extends({
                 activeFilter: _this2.state.activeFilter,
                 updateActiveFilter: _this2.updateActiveFilter
               }, _this2.props))
@@ -1440,21 +504,21 @@ var FilterSection = function (_Component) {
     }
   }]);
   return FilterSection;
-}(Component);
+}(React.Component);
 
 var SearchAndFilter = function SearchAndFilter(props) {
   var noResults = props.searchResults.length === 0;
 
-  return React.createElement(
+  return React__default.createElement(
     'div',
     { className: 'search-container' },
-    noResults && React.createElement('div', { className: 'overlay' }),
-    React.createElement(SearchBar, {
+    noResults && React__default.createElement('div', { className: 'overlay' }),
+    React__default.createElement(SearchBar, {
       placeholder: props.placeholder,
       updateQueryParams: props.updateQueryParams,
       q: props.q
     }),
-    React.createElement(FilterSection, props)
+    React__default.createElement(FilterSection, props)
   );
 };
 
@@ -1462,11 +526,11 @@ var SearchTag = function SearchTag(_ref) {
   var value = _ref.value,
       onDelete = _ref.onDelete;
 
-  return React.createElement(
+  return React__default.createElement(
     'div',
     { className: 'search-tag' },
     value,
-    React.createElement(
+    React__default.createElement(
       'i',
       { className: 'material-icons', onClick: function onClick() {
           return onDelete(value);
@@ -1483,11 +547,11 @@ var SearchTags = function SearchTags(props) {
         props.updateQueryParams({ q: null });
       };
 
-      return [React.createElement(
+      return [React__default.createElement(
         'span',
         { key: 'queryTagIntro' },
         'the search query'
-      ), React.createElement(SearchTag, { key: 'queryTag-0', value: props.q, onDelete: onDelete })];
+      ), React__default.createElement(SearchTag, { key: 'queryTag-0', value: props.q, onDelete: onDelete })];
     }
   };
 
@@ -1500,24 +564,24 @@ var SearchTags = function SearchTags(props) {
       };
       var humanReadableName = decodeURIComponent(props.teamName);
 
-      return [React.createElement(
+      return [React__default.createElement(
         'span',
         { key: 'queryTagIntro' },
         'organized by'
-      ), React.createElement(SearchTag, { key: 'queryTag-0', value: humanReadableName, onDelete: onDelete })];
+      ), React__default.createElement(SearchTag, { key: 'queryTag-0', value: humanReadableName, onDelete: onDelete })];
     }
   };
 
   var generateTopicsTags = function generateTopicsTags() {
     if (props.topics && props.topics.length > 0) {
       var onDelete = function onDelete(value) {
-        var newTopicsArray = without(props.topics, value);
+        var newTopicsArray = lodash.without(props.topics, value);
         var topics = newTopicsArray.length > 0 ? newTopicsArray : null;
         props.updateQueryParams({ topics: topics });
       };
 
       var introPhrase = props.topics.length === 1 ? 'the topic' : 'the topics';
-      var topicsTagsArray = [React.createElement(
+      var topicsTagsArray = [React__default.createElement(
         'span',
         { key: 'topicTagIntro' },
         introPhrase
@@ -1525,14 +589,14 @@ var SearchTags = function SearchTags(props) {
 
       props.topics.map(function (item, index) {
         if (props.topics.length > 1 && index === props.topics.length - 1) {
-          topicsTagsArray.push(React.createElement(
+          topicsTagsArray.push(React__default.createElement(
             'span',
             { key: 'topicTag-' + (index + 2) },
             'or'
           ));
         }
 
-        topicsTagsArray.push(React.createElement(SearchTag, { value: item, key: 'topicTag-' + index, onDelete: onDelete }));
+        topicsTagsArray.push(React__default.createElement(SearchTag, { value: item, key: 'topicTag-' + index, onDelete: onDelete }));
       });
 
       return topicsTagsArray;
@@ -1548,20 +612,20 @@ var SearchTags = function SearchTags(props) {
       var onDelete = function onDelete(value) {
         props.updateQueryParams({ latitude: null, longitude: null, distance: 50 });
       };
-      return [React.createElement(
+      return [React__default.createElement(
         'span',
         { key: 'locationTagIntro' },
         'located'
-      ), React.createElement(SearchTag, { key: 'locationTag-0', value: text, onDelete: onDelete })];
+      ), React__default.createElement(SearchTag, { key: 'locationTag-0', value: text, onDelete: onDelete })];
     } else if (props.city) {
       var _onDelete = function _onDelete(value) {
         props.updateQueryParams({ city: null });
       };
-      return [React.createElement(
+      return [React__default.createElement(
         'span',
         { key: 'locationTagIntro' },
         'located in'
-      ), React.createElement(SearchTag, { key: 'locationTag-0', value: props.city, onDelete: _onDelete })];
+      ), React__default.createElement(SearchTag, { key: 'locationTag-0', value: props.city, onDelete: _onDelete })];
     }
   };
 
@@ -1569,12 +633,12 @@ var SearchTags = function SearchTags(props) {
     if (props.weekdays && props.weekdays.length > 0) {
       var onDelete = function onDelete(day) {
         var dayIndex = MEETING_DAYS.indexOf(day);
-        var newWeekdayArray = without(props.weekdays, dayIndex);
+        var newWeekdayArray = lodash.without(props.weekdays, dayIndex);
         var weekdays = newWeekdayArray.length > 0 ? newWeekdayArray : null;
         props.updateQueryParams({ weekdays: weekdays });
       };
 
-      var weekdayTagsArray = [React.createElement(
+      var weekdayTagsArray = [React__default.createElement(
         'span',
         { key: 'weekdayTagIntro' },
         'meeting on'
@@ -1584,14 +648,14 @@ var SearchTags = function SearchTags(props) {
         var weekdayName = MEETING_DAYS[dayIndex];
 
         if (props.weekdays.length > 1 && index === props.weekdays.length - 1) {
-          weekdayTagsArray.push(React.createElement(
+          weekdayTagsArray.push(React__default.createElement(
             'span',
             { key: 'weekdayTag-' + (index + 2) },
             'or'
           ));
         }
 
-        weekdayTagsArray.push(React.createElement(SearchTag, { value: weekdayName, key: 'weekdatTag-' + index, onDelete: onDelete }));
+        weekdayTagsArray.push(React__default.createElement(SearchTag, { value: weekdayName, key: 'weekdatTag-' + index, onDelete: onDelete }));
       });
 
       return weekdayTagsArray;
@@ -1615,20 +679,20 @@ var SearchTags = function SearchTags(props) {
 
   var generateSearchSummary = function generateSearchSummary() {
     var results = props.searchResults.length === 1 ? 'result' : 'results';
-    var forSearchSubject = React.createElement(
+    var forSearchSubject = React__default.createElement(
       'span',
       { key: 'resultsSummary-1' },
       'for ',
       SEARCH_SUBJECTS[props.searchSubject]
     );
-    var withSpan = React.createElement(
+    var withSpan = React__default.createElement(
       'span',
       { key: 'resultsSummary-2' },
       'with'
     );
     var tagsToDisplay = ['q', 'topics', 'location', 'meetingDays', 'teamName'];
 
-    var searchSummaryItems = [React.createElement(
+    var searchSummaryItems = [React__default.createElement(
       'span',
       { key: 'resultsSummary-0' },
       'Showing ',
@@ -1647,7 +711,7 @@ var SearchTags = function SearchTags(props) {
             searchSummaryItems.push(withSpan);
           }
         } else {
-          searchSummaryItems.push(React.createElement(
+          searchSummaryItems.push(React__default.createElement(
             'span',
             { key: 'resultsSummary-' + searchSummaryItems.length },
             'and'
@@ -1662,19 +726,19 @@ var SearchTags = function SearchTags(props) {
 
   var noResults = props.searchResults.length === 0;
 
-  return React.createElement(
+  return React__default.createElement(
     'div',
     { className: 'results-summary' },
-    React.createElement(
+    React__default.createElement(
       'div',
       { className: 'search-tags wrapper' },
       generateSearchSummary()
     ),
-    noResults && React.createElement(
+    noResults && React__default.createElement(
       'div',
       { className: 'clear-search' },
       'To see more results, either remove some filters or ',
-      React.createElement(
+      React__default.createElement(
         'button',
         { onClick: function onClick() {
             window.location.reload();
@@ -1781,19 +845,19 @@ var Search = function (_Component) {
       var Browse = this.props.Browse;
 
 
-      return React.createElement(
+      return React__default.createElement(
         'div',
         { className: 'page' },
-        React.createElement(SearchAndFilter, _extends({
+        React__default.createElement(SearchAndFilter, _extends({
           placeholder: placeholder,
           updateQueryParams: this.updateQueryParams,
           filterCollection: filterCollection,
           searchSubject: this.props.searchSubject
         }, this.state)),
-        React.createElement(SearchTags, _extends({
+        React__default.createElement(SearchTags, _extends({
           updateQueryParams: this.updateQueryParams
         }, this.state, this.props)),
-        React.createElement(Browse, {
+        React__default.createElement(Browse, {
           results: this.state.searchResults,
           updateQueryParams: this.updateQueryParams,
           onSelectResult: this.props.onSelectResult
@@ -1802,13 +866,13 @@ var Search = function (_Component) {
     }
   }]);
   return Search;
-}(Component);
+}(React.Component);
 
 var Card = function Card(props) {
-  return React.createElement(
+  return React__default.createElement(
     "div",
     { className: "result-item grid-item col-md-4 col-sm-12 col-xs-12" },
-    React.createElement(
+    React__default.createElement(
       "div",
       { className: "course-card" },
       props.children
@@ -1817,7 +881,7 @@ var Card = function Card(props) {
 };
 
 var CardBody = function CardBody(props) {
-  return React.createElement(
+  return React__default.createElement(
     "div",
     { className: "card-body" },
     props.children
@@ -1825,16 +889,26 @@ var CardBody = function CardBody(props) {
 };
 
 var CardTitle = function CardTitle(props) {
-  return React.createElement(
+  return React__default.createElement(
     "div",
     { className: "card-title" },
-    React.createElement(
+    React__default.createElement(
       "h4",
       { className: "title" },
       props.children
     )
   );
 };
+
+var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+function unwrapExports (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -3474,7 +2548,7 @@ exports.default = function (tip, children, getContent, multiline) {
 
 
 
-var _react2 = _interopRequireDefault(React);
+var _react2 = _interopRequireDefault(React__default);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 });
@@ -3558,7 +2632,7 @@ var _class, _class2, _temp;
 
 
 
-var _react2 = _interopRequireDefault(React);
+var _react2 = _interopRequireDefault(React__default);
 
 
 
@@ -4163,22 +3237,22 @@ var UsageBadge = function UsageBadge(_ref) {
   var tooltipText = 'Used by ' + number + ' ' + pluralizedText;
 
   if (display) {
-    return React.createElement(
+    return React__default.createElement(
       'div',
       { className: 'usage-badge', 'data-tip': true, 'data-for': id },
-      React.createElement(
+      React__default.createElement(
         'div',
         { className: 'text' },
-        React.createElement(
+        React__default.createElement(
           'i',
           { className: 'material-icons' },
           icon
         ),
         number,
-        React.createElement(
+        React__default.createElement(
           ReactTooltip,
           { id: id, 'class': 'p2pu-tooltip', place: 'bottom', effect: 'solid', 'aria-haspopup': 'true' },
-          React.createElement(
+          React__default.createElement(
             'span',
             null,
             tooltipText
@@ -4200,45 +3274,45 @@ var CourseCard = function CourseCard(props) {
       props.updateQueryParams({ topics: [topic] });
     };
   };
-  var topicsList = take(props.course.topics, 5).map(function (topic) {
-    return React.createElement(
+  var topicsList = lodash.take(props.course.topics, 5).map(function (topic) {
+    return React__default.createElement(
       'a',
       { className: 'tag', onClick: handleFilterClick(topic) },
       topic
     );
   });
 
-  return React.createElement(
+  return React__default.createElement(
     Card,
     null,
-    React.createElement(UsageBadge, { number: props.course.learning_circles, id: props.id }),
-    React.createElement(
+    React__default.createElement(UsageBadge, { number: props.course.learning_circles, id: props.id }),
+    React__default.createElement(
       CardTitle,
       null,
       props.course.title
     ),
-    React.createElement(
+    React__default.createElement(
       CardBody,
       null,
-      React.createElement(
+      React__default.createElement(
         'p',
         { className: 'caption' },
         props.course.caption
       ),
-      React.createElement('div', { className: 'divider' }),
-      React.createElement(
+      React__default.createElement('div', { className: 'divider' }),
+      React__default.createElement(
         'p',
         { className: 'tags small-caps' },
-        React.createElement(
+        React__default.createElement(
           'i',
           { className: 'material-icons' },
           'label_outline'
         ),
-        React.createElement(
+        React__default.createElement(
           'span',
           { className: 'topics-list' },
           topicsList.map(function (topic, index) {
-            return React.createElement(
+            return React__default.createElement(
               'span',
               { key: index },
               !!index && ', ',
@@ -4247,47 +3321,47 @@ var CourseCard = function CourseCard(props) {
           })
         )
       ),
-      React.createElement(
+      React__default.createElement(
         'p',
         { className: 'provider small-caps' },
-        React.createElement(
+        React__default.createElement(
           'i',
           { className: 'material-icons' },
           'school'
         ),
         'Provided by ' + props.course.provider
       ),
-      React.createElement(
+      React__default.createElement(
         'p',
         { className: 'availability small-caps' },
-        React.createElement(
+        React__default.createElement(
           'i',
           { className: 'material-icons' },
           'schedule'
         ),
         availability
       ),
-      React.createElement('div', { className: 'divider' }),
-      React.createElement(
+      React__default.createElement('div', { className: 'divider' }),
+      React__default.createElement(
         'div',
         { className: 'actions' },
-        React.createElement(
+        React__default.createElement(
           'div',
           { className: 'secondary-cta' },
-          React.createElement(
+          React__default.createElement(
             'a',
             { href: props.course.link, target: '_blank' },
-            React.createElement(
+            React__default.createElement(
               'i',
               { className: 'material-icons' },
               'open_in_new'
             ),
             'See the course'
           ),
-          React.createElement(
+          React__default.createElement(
             'a',
             { href: feedbackPage, target: '_blank' },
-            React.createElement(
+            React__default.createElement(
               'i',
               { className: 'material-icons' },
               'open_in_new'
@@ -4295,13 +3369,13 @@ var CourseCard = function CourseCard(props) {
             'Facilitator feedback'
           )
         ),
-        React.createElement(
+        React__default.createElement(
           'div',
           { className: 'primary-cta' },
-          props.onSelectResult && React.createElement(
+          props.onSelectResult && React__default.createElement(
             'div',
             { className: 'primary-cta' },
-            React.createElement(
+            React__default.createElement(
               'button',
               { onClick: function onClick() {
                   return props.onSelectResult(props.course);
@@ -8276,11 +7350,11 @@ var _baseKeys = baseKeys;
  * _.keys('hi');
  * // => ['0', '1']
  */
-function keys$1(object) {
+function keys(object) {
   return isArrayLike_1(object) ? _arrayLikeKeys(object) : _baseKeys(object);
 }
 
-var keys_1 = keys$1;
+var keys_1 = keys;
 
 /** Used for built-in method references. */
 var objectProto$8 = Object.prototype;
@@ -13229,7 +12303,7 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
 
 var factory_1 = factory;
 
-if (typeof React === 'undefined') {
+if (typeof React__default === 'undefined') {
   throw Error(
     'create-react-class could not find the React object. If you are using script tags, ' +
       'make sure that React is being loaded before create-react-class.'
@@ -13237,11 +12311,11 @@ if (typeof React === 'undefined') {
 }
 
 // Hack to grab NoopUpdateQueue from isomorphic React
-var ReactNoopUpdateQueue = new React.Component().updater;
+var ReactNoopUpdateQueue = new React__default.Component().updater;
 
 var createReactClass = factory_1(
-  React.Component,
-  React.isValidElement,
+  React__default.Component,
+  React__default.isValidElement,
   ReactNoopUpdateQueue
 );
 
@@ -13552,7 +12626,7 @@ var MasonryComponent = createReactClass({
 
   render: function() {
     var props = omit_1(this.props, Object.keys(propTypes$1));
-    return React.createElement(this.props.elementType, assign_1({}, props, {ref: this.setRef}), this.props.children);
+    return React__default.createElement(this.props.elementType, assign_1({}, props, {ref: this.setRef}), this.props.children);
   }
 });
 
@@ -13565,11 +12639,11 @@ var BrowseCourses = function BrowseCourses(_ref) {
       updateQueryParams = _ref.updateQueryParams,
       onSelectResult = _ref.onSelectResult;
 
-  return React.createElement(
+  return React__default.createElement(
     lib,
     { className: "search-results row grid" },
     results.map(function (course, index) {
-      return React.createElement(CourseCard, {
+      return React__default.createElement(CourseCard, {
         key: 'course-card-' + index,
         id: 'course-card-' + index,
         course: course,
@@ -13593,60 +12667,60 @@ var LearningCircleCard = function LearningCircleCard(props) {
   var duration = learningCircle.weeks + ' weeks starting ' + formattedDate;
   var name = learningCircle.course.title;
 
-  return React.createElement(
+  return React__default.createElement(
     Card,
     null,
-    React.createElement(
+    React__default.createElement(
       CardTitle,
       null,
       name
     ),
-    learningCircle.image_url && React.createElement(
+    learningCircle.image_url && React__default.createElement(
       'div',
       { className: 'image-container hidden-on-mobile' },
-      React.createElement(
+      React__default.createElement(
         'div',
         { className: 'image' },
-        React.createElement('img', { src: learningCircle.image_url, alt: name })
+        React__default.createElement('img', { src: learningCircle.image_url, alt: name })
       )
     ),
-    React.createElement(
+    React__default.createElement(
       CardBody,
       null,
-      React.createElement(
+      React__default.createElement(
         'p',
         { className: 'schedule' },
-        React.createElement(
+        React__default.createElement(
           'i',
           { className: 'material-icons' },
           'schedule'
         ),
         schedule
       ),
-      React.createElement(
+      React__default.createElement(
         'p',
         { className: 'duration' },
-        React.createElement(
+        React__default.createElement(
           'i',
           { className: 'material-icons' },
           'today'
         ),
         duration
       ),
-      React.createElement(
+      React__default.createElement(
         'p',
         { className: 'city-country' },
-        React.createElement(
+        React__default.createElement(
           'i',
           { className: 'material-icons' },
           'place'
         ),
         learningCircle.city
       ),
-      React.createElement(
+      React__default.createElement(
         'p',
         { className: 'facilitator' },
-        React.createElement(
+        React__default.createElement(
           'i',
           { className: 'material-icons' },
           'face'
@@ -13654,10 +12728,10 @@ var LearningCircleCard = function LearningCircleCard(props) {
         'Facilitated by ',
         learningCircle.facilitator
       ),
-      React.createElement(
+      React__default.createElement(
         'p',
         { className: 'location' },
-        React.createElement(
+        React__default.createElement(
           'i',
           { className: 'material-icons' },
           'store'
@@ -13665,16 +12739,16 @@ var LearningCircleCard = function LearningCircleCard(props) {
         'Meeting at ',
         learningCircle.venue
       ),
-      React.createElement(
+      React__default.createElement(
         'div',
         { className: 'actions' },
-        React.createElement(
+        React__default.createElement(
           'div',
           { className: 'primary-cta' },
-          React.createElement(
+          React__default.createElement(
             'a',
             { href: learningCircle.url },
-            React.createElement(
+            React__default.createElement(
               'button',
               { className: 'btn p2pu-btn transparent' },
               'Sign up'
@@ -13688,34 +12762,37 @@ var LearningCircleCard = function LearningCircleCard(props) {
 
 var BrowseLearningCircles = function BrowseLearningCircles(_ref) {
   var results = _ref.results;
-  return React.createElement(
+  return React__default.createElement(
     lib,
     { className: "search-results row grid" },
     results.map(function (circle, index) {
-      return React.createElement(LearningCircleCard, {
+      return React__default.createElement(LearningCircleCard, {
         key: 'learning-circle-' + index,
         learningCircle: circle
       });
     }),
-    React.createElement(
+    React__default.createElement(
       'div',
       { className: 'result-item grid-item col-md-4 col-sm-12 col-xs-12 start-learning-circle' },
-      React.createElement(
+      React__default.createElement(
         'div',
         { className: 'circle' },
-        React.createElement(
+        React__default.createElement(
           'p',
           null,
           'Start a learning circle in your neighborhood'
         ),
-        React.createElement(
+        React__default.createElement(
           'a',
           { href: '/en/facilitate', className: 'btn p2pu-btn dark arrow' },
-          React.createElement('i', { className: 'fa fa-arrow-right', 'aria-hidden': 'true' })
+          React__default.createElement('i', { className: 'fa fa-arrow-right', 'aria-hidden': 'true' })
         )
       )
     )
   );
 };
 
-export { CourseCard, BrowseCourses, BrowseLearningCircles, Search };
+exports.CourseCard = CourseCard;
+exports.BrowseCourses = BrowseCourses;
+exports.BrowseLearningCircles = BrowseLearningCircles;
+exports.Search = Search;
