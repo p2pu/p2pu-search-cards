@@ -3,6 +3,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import css from 'rollup-plugin-css-only';
 import json from 'rollup-plugin-json';
+import scss from 'rollup-plugin-scss'
 
 export default {
   input: 'src/index.js',
@@ -27,6 +28,7 @@ export default {
     }),
     json(),
     commonjs(),
+    scss({output: 'dist/build.css',}),
     babel({
       exclude: [ 'node_modules/**', '**/*.json' ]
     }),

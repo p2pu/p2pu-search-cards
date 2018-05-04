@@ -33,7 +33,8 @@
     "rollup-plugin-commonjs": "^9.1.2",
     "rollup-plugin-css-only": "^0.4.0",
     "rollup-plugin-json": "^2.3.0",
-    "rollup-plugin-node-resolve": "^3.3.0"
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-scss": "^0.4.0"
   },
   "dependencies": {
     "react-masonry-component": "^6.2.0",
