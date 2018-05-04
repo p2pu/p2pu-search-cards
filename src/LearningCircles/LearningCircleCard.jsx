@@ -49,8 +49,8 @@ const LearningCircleCard = (props) => {
         </p>
         <div className='actions'>
           <div className="primary-cta">
-            <a href={ learningCircle.url }>
-              <button className="btn p2pu-btn transparent">Sign up</button>
+            <a href={ learningCircle.url } className="btn p2pu-btn transparent">
+              Sign up
             </a>
           </div>
         </div>

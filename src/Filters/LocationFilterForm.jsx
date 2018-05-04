@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { CheckboxWithLabel, RangeSliderWithLabel, CitySelect } from 'p2pu-input-fields';
 
+import 'dist/bundle.css' from 'p2pu-input-fields';
+
 export default class LocationFilterForm extends Component {
   constructor(props) {
     super(props)

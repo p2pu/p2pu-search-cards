@@ -324,8 +324,9 @@ span.course-title {
           background: $p2pu-light-orange;
 
           .primary-cta {
-            button {
+            .p2pu-btn {
               background: $p2pu-orange;
+              color: $white;
             }
           }
         }
@@ -346,8 +347,9 @@ span.course-title {
           background: $p2pu-light-blue;
 
           .primary-cta {
-            button {
+            .p2pu-btn {
               background: $p2pu-blue;
+              color: $white;
             }
           }
         }
@@ -368,8 +370,9 @@ span.course-title {
           background: $p2pu-light-green;
 
           .primary-cta {
-            button {
+            .p2pu-btn {
               background: $p2pu-green;
+              color: $white;
             }
           }
         }
@@ -390,8 +393,9 @@ span.course-title {
           background: $p2pu-light-yellow;
 
           .primary-cta {
-            button {
+            .p2pu-btn {
               background: $p2pu-yellow;
+              color: $white;
             }
           }
         }
@@ -663,6 +667,12 @@ header {
         padding-right: $padding-xs;
       }
     }
+  }
+}
+
+a.p2pu-btn {
+  &:hover {
+    text-decoration: none;
   }
 }
 

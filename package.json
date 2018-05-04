@@ -19,7 +19,7 @@
     "lodash": "^4.17.4",
     "jsonp": "^0.2.1",
     "moment": "^2.22.1",
-    "p2pu-input-fields": "^0.4.1"
+    "p2pu-input-fields": "^0.4.5b"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

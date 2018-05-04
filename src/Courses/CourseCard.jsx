@@ -47,14 +47,12 @@ const CourseCard = (props) => {
               <i className="material-icons">open_in_new</i>Facilitator feedback
             </a>
           </div>
-          <div className="primary-cta">
           {
             props.onSelectResult &&
             <div className="primary-cta">
               <button onClick={() => props.onSelectResult(props.course)} className="btn p2pu-btn transparent">{props.buttonText}</button>
             </div>
           }
-          </div>
         </div>
       </CardBody>
     </Card>
