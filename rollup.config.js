@@ -13,13 +13,11 @@ export default {
     'react',
     'react-dom',
     'lodash',
-    'p2pu-input-fields',
-    'axios',
-    'jsonp'
+    'axios'
   ],
   plugins: [
     resolve({
-      extensions: [ '.js', '.jsx' ]
+      extensions: [ '.js', '.jsx', '.json' ]
     }),
     commonjs(),
     babel({

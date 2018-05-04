@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import tty from 'tty';
+import util from 'util';
+import fs from 'fs';
+import net from 'net';
 import { compact, keys, without, take } from 'lodash';
-import jsonp from 'jsonp';
 import axios from 'axios';
-import { SelectWithLabel, SwitchWithLabels } from 'p2pu-input-fields';
-import reactDom from 'react-dom';
+import 'react-datepicker';
 import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
+import Select from 'react-select';
+import 'rc-time-picker';
+import moment$1 from 'moment-timezone';
+import reactDom from 'react-dom';
 
 var SearchBar = function SearchBar(_ref) {
   var placeholder = _ref.placeholder,
@@ -133,6 +140,946 @@ var API_ENDPOINTS = {
   }
 };
 
+var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+function unwrapExports (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
+
+/**
+ * Helpers.
+ */
+
+var s = 1000;
+var m = s * 60;
+var h = m * 60;
+var d = h * 24;
+var y = d * 365.25;
+
+/**
+ * Parse or format the given `val`.
+ *
+ * Options:
+ *
+ *  - `long` verbose formatting [false]
+ *
+ * @param {String|Number} val
+ * @param {Object} [options]
+ * @throws {Error} throw an error if val is not a non-empty string or a number
+ * @return {String|Number}
+ * @api public
+ */
+
+var ms = function(val, options) {
+  options = options || {};
+  var type = typeof val;
+  if (type === 'string' && val.length > 0) {
+    return parse(val);
+  } else if (type === 'number' && isNaN(val) === false) {
+    return options.long ? fmtLong(val) : fmtShort(val);
+  }
+  throw new Error(
+    'val is not a non-empty string or a valid number. val=' +
+      JSON.stringify(val)
+  );
+};
+
+/**
+ * Parse the given `str` and return milliseconds.
+ *
+ * @param {String} str
+ * @return {Number}
+ * @api private
+ */
+
+function parse(str) {
+  str = String(str);
+  if (str.length > 100) {
+    return;
+  }
+  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
+    str
+  );
+  if (!match) {
+    return;
+  }
+  var n = parseFloat(match[1]);
+  var type = (match[2] || 'ms').toLowerCase();
+  switch (type) {
+    case 'years':
+    case 'year':
+    case 'yrs':
+    case 'yr':
+    case 'y':
+      return n * y;
+    case 'days':
+    case 'day':
+    case 'd':
+      return n * d;
+    case 'hours':
+    case 'hour':
+    case 'hrs':
+    case 'hr':
+    case 'h':
+      return n * h;
+    case 'minutes':
+    case 'minute':
+    case 'mins':
+    case 'min':
+    case 'm':
+      return n * m;
+    case 'seconds':
+    case 'second':
+    case 'secs':
+    case 'sec':
+    case 's':
+      return n * s;
+    case 'milliseconds':
+    case 'millisecond':
+    case 'msecs':
+    case 'msec':
+    case 'ms':
+      return n;
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * Short format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtShort(ms) {
+  if (ms >= d) {
+    return Math.round(ms / d) + 'd';
+  }
+  if (ms >= h) {
+    return Math.round(ms / h) + 'h';
+  }
+  if (ms >= m) {
+    return Math.round(ms / m) + 'm';
+  }
+  if (ms >= s) {
+    return Math.round(ms / s) + 's';
+  }
+  return ms + 'ms';
+}
+
+/**
+ * Long format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtLong(ms) {
+  return plural(ms, d, 'day') ||
+    plural(ms, h, 'hour') ||
+    plural(ms, m, 'minute') ||
+    plural(ms, s, 'second') ||
+    ms + ' ms';
+}
+
+/**
+ * Pluralization helper.
+ */
+
+function plural(ms, n, name) {
+  if (ms < n) {
+    return;
+  }
+  if (ms < n * 1.5) {
+    return Math.floor(ms / n) + ' ' + name;
+  }
+  return Math.ceil(ms / n) + ' ' + name + 's';
+}
+
+var debug = createCommonjsModule(function (module, exports) {
+/**
+ * This is the common logic for both the Node.js and web browser
+ * implementations of `debug()`.
+ *
+ * Expose `debug()` as the module.
+ */
+
+exports = module.exports = createDebug.debug = createDebug['default'] = createDebug;
+exports.coerce = coerce;
+exports.disable = disable;
+exports.enable = enable;
+exports.enabled = enabled;
+exports.humanize = ms;
+
+/**
+ * The currently active debug mode names, and names to skip.
+ */
+
+exports.names = [];
+exports.skips = [];
+
+/**
+ * Map of special "%n" handling functions, for the debug "format" argument.
+ *
+ * Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
+ */
+
+exports.formatters = {};
+
+/**
+ * Previous log timestamp.
+ */
+
+var prevTime;
+
+/**
+ * Select a color.
+ * @param {String} namespace
+ * @return {Number}
+ * @api private
+ */
+
+function selectColor(namespace) {
+  var hash = 0, i;
+
+  for (i in namespace) {
+    hash  = ((hash << 5) - hash) + namespace.charCodeAt(i);
+    hash |= 0; // Convert to 32bit integer
+  }
+
+  return exports.colors[Math.abs(hash) % exports.colors.length];
+}
+
+/**
+ * Create a debugger with the given `namespace`.
+ *
+ * @param {String} namespace
+ * @return {Function}
+ * @api public
+ */
+
+function createDebug(namespace) {
+
+  function debug() {
+    // disabled?
+    if (!debug.enabled) return;
+
+    var self = debug;
+
+    // set `diff` timestamp
+    var curr = +new Date();
+    var ms$$1 = curr - (prevTime || curr);
+    self.diff = ms$$1;
+    self.prev = prevTime;
+    self.curr = curr;
+    prevTime = curr;
+
+    // turn the `arguments` into a proper Array
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+
+    args[0] = exports.coerce(args[0]);
+
+    if ('string' !== typeof args[0]) {
+      // anything else let's inspect with %O
+      args.unshift('%O');
+    }
+
+    // apply any `formatters` transformations
+    var index = 0;
+    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
+      // if we encounter an escaped % then don't increase the array index
+      if (match === '%%') return match;
+      index++;
+      var formatter = exports.formatters[format];
+      if ('function' === typeof formatter) {
+        var val = args[index];
+        match = formatter.call(self, val);
+
+        // now we need to remove `args[index]` since it's inlined in the `format`
+        args.splice(index, 1);
+        index--;
+      }
+      return match;
+    });
+
+    // apply env-specific formatting (colors, etc.)
+    exports.formatArgs.call(self, args);
+
+    var logFn = debug.log || exports.log || console.log.bind(console);
+    logFn.apply(self, args);
+  }
+
+  debug.namespace = namespace;
+  debug.enabled = exports.enabled(namespace);
+  debug.useColors = exports.useColors();
+  debug.color = selectColor(namespace);
+
+  // env-specific initialization logic for debug instances
+  if ('function' === typeof exports.init) {
+    exports.init(debug);
+  }
+
+  return debug;
+}
+
+/**
+ * Enables a debug mode by namespaces. This can include modes
+ * separated by a colon and wildcards.
+ *
+ * @param {String} namespaces
+ * @api public
+ */
+
+function enable(namespaces) {
+  exports.save(namespaces);
+
+  exports.names = [];
+  exports.skips = [];
+
+  var split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
+  var len = split.length;
+
+  for (var i = 0; i < len; i++) {
+    if (!split[i]) continue; // ignore empty strings
+    namespaces = split[i].replace(/\*/g, '.*?');
+    if (namespaces[0] === '-') {
+      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
+    } else {
+      exports.names.push(new RegExp('^' + namespaces + '$'));
+    }
+  }
+}
+
+/**
+ * Disable debug output.
+ *
+ * @api public
+ */
+
+function disable() {
+  exports.enable('');
+}
+
+/**
+ * Returns true if the given mode name is enabled, false otherwise.
+ *
+ * @param {String} name
+ * @return {Boolean}
+ * @api public
+ */
+
+function enabled(name) {
+  var i, len;
+  for (i = 0, len = exports.skips.length; i < len; i++) {
+    if (exports.skips[i].test(name)) {
+      return false;
+    }
+  }
+  for (i = 0, len = exports.names.length; i < len; i++) {
+    if (exports.names[i].test(name)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * Coerce `val`.
+ *
+ * @param {Mixed} val
+ * @return {Mixed}
+ * @api private
+ */
+
+function coerce(val) {
+  if (val instanceof Error) return val.stack || val.message;
+  return val;
+}
+});
+var debug_1 = debug.coerce;
+var debug_2 = debug.disable;
+var debug_3 = debug.enable;
+var debug_4 = debug.enabled;
+var debug_5 = debug.humanize;
+var debug_6 = debug.names;
+var debug_7 = debug.skips;
+var debug_8 = debug.formatters;
+
+var browser = createCommonjsModule(function (module, exports) {
+/**
+ * This is the web browser implementation of `debug()`.
+ *
+ * Expose `debug()` as the module.
+ */
+
+exports = module.exports = debug;
+exports.log = log;
+exports.formatArgs = formatArgs;
+exports.save = save;
+exports.load = load;
+exports.useColors = useColors;
+exports.storage = 'undefined' != typeof chrome
+               && 'undefined' != typeof chrome.storage
+                  ? chrome.storage.local
+                  : localstorage();
+
+/**
+ * Colors.
+ */
+
+exports.colors = [
+  'lightseagreen',
+  'forestgreen',
+  'goldenrod',
+  'dodgerblue',
+  'darkorchid',
+  'crimson'
+];
+
+/**
+ * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+ * and the Firebug extension (any Firefox version) are known
+ * to support "%c" CSS customizations.
+ *
+ * TODO: add a `localStorage` variable to explicitly enable/disable colors
+ */
+
+function useColors() {
+  // NB: In an Electron preload script, document will be defined but not fully
+  // initialized. Since we know we're in Chrome, we'll just detect this case
+  // explicitly
+  if (typeof window !== 'undefined' && window.process && window.process.type === 'renderer') {
+    return true;
+  }
+
+  // is webkit? http://stackoverflow.com/a/16459606/376773
+  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+  return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
+    // is firebug? http://stackoverflow.com/a/398120/376773
+    (typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
+    // is firefox >= v31?
+    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
+    // double check webkit in userAgent just in case we are in a worker
+    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+}
+
+/**
+ * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+ */
+
+exports.formatters.j = function(v) {
+  try {
+    return JSON.stringify(v);
+  } catch (err) {
+    return '[UnexpectedJSONParseError]: ' + err.message;
+  }
+};
+
+
+/**
+ * Colorize log arguments if enabled.
+ *
+ * @api public
+ */
+
+function formatArgs(args) {
+  var useColors = this.useColors;
+
+  args[0] = (useColors ? '%c' : '')
+    + this.namespace
+    + (useColors ? ' %c' : ' ')
+    + args[0]
+    + (useColors ? '%c ' : ' ')
+    + '+' + exports.humanize(this.diff);
+
+  if (!useColors) return;
+
+  var c = 'color: ' + this.color;
+  args.splice(1, 0, c, 'color: inherit');
+
+  // the final "%c" is somewhat tricky, because there could be other
+  // arguments passed either before or after the %c, so we need to
+  // figure out the correct index to insert the CSS into
+  var index = 0;
+  var lastC = 0;
+  args[0].replace(/%[a-zA-Z%]/g, function(match) {
+    if ('%%' === match) return;
+    index++;
+    if ('%c' === match) {
+      // we only are interested in the *last* %c
+      // (the user may have provided their own)
+      lastC = index;
+    }
+  });
+
+  args.splice(lastC, 0, c);
+}
+
+/**
+ * Invokes `console.log()` when available.
+ * No-op when `console.log` is not a "function".
+ *
+ * @api public
+ */
+
+function log() {
+  // this hackery is required for IE8/9, where
+  // the `console.log` function doesn't have 'apply'
+  return 'object' === typeof console
+    && console.log
+    && Function.prototype.apply.call(console.log, console, arguments);
+}
+
+/**
+ * Save `namespaces`.
+ *
+ * @param {String} namespaces
+ * @api private
+ */
+
+function save(namespaces) {
+  try {
+    if (null == namespaces) {
+      exports.storage.removeItem('debug');
+    } else {
+      exports.storage.debug = namespaces;
+    }
+  } catch(e) {}
+}
+
+/**
+ * Load `namespaces`.
+ *
+ * @return {String} returns the previously persisted debug modes
+ * @api private
+ */
+
+function load() {
+  var r;
+  try {
+    r = exports.storage.debug;
+  } catch(e) {}
+
+  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+  if (!r && typeof process !== 'undefined' && 'env' in process) {
+    r = process.env.DEBUG;
+  }
+
+  return r;
+}
+
+/**
+ * Enable namespaces listed in `localStorage.debug` initially.
+ */
+
+exports.enable(load());
+
+/**
+ * Localstorage attempts to return the localstorage.
+ *
+ * This is necessary because safari throws
+ * when a user disables cookies/localstorage
+ * and you attempt to access it.
+ *
+ * @return {LocalStorage}
+ * @api private
+ */
+
+function localstorage() {
+  try {
+    return window.localStorage;
+  } catch (e) {}
+}
+});
+var browser_1 = browser.log;
+var browser_2 = browser.formatArgs;
+var browser_3 = browser.save;
+var browser_4 = browser.load;
+var browser_5 = browser.useColors;
+var browser_6 = browser.storage;
+var browser_7 = browser.colors;
+
+var node = createCommonjsModule(function (module, exports) {
+/**
+ * Module dependencies.
+ */
+
+
+
+
+/**
+ * This is the Node.js implementation of `debug()`.
+ *
+ * Expose `debug()` as the module.
+ */
+
+exports = module.exports = debug;
+exports.init = init;
+exports.log = log;
+exports.formatArgs = formatArgs;
+exports.save = save;
+exports.load = load;
+exports.useColors = useColors;
+
+/**
+ * Colors.
+ */
+
+exports.colors = [6, 2, 3, 4, 5, 1];
+
+/**
+ * Build up the default `inspectOpts` object from the environment variables.
+ *
+ *   $ DEBUG_COLORS=no DEBUG_DEPTH=10 DEBUG_SHOW_HIDDEN=enabled node script.js
+ */
+
+exports.inspectOpts = Object.keys(process.env).filter(function (key) {
+  return /^debug_/i.test(key);
+}).reduce(function (obj, key) {
+  // camel-case
+  var prop = key
+    .substring(6)
+    .toLowerCase()
+    .replace(/_([a-z])/g, function (_, k) { return k.toUpperCase() });
+
+  // coerce string value into JS value
+  var val = process.env[key];
+  if (/^(yes|on|true|enabled)$/i.test(val)) val = true;
+  else if (/^(no|off|false|disabled)$/i.test(val)) val = false;
+  else if (val === 'null') val = null;
+  else val = Number(val);
+
+  obj[prop] = val;
+  return obj;
+}, {});
+
+/**
+ * The file descriptor to write the `debug()` calls to.
+ * Set the `DEBUG_FD` env variable to override with another value. i.e.:
+ *
+ *   $ DEBUG_FD=3 node script.js 3>debug.log
+ */
+
+var fd = parseInt(process.env.DEBUG_FD, 10) || 2;
+
+if (1 !== fd && 2 !== fd) {
+  util.deprecate(function(){}, 'except for stderr(2) and stdout(1), any other usage of DEBUG_FD is deprecated. Override debug.log if you want to use a different log function (https://git.io/debug_fd)')();
+}
+
+var stream = 1 === fd ? process.stdout :
+             2 === fd ? process.stderr :
+             createWritableStdioStream(fd);
+
+/**
+ * Is stdout a TTY? Colored output is enabled when `true`.
+ */
+
+function useColors() {
+  return 'colors' in exports.inspectOpts
+    ? Boolean(exports.inspectOpts.colors)
+    : tty.isatty(fd);
+}
+
+/**
+ * Map %o to `util.inspect()`, all on a single line.
+ */
+
+exports.formatters.o = function(v) {
+  this.inspectOpts.colors = this.useColors;
+  return util.inspect(v, this.inspectOpts)
+    .split('\n').map(function(str) {
+      return str.trim()
+    }).join(' ');
+};
+
+/**
+ * Map %o to `util.inspect()`, allowing multiple lines if needed.
+ */
+
+exports.formatters.O = function(v) {
+  this.inspectOpts.colors = this.useColors;
+  return util.inspect(v, this.inspectOpts);
+};
+
+/**
+ * Adds ANSI color escape codes if enabled.
+ *
+ * @api public
+ */
+
+function formatArgs(args) {
+  var name = this.namespace;
+  var useColors = this.useColors;
+
+  if (useColors) {
+    var c = this.color;
+    var prefix = '  \u001b[3' + c + ';1m' + name + ' ' + '\u001b[0m';
+
+    args[0] = prefix + args[0].split('\n').join('\n' + prefix);
+    args.push('\u001b[3' + c + 'm+' + exports.humanize(this.diff) + '\u001b[0m');
+  } else {
+    args[0] = new Date().toUTCString()
+      + ' ' + name + ' ' + args[0];
+  }
+}
+
+/**
+ * Invokes `util.format()` with the specified arguments and writes to `stream`.
+ */
+
+function log() {
+  return stream.write(util.format.apply(util, arguments) + '\n');
+}
+
+/**
+ * Save `namespaces`.
+ *
+ * @param {String} namespaces
+ * @api private
+ */
+
+function save(namespaces) {
+  if (null == namespaces) {
+    // If you set a process.env field to null or undefined, it gets cast to the
+    // string 'null' or 'undefined'. Just delete instead.
+    delete process.env.DEBUG;
+  } else {
+    process.env.DEBUG = namespaces;
+  }
+}
+
+/**
+ * Load `namespaces`.
+ *
+ * @return {String} returns the previously persisted debug modes
+ * @api private
+ */
+
+function load() {
+  return process.env.DEBUG;
+}
+
+/**
+ * Copied from `node/src/node.js`.
+ *
+ * XXX: It's lame that node doesn't expose this API out-of-the-box. It also
+ * relies on the undocumented `tty_wrap.guessHandleType()` which is also lame.
+ */
+
+function createWritableStdioStream (fd) {
+  var stream;
+  var tty_wrap = process.binding('tty_wrap');
+
+  // Note stream._type is used for test-module-load-list.js
+
+  switch (tty_wrap.guessHandleType(fd)) {
+    case 'TTY':
+      stream = new tty.WriteStream(fd);
+      stream._type = 'tty';
+
+      // Hack to have stream not keep the event loop alive.
+      // See https://github.com/joyent/node/issues/1726
+      if (stream._handle && stream._handle.unref) {
+        stream._handle.unref();
+      }
+      break;
+
+    case 'FILE':
+      var fs$$1 = fs;
+      stream = new fs$$1.SyncWriteStream(fd, { autoClose: false });
+      stream._type = 'fs';
+      break;
+
+    case 'PIPE':
+    case 'TCP':
+      var net$$1 = net;
+      stream = new net$$1.Socket({
+        fd: fd,
+        readable: false,
+        writable: true
+      });
+
+      // FIXME Should probably have an option in net.Socket to create a
+      // stream from an existing fd which is writable only. But for now
+      // we'll just add this hack and set the `readable` member to false.
+      // Test: ./node test/fixtures/echo.js < /etc/passwd
+      stream.readable = false;
+      stream.read = null;
+      stream._type = 'pipe';
+
+      // FIXME Hack to have stream not keep the event loop alive.
+      // See https://github.com/joyent/node/issues/1726
+      if (stream._handle && stream._handle.unref) {
+        stream._handle.unref();
+      }
+      break;
+
+    default:
+      // Probably an error on in uv_guess_handle()
+      throw new Error('Implement me. Unknown stream file type!');
+  }
+
+  // For supporting legacy API we put the FD here.
+  stream.fd = fd;
+
+  stream._isStdio = true;
+
+  return stream;
+}
+
+/**
+ * Init logic for `debug` instances.
+ *
+ * Create a new `inspectOpts` object in case `useColors` is set
+ * differently for a particular `debug` instance.
+ */
+
+function init (debug$$1) {
+  debug$$1.inspectOpts = {};
+
+  var keys$$1 = Object.keys(exports.inspectOpts);
+  for (var i = 0; i < keys$$1.length; i++) {
+    debug$$1.inspectOpts[keys$$1[i]] = exports.inspectOpts[keys$$1[i]];
+  }
+}
+
+/**
+ * Enable namespaces listed in `process.env.DEBUG` initially.
+ */
+
+exports.enable(load());
+});
+var node_1 = node.init;
+var node_2 = node.log;
+var node_3 = node.formatArgs;
+var node_4 = node.save;
+var node_5 = node.load;
+var node_6 = node.useColors;
+var node_7 = node.colors;
+var node_8 = node.inspectOpts;
+
+var src = createCommonjsModule(function (module) {
+/**
+ * Detect Electron renderer process, which is node, but we should
+ * treat as a browser.
+ */
+
+if (typeof process !== 'undefined' && process.type === 'renderer') {
+  module.exports = browser;
+} else {
+  module.exports = node;
+}
+});
+
+/**
+ * Module dependencies
+ */
+
+var debug$1 = src('jsonp');
+
+/**
+ * Module exports.
+ */
+
+var jsonp_1 = jsonp;
+
+/**
+ * Callback index.
+ */
+
+var count = 0;
+
+/**
+ * Noop function.
+ */
+
+function noop(){}
+
+/**
+ * JSONP handler
+ *
+ * Options:
+ *  - param {String} qs parameter (`callback`)
+ *  - prefix {String} qs parameter (`__jp`)
+ *  - name {String} qs parameter (`prefix` + incr)
+ *  - timeout {Number} how long after a timeout error is emitted (`60000`)
+ *
+ * @param {String} url
+ * @param {Object|Function} optional options / callback
+ * @param {Function} optional callback
+ */
+
+function jsonp(url, opts, fn){
+  if ('function' == typeof opts) {
+    fn = opts;
+    opts = {};
+  }
+  if (!opts) opts = {};
+
+  var prefix = opts.prefix || '__jp';
+
+  // use the callback name that was passed if one was provided.
+  // otherwise generate a unique name by incrementing our counter.
+  var id = opts.name || (prefix + (count++));
+
+  var param = opts.param || 'callback';
+  var timeout = null != opts.timeout ? opts.timeout : 60000;
+  var enc = encodeURIComponent;
+  var target = document.getElementsByTagName('script')[0] || document.head;
+  var script;
+  var timer;
+
+
+  if (timeout) {
+    timer = setTimeout(function(){
+      cleanup();
+      if (fn) fn(new Error('Timeout'));
+    }, timeout);
+  }
+
+  function cleanup(){
+    if (script.parentNode) script.parentNode.removeChild(script);
+    window[id] = noop;
+    if (timer) clearTimeout(timer);
+  }
+
+  function cancel(){
+    if (window[id]) {
+      cleanup();
+    }
+  }
+
+  window[id] = function(data){
+    debug$1('jsonp got', data);
+    cleanup();
+    if (fn) fn(null, data);
+  };
+
+  // add qs component
+  url += (~url.indexOf('?') ? '&' : '?') + param + '=' + enc(id);
+  url = url.replace('?&', '?');
+
+  debug$1('jsonp req "%s"', url);
+
+  // create script
+  script = document.createElement('script');
+  script.src = url;
+  target.parentNode.insertBefore(script, target);
+
+  return cancel;
+}
+
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -224,7 +1171,7 @@ var ApiHelper = function () {
     value: function fetchResource(opts) {
       var url = this.generateUrl(opts.params);
 
-      jsonp(url, null, function (err, data) {
+      jsonp_1(url, null, function (err, data) {
         if (err) {
           console.log(err);
         } else {
@@ -282,6 +1229,519 @@ var ApiHelper = function () {
   }]);
   return ApiHelper;
 }();
+
+var classCallCheck$1 = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+var createClass$1 = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+var defineProperty$1 = function (obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+};
+
+var inherits$1 = function (subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+};
+
+var possibleConstructorReturn$1 = function (self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+};
+
+var API_ENDPOINT = '/api/upload_image/';
+
+var ImageUploader = function (_Component) {
+  inherits$1(ImageUploader, _Component);
+
+  function ImageUploader(props) {
+    classCallCheck$1(this, ImageUploader);
+
+    var _this = possibleConstructorReturn$1(this, (ImageUploader.__proto__ || Object.getPrototypeOf(ImageUploader)).call(this, props));
+
+    _this.saveImage = function (opts) {
+      var url = API_ENDPOINT;
+      var data = opts.data;
+      var config = opts.config;
+
+      axios({
+        url: url,
+        data: data,
+        config: config,
+        method: 'post',
+        responseType: 'json'
+      }).then(function (res) {
+        if (res.data.errors) {
+          return opts.onError(res.data);
+        }
+        opts.onSuccess(res.data);
+      }).catch(function (err) {
+        console.log(err);
+        opts.onFail(err);
+      });
+    };
+
+    _this.state = { image: _this.props.image };
+    _this.onChange = function (e) {
+      return _this._onChange(e);
+    };
+    return _this;
+  }
+
+  createClass$1(ImageUploader, [{
+    key: '_onChange',
+    value: function _onChange(e) {
+      var _this2 = this;
+
+      var file = e.currentTarget.files[0];
+      var data = new FormData();
+      data.append('image', file);
+
+      var onSuccess = function onSuccess(data) {
+        _this2.setState({ image: data.image_url });
+        _this2.props.handleChange(defineProperty$1({}, _this2.props.name, data.image_url));
+      };
+
+      var onError = function onError(data) {
+        console.log(data.errors);
+        _this2.props.handleChange(defineProperty$1({}, _this2.props.name, null));
+      };
+
+      var onFail = function onFail(err) {
+        console.log(err);
+      };
+
+      var config = { headers: { 'Content-Type': 'multipart/form-data' } };
+      var opts = { data: data, config: config, onSuccess: onSuccess, onError: onError, onFail: onFail };
+
+      this.saveImage(opts);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        { className: 'input-with-label form-group ' + this.props.classes },
+        React.createElement(
+          'label',
+          { htmlFor: this.props.name },
+          this.props.label
+        ),
+        React.createElement('input', {
+          className: 'image-upload',
+          type: 'file',
+          name: this.props.name,
+          id: this.props.id,
+          onChange: this.onChange
+        }),
+        this.props.errorMessage && React.createElement(
+          'div',
+          { className: 'error-message' },
+          this.props.errorMessage
+        ),
+        this.state.image && React.createElement(
+          'div',
+          { className: 'image-preview', style: { width: '250px' } },
+          React.createElement('img', { src: this.state.image, alt: 'Image preview', style: { width: '100%', height: '100%' } })
+        )
+      );
+    }
+  }]);
+  return ImageUploader;
+}(Component);
+
+var ALGOLIA_ENDPOINT = 'https://places-dsn.algolia.net/1/places';
+
+var KANSAS_CITY_OPTION = {
+  label: 'Kansas City, Missouri, United States of America',
+  value: {
+    administrative: ['Missouri'],
+    country: {
+      default: 'United States of America'
+    },
+    locale_names: {
+      default: ['Kansas City']
+    },
+    // from https://tools.wmflabs.org
+    _geoloc: {
+      lat: 39.099722,
+      lng: -94.578333
+    }
+  }
+};
+
+var PlaceSelect = function (_Component) {
+  inherits$1(PlaceSelect, _Component);
+
+  function PlaceSelect(props) {
+    classCallCheck$1(this, PlaceSelect);
+
+    var _this = possibleConstructorReturn$1(this, (PlaceSelect.__proto__ || Object.getPrototypeOf(PlaceSelect)).call(this, props));
+
+    _this.state = { hits: [], value: null };
+    _this.handleChange = function (s) {
+      return _this._handleChange(s);
+    };
+    _this.searchPlaces = function (query) {
+      return _this._searchPlaces(query);
+    };
+    _this.fetchPlaceById = function () {
+      return _this._fetchPlaceById();
+    };
+    _this.generateCityOption = function (place) {
+      return _this._generateCityOption(place);
+    };
+    return _this;
+  }
+
+  createClass$1(PlaceSelect, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      if (!!this.props.place_id) {
+        this.fetchPlaceById();
+      } else if (this.props.city === 'Kansas City') {
+        this.setState({ value: KANSAS_CITY_OPTION });
+      } else if (this.props.city) {
+        var value = { label: this.props.city, value: this.props.city };
+        this.setState({ value: value });
+      }
+    }
+  }, {
+    key: '_handleChange',
+    value: function _handleChange(selected) {
+      var cityData = {};
+
+      if (selected) {
+        cityData = {
+          city: selected.value.locale_names ? selected.value.locale_names.default[0] : selected.value,
+          latitude: selected.value._geoloc ? selected.value._geoloc.lat : null,
+          longitude: selected.value._geoloc ? selected.value._geoloc.lng : null,
+          place_id: selected.value.objectID ? selected.value.objectID : null
+        };
+      }
+
+      this.props.handleSelect(cityData);
+      this.setState({ value: selected });
+    }
+  }, {
+    key: '_searchPlaces',
+    value: function _searchPlaces(query) {
+      var _this2 = this;
+
+      var url = ALGOLIA_ENDPOINT + '/query/';
+      var data = {
+        'type': 'city',
+        'hitsPerPage': '10',
+        'query': query
+      };
+      var method = 'post';
+
+      return axios({
+        data: data,
+        url: url,
+        method: method
+      }).then(function (res) {
+        var options = res.data.hits.map(function (place) {
+          return _this2.generateCityOption(place);
+        });
+        // Kansas City, MO is missing from the Algolia places API
+        // so we're manually adding it in
+        // TODO: don't do this
+        if (query.toLowerCase().includes('kansas')) {
+          options.unshift(KANSAS_CITY_OPTION);
+        }
+        return { options: options };
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  }, {
+    key: '_fetchPlaceById',
+    value: function _fetchPlaceById() {
+      var _this3 = this;
+
+      var url = ALGOLIA_ENDPOINT + '/' + this.props.place_id;
+
+      axios.get(url).then(function (res) {
+        var value = _this3.generateCityOption(res.data);
+        _this3.setState({ value: value });
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  }, {
+    key: '_generateCityOption',
+    value: function _generateCityOption(place) {
+      return {
+        label: place.locale_names.default[0] + ', ' + place.administrative[0] + ', ' + place.country.default,
+        value: place
+      };
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this4 = this;
+
+      var options = this.state.hits.map(function (place) {
+        return _this4.generateCityOption(place);
+      });
+
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(Select.AsyncCreatable, {
+          name: this.props.name,
+          className: 'city-select ' + this.props.classes,
+          value: this.state.value,
+          options: options,
+          onChange: this.handleChange,
+          noResultsText: 'No results for this city',
+          placeholder: 'Start typing a city name...',
+          loadOptions: this.searchPlaces
+        }),
+        this.props.errorMessage && React.createElement(
+          'div',
+          { className: 'error-message minicaps' },
+          this.props.errorMessage
+        )
+      );
+    }
+  }]);
+  return PlaceSelect;
+}(Component);
+
+var SelectWithLabel = function SelectWithLabel(props) {
+  return React.createElement(
+    'div',
+    { className: '' + props.classes },
+    React.createElement(
+      'label',
+      { htmlFor: props.name },
+      props.label + ' ' + (props.required ? '*' : '')
+    ),
+    React.createElement(Select, {
+      name: props.name,
+      className: props.selectClasses,
+      value: props.value,
+      options: props.options,
+      onChange: props.onChange,
+      onInputChange: props.onInputChange,
+      noResultsText: props.noResultsText,
+      placeholder: props.placeholder,
+      multi: props.multi || false
+    }),
+    props.errorMessage && React.createElement(
+      'div',
+      { className: 'error-message minicaps' },
+      props.errorMessage
+    )
+  );
+};
+
+var SwitchWithLabels = function (_Component) {
+  inherits$1(SwitchWithLabels, _Component);
+
+  function SwitchWithLabels(props) {
+    classCallCheck$1(this, SwitchWithLabels);
+
+    var _this = possibleConstructorReturn$1(this, (SwitchWithLabels.__proto__ || Object.getPrototypeOf(SwitchWithLabels)).call(this, props));
+
+    _this.state = { checked: _this.props.defaultChecked };
+    _this.handleChange = function (event) {
+      return _this._handleChange(event);
+    };
+    _this.handleClickLabel = function (value) {
+      return _this._handleClickLabel(value);
+    };
+    _this.handleChange = function (event) {
+      return _this._handleChange(event);
+    };
+    return _this;
+  }
+
+  createClass$1(SwitchWithLabels, [{
+    key: "_handleChange",
+    value: function _handleChange(event) {
+      var checked = event.currentTarget.checked;
+
+      this.setState({ checked: checked }, this.props.onChange(checked));
+    }
+  }, {
+    key: "_handleClickLabel",
+    value: function _handleClickLabel(value) {
+      var _this2 = this;
+
+      return function () {
+        _this2.setState({ checked: value }, _this2.props.onChange(value));
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        { className: "switch-container" },
+        React.createElement(
+          "span",
+          { onClick: this.handleClickLabel(false) },
+          this.props.labelLeft
+        ),
+        React.createElement(
+          "label",
+          null,
+          React.createElement("input", {
+            checked: this.state.checked,
+            onChange: this.handleChange,
+            className: "switch",
+            type: "checkbox"
+          }),
+          React.createElement(
+            "div",
+            { className: "switch-background" },
+            React.createElement("div", { className: "switch-button" })
+          )
+        ),
+        React.createElement(
+          "span",
+          { onClick: this.handleClickLabel(true) },
+          this.props.labelRight
+        )
+      );
+    }
+  }]);
+  return SwitchWithLabels;
+}(Component);
+
+var GEONAMES_ENDPOINT = 'https://secure.geonames.org/timezoneJSON';
+
+var TimeZoneSelect = function (_Component) {
+  inherits$1(TimeZoneSelect, _Component);
+
+  function TimeZoneSelect(props) {
+    classCallCheck$1(this, TimeZoneSelect);
+
+    var _this = possibleConstructorReturn$1(this, (TimeZoneSelect.__proto__ || Object.getPrototypeOf(TimeZoneSelect)).call(this, props));
+
+    _this.state = { value: _this.props.timezone };
+    _this.onChange = function (s) {
+      return _this._onChange(s);
+    };
+    _this.detectTimeZone = function () {
+      return _this._detectTimeZone();
+    };
+    return _this;
+  }
+
+  createClass$1(TimeZoneSelect, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.detectTimeZone();
+    }
+  }, {
+    key: '_onChange',
+    value: function _onChange(selected) {
+      var timezone = !!selected ? selected.value : null;
+      this.props.handleChange({ timezone: timezone });
+      this.setState({ value: selected });
+    }
+  }, {
+    key: '_detectTimeZone',
+    value: function _detectTimeZone() {
+      var _this2 = this;
+
+      if (!!this.props.timezone) {
+        // use selected timezone
+        this.setState({ value: { value: this.props.timezone, label: this.props.timezone } });
+      } else if (!!this.props.latitude && !!this.props.longitude) {
+        // use selected city to detect timezone
+        var url = GEONAMES_ENDPOINT + '?lat=' + this.props.latitude + '&lng=' + this.props.longitude + '&username=p2pu';
+        axios.get(url).then(function (res) {
+          var timezone = res.data.timezoneId;
+          _this2.props.handleChange({ timezone: timezone });
+          _this2.setState({ value: { value: timezone, label: timezone } });
+        }).catch(function (err) {
+          return console.log(err);
+        });
+      } else {
+        // detect timezone from browser
+        var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        this.props.handleChange({ timezone: timezone });
+        this.setState({ value: { value: timezone, label: timezone } });
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _React$createElement;
+
+      var timezoneOptions = moment$1.tz.names().map(function (tz) {
+        return { value: tz, label: tz };
+      });
+
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(Select, (_React$createElement = {
+          name: this.props.name,
+          className: 'form-group input-with-label',
+          value: this.state.value,
+          onChange: this.onChange,
+          options: timezoneOptions
+        }, defineProperty$1(_React$createElement, 'name', 'timezone'), defineProperty$1(_React$createElement, 'id', 'id_timezone'), _React$createElement)),
+        this.props.errorMessage && React.createElement(
+          'div',
+          { className: 'error-message minicaps' },
+          this.props.errorMessage
+        )
+      );
+    }
+  }]);
+  return TimeZoneSelect;
+}(Component);
 
 var TopicsFilterForm = function (_Component) {
   inherits(TopicsFilterForm, _Component);
@@ -892,16 +2352,6 @@ var CardTitle = function CardTitle(props) {
     )
   );
 };
-
-var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
-
-function unwrapExports (x) {
-	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
-}
-
-function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
-}
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -6413,7 +7863,7 @@ function getNative(object, key) {
 
 var _getNative = getNative;
 
-var defineProperty$1 = (function() {
+var defineProperty$2 = (function() {
   try {
     var func = _getNative(Object, 'defineProperty');
     func({}, '', {});
@@ -6421,7 +7871,7 @@ var defineProperty$1 = (function() {
   } catch (e) {}
 }());
 
-var _defineProperty = defineProperty$1;
+var _defineProperty = defineProperty$2;
 
 /**
  * The base implementation of `assignValue` and `assignMergeValue` without
