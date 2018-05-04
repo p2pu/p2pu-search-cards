@@ -1,17 +1,10 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var React = require('react');
-var React__default = _interopDefault(React);
-var lodash = require('lodash');
-var jsonp = _interopDefault(require('jsonp'));
-var axios = _interopDefault(require('axios'));
-var p2puInputFields = require('p2pu-input-fields');
-var reactDom = _interopDefault(require('react-dom'));
-var moment = _interopDefault(require('moment'));
+import React, { Component } from 'react';
+import { compact, keys, without, take } from 'lodash';
+import jsonp from 'jsonp';
+import axios from 'axios';
+import { SelectWithLabel, SwitchWithLabels } from 'p2pu-input-fields';
+import reactDom from 'react-dom';
+import moment from 'moment';
 
 var SearchBar = function SearchBar(_ref) {
   var placeholder = _ref.placeholder,
@@ -23,26 +16,26 @@ var SearchBar = function SearchBar(_ref) {
     updateQueryParams({ q: value });
   };
 
-  return React__default.createElement(
+  return React.createElement(
     'form',
     { className: 'search-bar' },
-    React__default.createElement(
+    React.createElement(
       'div',
       { className: 'label' },
       'Search'
     ),
-    React__default.createElement(
+    React.createElement(
       'div',
       { className: 'input' },
-      React__default.createElement(
+      React.createElement(
         'div',
         { className: 'wrapper' },
-        React__default.createElement(
+        React.createElement(
           'i',
           { className: 'material-icons' },
           'search'
         ),
-        React__default.createElement('input', {
+        React.createElement('input', {
           type: 'search',
           className: 'search-input',
           placeholder: placeholder,
@@ -73,13 +66,13 @@ var Filter = function Filter(_ref) {
     updateActiveFilter(newValue);
   };
 
-  return React__default.createElement(
+  return React.createElement(
     'div',
     { className: 'filter ' + activeClass },
-    React__default.createElement(
+    React.createElement(
       'button',
       { className: 'p2pu-btn light with-outline', onClick: handleClick },
-      React__default.createElement(
+      React.createElement(
         'span',
         { style: { display: 'flex', flexWrap: 'nowrap' } },
         filterNames[filter]
@@ -221,7 +214,7 @@ var ApiHelper = function () {
           return key + '=' + encodeURIComponent(value);
         }
       });
-      var queryString = lodash.compact(encodedParams).join('&');
+      var queryString = compact(encodedParams).join('&');
 
       console.log('url', '' + baseUrl + queryString);
       return '' + baseUrl + queryString;
@@ -338,7 +331,7 @@ var TopicsFilterForm = function (_Component) {
       var api = new ApiHelper(resourceType);
       var params = {};
       var callback = function callback(response) {
-        var topics = lodash.keys(response.topics).sort();
+        var topics = keys(response.topics).sort();
         var options = _this2.mapArrayToSelectOptions(topics);
         _this2.setState({ options: options });
       };
@@ -370,10 +363,10 @@ var TopicsFilterForm = function (_Component) {
     value: function render() {
       var value = this.mapArrayToSelectOptions(this.props.topics || []);
 
-      return React__default.createElement(
+      return React.createElement(
         'div',
         { className: 'col-sm-12' },
-        React__default.createElement(p2puInputFields.SelectWithLabel, {
+        React.createElement(SelectWithLabel, {
           label: 'What topics are you interested in?',
           classes: 'no-flex',
           options: this.state.options,
@@ -386,7 +379,7 @@ var TopicsFilterForm = function (_Component) {
     }
   }]);
   return TopicsFilterForm;
-}(React.Component);
+}(Component);
 
 var OrderCoursesForm = function OrderCoursesForm(props) {
   var formValues = {
@@ -407,7 +400,7 @@ var OrderCoursesForm = function OrderCoursesForm(props) {
 
   var defaultChecked = props.order && props.order === formValues.true.value;
 
-  return React__default.createElement(p2puInputFields.SwitchWithLabels, {
+  return React.createElement(SwitchWithLabels, {
     name: 'order-courses',
     labelRight: formValues.true.label,
     labelLeft: formValues.false.label,
@@ -425,19 +418,19 @@ var FilterForm = function FilterForm(props) {
   var internalForm = function internalForm() {
     switch (props.activeFilter) {
       case 'topics':
-        return React__default.createElement(TopicsFilterForm, props);
+        return React.createElement(TopicsFilterForm, props);
       case 'orderCourses':
-        return React__default.createElement(OrderCoursesForm, props);
+        return React.createElement(OrderCoursesForm, props);
     }
   };
 
-  return React__default.createElement(
+  return React.createElement(
     'div',
     { className: 'filter-form-dropdown ' + openClass },
-    React__default.createElement(
+    React.createElement(
       'div',
       { className: 'close', style: { textAlign: 'right', float: 'none' } },
-      React__default.createElement(
+      React.createElement(
         'i',
         { className: 'material-icons', onClick: closeFilter },
         'close'
@@ -472,28 +465,28 @@ var FilterSection = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return React__default.createElement(
+      return React.createElement(
         'div',
         { className: 'filter-section' },
-        React__default.createElement(
+        React.createElement(
           'div',
           { className: 'label' },
           'Filter'
         ),
-        React__default.createElement(
+        React.createElement(
           'div',
           { className: 'filters-bar' },
           this.props.filterCollection.map(function (filter, index) {
             var isActive = _this2.state.activeFilter === filter;
-            return React__default.createElement(
+            return React.createElement(
               'div',
               { key: index, className: 'wrapper' },
-              React__default.createElement(Filter, {
+              React.createElement(Filter, {
                 filter: filter,
                 active: isActive,
                 updateActiveFilter: _this2.updateActiveFilter
               }),
-              isActive && React__default.createElement(FilterForm, _extends({
+              isActive && React.createElement(FilterForm, _extends({
                 activeFilter: _this2.state.activeFilter,
                 updateActiveFilter: _this2.updateActiveFilter
               }, _this2.props))
@@ -504,21 +497,21 @@ var FilterSection = function (_Component) {
     }
   }]);
   return FilterSection;
-}(React.Component);
+}(Component);
 
 var SearchAndFilter = function SearchAndFilter(props) {
   var noResults = props.searchResults.length === 0;
 
-  return React__default.createElement(
+  return React.createElement(
     'div',
     { className: 'search-container' },
-    noResults && React__default.createElement('div', { className: 'overlay' }),
-    React__default.createElement(SearchBar, {
+    noResults && React.createElement('div', { className: 'overlay' }),
+    React.createElement(SearchBar, {
       placeholder: props.placeholder,
       updateQueryParams: props.updateQueryParams,
       q: props.q
     }),
-    React__default.createElement(FilterSection, props)
+    React.createElement(FilterSection, props)
   );
 };
 
@@ -526,11 +519,11 @@ var SearchTag = function SearchTag(_ref) {
   var value = _ref.value,
       onDelete = _ref.onDelete;
 
-  return React__default.createElement(
+  return React.createElement(
     'div',
     { className: 'search-tag' },
     value,
-    React__default.createElement(
+    React.createElement(
       'i',
       { className: 'material-icons', onClick: function onClick() {
           return onDelete(value);
@@ -547,11 +540,11 @@ var SearchTags = function SearchTags(props) {
         props.updateQueryParams({ q: null });
       };
 
-      return [React__default.createElement(
+      return [React.createElement(
         'span',
         { key: 'queryTagIntro' },
         'the search query'
-      ), React__default.createElement(SearchTag, { key: 'queryTag-0', value: props.q, onDelete: onDelete })];
+      ), React.createElement(SearchTag, { key: 'queryTag-0', value: props.q, onDelete: onDelete })];
     }
   };
 
@@ -564,24 +557,24 @@ var SearchTags = function SearchTags(props) {
       };
       var humanReadableName = decodeURIComponent(props.teamName);
 
-      return [React__default.createElement(
+      return [React.createElement(
         'span',
         { key: 'queryTagIntro' },
         'organized by'
-      ), React__default.createElement(SearchTag, { key: 'queryTag-0', value: humanReadableName, onDelete: onDelete })];
+      ), React.createElement(SearchTag, { key: 'queryTag-0', value: humanReadableName, onDelete: onDelete })];
     }
   };
 
   var generateTopicsTags = function generateTopicsTags() {
     if (props.topics && props.topics.length > 0) {
       var onDelete = function onDelete(value) {
-        var newTopicsArray = lodash.without(props.topics, value);
+        var newTopicsArray = without(props.topics, value);
         var topics = newTopicsArray.length > 0 ? newTopicsArray : null;
         props.updateQueryParams({ topics: topics });
       };
 
       var introPhrase = props.topics.length === 1 ? 'the topic' : 'the topics';
-      var topicsTagsArray = [React__default.createElement(
+      var topicsTagsArray = [React.createElement(
         'span',
         { key: 'topicTagIntro' },
         introPhrase
@@ -589,14 +582,14 @@ var SearchTags = function SearchTags(props) {
 
       props.topics.map(function (item, index) {
         if (props.topics.length > 1 && index === props.topics.length - 1) {
-          topicsTagsArray.push(React__default.createElement(
+          topicsTagsArray.push(React.createElement(
             'span',
             { key: 'topicTag-' + (index + 2) },
             'or'
           ));
         }
 
-        topicsTagsArray.push(React__default.createElement(SearchTag, { value: item, key: 'topicTag-' + index, onDelete: onDelete }));
+        topicsTagsArray.push(React.createElement(SearchTag, { value: item, key: 'topicTag-' + index, onDelete: onDelete }));
       });
 
       return topicsTagsArray;
@@ -612,20 +605,20 @@ var SearchTags = function SearchTags(props) {
       var onDelete = function onDelete(value) {
         props.updateQueryParams({ latitude: null, longitude: null, distance: 50 });
       };
-      return [React__default.createElement(
+      return [React.createElement(
         'span',
         { key: 'locationTagIntro' },
         'located'
-      ), React__default.createElement(SearchTag, { key: 'locationTag-0', value: text, onDelete: onDelete })];
+      ), React.createElement(SearchTag, { key: 'locationTag-0', value: text, onDelete: onDelete })];
     } else if (props.city) {
       var _onDelete = function _onDelete(value) {
         props.updateQueryParams({ city: null });
       };
-      return [React__default.createElement(
+      return [React.createElement(
         'span',
         { key: 'locationTagIntro' },
         'located in'
-      ), React__default.createElement(SearchTag, { key: 'locationTag-0', value: props.city, onDelete: _onDelete })];
+      ), React.createElement(SearchTag, { key: 'locationTag-0', value: props.city, onDelete: _onDelete })];
     }
   };
 
@@ -633,12 +626,12 @@ var SearchTags = function SearchTags(props) {
     if (props.weekdays && props.weekdays.length > 0) {
       var onDelete = function onDelete(day) {
         var dayIndex = MEETING_DAYS.indexOf(day);
-        var newWeekdayArray = lodash.without(props.weekdays, dayIndex);
+        var newWeekdayArray = without(props.weekdays, dayIndex);
         var weekdays = newWeekdayArray.length > 0 ? newWeekdayArray : null;
         props.updateQueryParams({ weekdays: weekdays });
       };
 
-      var weekdayTagsArray = [React__default.createElement(
+      var weekdayTagsArray = [React.createElement(
         'span',
         { key: 'weekdayTagIntro' },
         'meeting on'
@@ -648,14 +641,14 @@ var SearchTags = function SearchTags(props) {
         var weekdayName = MEETING_DAYS[dayIndex];
 
         if (props.weekdays.length > 1 && index === props.weekdays.length - 1) {
-          weekdayTagsArray.push(React__default.createElement(
+          weekdayTagsArray.push(React.createElement(
             'span',
             { key: 'weekdayTag-' + (index + 2) },
             'or'
           ));
         }
 
-        weekdayTagsArray.push(React__default.createElement(SearchTag, { value: weekdayName, key: 'weekdatTag-' + index, onDelete: onDelete }));
+        weekdayTagsArray.push(React.createElement(SearchTag, { value: weekdayName, key: 'weekdatTag-' + index, onDelete: onDelete }));
       });
 
       return weekdayTagsArray;
@@ -679,20 +672,20 @@ var SearchTags = function SearchTags(props) {
 
   var generateSearchSummary = function generateSearchSummary() {
     var results = props.searchResults.length === 1 ? 'result' : 'results';
-    var forSearchSubject = React__default.createElement(
+    var forSearchSubject = React.createElement(
       'span',
       { key: 'resultsSummary-1' },
       'for ',
       SEARCH_SUBJECTS[props.searchSubject]
     );
-    var withSpan = React__default.createElement(
+    var withSpan = React.createElement(
       'span',
       { key: 'resultsSummary-2' },
       'with'
     );
     var tagsToDisplay = ['q', 'topics', 'location', 'meetingDays', 'teamName'];
 
-    var searchSummaryItems = [React__default.createElement(
+    var searchSummaryItems = [React.createElement(
       'span',
       { key: 'resultsSummary-0' },
       'Showing ',
@@ -711,7 +704,7 @@ var SearchTags = function SearchTags(props) {
             searchSummaryItems.push(withSpan);
           }
         } else {
-          searchSummaryItems.push(React__default.createElement(
+          searchSummaryItems.push(React.createElement(
             'span',
             { key: 'resultsSummary-' + searchSummaryItems.length },
             'and'
@@ -726,19 +719,19 @@ var SearchTags = function SearchTags(props) {
 
   var noResults = props.searchResults.length === 0;
 
-  return React__default.createElement(
+  return React.createElement(
     'div',
     { className: 'results-summary' },
-    React__default.createElement(
+    React.createElement(
       'div',
       { className: 'search-tags wrapper' },
       generateSearchSummary()
     ),
-    noResults && React__default.createElement(
+    noResults && React.createElement(
       'div',
       { className: 'clear-search' },
       'To see more results, either remove some filters or ',
-      React__default.createElement(
+      React.createElement(
         'button',
         { onClick: function onClick() {
             window.location.reload();
@@ -845,19 +838,19 @@ var Search = function (_Component) {
       var Browse = this.props.Browse;
 
 
-      return React__default.createElement(
+      return React.createElement(
         'div',
         { className: 'page' },
-        React__default.createElement(SearchAndFilter, _extends({
+        React.createElement(SearchAndFilter, _extends({
           placeholder: placeholder,
           updateQueryParams: this.updateQueryParams,
           filterCollection: filterCollection,
           searchSubject: this.props.searchSubject
         }, this.state)),
-        React__default.createElement(SearchTags, _extends({
+        React.createElement(SearchTags, _extends({
           updateQueryParams: this.updateQueryParams
         }, this.state, this.props)),
-        React__default.createElement(Browse, {
+        React.createElement(Browse, {
           results: this.state.searchResults,
           updateQueryParams: this.updateQueryParams,
           onSelectResult: this.props.onSelectResult
@@ -866,13 +859,13 @@ var Search = function (_Component) {
     }
   }]);
   return Search;
-}(React.Component);
+}(Component);
 
 var Card = function Card(props) {
-  return React__default.createElement(
+  return React.createElement(
     "div",
     { className: "result-item grid-item col-md-4 col-sm-12 col-xs-12" },
-    React__default.createElement(
+    React.createElement(
       "div",
       { className: "course-card" },
       props.children
@@ -881,7 +874,7 @@ var Card = function Card(props) {
 };
 
 var CardBody = function CardBody(props) {
-  return React__default.createElement(
+  return React.createElement(
     "div",
     { className: "card-body" },
     props.children
@@ -889,10 +882,10 @@ var CardBody = function CardBody(props) {
 };
 
 var CardTitle = function CardTitle(props) {
-  return React__default.createElement(
+  return React.createElement(
     "div",
     { className: "card-title" },
-    React__default.createElement(
+    React.createElement(
       "h4",
       { className: "title" },
       props.children
@@ -2548,7 +2541,7 @@ exports.default = function (tip, children, getContent, multiline) {
 
 
 
-var _react2 = _interopRequireDefault(React__default);
+var _react2 = _interopRequireDefault(React);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 });
@@ -2632,7 +2625,7 @@ var _class, _class2, _temp;
 
 
 
-var _react2 = _interopRequireDefault(React__default);
+var _react2 = _interopRequireDefault(React);
 
 
 
@@ -3237,22 +3230,22 @@ var UsageBadge = function UsageBadge(_ref) {
   var tooltipText = 'Used by ' + number + ' ' + pluralizedText;
 
   if (display) {
-    return React__default.createElement(
+    return React.createElement(
       'div',
       { className: 'usage-badge', 'data-tip': true, 'data-for': id },
-      React__default.createElement(
+      React.createElement(
         'div',
         { className: 'text' },
-        React__default.createElement(
+        React.createElement(
           'i',
           { className: 'material-icons' },
           icon
         ),
         number,
-        React__default.createElement(
+        React.createElement(
           ReactTooltip,
           { id: id, 'class': 'p2pu-tooltip', place: 'bottom', effect: 'solid', 'aria-haspopup': 'true' },
-          React__default.createElement(
+          React.createElement(
             'span',
             null,
             tooltipText
@@ -3274,45 +3267,45 @@ var CourseCard = function CourseCard(props) {
       props.updateQueryParams({ topics: [topic] });
     };
   };
-  var topicsList = lodash.take(props.course.topics, 5).map(function (topic) {
-    return React__default.createElement(
+  var topicsList = take(props.course.topics, 5).map(function (topic) {
+    return React.createElement(
       'a',
       { className: 'tag', onClick: handleFilterClick(topic) },
       topic
     );
   });
 
-  return React__default.createElement(
+  return React.createElement(
     Card,
     null,
-    React__default.createElement(UsageBadge, { number: props.course.learning_circles, id: props.id }),
-    React__default.createElement(
+    React.createElement(UsageBadge, { number: props.course.learning_circles, id: props.id }),
+    React.createElement(
       CardTitle,
       null,
       props.course.title
     ),
-    React__default.createElement(
+    React.createElement(
       CardBody,
       null,
-      React__default.createElement(
+      React.createElement(
         'p',
         { className: 'caption' },
         props.course.caption
       ),
-      React__default.createElement('div', { className: 'divider' }),
-      React__default.createElement(
+      React.createElement('div', { className: 'divider' }),
+      React.createElement(
         'p',
         { className: 'tags small-caps' },
-        React__default.createElement(
+        React.createElement(
           'i',
           { className: 'material-icons' },
           'label_outline'
         ),
-        React__default.createElement(
+        React.createElement(
           'span',
           { className: 'topics-list' },
           topicsList.map(function (topic, index) {
-            return React__default.createElement(
+            return React.createElement(
               'span',
               { key: index },
               !!index && ', ',
@@ -3321,47 +3314,47 @@ var CourseCard = function CourseCard(props) {
           })
         )
       ),
-      React__default.createElement(
+      React.createElement(
         'p',
         { className: 'provider small-caps' },
-        React__default.createElement(
+        React.createElement(
           'i',
           { className: 'material-icons' },
           'school'
         ),
         'Provided by ' + props.course.provider
       ),
-      React__default.createElement(
+      React.createElement(
         'p',
         { className: 'availability small-caps' },
-        React__default.createElement(
+        React.createElement(
           'i',
           { className: 'material-icons' },
           'schedule'
         ),
         availability
       ),
-      React__default.createElement('div', { className: 'divider' }),
-      React__default.createElement(
+      React.createElement('div', { className: 'divider' }),
+      React.createElement(
         'div',
         { className: 'actions' },
-        React__default.createElement(
+        React.createElement(
           'div',
           { className: 'secondary-cta' },
-          React__default.createElement(
+          React.createElement(
             'a',
             { href: props.course.link, target: '_blank' },
-            React__default.createElement(
+            React.createElement(
               'i',
               { className: 'material-icons' },
               'open_in_new'
             ),
             'See the course'
           ),
-          React__default.createElement(
+          React.createElement(
             'a',
             { href: feedbackPage, target: '_blank' },
-            React__default.createElement(
+            React.createElement(
               'i',
               { className: 'material-icons' },
               'open_in_new'
@@ -3369,13 +3362,13 @@ var CourseCard = function CourseCard(props) {
             'Facilitator feedback'
           )
         ),
-        React__default.createElement(
+        React.createElement(
           'div',
           { className: 'primary-cta' },
-          props.onSelectResult && React__default.createElement(
+          props.onSelectResult && React.createElement(
             'div',
             { className: 'primary-cta' },
-            React__default.createElement(
+            React.createElement(
               'button',
               { onClick: function onClick() {
                   return props.onSelectResult(props.course);
@@ -7350,11 +7343,11 @@ var _baseKeys = baseKeys;
  * _.keys('hi');
  * // => ['0', '1']
  */
-function keys(object) {
+function keys$1(object) {
   return isArrayLike_1(object) ? _arrayLikeKeys(object) : _baseKeys(object);
 }
 
-var keys_1 = keys;
+var keys_1 = keys$1;
 
 /** Used for built-in method references. */
 var objectProto$8 = Object.prototype;
@@ -12303,7 +12296,7 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
 
 var factory_1 = factory;
 
-if (typeof React__default === 'undefined') {
+if (typeof React === 'undefined') {
   throw Error(
     'create-react-class could not find the React object. If you are using script tags, ' +
       'make sure that React is being loaded before create-react-class.'
@@ -12311,11 +12304,11 @@ if (typeof React__default === 'undefined') {
 }
 
 // Hack to grab NoopUpdateQueue from isomorphic React
-var ReactNoopUpdateQueue = new React__default.Component().updater;
+var ReactNoopUpdateQueue = new React.Component().updater;
 
 var createReactClass = factory_1(
-  React__default.Component,
-  React__default.isValidElement,
+  React.Component,
+  React.isValidElement,
   ReactNoopUpdateQueue
 );
 
@@ -12626,7 +12619,7 @@ var MasonryComponent = createReactClass({
 
   render: function() {
     var props = omit_1(this.props, Object.keys(propTypes$1));
-    return React__default.createElement(this.props.elementType, assign_1({}, props, {ref: this.setRef}), this.props.children);
+    return React.createElement(this.props.elementType, assign_1({}, props, {ref: this.setRef}), this.props.children);
   }
 });
 
@@ -12639,11 +12632,11 @@ var BrowseCourses = function BrowseCourses(_ref) {
       updateQueryParams = _ref.updateQueryParams,
       onSelectResult = _ref.onSelectResult;
 
-  return React__default.createElement(
+  return React.createElement(
     lib,
     { className: "search-results row grid" },
     results.map(function (course, index) {
-      return React__default.createElement(CourseCard, {
+      return React.createElement(CourseCard, {
         key: 'course-card-' + index,
         id: 'course-card-' + index,
         course: course,
@@ -12667,60 +12660,60 @@ var LearningCircleCard = function LearningCircleCard(props) {
   var duration = learningCircle.weeks + ' weeks starting ' + formattedDate;
   var name = learningCircle.course.title;
 
-  return React__default.createElement(
+  return React.createElement(
     Card,
     null,
-    React__default.createElement(
+    React.createElement(
       CardTitle,
       null,
       name
     ),
-    learningCircle.image_url && React__default.createElement(
+    learningCircle.image_url && React.createElement(
       'div',
       { className: 'image-container hidden-on-mobile' },
-      React__default.createElement(
+      React.createElement(
         'div',
         { className: 'image' },
-        React__default.createElement('img', { src: learningCircle.image_url, alt: name })
+        React.createElement('img', { src: learningCircle.image_url, alt: name })
       )
     ),
-    React__default.createElement(
+    React.createElement(
       CardBody,
       null,
-      React__default.createElement(
+      React.createElement(
         'p',
         { className: 'schedule' },
-        React__default.createElement(
+        React.createElement(
           'i',
           { className: 'material-icons' },
           'schedule'
         ),
         schedule
       ),
-      React__default.createElement(
+      React.createElement(
         'p',
         { className: 'duration' },
-        React__default.createElement(
+        React.createElement(
           'i',
           { className: 'material-icons' },
           'today'
         ),
         duration
       ),
-      React__default.createElement(
+      React.createElement(
         'p',
         { className: 'city-country' },
-        React__default.createElement(
+        React.createElement(
           'i',
           { className: 'material-icons' },
           'place'
         ),
         learningCircle.city
       ),
-      React__default.createElement(
+      React.createElement(
         'p',
         { className: 'facilitator' },
-        React__default.createElement(
+        React.createElement(
           'i',
           { className: 'material-icons' },
           'face'
@@ -12728,10 +12721,10 @@ var LearningCircleCard = function LearningCircleCard(props) {
         'Facilitated by ',
         learningCircle.facilitator
       ),
-      React__default.createElement(
+      React.createElement(
         'p',
         { className: 'location' },
-        React__default.createElement(
+        React.createElement(
           'i',
           { className: 'material-icons' },
           'store'
@@ -12739,16 +12732,16 @@ var LearningCircleCard = function LearningCircleCard(props) {
         'Meeting at ',
         learningCircle.venue
       ),
-      React__default.createElement(
+      React.createElement(
         'div',
         { className: 'actions' },
-        React__default.createElement(
+        React.createElement(
           'div',
           { className: 'primary-cta' },
-          React__default.createElement(
+          React.createElement(
             'a',
             { href: learningCircle.url },
-            React__default.createElement(
+            React.createElement(
               'button',
               { className: 'btn p2pu-btn transparent' },
               'Sign up'
@@ -12762,37 +12755,34 @@ var LearningCircleCard = function LearningCircleCard(props) {
 
 var BrowseLearningCircles = function BrowseLearningCircles(_ref) {
   var results = _ref.results;
-  return React__default.createElement(
+  return React.createElement(
     lib,
     { className: "search-results row grid" },
     results.map(function (circle, index) {
-      return React__default.createElement(LearningCircleCard, {
+      return React.createElement(LearningCircleCard, {
         key: 'learning-circle-' + index,
         learningCircle: circle
       });
     }),
-    React__default.createElement(
+    React.createElement(
       'div',
       { className: 'result-item grid-item col-md-4 col-sm-12 col-xs-12 start-learning-circle' },
-      React__default.createElement(
+      React.createElement(
         'div',
         { className: 'circle' },
-        React__default.createElement(
+        React.createElement(
           'p',
           null,
           'Start a learning circle in your neighborhood'
         ),
-        React__default.createElement(
+        React.createElement(
           'a',
           { href: '/en/facilitate', className: 'btn p2pu-btn dark arrow' },
-          React__default.createElement('i', { className: 'fa fa-arrow-right', 'aria-hidden': 'true' })
+          React.createElement('i', { className: 'fa fa-arrow-right', 'aria-hidden': 'true' })
         )
       )
     )
   );
 };
 
-exports.CourseCard = CourseCard;
-exports.BrowseCourses = BrowseCourses;
-exports.BrowseLearningCircles = BrowseLearningCircles;
-exports.Search = Search;
+export { CourseCard, BrowseCourses, BrowseLearningCircles, Search };

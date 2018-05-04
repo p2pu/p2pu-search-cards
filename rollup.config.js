@@ -9,7 +9,7 @@ export default {
   input: 'src/index.js',
   output: {
     file: 'dist/build.js',
-    format: 'cjs'
+    format: 'es'
   },
   external: [
     'react',
