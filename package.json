@@ -13,12 +13,12 @@
   "author": "Sharon Kennedy <sharon@p2pu.org>",
   "license": "MIT",
   "peerDependencies": {
-    "react": ">=15.0.1",
-    "react-dom": ">=15.0.1",
     "axios": "^0.18.0",
-    "lodash": "^4.17.4",
     "jsonp": "^0.2.1",
-    "moment": "^2.22.1"
+    "lodash": "^4.17.4",
+    "moment": "^2.22.1",
+    "react": ">=15.0.1",
+    "react-dom": ">=15.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -28,6 +28,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "react": ">=15.0.1",
     "react-dom": ">=15.0.1",
+    "rollup": "^0.58.2",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-commonjs": "^9.1.2",
     "rollup-plugin-css-only": "^0.4.0",
@@ -36,8 +37,8 @@
     "rollup-plugin-scss": "^0.4.0"
   },
   "dependencies": {
+    "p2pu-input-fields": "^0.4.6",
     "react-masonry-component": "^6.2.0",
-    "react-tooltip": "^3.5.0",
-    "p2pu-input-fields": "^0.4.6"
+    "react-tooltip": "^3.5.0"
   }
 }

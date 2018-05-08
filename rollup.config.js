@@ -9,7 +9,8 @@ export default {
   input: 'src/index.js',
   output: {
     file: 'dist/build.js',
-    format: 'es'
+    format: 'es',
+    globals: { jquery: '$' }
   },
   external: [
     'react',
@@ -19,7 +20,8 @@ export default {
     'jsonp',
     'moment',
     'rc-time-picker',
-    'moment-timezone'
+    'moment-timezone',
+    'jquery',
   ],
   plugins: [
     resolve({
