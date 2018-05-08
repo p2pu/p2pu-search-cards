@@ -1,7 +1,7 @@
 import React, { Component, createElement } from 'react';
 import { compact, uniqBy, sortBy, keys, pull, without, take } from 'lodash';
 import jsonp from 'jsonp';
-import axios from 'axios';
+import axios$1 from 'axios';
 import reactDom, { findDOMNode } from 'react-dom';
 import moment from 'moment';
 import 'rc-time-picker';
@@ -248,7 +248,7 @@ var ApiHelper = function () {
       var data = opts.data;
       var config = opts.config;
 
-      axios({
+      axios$1({
         url: url,
         data: data,
         config: config,
@@ -271,7 +271,7 @@ var ApiHelper = function () {
       var data = opts.data;
       var config = opts.config;
 
-      axios({
+      axios$1({
         url: url,
         data: data,
         config: config,
@@ -10561,7 +10561,7 @@ var ImageUploader = function (_Component) {
       var data = opts.data;
       var config = opts.config;
 
-      axios({
+      axios$1({
         url: url,
         data: data,
         config: config,
@@ -12548,7 +12548,7 @@ var PlaceSelect = function (_Component) {
       };
       var method = 'post';
 
-      return axios({
+      return axios$1({
         data: data,
         url: url,
         method: method
@@ -12574,7 +12574,7 @@ var PlaceSelect = function (_Component) {
 
       var url = ALGOLIA_ENDPOINT + '/' + this.props.place_id;
 
-      axios.get(url).then(function (res) {
+      axios$1.get(url).then(function (res) {
         var value = _this3.generateCityOption(res.data);
         _this3.setState({ value: value });
       }).catch(function (err) {
@@ -14371,7 +14371,7 @@ var TimeZoneSelect = function (_Component) {
       } else if (!!this.props.latitude && !!this.props.longitude) {
         // use selected city to detect timezone
         var url = GEONAMES_ENDPOINT + '?lat=' + this.props.latitude + '&lng=' + this.props.longitude + '&username=p2pu';
-        axios.get(url).then(function (res) {
+        axios$1.get(url).then(function (res) {
           var timezone = res.data.timezoneId;
           _this2.props.handleChange({ timezone: timezone });
           _this2.setState({ value: { value: timezone, label: timezone } });
@@ -14625,8 +14625,7 @@ var LocationFilterForm = function (_Component) {
       var countriesUsingMiles = ['US', 'GB', 'LR', 'MM'];
       var url = 'http://ws.geonames.org/countryCodeJSON?lat=' + lat + '&lng=' + lon + '&username=p2pu';
 
-      $.getJSON(url, function (res) {
-        console.log("country_code", res.countryCode);
+      axios.get(url).then(function (res) {
         var useMiles = countriesUsingMiles.indexOf(res.countryCode) >= 0;
         _this3.props.updateQueryParams({ useMiles: useMiles });
       });
