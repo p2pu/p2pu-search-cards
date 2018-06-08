@@ -3,7 +3,6 @@ import CourseCard from './Courses/CourseCard';
 import BrowseCourses from './Courses/Browse';
 import BrowseLearningCircles from './LearningCircles/Browse';
 
-import 'p2pu-input-fields/dist/build.css'
 import './stylesheets/search.scss'
 
 export {
