@@ -2,7 +2,7 @@ import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
-import {uglify} from 'rollup-plugin-uglify';
+import {terser} from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 import json from 'rollup-plugin-json';
 import scss from 'rollup-plugin-scss';
@@ -14,7 +14,7 @@ export default {
   output: {
     file: 'dist/build.js',
     name: 'p2puSearch',
-    format: 'iife',
+    format: 'es',
     globals: {
       react: 'React',
       'react-dom': 'ReactDOM',
@@ -22,7 +22,7 @@ export default {
       'axios': 'axios',
       'jsonp': 'jsonp',
       'moment': 'moment',
-      'rc-time-picker': 'rc-time-picker'
+      "p2pu-input-fields": "p2pu-input-fields",
     }
   },
   external: [
@@ -32,7 +32,7 @@ export default {
     'axios',
     'jsonp',
     'moment',
-    'rc-time-picker',
+    "p2pu-input-fields"
   ],
   plugins: [
     resolve({
@@ -60,6 +60,6 @@ export default {
         'transform-class-properties'
       ]
     }),
-    uglify(),
+    terser()
   ]
 };
