@@ -1,5 +1,5 @@
 import React from 'react'
-import { without } from 'lodash';
+import without from 'lodash/without';
 import { MEETING_DAYS, SEARCH_SUBJECTS } from '../utils/constants';
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { take } from 'lodash'
+import take from 'lodash/take'
 
 import { Card, CardTitle, CardBody, UsageBadge } from '../Card';
 

@@ -1,5 +1,5 @@
 import { API_ENDPOINTS, DEFAULT_ORIGIN } from './constants';
-import { compact } from 'lodash';
+import compact from 'lodash/compact';
 import jsonp from 'jsonp';
 import axios from 'axios';
 
