@@ -314,7 +314,7 @@ span.course-title {
       }
     }
 
-    &:nth-of-type(4n+1) {
+    &.p2pu-orange {
       .card {
         .card-title {
           background: $p2pu-orange;
@@ -337,7 +337,7 @@ span.course-title {
       }
     }
 
-    &:nth-of-type(4n+2) {
+    &.p2pu-blue {
       .card {
         .card-title {
           background: $p2pu-blue;
@@ -360,7 +360,7 @@ span.course-title {
       }
     }
 
-    &:nth-of-type(4n+3) {
+    &.p2pu-green {
       .card {
         .card-title {
           background: $p2pu-green;
@@ -383,7 +383,7 @@ span.course-title {
       }
     }
 
-    &:nth-of-type(4n+4) {
+    &.p2pu-yellow {
       .card {
         .card-title {
           background: $p2pu-yellow;
