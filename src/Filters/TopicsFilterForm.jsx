@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { keys } from 'lodash'
+import keys from 'lodash/keys'
 import ApiHelper from '../utils/apiHelper'
 
 import { CheckboxWithLabel, SelectWithLabel } from 'p2pu-input-fields'

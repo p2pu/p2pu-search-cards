@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { pull } from 'lodash'
+import pull from 'lodash/pull'
 
 import { CheckboxWithLabel } from 'p2pu-input-fields'
 import { MEETING_DAYS } from '../utils/constants'
