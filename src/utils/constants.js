@@ -62,3 +62,10 @@ export const API_ENDPOINTS = {
     postUrl: `/api/upload_image/`
   }
 };
+
+export const COLOR_CLASSES = [
+  "p2pu-green",
+  "p2pu-blue",
+  "p2pu-yellow",
+  "p2pu-orange",
+]
