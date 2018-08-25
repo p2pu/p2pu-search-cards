@@ -6,6 +6,7 @@ import {terser} from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 import json from 'rollup-plugin-json';
 import scss from 'rollup-plugin-scss';
+import polyfill from 'rollup-plugin-polyfill';
 
 const env = process.env.NODE_ENV;
 
@@ -60,6 +61,7 @@ export default {
         'transform-class-properties'
       ]
     }),
+    polyfill('src/index.js', ['custom-event-polyfill']),
     terser()
   ]
 };
