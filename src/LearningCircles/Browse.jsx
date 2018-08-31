@@ -9,6 +9,7 @@ const BrowseLearningCircles = ({ results }) => (
       results.map((circle, index) => (
         <LearningCircleCard
           key={`learning-circle-${index}`}
+          index={index}
           learningCircle={circle}
         />
       ))
