@@ -415,7 +415,11 @@ span.course-title {
 
       .card-title {
         padding: $padding-xs;
-        color: $white;
+
+        h4 {
+          color: $white;
+          text-align: center;
+        }
       }
 
       .card-body {
@@ -488,10 +492,6 @@ span.course-title {
             }
           }
         }
-      }
-
-      h4 {
-        text-align: center;
       }
 
       .actions {
