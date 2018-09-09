@@ -13,7 +13,7 @@ const LearningCircleCard = (props) => {
   const schedule = `${learningCircle.day} from ${formattedStartTime} to ${formattedEndTime} (${learningCircle.time_zone})`;
   const duration = `${learningCircle.weeks} weeks starting ${formattedDate}`;
   const name = learningCircle.course.title
-  const colorClass = COLOR_CLASSES[(props.index % COLOR_CLASSES.length)];
+  const colorClass = COLOR_CLASSES[(learningCircle.course.id % COLOR_CLASSES.length)];
 
   return (
     <Card colorClass={colorClass}>
