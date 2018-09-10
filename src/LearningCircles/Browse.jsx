@@ -4,7 +4,7 @@ import Masonry from 'react-masonry-component'
 import LearningCircleCard from './LearningCircleCard.jsx'
 
 const BrowseLearningCircles = ({ results }) => (
-  <div className={"search-results row grid"}>
+  <Masonry className={"search-results row grid"}>
     {
       results.map((circle, index) => (
         <LearningCircleCard
@@ -19,7 +19,7 @@ const BrowseLearningCircles = ({ results }) => (
         <a href="/en/facilitate" className="btn p2pu-btn dark arrow"><i className="fa fa-arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
-  </div>
+  </Masonry>
 )
 
 export default BrowseLearningCircles

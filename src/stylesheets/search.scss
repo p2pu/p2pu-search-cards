@@ -288,6 +288,7 @@ span.course-title {
     padding: 15px;
     margin-top: $padding-xs;
     margin-bottom: $padding-xs;
+    width: 33%;
 
     .card {
       cursor: pointer;
@@ -580,14 +581,6 @@ span.course-title {
   }
 }
 
-.grid {
-  display: flex;
-
-  .grid-item {
-    flex: 1 1 30%;
-  }
-}
-
 .load-more {
   text-align: center;
   padding: $padding-md;
@@ -754,6 +747,7 @@ header {
       padding: 15px 0;
       margin-bottom: $padding-xs;
       margin-top: $padding-xs;
+      width: 100%;
 
       .card {
         position: relative;
