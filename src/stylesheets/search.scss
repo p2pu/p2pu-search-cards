@@ -580,6 +580,14 @@ span.course-title {
   }
 }
 
+.grid {
+  display: flex;
+
+  .grid-item {
+    flex: 1 1 30%;
+  }
+}
+
 .load-more {
   text-align: center;
   padding: $padding-md;

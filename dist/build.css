@@ -362,6 +362,11 @@ span.course-title {
     padding: 20px;
     color: #515665; }
 
+.grid {
+  display: flex; }
+  .grid .grid-item {
+    flex: 1 1 30%; }
+
 .load-more {
   text-align: center;
   padding: 40px;
