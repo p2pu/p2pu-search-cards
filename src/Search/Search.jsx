@@ -7,13 +7,10 @@ import ApiHelper from '../utils/apiHelper'
 export default class Search extends Component {
   constructor(props) {
     super(props)
-    const urlParams = new URL(window.location.href).searchParams;
     this.state = {
       searchResults: [],
       distance: 50,
       useMiles: true,
-      teamName: urlParams.get('team'),
-      team_id: urlParams.get('team_id')
     }
     this.handleChange = (s) => this._handleChange(s);
     this.handleInputChange = () => this._handleInputChange();
