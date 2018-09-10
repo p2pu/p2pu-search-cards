@@ -285,12 +285,28 @@ span.course-title {
     position: relative;
     display: flex;
     justify-content: center;
-    padding: 15px;
     margin-top: $padding-xs;
     margin-bottom: $padding-xs;
+    width: 33%;
 
     .card {
       cursor: pointer;
+      margin: 15px;
+
+      .card-title {
+        background: $p2pu-blue;
+      }
+
+      .card-body {
+        background: $p2pu-light-blue;
+
+        .primary-cta {
+          .p2pu-btn {
+            background: $p2pu-blue;
+            color: $white;
+          }
+        }
+      }
     }
 
     .image-container {
@@ -301,6 +317,7 @@ span.course-title {
       display: flex;
       justify-content: center;
       align-items: center;
+      background-image: linear-gradient($p2pu-blue, $p2pu-blue 30%, $p2pu-light-blue 30%, $p2pu-light-blue);
 
       .image {
         width: 80%;
@@ -728,14 +745,15 @@ header {
     overflow: hidden;
 
     .result-item {
-      padding: 15px 0;
       margin-bottom: $padding-xs;
       margin-top: $padding-xs;
+      width: 100%;
 
       .card {
         position: relative;
         left: 0;
         transform: translateX(0);
+        margin: 15px 0;
       }
 
       &:hover, &:focus {
