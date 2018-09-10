@@ -196,6 +196,13 @@ span.course-title {
   margin-bottom: 10px; }
   .search-results .result-item .card {
     cursor: pointer; }
+    .search-results .result-item .card .card-title {
+      background: #05C6B4; }
+    .search-results .result-item .card .card-body {
+      background: rgba(5, 198, 180, 0.15); }
+      .search-results .result-item .card .card-body .primary-cta .p2pu-btn {
+        background: #05C6B4;
+        color: #FFFFFF; }
   .search-results .result-item .image-container {
     width: 100%;
     height: auto;
@@ -203,7 +210,8 @@ span.course-title {
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    background-image: linear-gradient(#05C6B4, #05C6B4 30%, rgba(5, 198, 180, 0.15) 30%, rgba(5, 198, 180, 0.15)); }
     .search-results .result-item .image-container .image {
       width: 80%;
       background-color: #fff;

@@ -15,7 +15,7 @@ export default {
   output: {
     file: 'dist/build.js',
     name: 'p2puSearch',
-    format: 'es',
+    format: 'umd',
     globals: {
       react: 'React',
       'react-dom': 'ReactDOM',
