@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { URL } from 'whatwg-url';
 import SearchAndFilter from './SearchAndFilter'
 import SearchTags from './SearchTags'
 import { SEARCH_PROPS } from '../utils/constants'

@@ -6,7 +6,7 @@ import axios from 'axios';
 export default class ApiHelper {
   constructor(resourceType, origin=DEFAULT_ORIGIN) {
     this.resourceType = resourceType;
-    this.urlOrigin = origin || DEFAULT_ORIGIN;
+    this.urlOrigin = origin;
     this.baseUrl = `${origin}${API_ENDPOINTS[resourceType].baseUrl}`;
     this.validParams = API_ENDPOINTS[resourceType].searchParams;
   }
