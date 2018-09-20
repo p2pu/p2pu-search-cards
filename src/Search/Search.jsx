@@ -13,8 +13,7 @@ export default class Search extends Component {
       searchResults: [],
       distance: 50,
       useMiles: true,
-      teamName: urlParams.team,
-      team_id: urlParams.team_id,
+      team_id: urlParams.team_id || null,
     }
     this.handleChange = (s) => this._handleChange(s);
     this.handleInputChange = () => this._handleInputChange();
