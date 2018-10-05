@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import keys from 'lodash/keys'
 import ApiHelper from '../utils/apiHelper'
 
-import { CheckboxWithLabel, SelectWithLabel } from 'p2pu-input-fields'
+import { SelectWithLabel } from 'p2pu-input-fields'
 
 export default class TopicsFilterForm extends Component {
   constructor(props) {

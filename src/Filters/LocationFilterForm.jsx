@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { CheckboxWithLabel, RangeSliderWithLabel, CitySelect } from 'p2pu-input-fields';
+import axios from 'axios';
 
 export default class LocationFilterForm extends Component {
   constructor(props) {
@@ -23,10 +24,12 @@ export default class LocationFilterForm extends Component {
   }
 
   _getLocation(checkboxValue) {
-    this.setState({ gettingLocation: checkboxValue, useLocation: checkboxValue });
+    const useGeolocation = checkboxValue['geolocation'];
 
-    if (checkboxValue === false) {
-      this.props.updateQueryParams({ latitude: null, longitude: null, useLocation: checkboxValue });
+    this.setState({ gettingLocation: useGeolocation, useLocation: useGeolocation });
+
+    if (useGeolocation === false) {
+      this.props.updateQueryParams({ latitude: null, longitude: null, useLocation: useGeolocation });
       return;
     }
 
