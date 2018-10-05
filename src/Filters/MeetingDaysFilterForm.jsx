@@ -7,17 +7,17 @@ import { MEETING_DAYS } from '../utils/constants'
 export default class MeetingDaysFilterForm extends Component {
   constructor(props) {
     super(props)
-    this.generateChangeHandler = (day) => this._generateChangeHandler(day);
+    this.generateChangeHandler = (day, index) => this._generateChangeHandler(day, index);
   }
 
-  _generateChangeHandler(dayIndex) {
-    return (checked) => {
+  _generateChangeHandler(day, index) {
+    return (checkboxValue) => {
       let newWeekdayList = this.props.weekdays || [];
 
-      if (checked) {
-        newWeekdayList.push(dayIndex)
+      if (checkboxValue[day]) {
+        newWeekdayList.push(index)
       } else {
-        newWeekdayList = pull(newWeekdayList, dayIndex);
+        newWeekdayList = pull(newWeekdayList, index);
       }
 
       this.props.updateQueryParams({ weekdays: newWeekdayList})
@@ -38,7 +38,7 @@ export default class MeetingDaysFilterForm extends Component {
                 value={index}
                 label={day}
                 checked={checked}
-                handleChange={this.generateChangeHandler(index)}
+                handleChange={this.generateChangeHandler(day, index)}
               />
             )
           })
