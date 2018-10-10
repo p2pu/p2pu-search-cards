@@ -27,7 +27,7 @@ export default {
       'axios': 'axios',
       'jsonp': 'jsonp',
       'moment': 'moment',
-      "p2pu-input-fields": "p2pu-input-fields",
+      "p2pu-input-fields": "p2pu-input-fields"
     }
   },
   external: [
@@ -37,7 +37,9 @@ export default {
     'axios',
     'jsonp',
     'moment',
-    "p2pu-input-fields"
+    "p2pu-input-fields",
+    '$',
+    'jQuery'
   ],
   plugins: [
     resolve({
