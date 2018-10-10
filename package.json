@@ -17,9 +17,9 @@
     "jsonp": "^0.2.1",
     "lodash": "^4.17.10",
     "moment": "^2.22.1",
+    "p2pu-input-fields": "^0.4.6",
     "react": ">=15.0.1",
-    "react-dom": ">=15.0.1",
-    "p2pu-input-fields": "^0.4.6"
+    "react-dom": ">=15.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -36,7 +36,6 @@
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-commonjs": "^9.1.2",
     "rollup-plugin-css-only": "^0.4.0",
-    "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-polyfill": "^2.0.1",
@@ -46,7 +45,6 @@
   },
   "dependencies": {
     "query-string": "^5.1.1",
-    "react-masonry-component": "^6.2.0",
-    "react-tooltip": "^3.8.0"
+    "react-masonry-component": "^6.2.0"
   }
 }
