@@ -7,8 +7,14 @@ import css from 'rollup-plugin-css-only';
 import json from 'rollup-plugin-json';
 import scss from 'rollup-plugin-scss';
 import polyfill from 'rollup-plugin-polyfill';
+import builtins from 'rollup-plugin-node-builtins';
+
 
 const env = process.env.NODE_ENV;
+const commonjsOptions = {
+  ignoreGlobal: true,
+  include: /node_modules/
+};
 
 export default {
   input: 'src/index.js',
@@ -36,10 +42,12 @@ export default {
     "p2pu-input-fields"
   ],
   plugins: [
+    builtins(),
     resolve({
       extensions: [ '.js', '.jsx' ],
       jsnext: true,
-      main: true
+      main: true,
+      preferBuiltins: false
     }),
     replace({ 'process.env.NODE_ENV': JSON.stringify(env) }),
     json(),
@@ -54,7 +62,7 @@ export default {
           }
         ]
       ],
-      exclude: [ 'node_modules/**', '**/*.json' ],
+      exclude: ["node_modules/**/*", "**/*.json"],
       plugins: [
         "external-helpers",
         "transform-react-jsx",
