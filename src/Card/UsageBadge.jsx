@@ -8,7 +8,7 @@ const UsageBadge = ({ number, id }) => {
 
   if (display) {
     return (
-      <div className='usage-badge' data-tip data-for={id}>
+      <div className='usage-badge' data-toggle="tooltip" data-placement="bottom" title={tooltipText}>
         <div className='text'>
           <i className="material-icons">{icon}</i>{number}
         </div>
@@ -17,7 +17,6 @@ const UsageBadge = ({ number, id }) => {
   } else {
     return null
   }
-
 }
 
 export default UsageBadge

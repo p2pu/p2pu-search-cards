@@ -2,12 +2,10 @@ import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
-import {terser} from 'rollup-plugin-terser';
+import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
-import json from 'rollup-plugin-json';
 import scss from 'rollup-plugin-scss';
 import polyfill from 'rollup-plugin-polyfill';
-import builtins from 'rollup-plugin-node-builtins';
 
 
 const env = process.env.NODE_ENV;
@@ -29,7 +27,7 @@ export default {
       'axios': 'axios',
       'jsonp': 'jsonp',
       'moment': 'moment',
-      "p2pu-input-fields": "p2pu-input-fields",
+      "p2pu-input-fields": "p2pu-input-fields"
     }
   },
   external: [
@@ -39,10 +37,11 @@ export default {
     'axios',
     'jsonp',
     'moment',
-    "p2pu-input-fields"
+    "p2pu-input-fields",
+    '$',
+    'jQuery'
   ],
   plugins: [
-    builtins(),
     resolve({
       extensions: [ '.js', '.jsx' ],
       jsnext: true,
@@ -50,7 +49,6 @@ export default {
       preferBuiltins: false
     }),
     replace({ 'process.env.NODE_ENV': JSON.stringify(env) }),
-    json(),
     commonjs(),
     scss({output: 'dist/build.css'}),
     babel({
@@ -62,7 +60,7 @@ export default {
           }
         ]
       ],
-      exclude: ["node_modules/**/*", "**/*.json"],
+      exclude: ["node_modules/**/*"],
       plugins: [
         "external-helpers",
         "transform-react-jsx",
