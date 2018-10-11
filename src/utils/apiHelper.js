@@ -1,5 +1,4 @@
 import { API_ENDPOINTS, DEFAULT_ORIGIN } from './constants';
-import compact from 'lodash/compact';
 import jsonp from 'jsonp';
 import axios from 'axios';
 
@@ -19,7 +18,7 @@ export default class ApiHelper {
         return `${key}=${encodeURIComponent(value)}`
       }
     })
-    const queryString = compact(encodedParams).join('&');
+    const queryString = encodedParams.filter(a => a).join('&');
 
     console.log('url', `${baseUrl}${queryString}`)
     return `${baseUrl}${queryString}`

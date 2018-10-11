@@ -1,5 +1,4 @@
 import React from 'react'
-import take from 'lodash/take'
 
 import { Card, CardTitle, CardBody, UsageBadge } from '../Card';
 import { COLOR_CLASSES } from '../utils/constants';
@@ -11,7 +10,7 @@ const CourseCard = (props) => {
   const handleFilterClick = (topic) => {
     return () => { props.updateQueryParams({ topics: [topic] }) }
   };
-  const topicsList = take(props.course.topics, 5).map((topic) => {
+  const topicsList = props.course.topics.slice(0, 5).map( topic => {
     return <a className='tag' onClick={handleFilterClick(topic)}>{topic}</a>
   });
   const colorClass = COLOR_CLASSES[(props.course.id % COLOR_CLASSES.length)];

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import pull from 'lodash/pull'
 
 import { CheckboxWithLabel } from 'p2pu-input-fields'
 import { MEETING_DAYS } from '../utils/constants'
@@ -17,7 +16,7 @@ export default class MeetingDaysFilterForm extends Component {
       if (checkboxValue[day]) {
         newWeekdayList.push(index)
       } else {
-        newWeekdayList = pull(newWeekdayList, index);
+        newWeekdayList = newWeekdayList.filter( val => val != index);
       }
 
       this.props.updateQueryParams({ weekdays: newWeekdayList})

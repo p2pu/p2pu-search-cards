@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import keys from 'lodash/keys'
 import ApiHelper from '../utils/apiHelper'
 
 import { SelectWithLabel } from 'p2pu-input-fields'
@@ -30,7 +29,7 @@ export default class TopicsFilterForm extends Component {
     const api = new ApiHelper(resourceType);
     const params = {};
     const callback = (response) => {
-      const topics = keys(response.topics).sort()
+      const topics = Object.keys(response.topics).sort()
       const options = this.mapArrayToSelectOptions(topics);
       this.setState({ options })
     }
