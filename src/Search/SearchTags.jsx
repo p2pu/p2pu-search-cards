@@ -1,5 +1,4 @@
 import React from 'react'
-import Clear from "@material-ui/icons/Clear"
 
 import { MEETING_DAYS, SEARCH_SUBJECTS } from '../utils/constants';
 
@@ -8,7 +7,7 @@ const SearchTag = ({ value, onDelete }) => {
   return(
     <div className='search-tag'>
       {value}
-      <Clear onClick={ () => onDelete(value) } style={{ cursor: 'pointer' }} />
+      <i className="material-icons" onClick={ () => onDelete(value) } style={{ cursor: 'pointer' }}>clear</i>
     </div>
   )
 }

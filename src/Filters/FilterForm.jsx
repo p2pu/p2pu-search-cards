@@ -1,5 +1,4 @@
 import React from 'react'
-import Clear from "@material-ui/icons/Clear"
 import TopicsFilterForm from './TopicsFilterForm'
 import OrderCoursesForm from './OrderCoursesForm'
 import LocationFilterForm from './LocationFilterForm'
@@ -25,7 +24,7 @@ const FilterForm = (props) => {
   return(
     <div className={`filter-form-dropdown ${openClass}`}>
       <div className='close' style={{ textAlign: 'right', float: 'none', cursor: 'pointer' }}>
-        <Clear onClick={closeFilter} />
+        <i className="material-icons" onClick={closeFilter}>close</i>
       </div>
       {internalForm()}
     </div>

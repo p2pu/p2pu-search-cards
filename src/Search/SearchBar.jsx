@@ -1,5 +1,4 @@
 import React from 'react'
-import Search from "@material-ui/icons/Search"
 
 const SearchBar = ({ placeholder, updateQueryParams, q }) => {
   const onChange = (e) => {
@@ -14,7 +13,7 @@ const SearchBar = ({ placeholder, updateQueryParams, q }) => {
       </div>
       <div className="input">
         <div className='wrapper'>
-          <Search />
+          <i className="material-icons">search</i>
           <input
             type="search"
             className='search-input'

@@ -4,8 +4,6 @@ import { render } from 'react-dom';
 import Search from "../../src/Search/Search";
 import BrowseCourses from "../../src/Courses/Browse";
 
-
-// import "p2pu-theme/dist/base.css";
 import "../../src/stylesheets/search.scss"
 
 
