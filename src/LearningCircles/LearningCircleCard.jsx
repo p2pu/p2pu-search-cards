@@ -1,5 +1,11 @@
-import React from 'react'
-import moment from 'moment'
+import React from 'react';
+import moment from 'moment';
+import Schedule from "@material-ui/icons/Schedule";
+import Today from "@material-ui/icons/Today";
+import Place from "@material-ui/icons/Place";
+import Face from "@material-ui/icons/Face";
+import Store from "@material-ui/icons/Store";
+
 import { Card, CardTitle, CardBody } from '../Card';
 import { COLOR_CLASSES } from '../utils/constants';
 
@@ -30,23 +36,23 @@ const LearningCircleCard = (props) => {
 
       <CardBody>
         <p className="schedule">
-          <i className="material-icons">schedule</i>
+          <Schedule />
           { schedule }
         </p>
         <p className="duration">
-          <i className="material-icons">today</i>
+          <Today />
           { duration }
         </p>
         <p className="city-country">
-          <i className="material-icons">place</i>
+          <Place />
           { learningCircle.city }
         </p>
         <p className="facilitator">
-          <i className="material-icons">face</i>
+          <Face />
           Facilitated by { learningCircle.facilitator }
         </p>
         <p className="location">
-          <i className="material-icons">store</i>
+          <Store />
           Meeting at { learningCircle.venue }
         </p>
         <div className='actions'>

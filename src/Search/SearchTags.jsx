@@ -1,4 +1,6 @@
 import React from 'react'
+import Clear from "@material-ui/icons/Clear"
+
 import { MEETING_DAYS, SEARCH_SUBJECTS } from '../utils/constants';
 
 
@@ -6,7 +8,7 @@ const SearchTag = ({ value, onDelete }) => {
   return(
     <div className='search-tag'>
       {value}
-      <i className="material-icons" onClick={ () => onDelete(value) }>clear</i>
+      <Clear onClick={ () => onDelete(value) } style={{ cursor: 'pointer' }} />
     </div>
   )
 }
@@ -115,12 +117,12 @@ const SearchTags = (props) => {
   }
 
   const generateSearchSummary = () => {
-    const results = props.searchResults.length === 1 ? 'result' : 'results';
+    const results = props.totalResults.length === 1 ? 'result' : 'results';
     const forSearchSubject = <span key='resultsSummary-1'>for {SEARCH_SUBJECTS[props.searchSubject]}</span>;
     const withSpan = <span key='resultsSummary-2'>with</span>;
     const tagsToDisplay = ['q', 'topics', 'location', 'meetingDays', 'teamName'];
 
-    let searchSummaryItems = [<span key='resultsSummary-0'>Showing {props.searchResults.length} {results}</span>];
+    let searchSummaryItems = [<span key='resultsSummary-0'>Showing {props.searchResults.length} of {props.totalResults} {results}</span>];
 
     tagsToDisplay.map((tag) => {
       const tagsArray = generateTagsPhrase(tag);

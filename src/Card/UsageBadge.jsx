@@ -1,16 +1,19 @@
 import React from 'react'
 
+import Done from "@material-ui/icons/Done"
+import DoneAll from "@material-ui/icons/DoneAll"
+
 const UsageBadge = ({ number, id }) => {
   const display = number > 0
   const pluralizedText = number === 1 ? 'learning circle' : 'learning circles';
-  const icon = number === 1 ? 'done' : 'done_all';
+  const Icon = number === 1 ? Done : DoneAll;
   const tooltipText = `Used by ${number} ${pluralizedText}`;
 
   if (display) {
     return (
       <div className='usage-badge' data-toggle="tooltip" data-placement="bottom" title={tooltipText}>
         <div className='text'>
-          <i className="material-icons">{icon}</i>{number}
+          <Icon />{number}
         </div>
       </div>
     );

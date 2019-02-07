@@ -8,9 +8,9 @@ class BrowseCourses extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps != this.props) {
-      $('[data-toggle="tooltip"]').tooltip();
-    }
+    // if (prevProps != this.props) {
+    //   $('[data-toggle="tooltip"]').tooltip();
+    // }
   }
 
   render() {

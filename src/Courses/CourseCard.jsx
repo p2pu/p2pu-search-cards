@@ -1,5 +1,10 @@
 import React from 'react'
 
+import Label from "@material-ui/icons/Label";
+import School from "@material-ui/icons/School";
+import Schedule from "@material-ui/icons/Schedule";
+import OpenInNew from "@material-ui/icons/OpenInNew";
+
 import { Card, CardTitle, CardBody, UsageBadge } from '../Card';
 import { COLOR_CLASSES } from '../utils/constants';
 
@@ -23,7 +28,7 @@ const CourseCard = (props) => {
         <p className="caption">{ props.course.caption }</p>
         <div className="divider"></div>
         <p className="tags small-caps">
-          <i className="material-icons">label_outline</i>
+          <Label />
           <span className='topics-list'>
             { topicsList.map((topic, index) => {
               return <span key={index}>{!!index && ', '}{topic}</span>
@@ -31,21 +36,21 @@ const CourseCard = (props) => {
           </span>
         </p>
         <p className="provider small-caps">
-          <i className="material-icons">school</i>
+          <School />
           { `Provided by ${props.course.provider}` }
         </p>
         <p className="availability small-caps">
-          <i className="material-icons">schedule</i>
+          <Schedule />
           { availability }
         </p>
         <div className="divider"></div>
         <div className='actions'>
           <div className="secondary-cta">
             <a href={props.course.link} target='_blank'>
-              <i className="material-icons">open_in_new</i>See the course
+              <OpenInNew />See the course
             </a>
             <a href={feedbackPage} target='_blank'>
-              <i className="material-icons">open_in_new</i>Facilitator feedback
+              <OpenInNew />Facilitator feedback
             </a>
           </div>
           {
