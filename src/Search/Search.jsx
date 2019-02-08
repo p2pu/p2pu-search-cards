@@ -117,7 +117,12 @@ export default class Search extends Component {
           updateQueryParams={this.updateQueryParams}
           onSelectResult={this.props.onSelectResult}
         />
-
+        {
+          this.state.isLoading &&
+          <div className="loader-container">
+            <ReactLoading height={30} width={60} color={"#515665"} type="bubbles" />
+          </div>
+        }
       </div>
     )
   }
