@@ -37,7 +37,7 @@ export default class Search extends Component {
       }
 
       const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-      const scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
+      const scrollHeight = (document.querySelector(".search-results") && document.querySelector(".search-results").scrollHeight) || document.body.scrollHeight;
       const clientHeight = window.innerHeight;
       const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
 
