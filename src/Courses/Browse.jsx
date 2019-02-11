@@ -8,10 +8,8 @@ class BrowseCourses extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (process.env.NODE_ENV === "production") {
-      if (prevProps != this.props) {
-        $('[data-toggle="tooltip"]').tooltip();
-      }
+    if (prevProps != this.props) {
+      $('[data-toggle="tooltip"]').tooltip();
     }
   }
 
