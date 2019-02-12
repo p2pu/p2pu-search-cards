@@ -23,7 +23,7 @@ const FilterForm = (props) => {
 
   return(
     <div className={`filter-form-dropdown ${openClass}`}>
-      <div className='close' style={{ textAlign: 'right', float: 'none' }}>
+      <div className='close' style={{ textAlign: 'right', float: 'none', cursor: 'pointer' }}>
         <i className="material-icons" onClick={closeFilter}>close</i>
       </div>
       {internalForm()}

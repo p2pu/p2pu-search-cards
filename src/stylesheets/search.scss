@@ -214,6 +214,10 @@ span.course-title {
   display: flex;
 }
 
+.loader-container {
+  @include flex-column-centered;
+}
+
 .search-results {
   .clear-search {
     padding-top: $padding-xs;

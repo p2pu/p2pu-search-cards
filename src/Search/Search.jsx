@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import queryString from 'query-string'
+import ReactLoading from 'react-loading';
+
 import SearchAndFilter from './SearchAndFilter'
 import SearchTags from './SearchTags'
 import { SEARCH_PROPS } from '../utils/constants'
@@ -11,17 +13,38 @@ export default class Search extends Component {
     const urlParams = queryString.parse(window.location.search);
     this.state = {
       searchResults: [],
+      totalResults: 0,
       distance: 50,
       useMiles: true,
       team_id: urlParams.team_id || null,
+      limit: 21,
+      offset: 0,
+      isLoading: false,
+      hasMoreResults: false,
     }
     this.handleChange = (s) => this._handleChange(s);
     this.handleInputChange = () => this._handleInputChange();
     this.handleSearchBarSubmit = (query) => this._handleSearchBarSubmit(query);
     this.searchCallback = (response, opts) => this._searchCallback(response, opts);
     this.updateQueryParams = (params) => this._updateQueryParams(params);
-    this.sendQuery = () => this._sendQuery();
+    this.sendQuery = (opts) => this._sendQuery(opts);
     this.loadInitialData = () => this._loadInitialData();
+
+    window.onscroll = () => {
+      const { isLoading, hasMoreResults } = this.state;
+      if (isLoading || !hasMoreResults) {
+        return;
+      }
+
+      const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+      const scrollHeight = (document.querySelector(".search-results") && document.querySelector(".search-results").scrollHeight) || document.body.scrollHeight;
+      const clientHeight = window.innerHeight;
+      const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+
+      if (scrolledToBottom) {
+        this.sendQuery({ appendResults: true })
+      }
+    };
   }
 
   componentDidMount() {
@@ -29,15 +52,17 @@ export default class Search extends Component {
   }
 
   _loadInitialData() {
-    this.updateQueryParams({ active: true, signup: 'open', order: 'title', team_id: this.state.team_id });
+    this.updateQueryParams({ active: true, signup: 'open', order: 'title', team_id: this.state.team_id, limit: this.state.limit, offset: this.state.offset });
   }
 
-  _sendQuery() {
-    const params = this.state;
-    const opts = { params, callback: this.searchCallback };
-    const api = new ApiHelper(this.props.searchSubject, this.props.origin);
+  _sendQuery(opts={}) {
+    this.setState({ isLoading: true }, () => {
+      const params = this.state;
+      const options = { params, callback: this.searchCallback, ...opts };
+      const api = new ApiHelper(this.props.searchSubject, this.props.origin);
 
-    api.fetchResource(opts);
+      api.fetchResource(options);
+    })
   }
 
   _updateQueryParams(params) {
@@ -60,7 +85,10 @@ export default class Search extends Component {
     this.setState({
       searchResults: results,
       currentQuery: opts.params,
-      totalResults: response.count
+      totalResults: response.count,
+      offset: results.length,
+      isLoading: false,
+      hasMoreResults: response.count > 0 && results.length < response.count,
     })
   }
 
@@ -89,6 +117,12 @@ export default class Search extends Component {
           updateQueryParams={this.updateQueryParams}
           onSelectResult={this.props.onSelectResult}
         />
+        {
+          this.state.isLoading &&
+          <div className="loader-container">
+            <ReactLoading height={30} width={60} color={"#515665"} type="bubbles" />
+          </div>
+        }
       </div>
     )
   }
