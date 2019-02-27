@@ -235,25 +235,6 @@ span.course-title {
     margin-bottom: $padding-xs;
     width: 33%;
 
-    .card {
-      margin: 15px;
-
-      .card-title {
-        background: $p2pu-blue;
-      }
-
-      .card-body {
-        background: $p2pu-light-blue;
-
-        .primary-cta {
-          .p2pu-btn {
-            background: $p2pu-blue;
-            color: $white;
-          }
-        }
-      }
-    }
-
     .image-container {
       width: 100%;
       height: auto;
@@ -368,12 +349,104 @@ span.course-title {
       }
     }
 
+    &.alt {
+
+      .card {
+        border: 0;
+        border-radius: 0;
+        padding: $padding-xs;
+
+        .card-title {
+          background: $white;
+          padding-left: $padding-xs;
+          padding-right: $padding-xs;
+
+          h4 {
+            color: $gray-darker;
+            text-align: left;
+          }
+
+        }
+
+        .card-body {
+          background: $white;
+          padding: $padding-xs;
+
+          .minicaps {
+            text-align: left;
+          }
+
+          .stars {
+            color: $p2pu-yellow;
+
+            i.material-icons {
+              font-size: 24px;
+            }
+          }
+
+          .grid-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            border-bottom: 1px solid $gray-light;
+
+            .label {
+              font-weight: bold;
+            }
+
+            div {
+              padding-top: 0.25rem;
+              padding-bottom: 0.25rem;
+            }
+          }
+
+          .alt-cta {
+            text-align: right;
+          }
+
+        }
+      }
+
+      &.p2pu-orange {
+        .card {
+          border-top: 6px solid $p2pu-orange;
+          border-bottom: 6px solid $p2pu-orange;
+        }
+      }
+
+      &.p2pu-yellow {
+        .card {
+          border-top: 6px solid $p2pu-yellow;
+          border-bottom: 6px solid $p2pu-yellow;
+        }
+      }
+
+      &.p2pu-blue {
+        .card {
+          border-top: 6px solid $p2pu-blue;
+          border-bottom: 6px solid $p2pu-blue;
+        }
+      }
+
+      &.p2pu-green {
+        .card {
+          border-top: 6px solid $p2pu-green;
+          border-bottom: 6px solid $p2pu-green;
+        }
+      }
+
+      .card-title {
+        color: $gray-darker;
+      }
+
+    }
+
     .card {
-      box-shadow: -2px 2px 6px 1px rgba(0, 0, 0, 0.1);
+      box-shadow: -2px 2px 6px 2px rgba(0, 0, 0, 0.15);
       font-size: $font-size-small;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
+      margin: 15px;
 
       .card-title {
         padding: $padding-xs;
@@ -399,11 +472,11 @@ span.course-title {
         }
 
         a {
-          color: $gray-darker;
+          /*color: $gray-darker;*/
 
           &:hover {
             text-decoration: underline;
-            color: $gray-darker;
+            /*color: $gray-darker;*/
             cursor: pointer;
           }
         }
@@ -652,5 +725,22 @@ span.course-title {
 
   .hidden-on-mobile {
     display: none !important;
+  }
+}
+
+.p2pu-btn {
+  &.blue {
+    &.secondary {
+      background: $white;
+      color: $p2pu-blue;
+      border: 2px solid $p2pu-blue;
+      &:before {
+        background: transparentize($p2pu-blue, 0.95);
+      }
+
+      &:hover {
+        color: $p2pu-blue;
+      }
+    }
   }
 }
