@@ -724,20 +724,3 @@ span.course-title {
     display: none !important;
   }
 }
-
-.p2pu-btn {
-  &.blue {
-    &.secondary {
-      background: $white;
-      color: $p2pu-blue;
-      border: 2px solid $p2pu-blue;
-      &:before {
-        background: transparentize($p2pu-blue, 0.95);
-      }
-
-      &:hover {
-        color: $p2pu-blue;
-      }
-    }
-  }
-}
