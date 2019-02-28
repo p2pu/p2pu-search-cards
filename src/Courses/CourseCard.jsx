@@ -6,11 +6,14 @@ import { COLOR_CLASSES } from '../utils/constants';
 const CourseCard = (props) => {
 
   const availability = props.course.on_demand ? 'Always available' : 'Check availability';
-  const handleFilterClick = (topic) => {
-    return () => { props.updateQueryParams({ topics: [topic] }) }
+  const handleFilterClick = topic => {
+    return (event) => {
+      event.preventDefault()
+      props.updateQueryParams({ topics: [topic] })
+    }
   };
   const topicsList = props.course.topics.slice(0, 5).map( topic => {
-    return <a className='tag' onClick={handleFilterClick(topic)}>{topic}</a>
+    return <a className='tag' onClick={handleFilterClick(topic)} href={""}>{topic}</a>
   });
   const colorClass = COLOR_CLASSES[(props.course.id % COLOR_CLASSES.length)];
 
@@ -18,7 +21,7 @@ const CourseCard = (props) => {
     <Card classes="alt">
       <CardTitle>{ props.course.title }</CardTitle>
       <CardBody>
-        <div className="stars mb-2">
+        <div className={`stars mb-2 ${props.course.total_ratings == 0 && 'disabled'}`}>
           { [1,2,3,4,5].map(num => {
             const rating = Math.round(props.course.overall_rating * 2)/2
             if (rating >= num) {
@@ -30,7 +33,7 @@ const CourseCard = (props) => {
             }
           })}
         </div>
-        <div className="minicaps"><strong>{props.course.total_ratings}</strong> ratings  |  Used in <strong>{props.course.learning_circles}</strong> learning circles</div>
+        <div className="minicaps"><strong>{props.course.total_ratings}</strong>{` rating${(props.course.total_ratings == 1) ? "" : "s"}`}  |  Used in <strong>{props.course.learning_circles}</strong>{` learning circle${(props.course.learning_circles == 1) ? "" : "s"}`}</div>
       </CardBody>
 
       <CardBody>

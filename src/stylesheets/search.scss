@@ -289,11 +289,8 @@ span.course-title {
         }
 
         a {
-          /*color: $gray-darker;*/
-
           &:hover {
             text-decoration: underline;
-            /*color: $gray-darker;*/
             cursor: pointer;
           }
         }
@@ -526,6 +523,10 @@ span.course-title {
 
           .stars {
             color: $p2pu-yellow;
+
+            &.disabled {
+              color: $gray;
+            }
 
             i.material-icons {
               font-size: 24px;
