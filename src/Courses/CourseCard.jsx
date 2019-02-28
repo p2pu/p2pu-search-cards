@@ -5,55 +5,86 @@ import { COLOR_CLASSES } from '../utils/constants';
 
 const CourseCard = (props) => {
 
-  const feedbackPage = `https://etherpad.p2pu.org/p/course-feedback-${props.course.id}`;
-  const availability = props.course.on_demand ? 'Course available on demand' : 'Check course availability';
-  const handleFilterClick = (topic) => {
-    return () => { props.updateQueryParams({ topics: [topic] }) }
+  const availability = props.course.on_demand ? 'Always available' : 'Check availability';
+  const handleFilterClick = topic => {
+    return (event) => {
+      event.preventDefault()
+      props.updateQueryParams({ topics: [topic] })
+    }
   };
   const topicsList = props.course.topics.slice(0, 5).map( topic => {
-    return <a className='tag' onClick={handleFilterClick(topic)}>{topic}</a>
+    return <a className='tag' onClick={handleFilterClick(topic)} href={""}>{topic}</a>
   });
   const colorClass = COLOR_CLASSES[(props.course.id % COLOR_CLASSES.length)];
 
   return (
-    <Card colorClass={colorClass}>
-      <UsageBadge number={props.course.learning_circles} id={props.id} />
+    <Card classes="alt">
       <CardTitle>{ props.course.title }</CardTitle>
       <CardBody>
+        <div className={`stars mb-2 ${props.course.total_ratings == 0 && 'disabled'}`}>
+          { [1,2,3,4,5].map(num => {
+            const rating = Math.round(props.course.overall_rating * 2)/2
+            if (rating >= num) {
+              return <i className="material-icons" key={`star-${num}`}>star</i>
+            } else if (rating == num - 0.5) {
+              return <i className="material-icons" key={`star-${num}`}>star_half</i>
+            } else {
+              return <i className="material-icons" key={`star-${num}`}>star_border</i>
+            }
+          })}
+        </div>
+        <div className="minicaps"><strong>{props.course.total_ratings}</strong>{` rating${(props.course.total_ratings == 1) ? "" : "s"}`}  |  Used in <strong>{props.course.learning_circles}</strong>{` learning circle${(props.course.learning_circles == 1) ? "" : "s"}`}</div>
+      </CardBody>
+
+      <CardBody>
         <p className="caption">{ props.course.caption }</p>
-        <div className="divider"></div>
-        <p className="tags small-caps">
-          <i className="material-icons">label_outline</i>
-          <span className='topics-list'>
-            { topicsList.map((topic, index) => {
-              return <span key={index}>{!!index && ', '}{topic}</span>
-            })}
-          </span>
-        </p>
-        <p className="provider small-caps">
-          <i className="material-icons">school</i>
-          { `Provided by ${props.course.provider}` }
-        </p>
-        <p className="availability small-caps">
-          <i className="material-icons">schedule</i>
-          { availability }
-        </p>
-        <div className="divider"></div>
-        <div className='actions'>
-          <div className="secondary-cta">
-            <a href={props.course.link} target='_blank'>
-              <i className="material-icons">open_in_new</i>See the course
-            </a>
-            <a href={feedbackPage} target='_blank'>
-              <i className="material-icons">open_in_new</i>Facilitator feedback
-            </a>
+
+        <div className="my-3">
+          <div className="grid-wrapper">
+            <div className="label">Topics</div>
+            <div>
+              <span className='topics-list'>
+                { topicsList.map((topic, index) => {
+                  return <span key={index}>{!!index && ', '}{topic}</span>
+                })}
+              </span>
+            </div>
           </div>
-          {
-            props.onSelectResult &&
-            <div className="primary-cta">
-              <button onClick={() => props.onSelectResult(props.course)} className="btn p2pu-btn transparent">{props.buttonText}</button>
+
+          <div className="grid-wrapper">
+            <div className="label">Provider</div>
+            <div>{ props.course.provider }</div>
+          </div>
+
+          { props.course.platform &&
+            <div className="grid-wrapper">
+              <div className="label">Platform</div>
+              <div>{ props.course.platform }</div>
             </div>
           }
+
+          <div className="grid-wrapper">
+            <div className="label">Access</div>
+            <div>{ availability }</div>
+          </div>
+
+          { props.course.tagdorsements &&
+            <div className="grid-wrapper">
+              <div className="label">Community feedback</div>
+              <div>{ props.course.tagdorsements.toLowerCase() }</div>
+            </div>
+          }
+
+        </div>
+
+        <div className='actions'>
+            <div className="alt-cta">
+              <a href={ props.course.course_page_url } target="_blank" className="btn p2pu-btn blue secondary">More details</a>
+            {
+              props.onSelectResult &&
+              <button onClick={() => props.onSelectResult(props.course)} className="btn p2pu-btn blue">{props.buttonText}</button>
+            }
+            </div>
         </div>
       </CardBody>
     </Card>

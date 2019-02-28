@@ -46,7 +46,7 @@ module.exports = {
         })
     ],
     resolve: {
-        extensions: [".js", ".jsx"]
+        extensions: [".js", ".jsx", ".scss"]
     },
     devServer: {
         port: 3001

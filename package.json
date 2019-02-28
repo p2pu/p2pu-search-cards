@@ -20,7 +20,8 @@
     "moment": "^2.22.1",
     "react": ">=15.0.1",
     "react-dom": ">=15.0.1",
-    "p2pu-input-fields": "^0.4.6"
+    "p2pu-input-fields": "^0.4.6",
+    "p2pu-theme": "^1.1.0"
   },
   "devDependencies": {
     "axios": "^0.18.0",
@@ -41,7 +42,7 @@
     "moment-timezone": "^0.5.23",
     "node-sass": "^4.11.0",
     "p2pu-input-fields": "^0.4.6",
-    "p2pu-theme": "^1.0.5",
+    "p2pu-theme": "^1.1.0",
     "prop-types": "^15.6.2",
     "query-string": "^5.1.1",
     "rc-time-picker": "^3.6.2",
