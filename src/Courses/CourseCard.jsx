@@ -5,7 +5,6 @@ import { COLOR_CLASSES } from '../utils/constants';
 
 const CourseCard = (props) => {
 
-  const feedbackPage = `https://etherpad.p2pu.org/p/course-feedback-${props.course.id}`;
   const availability = props.course.on_demand ? 'Always available' : 'Check availability';
   const handleFilterClick = (topic) => {
     return () => { props.updateQueryParams({ topics: [topic] }) }
@@ -20,11 +19,16 @@ const CourseCard = (props) => {
       <CardTitle>{ props.course.title }</CardTitle>
       <CardBody>
         <div className="stars mb-2">
-          <i class="material-icons">star</i>
-          <i class="material-icons">star</i>
-          <i class="material-icons">star</i>
-          <i class="material-icons">star</i>
-          <i class="material-icons">star</i>
+          { [1,2,3,4,5].map(num => {
+            const rating = Math.round(props.course.overall_rating * 2)/2
+            if (rating >= num) {
+              return <i className="material-icons" key={`star-${num}`}>star</i>
+            } else if (rating == num - 0.5) {
+              return <i className="material-icons" key={`star-${num}`}>star_half</i>
+            } else {
+              return <i className="material-icons" key={`star-${num}`}>star_border</i>
+            }
+          })}
         </div>
         <div className="minicaps"><strong>{props.course.total_ratings}</strong> ratings  |  Used in <strong>{props.course.learning_circles}</strong> learning circles</div>
       </CardBody>
@@ -49,10 +53,12 @@ const CourseCard = (props) => {
             <div>{ props.course.provider }</div>
           </div>
 
-          <div className="grid-wrapper">
-            <div className="label">Platform</div>
-            <div>{ props.course.platform }</div>
-          </div>
+          { props.course.platform &&
+            <div className="grid-wrapper">
+              <div className="label">Platform</div>
+              <div>{ props.course.platform }</div>
+            </div>
+          }
 
           <div className="grid-wrapper">
             <div className="label">Access</div>
@@ -62,7 +68,7 @@ const CourseCard = (props) => {
           { props.course.tagdorsements &&
             <div className="grid-wrapper">
               <div className="label">Community feedback</div>
-              <div>{ props.course.tagdorsements }</div>
+              <div>{ props.course.tagdorsements.toLowerCase() }</div>
             </div>
           }
 
@@ -70,7 +76,7 @@ const CourseCard = (props) => {
 
         <div className='actions'>
             <div className="alt-cta">
-              <a href={ props.course.course_page_url } className="btn p2pu-btn blue secondary">More details</a>
+              <a href={ props.course.course_page_url } target="_blank" className="btn p2pu-btn blue secondary">More details</a>
             {
               props.onSelectResult &&
               <button onClick={() => props.onSelectResult(props.course)} className="btn p2pu-btn blue">{props.buttonText}</button>
