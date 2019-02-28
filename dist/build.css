@@ -1458,15 +1458,6 @@ span.course-title {
   margin-top: 10px;
   margin-bottom: 10px;
   width: 33%; }
-  .search-results .result-item .card {
-    margin: 15px; }
-    .search-results .result-item .card .card-title {
-      background: #05C6B4; }
-    .search-results .result-item .card .card-body {
-      background: rgba(5, 198, 180, 0.15); }
-      .search-results .result-item .card .card-body .primary-cta .p2pu-btn {
-        background: #05C6B4;
-        color: #FFFFFF; }
   .search-results .result-item .image-container {
     width: 100%;
     height: auto;
@@ -1483,48 +1474,13 @@ span.course-title {
       margin-right: 45px; }
       .search-results .result-item .image-container .image img {
         width: 100%; }
-  .search-results .result-item.p2pu-orange .card .card-title {
-    background: #FC7100; }
-  .search-results .result-item.p2pu-orange .card .card-body {
-    background: rgba(252, 113, 0, 0.15); }
-    .search-results .result-item.p2pu-orange .card .card-body .primary-cta .p2pu-btn {
-      background: #FC7100;
-      color: #FFFFFF; }
-  .search-results .result-item.p2pu-orange .image-container {
-    background-image: linear-gradient(#FC7100, #FC7100 30%, rgba(252, 113, 0, 0.15) 30%, rgba(252, 113, 0, 0.15)); }
-  .search-results .result-item.p2pu-blue .card .card-title {
-    background: #05C6B4; }
-  .search-results .result-item.p2pu-blue .card .card-body {
-    background: rgba(5, 198, 180, 0.15); }
-    .search-results .result-item.p2pu-blue .card .card-body .primary-cta .p2pu-btn {
-      background: #05C6B4;
-      color: #FFFFFF; }
-  .search-results .result-item.p2pu-blue .image-container {
-    background-image: linear-gradient(#05C6B4, #05C6B4 30%, rgba(5, 198, 180, 0.15) 30%, rgba(5, 198, 180, 0.15)); }
-  .search-results .result-item.p2pu-green .card .card-title {
-    background: #B7D500; }
-  .search-results .result-item.p2pu-green .card .card-body {
-    background: rgba(183, 213, 0, 0.15); }
-    .search-results .result-item.p2pu-green .card .card-body .primary-cta .p2pu-btn {
-      background: #B7D500;
-      color: #FFFFFF; }
-  .search-results .result-item.p2pu-green .image-container {
-    background-image: linear-gradient(#B7D500, #B7D500 30%, rgba(183, 213, 0, 0.15) 30%, rgba(183, 213, 0, 0.15)); }
-  .search-results .result-item.p2pu-yellow .card .card-title {
-    background: #FFBC1A; }
-  .search-results .result-item.p2pu-yellow .card .card-body {
-    background: rgba(255, 188, 26, 0.15); }
-    .search-results .result-item.p2pu-yellow .card .card-body .primary-cta .p2pu-btn {
-      background: #FFBC1A;
-      color: #FFFFFF; }
-  .search-results .result-item.p2pu-yellow .image-container {
-    background-image: linear-gradient(#FFBC1A, #FFBC1A 30%, rgba(255, 188, 26, 0.15) 30%, rgba(255, 188, 26, 0.15)); }
   .search-results .result-item .card {
-    box-shadow: -2px 2px 6px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: -2px 2px 6px 2px rgba(0, 0, 0, 0.15);
     font-size: 14px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; }
+    flex-grow: 1;
+    margin: 15px; }
     .search-results .result-item .card .card-title {
       padding: 10px; }
       .search-results .result-item .card .card-title h4 {
@@ -1539,12 +1495,9 @@ span.course-title {
         .search-results .result-item .card .card-body p.small-caps {
           text-transform: uppercase;
           font-size: 0.8em; }
-      .search-results .result-item .card .card-body a {
-        color: #515665; }
-        .search-results .result-item .card .card-body a:hover {
-          text-decoration: underline;
-          color: #515665;
-          cursor: pointer; }
+      .search-results .result-item .card .card-body a:hover {
+        text-decoration: underline;
+        cursor: pointer; }
       .search-results .result-item .card .card-body a.p2pu-btn:hover {
         text-decoration: none; }
     .search-results .result-item .card .usage-badge {
@@ -1608,6 +1561,90 @@ span.course-title {
       border-bottom: 1px dashed #515665;
       margin-top: 10px;
       margin-bottom: 10px; }
+  .search-results .result-item.p2pu-orange .card .card-title {
+    background: #FC7100; }
+  .search-results .result-item.p2pu-orange .card .card-body {
+    background: rgba(252, 113, 0, 0.15); }
+    .search-results .result-item.p2pu-orange .card .card-body .primary-cta .p2pu-btn {
+      background: #FC7100;
+      color: #FFFFFF; }
+  .search-results .result-item.p2pu-orange .image-container {
+    background-image: linear-gradient(#FC7100, #FC7100 30%, rgba(252, 113, 0, 0.15) 30%, rgba(252, 113, 0, 0.15)); }
+  .search-results .result-item.p2pu-blue .card .card-title {
+    background: #05C6B4; }
+  .search-results .result-item.p2pu-blue .card .card-body {
+    background: rgba(5, 198, 180, 0.15); }
+    .search-results .result-item.p2pu-blue .card .card-body .primary-cta .p2pu-btn {
+      background: #05C6B4;
+      color: #FFFFFF; }
+  .search-results .result-item.p2pu-blue .image-container {
+    background-image: linear-gradient(#05C6B4, #05C6B4 30%, rgba(5, 198, 180, 0.15) 30%, rgba(5, 198, 180, 0.15)); }
+  .search-results .result-item.p2pu-green .card .card-title {
+    background: #B7D500; }
+  .search-results .result-item.p2pu-green .card .card-body {
+    background: rgba(183, 213, 0, 0.15); }
+    .search-results .result-item.p2pu-green .card .card-body .primary-cta .p2pu-btn {
+      background: #B7D500;
+      color: #FFFFFF; }
+  .search-results .result-item.p2pu-green .image-container {
+    background-image: linear-gradient(#B7D500, #B7D500 30%, rgba(183, 213, 0, 0.15) 30%, rgba(183, 213, 0, 0.15)); }
+  .search-results .result-item.p2pu-yellow .card .card-title {
+    background: #FFBC1A; }
+  .search-results .result-item.p2pu-yellow .card .card-body {
+    background: rgba(255, 188, 26, 0.15); }
+    .search-results .result-item.p2pu-yellow .card .card-body .primary-cta .p2pu-btn {
+      background: #FFBC1A;
+      color: #FFFFFF; }
+  .search-results .result-item.p2pu-yellow .image-container {
+    background-image: linear-gradient(#FFBC1A, #FFBC1A 30%, rgba(255, 188, 26, 0.15) 30%, rgba(255, 188, 26, 0.15)); }
+  .search-results .result-item.alt {
+    margin-top: 0;
+    margin-bottom: 0; }
+    .search-results .result-item.alt .card {
+      border: 0;
+      border-radius: 0;
+      padding: 10px; }
+      .search-results .result-item.alt .card .card-title {
+        background: #FFFFFF;
+        padding-left: 10px;
+        padding-right: 10px; }
+        .search-results .result-item.alt .card .card-title h4 {
+          color: #515665;
+          text-align: left; }
+      .search-results .result-item.alt .card .card-body {
+        background: #FFFFFF;
+        padding: 10px; }
+        .search-results .result-item.alt .card .card-body .minicaps {
+          text-align: left; }
+        .search-results .result-item.alt .card .card-body .stars {
+          color: #FFBC1A; }
+          .search-results .result-item.alt .card .card-body .stars.disabled {
+            color: #AAB0BF; }
+          .search-results .result-item.alt .card .card-body .stars i.material-icons {
+            font-size: 24px; }
+        .search-results .result-item.alt .card .card-body .grid-wrapper {
+          display: grid;
+          grid-template-columns: 1fr 3fr;
+          border-bottom: 1px solid #D3D8E6; }
+          .search-results .result-item.alt .card .card-body .grid-wrapper .label {
+            font-weight: bold; }
+          .search-results .result-item.alt .card .card-body .grid-wrapper div {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem; }
+        .search-results .result-item.alt .card .card-body .alt-cta {
+          text-align: right; }
+    .search-results .result-item.alt.p2pu-orange .card {
+      border-top: 6px solid #FC7100;
+      border-bottom: 6px solid #FC7100; }
+    .search-results .result-item.alt.p2pu-yellow .card {
+      border-top: 6px solid #FFBC1A;
+      border-bottom: 6px solid #FFBC1A; }
+    .search-results .result-item.alt.p2pu-blue .card {
+      border-top: 6px solid #05C6B4;
+      border-bottom: 6px solid #05C6B4; }
+    .search-results .result-item.alt.p2pu-green .card {
+      border-top: 6px solid #B7D500;
+      border-bottom: 6px solid #B7D500; }
 
 .result-item.start-learning-circle {
   align-items: center; }
