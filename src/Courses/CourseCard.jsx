@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 import { Card, CardTitle, CardBody, UsageBadge } from '../Card';
 import { COLOR_CLASSES } from '../utils/constants';
@@ -18,7 +18,7 @@ const CourseCard = (props) => {
   const colorClass = COLOR_CLASSES[(props.course.id % COLOR_CLASSES.length)];
 
   return (
-    <Card classes="alt">
+    <Card classes={`alt ${props.classes}`} colorClass={""}>
       <CardTitle>{ props.course.title }</CardTitle>
       <CardBody>
         <div className={`stars mb-2 ${props.course.total_ratings == 0 && 'disabled'}`}>
@@ -49,40 +49,36 @@ const CourseCard = (props) => {
                 })}
               </span>
             </div>
-          </div>
 
-          <div className="grid-wrapper">
             <div className="label">Provider</div>
             <div>{ props.course.provider }</div>
-          </div>
 
           { props.course.platform &&
-            <div className="grid-wrapper">
+            <Fragment>
               <div className="label">Platform</div>
               <div>{ props.course.platform }</div>
-            </div>
+            </Fragment>
           }
 
-          <div className="grid-wrapper">
             <div className="label">Access</div>
             <div>{ availability }</div>
-          </div>
 
           { props.course.tagdorsements &&
-            <div className="grid-wrapper">
+            <Fragment>
               <div className="label">Community feedback</div>
               <div>{ props.course.tagdorsements.toLowerCase() }</div>
-            </div>
+            </Fragment>
           }
 
+          </div>
         </div>
 
         <div className='actions'>
             <div className="alt-cta">
-              <a href={ props.course.course_page_url } target="_blank" className="btn p2pu-btn blue secondary">More details</a>
+              <a href={ props.course.course_page_url } target="_blank" className="p2pu-btn blue secondary">More details</a>
             {
               props.onSelectResult &&
-              <button onClick={() => props.onSelectResult(props.course)} className="btn p2pu-btn blue">{props.buttonText}</button>
+              <button onClick={() => props.onSelectResult(props.course)} className="p2pu-btn blue">{props.buttonText}</button>
             }
             </div>
         </div>

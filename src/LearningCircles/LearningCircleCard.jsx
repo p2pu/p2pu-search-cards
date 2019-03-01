@@ -16,7 +16,7 @@ const LearningCircleCard = (props) => {
   const colorClass = COLOR_CLASSES[(learningCircle.course.id % COLOR_CLASSES.length)];
 
   return (
-    <Card colorClass={colorClass}>
+    <Card colorClass={colorClass} classes={`${props.classes}`}>
       <CardTitle>{ name }</CardTitle>
 
       {

@@ -229,11 +229,8 @@ span.course-title {
 
   .result-item {
     position: relative;
-    display: flex;
-    justify-content: center;
     margin-top: $padding-xs;
     margin-bottom: $padding-xs;
-    width: 33%;
 
     .image-container {
       width: 100%;
@@ -263,7 +260,10 @@ span.course-title {
       display: flex;
       flex-direction: column;
       flex-grow: 1;
-      margin: 15px;
+      margin-bottom: 15px;
+      margin-top: 15px;
+      border-radius: 0;
+      border: none;
 
       .card-title {
         padding: $padding-xs;
@@ -348,7 +348,6 @@ span.course-title {
         flex-direction: column;
 
         a {
-          margin-right: $padding-xs;
           flex-grow: 1;
         }
 
@@ -536,7 +535,6 @@ span.course-title {
           .grid-wrapper {
             display: grid;
             grid-template-columns: 1fr 3fr;
-            border-bottom: 1px solid $gray-light;
 
             .label {
               font-weight: bold;
@@ -545,6 +543,9 @@ span.course-title {
             div {
               padding-top: 0.25rem;
               padding-bottom: 0.25rem;
+              padding-right: 0.5rem;
+              border-bottom: 1px solid $gray-light;
+
             }
           }
 

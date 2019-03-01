@@ -10,6 +10,7 @@ const BrowseLearningCircles = ({ results }) => (
         <LearningCircleCard
           key={`learning-circle-${index}`}
           learningCircle={circle}
+          classes="col-md-4"
         />
       ))
     }

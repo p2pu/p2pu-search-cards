@@ -1453,11 +1453,8 @@ span.course-title {
 
 .search-results .result-item {
   position: relative;
-  display: flex;
-  justify-content: center;
   margin-top: 10px;
-  margin-bottom: 10px;
-  width: 33%; }
+  margin-bottom: 10px; }
   .search-results .result-item .image-container {
     width: 100%;
     height: auto;
@@ -1480,7 +1477,10 @@ span.course-title {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    margin: 15px; }
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-radius: 0;
+    border: none; }
     .search-results .result-item .card .card-title {
       padding: 10px; }
       .search-results .result-item .card .card-title h4 {
@@ -1529,7 +1529,6 @@ span.course-title {
       display: flex;
       flex-direction: column; }
       .search-results .result-item .card .actions a {
-        margin-right: 10px;
         flex-grow: 1; }
       .search-results .result-item .card .actions .secondary-cta {
         display: flex; }
@@ -1624,13 +1623,14 @@ span.course-title {
             font-size: 24px; }
         .search-results .result-item.alt .card .card-body .grid-wrapper {
           display: grid;
-          grid-template-columns: 1fr 3fr;
-          border-bottom: 1px solid #D3D8E6; }
+          grid-template-columns: 1fr 3fr; }
           .search-results .result-item.alt .card .card-body .grid-wrapper .label {
             font-weight: bold; }
           .search-results .result-item.alt .card .card-body .grid-wrapper div {
             padding-top: 0.25rem;
-            padding-bottom: 0.25rem; }
+            padding-bottom: 0.25rem;
+            padding-right: 0.5rem;
+            border-bottom: 1px solid #D3D8E6; }
         .search-results .result-item.alt .card .card-body .alt-cta {
           text-align: right; }
     .search-results .result-item.alt.p2pu-orange .card {

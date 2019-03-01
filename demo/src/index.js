@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 
 import Search from "../../src/Search/Search";
 import BrowseCourses from "../../src/Courses/Browse";
+import BrowseLearningCircles from "../../src/LearningCircles/Browse";
 
 import "../../src/stylesheets/search.scss"
 import "p2pu-theme/src/scss/base.scss"

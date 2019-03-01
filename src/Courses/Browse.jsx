@@ -27,6 +27,7 @@ class BrowseCourses extends React.Component {
               updateQueryParams={updateQueryParams}
               onSelectResult={onSelectResult}
               buttonText='Use this course'
+              classes="col-md-4"
             />
           ))
         }
