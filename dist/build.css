@@ -1635,16 +1635,16 @@ span.course-title {
           text-align: right; }
     .search-results .result-item.alt.p2pu-orange .card {
       border-top: 6px solid #FC7100;
-      border-bottom: 6px solid #FC7100; }
+      /*border-bottom: 6px solid $p2pu-orange;*/ }
     .search-results .result-item.alt.p2pu-yellow .card {
       border-top: 6px solid #FFBC1A;
-      border-bottom: 6px solid #FFBC1A; }
+      /*border-bottom: 6px solid $p2pu-yellow;*/ }
     .search-results .result-item.alt.p2pu-blue .card {
       border-top: 6px solid #05C6B4;
-      border-bottom: 6px solid #05C6B4; }
+      /*border-bottom: 6px solid $p2pu-blue;*/ }
     .search-results .result-item.alt.p2pu-green .card {
       border-top: 6px solid #B7D500;
-      border-bottom: 6px solid #B7D500; }
+      /*border-bottom: 6px solid $p2pu-green;*/ }
 
 .result-item.start-learning-circle {
   align-items: center; }

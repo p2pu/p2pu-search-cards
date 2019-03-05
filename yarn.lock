@@ -4820,10 +4820,10 @@ p2pu-input-fields@^0.4.6:
     react-select "^1.2.1"
     react-visibility-sensor "^3.11.0"
 
-p2pu-theme@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/p2pu-theme/-/p2pu-theme-1.1.1.tgz#affc449d0482b01eb4e111b0da197b347d3a2901"
-  integrity sha512-2DXFSX8Yl/puKPH3JfmrVWJIvzwkOmfteMMDn1Gtsg0TYs8VXBDQrkSDCTr/mNL2NTWApcVKqpOz6dV7nGVvyw==
+p2pu-theme@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/p2pu-theme/-/p2pu-theme-1.1.2.tgz#5660fa8b4ada9e8ee62512bd2f50fee668f0c13b"
+  integrity sha512-Rkmj50svQnwD3LLBLpJ3Sd5dnt1wsCnzNkiYbjmId/Cnkgh9Djk4T21aoLHSrEyb2THxnaCY10B07W3joBTwHA==
   dependencies:
     aos "^2.3.3"
     bootstrap "^4.1.3"
