@@ -18,7 +18,7 @@ const CourseCard = (props) => {
   const colorClass = COLOR_CLASSES[(props.course.id % COLOR_CLASSES.length)];
 
   return (
-    <Card classes={`alt ${props.classes}`} colorClass={""}>
+    <Card classes={`alt ${props.classes}`} colorClass={colorClass}>
       <CardTitle>{ props.course.title }</CardTitle>
       <CardBody>
         <div className={`stars mb-2 ${props.course.total_ratings == 0 && 'disabled'}`}>
@@ -75,10 +75,10 @@ const CourseCard = (props) => {
 
         <div className='actions'>
             <div className="alt-cta">
-              <a href={ props.course.course_page_url } target="_blank" className="p2pu-btn blue secondary">More details</a>
+              <a href={ props.course.course_page_url } target="_blank" className="p2pu-btn dark secondary">More details</a>
             {
               props.onSelectResult &&
-              <button onClick={() => props.onSelectResult(props.course)} className="p2pu-btn blue">{props.buttonText}</button>
+              <button onClick={() => props.onSelectResult(props.course)} className="p2pu-btn dark">{props.buttonText}</button>
             }
             </div>
         </div>

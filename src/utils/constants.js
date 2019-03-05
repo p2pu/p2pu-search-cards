@@ -24,8 +24,8 @@ export const SEARCH_PROPS = {
   }
 };
 
-export const DEFAULT_ORIGIN = 'https://learningcircles.p2pu.org'
-// export const DEFAULT_ORIGIN = 'http://localhost:8000'
+// export const DEFAULT_ORIGIN = 'https://learningcircles.p2pu.org'
+export const DEFAULT_ORIGIN = 'http://localhost:8000'
 
 export const API_ENDPOINTS = {
   learningCircle: `/api/learning-circle/`,
