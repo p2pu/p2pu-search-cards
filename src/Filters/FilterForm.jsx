@@ -3,6 +3,8 @@ import TopicsFilterForm from './TopicsFilterForm'
 import OrderCoursesForm from './OrderCoursesForm'
 import LocationFilterForm from './LocationFilterForm'
 import MeetingDaysFilterForm from './MeetingDaysFilterForm'
+import LanguageFilterForm from './LanguageFilterForm'
+
 
 const FilterForm = (props) => {
   const closeFilter = () => { props.updateActiveFilter(null) };
@@ -12,6 +14,8 @@ const FilterForm = (props) => {
     switch (props.activeFilter) {
       case 'topics':
       return <TopicsFilterForm {...props} />;
+      case 'language':
+      return <LanguageFilterForm {...props} />;
       case 'orderCourses':
       return <OrderCoursesForm { ...props} />;
       case 'location':

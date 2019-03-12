@@ -3,6 +3,7 @@ import React from 'react'
 const Filter = ({filter, active, updateActiveFilter}) => {
   const filterNames = {
     'location': 'Location',
+    'language': 'Language',
     'topics': 'Topics',
     'meetingDays': 'Meeting Day(s)',
     'orderCourses': 'Order by'

@@ -8,6 +8,20 @@ export const MEETING_DAYS = [
   'Sunday'
 ];
 
+export const LANGUAGES = [
+  { code: 'en', label: 'English' },
+  { code: 'fr', label: 'Français' },
+  { code: 'es', label: 'Español' },
+  { code: 'de', label: 'Deutsche' },
+]
+
+export const COURSES_SORT_OPTIONS = [
+  { label: 'Course title', value: 'title' },
+  { label: 'Popularity', value: 'usage' },
+  { label: 'Community rating', value: 'overall_rating' },
+  { label: 'Recently added', value: 'created_at' },
+]
+
 export const SEARCH_SUBJECTS = {
   learningCircles: 'learning circles',
   courses: 'courses'
@@ -19,7 +33,7 @@ export const SEARCH_PROPS = {
     placeholder: 'Keyword, organization, facilitator, etc...',
   },
   courses: {
-    filters: ['topics', 'orderCourses'],
+    filters: ['topics', 'language', 'orderCourses'],
     placeholder: 'Title, subject, etc...',
   }
 };
@@ -38,7 +52,7 @@ export const API_ENDPOINTS = {
   },
   courses: {
     baseUrl: `/api/courses/?`,
-    searchParams: ['q', 'topics', 'order', 'limit', 'offset']
+    searchParams: ['q', 'topics', 'order', 'limit', 'offset', 'language']
   },
   learningCirclesTopics: {
     baseUrl: `/api/learningcircles/topics/?`,
