@@ -9,6 +9,7 @@ const OrderCoursesForm = (props) => {
   const handleChange = event => {
     const order = event.target.value;
     props.updateQueryParams({ order })
+    props.closeFilter()
   }
 
   return(

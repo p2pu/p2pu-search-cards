@@ -15,9 +15,9 @@ const FilterForm = (props) => {
       case 'topics':
       return <TopicsFilterForm {...props} />;
       case 'language':
-      return <LanguageFilterForm {...props} />;
+      return <LanguageFilterForm {...props} closeFilter={closeFilter} />;
       case 'orderCourses':
-      return <OrderCoursesForm { ...props} />;
+      return <OrderCoursesForm { ...props} closeFilter={closeFilter} />;
       case 'location':
       return <LocationFilterForm { ...props} closeFilter={closeFilter} />;
       case 'meetingDays':
