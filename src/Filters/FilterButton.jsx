@@ -6,7 +6,8 @@ const Filter = ({filter, active, updateActiveFilter}) => {
     'language': 'Language',
     'topics': 'Topics',
     'meetingDays': 'Meeting Day(s)',
-    'orderCourses': 'Sort by'
+    'orderCourses': 'Sort by',
+    'oer': 'OER'
   }
 
   const iconName = active ? 'remove' : 'add'

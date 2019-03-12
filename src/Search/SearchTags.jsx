@@ -66,6 +66,14 @@ const SearchTags = (props) => {
     }
   }
 
+  const generateOerTag = () => {
+    if (props.oer) {
+      const onDelete = (value) => { props.updateQueryParams({ oer: false }) };
+
+      return [<span key='queryTagIntro'>that are </span>, <SearchTag key='queryTag-0' value={"OER"} onDelete={onDelete} />];
+    }
+  }
+
   const generateTopicsTags = () => {
     if (props.topics && props.topics.length > 0) {
       const onDelete = (value) => {
@@ -148,6 +156,8 @@ const SearchTags = (props) => {
       return generateLanguageTag();
       case 'order':
       return generateOrderTag();
+      case 'oer':
+      return generateOerTag();
     }
   }
 
@@ -155,7 +165,7 @@ const SearchTags = (props) => {
     const results = props.totalResults.length === 1 ? 'result' : 'results';
     const forSearchSubject = <span key='resultsSummary-1'>for {SEARCH_SUBJECTS[props.searchSubject]}</span>;
     const withSpan = <span key='resultsSummary-2'>with</span>;
-    const tagsToDisplay = ['q', 'topics', 'location', 'meetingDays', 'language', 'teamName', 'order'];
+    const tagsToDisplay = ['q', 'topics', 'location', 'meetingDays', 'language', 'teamName', 'order', 'oer'];
 
     let searchSummaryItems = [<span key='resultsSummary-0'>Showing {props.searchResults.length} of {props.totalResults} {results}</span>];
 

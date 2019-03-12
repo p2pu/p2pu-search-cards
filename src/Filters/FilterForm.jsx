@@ -4,6 +4,7 @@ import OrderCoursesForm from './OrderCoursesForm'
 import LocationFilterForm from './LocationFilterForm'
 import MeetingDaysFilterForm from './MeetingDaysFilterForm'
 import LanguageFilterForm from './LanguageFilterForm'
+import OerFilterForm from './OerFilterForm'
 
 
 const FilterForm = (props) => {
@@ -22,6 +23,8 @@ const FilterForm = (props) => {
       return <LocationFilterForm { ...props} closeFilter={closeFilter} />;
       case 'meetingDays':
       return <MeetingDaysFilterForm { ...props} />;
+      case 'oer':
+      return <OerFilterForm { ...props} closeFilter={closeFilter} />;
     }
   }
 

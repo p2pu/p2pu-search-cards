@@ -26,7 +26,7 @@ export const SEARCH_PROPS = {
     placeholder: 'Keyword, organization, facilitator, etc...',
   },
   courses: {
-    filters: ['topics', 'language', 'orderCourses'],
+    filters: ['topics', 'language', 'orderCourses', 'oer'],
     placeholder: 'Title, subject, etc...',
   }
 };
@@ -45,7 +45,7 @@ export const API_ENDPOINTS = {
   },
   courses: {
     baseUrl: `/api/courses/?`,
-    searchParams: ['q', 'topics', 'order', 'limit', 'offset', 'languages']
+    searchParams: ['q', 'topics', 'order', 'limit', 'offset', 'languages', 'oer']
   },
   learningCirclesTopics: {
     baseUrl: `/api/learningcircles/topics/?`,
