@@ -7,6 +7,7 @@ import BrowseLearningCircles from "../../src/LearningCircles/Browse";
 
 import "../../src/stylesheets/search.scss"
 import "p2pu-theme/src/scss/base.scss"
+import "p2pu-input-fields/dist/build.css"
 
 
 class App extends React.Component {

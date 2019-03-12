@@ -1,40 +1,70 @@
-import React from 'react'
+import React, { Component } from 'react'
+import ApiHelper from '../utils/apiHelper'
 
-import { CheckboxWithLabel } from 'p2pu-input-fields'
-import { LANGUAGES } from '../utils/constants'
+import { SelectWithLabel } from 'p2pu-input-fields'
 
-const LanguageFilterForm = props => {
-
-  const handleChange = event => {
-    const language = event.target.value;
-    props.updateQueryParams({ language })
-    props.closeFilter()
+export default class LanguageFilterForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { options: [] };
+    this.mapArrayToSelectOptions = (arr) => this._mapArrayToSelectOptions(arr);
+    this.extractLanguagesArray = (opts) => this._extractLanguagesArray(opts);
+    this.handleSelect = (selected) => this._handleSelect(selected);
+    this.fetchLanguages = () => this._fetchLanguages();
   }
 
-  return(
-    <div>
-      {
-        LANGUAGES.map((lang) => {
-          const checked = props.language == lang.code;
-          return(
-            <div key={`lang-${lang.code}`} className="radio-with-label label-right col-sm-12 col-md-6 col-lg-6">
-              <label>
-                <input
-                  type="radio"
-                  name="language"
-                  value={lang.code}
-                  checked={checked}
-                  onChange={handleChange}
-                  style={{ marginRight: "1rem" }}
-                />
-                { lang.label }
-              </label>
-            </div>
-          )
-        })
-      }
-    </div>
-  )
-}
+  componentDidMount() {
+    this.fetchLanguages();
+  }
 
-export default LanguageFilterForm;
+  componentWillReceiveProps(nextProps) {
+    if (this.props !== nextProps) {
+      const languages = nextProps.languages || [];
+      this.setState({ languages: languages })
+    }
+  }
+
+  _fetchLanguages() {
+    const resourceType = `coursesLanguages`;
+    const api = new ApiHelper(resourceType);
+    const params = {};
+    const callback = (response) => {
+      const options = this.mapArrayToSelectOptions(response.languages);
+      this.setState({ options })
+    }
+
+    api.fetchResource({ params, callback })
+  }
+
+  _handleSelect(selected) {
+    this.setState({ selected });
+    const newLanguagesList = this.extractLanguagesArray(selected);
+    this.props.updateQueryParams({ languages: newLanguagesList })
+  }
+
+  _mapArrayToSelectOptions(array) {
+    return array.map((item) => ({ value: item.code, label: item.name }))
+  }
+
+  _extractLanguagesArray(options) {
+    return options.map(option => option.value)
+  }
+
+  render() {
+    const value = this.state.selected || [];
+
+    return(
+      <div className="col-sm-12">
+        <SelectWithLabel
+          label='What languages are you interested in?'
+          classes='no-flex'
+          options={this.state.options}
+          multi={true}
+          value={value}
+          onChange={this.handleSelect}
+          placeholder='Select as many languages as you want'
+        />
+      </div>
+    )
+  }
+}

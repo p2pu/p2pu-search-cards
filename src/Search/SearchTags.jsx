@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { MEETING_DAYS, SEARCH_SUBJECTS, LANGUAGES, COURSES_SORT_OPTIONS } from '../utils/constants';
+import { MEETING_DAYS, SEARCH_SUBJECTS, COURSES_SORT_OPTIONS } from '../utils/constants';
 
 
 const SearchTag = ({ value, onDelete }) => {
@@ -35,11 +35,25 @@ const SearchTags = (props) => {
   }
 
   const generateLanguageTag = () => {
-    if (props.language) {
-      const onDelete = (value) => { props.updateQueryParams({ language: null }) };
-      const lang = LANGUAGES.find(lang => lang.code == props.language)
+    if (props.languages && props.languages.length > 0) {
+      const onDelete = (value) => {
+        const newLanguagesArray = props.languages.filter(v => v != value);
+        const languages = newLanguagesArray.length > 0 ? newLanguagesArray : null
+        props.updateQueryParams({ languages })
+      }
 
-      return [<span key='queryTagIntro'>in </span>, <SearchTag key='queryTag-0' value={lang.label} onDelete={onDelete} />];
+      const introPhrase = props.languages.length === 1 ? 'in' : 'in';
+      let languagesTagsArray = [<span key='languageTagIntro'>{introPhrase}</span>]
+
+      props.languages.map((item, index) => {
+        if (props.languages.length > 1 && index === (props.languages.length - 1)) {
+          languagesTagsArray.push(<span key={`languageTag-${index + 2}`}>or</span>)
+        }
+
+        languagesTagsArray.push(<SearchTag value={item} key={`languageTag-${index}`} onDelete={onDelete} />)
+      })
+
+      return languagesTagsArray;
     }
   }
 
