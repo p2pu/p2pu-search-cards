@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { MEETING_DAYS, SEARCH_SUBJECTS } from '../utils/constants';
+import { MEETING_DAYS, SEARCH_SUBJECTS, COURSES_SORT_OPTIONS } from '../utils/constants';
 
 
 const SearchTag = ({ value, onDelete }) => {
@@ -31,6 +31,46 @@ const SearchTags = (props) => {
       const humanReadableName = decodeURIComponent(props.teamName);
 
       return [<span key='queryTagIntro'>organized by</span>, <SearchTag key='queryTag-0' value={humanReadableName} onDelete={onDelete} />];
+    }
+  }
+
+  const generateLanguageTag = () => {
+    if (props.languages && props.languages.length > 0) {
+      const onDelete = (value) => {
+        const newLanguagesArray = props.languages.filter(v => v != value);
+        const languages = newLanguagesArray.length > 0 ? newLanguagesArray : null
+        props.updateQueryParams({ languages })
+      }
+
+      const introPhrase = props.languages.length === 1 ? 'in' : 'in';
+      let languagesTagsArray = [<span key='languageTagIntro'>{introPhrase}</span>]
+
+      props.languages.map((item, index) => {
+        if (props.languages.length > 1 && index === (props.languages.length - 1)) {
+          languagesTagsArray.push(<span key={`languageTag-${index + 2}`}>or</span>)
+        }
+
+        languagesTagsArray.push(<SearchTag value={item} key={`languageTag-${index}`} onDelete={onDelete} />)
+      })
+
+      return languagesTagsArray;
+    }
+  }
+
+  const generateOrderTag = () => {
+    if (props.order) {
+      const onDelete = (value) => { props.updateQueryParams({ order: null }) };
+      const order = COURSES_SORT_OPTIONS.find(order => order.value == props.order)
+
+      return [<span key='queryTagIntro'>sorted by </span>, <SearchTag key='queryTag-0' value={order.label} onDelete={onDelete} />];
+    }
+  }
+
+  const generateOerTag = () => {
+    if (props.oer) {
+      const onDelete = (value) => { props.updateQueryParams({ oer: false }) };
+
+      return [<span key='queryTagIntro'>that are </span>, <SearchTag key='queryTag-0' value={"OER"} onDelete={onDelete} />];
     }
   }
 
@@ -112,6 +152,12 @@ const SearchTags = (props) => {
       return generateMeetingDaysTags();
       case 'teamName':
       return generateTeamNameTag();
+      case 'language':
+      return generateLanguageTag();
+      case 'order':
+      return generateOrderTag();
+      case 'oer':
+      return generateOerTag();
     }
   }
 
@@ -119,7 +165,7 @@ const SearchTags = (props) => {
     const results = props.totalResults.length === 1 ? 'result' : 'results';
     const forSearchSubject = <span key='resultsSummary-1'>for {SEARCH_SUBJECTS[props.searchSubject]}</span>;
     const withSpan = <span key='resultsSummary-2'>with</span>;
-    const tagsToDisplay = ['q', 'topics', 'location', 'meetingDays', 'teamName'];
+    const tagsToDisplay = ['q', 'topics', 'location', 'meetingDays', 'language', 'teamName', 'order', 'oer'];
 
     let searchSummaryItems = [<span key='resultsSummary-0'>Showing {props.searchResults.length} of {props.totalResults} {results}</span>];
 

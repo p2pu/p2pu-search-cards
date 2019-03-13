@@ -1,34 +1,41 @@
 import React from 'react'
 import { SwitchWithLabels } from 'p2pu-input-fields'
 
+import { COURSES_SORT_OPTIONS } from '../utils/constants'
+
 
 const OrderCoursesForm = (props) => {
-  const formValues = {
-    true: {
-      label: 'Use in learning circles',
-      value: 'usage'
-    },
-    false: {
-      label: 'Course title',
-      value: 'title'
-    }
-  }
 
-  const handleSelect = (value) => {
-    const order = formValues[value].value
+  const handleChange = event => {
+    const order = event.target.value;
     props.updateQueryParams({ order })
+    props.closeFilter()
   }
-
-  const defaultChecked = props.order && props.order === formValues.true.value;
 
   return(
-    <SwitchWithLabels
-      name="order-courses"
-      labelRight={formValues.true.label}
-      labelLeft={formValues.false.label}
-      onChange={handleSelect}
-      defaultChecked={defaultChecked}
-    />
+    <div>
+      {
+        COURSES_SORT_OPTIONS.map((option) => {
+          const checked = props.order == option.value;
+
+          return(
+            <div key={`order-${option.value}`} className="radio-with-label label-right col-sm-12 col-md-6 col-lg-6">
+              <label>
+                <input
+                  type="radio"
+                  name="language"
+                  value={option.value}
+                  checked={checked}
+                  onChange={handleChange}
+                  style={{ marginRight: "1rem" }}
+                />
+                { option.label }
+              </label>
+            </div>
+          )
+        })
+      }
+    </div>
   )
 }
 

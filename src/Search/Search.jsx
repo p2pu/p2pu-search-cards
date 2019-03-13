@@ -21,6 +21,7 @@ export default class Search extends Component {
       offset: 0,
       isLoading: false,
       hasMoreResults: false,
+      appendResults: false,
     }
     this.handleChange = (s) => this._handleChange(s);
     this.handleInputChange = () => this._handleInputChange();
@@ -42,7 +43,7 @@ export default class Search extends Component {
       const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
 
       if (scrolledToBottom) {
-        this.sendQuery({ appendResults: true })
+        this.updateQueryParams({ offset: this.state.searchResults.length, appendResults: true })
       }
     };
   }
@@ -52,7 +53,7 @@ export default class Search extends Component {
   }
 
   _loadInitialData() {
-    this.updateQueryParams({ active: true, signup: 'open', order: 'title', team_id: this.state.team_id, limit: this.state.limit, offset: this.state.offset });
+    this.updateQueryParams({ active: true, signup: 'open', team_id: this.state.team_id, limit: this.state.limit, offset: this.state.offset });
   }
 
   _sendQuery(opts={}) {
@@ -80,14 +81,15 @@ export default class Search extends Component {
   }
 
   _searchCallback(response, opts) {
-    const results = opts.appendResults ? this.state.searchResults.concat(response.items) : response.items;
+    const results = this.state.appendResults ? this.state.searchResults.concat(response.items) : response.items;
 
     this.setState({
       searchResults: results,
       currentQuery: opts.params,
       totalResults: response.count,
-      offset: results.length,
+      offset: 0,
       isLoading: false,
+      appendResults: false,
       hasMoreResults: response.count > 0 && results.length < response.count,
     })
   }
