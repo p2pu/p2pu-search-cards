@@ -1367,7 +1367,7 @@ span.course-title {
         width: 0;
         height: 0;
         right: 50%;
-        transform: translateX(12px) translateY(4px);
+        transform: translateX(12px) translateY(10px);
         border-left: 12px solid transparent;
         border-right: 12px solid transparent;
         border-top: 12px solid #F3F4F8; }
