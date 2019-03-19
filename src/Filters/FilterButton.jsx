@@ -22,7 +22,7 @@ const Filter = ({filter, active, updateActiveFilter}) => {
   return(
     <div className={`filter ${activeClass}`} >
       <button className='p2pu-btn light with-outline' onClick={handleClick}>
-        <span style={{ display: 'flex',flexWrap: 'nowrap' }}>
+        <span style={{ display: 'flex',flexWrap: 'nowrap', whiteSpace: 'nowrap' }}>
           {filterNames[filter]}
         </span>
       </button>

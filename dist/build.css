@@ -1352,7 +1352,8 @@ span.course-title {
     border-left: 2px solid #FFFFFF; }
   .search-container .filters-bar {
     display: flex;
-    padding: 10px; }
+    padding: 10px;
+    flex-wrap: wrap; }
     .search-container .filters-bar .wrapper .filter {
       position: relative;
       margin-right: 0.4em; }

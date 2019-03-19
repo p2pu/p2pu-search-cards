@@ -83,6 +83,7 @@ span.course-title {
   .filters-bar {
     display: flex;
     padding: $padding-xs;
+    flex-wrap: wrap;
 
     .wrapper {
 
