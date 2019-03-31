@@ -4,7 +4,7 @@ import { SwitchWithLabels } from 'p2pu-input-fields'
 
 const OerFilterForm = (props) => {
   const formValues = {
-    true: "Only OER",
+    true: "Only open educational resources (OER)",
     false: "All courses"
   }
 

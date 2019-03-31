@@ -96,6 +96,7 @@ export default class Search extends Component {
 
   render() {
     const filterCollection = SEARCH_PROPS[this.props.searchSubject].filters;
+    const sortCollection = SEARCH_PROPS[this.props.searchSubject].sort;
     const placeholder = SEARCH_PROPS[this.props.searchSubject].placeholder;
     const resultsSubtitle = SEARCH_PROPS[this.props.searchSubject].resultsSubtitle;
     const { Browse } = this.props;
@@ -106,7 +107,9 @@ export default class Search extends Component {
           placeholder={placeholder}
           updateQueryParams={this.updateQueryParams}
           filterCollection={filterCollection}
+          sortCollection={sortCollection}
           searchSubject={this.props.searchSubject}
+          order={this.props.order}
           {...this.state}
         />
         <SearchTags

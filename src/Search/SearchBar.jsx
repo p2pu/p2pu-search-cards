@@ -6,8 +6,12 @@ const SearchBar = ({ placeholder, updateQueryParams, q }) => {
     updateQueryParams({q: value});
   }
 
+  const onSubmit = e => {
+    e.preventDefault();
+  }
+
   return(
-    <form className='search-bar'>
+    <form className='search-bar' onSubmit={onSubmit}>
       <div className='label'>
         Search
       </div>
@@ -15,6 +19,7 @@ const SearchBar = ({ placeholder, updateQueryParams, q }) => {
         <div className='wrapper'>
           <i className="material-icons">search</i>
           <input
+            id="search-input"
             type="search"
             className='search-input'
             placeholder={placeholder}

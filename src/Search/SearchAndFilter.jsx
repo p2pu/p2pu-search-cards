@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchBar from './SearchBar'
 import FiltersSection from '../Filters/FiltersSection'
+import SortSection from '../Filters/SortSection'
 
 const SearchAndFilter = (props) => {
   const noResults = props.searchResults.length === 0;
@@ -13,9 +14,15 @@ const SearchAndFilter = (props) => {
         updateQueryParams={props.updateQueryParams}
         q={props.q}
       />
-      <FiltersSection
-        {...props}
-      />
+      <div className="filters-container">
+        <FiltersSection
+          {...props}
+        />
+        {
+          props.sortCollection &&
+          <SortSection { ...props } />
+        }
+      </div>
     </div>
   )
 }

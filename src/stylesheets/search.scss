@@ -72,10 +72,16 @@ span.course-title {
     }
   }
 
-  .filter-section {
+  .filters-container {
     display: flex;
     flex: 1 1 50%;
     min-width: 300px;
+  }
+
+  .filter-section {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 200px;
     flex-direction: column;
     border-left: 2px solid $white;
   }
@@ -668,6 +674,12 @@ span.course-title {
 }
 
 @media (max-width: $screen-xs-max) {
+  .search-container {
+    .filters-container {
+      flex-wrap: wrap;
+    }
+  }
+
   .filter-section {
     flex-direction: column;
 
@@ -681,7 +693,7 @@ span.course-title {
           &.active {
             button {
               &:after {
-                top: 2.2em;
+                top: 24px;
               }
             }
           }

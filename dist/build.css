@@ -1344,10 +1344,14 @@ span.course-title {
           .search-container .search-bar .input .wrapper input.search-input::placeholder {
             font-style: italic;
             font-size: 0.8em; }
-  .search-container .filter-section {
+  .search-container .filters-container {
     display: flex;
     flex: 1 1 50%;
-    min-width: 300px;
+    min-width: 300px; }
+  .search-container .filter-section {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 200px;
     flex-direction: column;
     border-left: 2px solid #FFFFFF; }
   .search-container .filters-bar {
@@ -1714,6 +1718,8 @@ span.course-title {
   display: block !important; }
 
 @media (max-width: 767px) {
+  .search-container .filters-container {
+    flex-wrap: wrap; }
   .filter-section {
     flex-direction: column; }
     .filter-section .filters-bar {
@@ -1721,7 +1727,7 @@ span.course-title {
       .filter-section .filters-bar .wrapper {
         flex-direction: column; }
         .filter-section .filters-bar .wrapper .filter.active button:after {
-          top: 2.2em; }
+          top: 24px; }
     .filter-section .filter-form-dropdown {
       width: 96%; }
   .search-results {

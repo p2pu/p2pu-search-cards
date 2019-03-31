@@ -16,7 +16,8 @@ const OrderCoursesForm = (props) => {
     <div>
       {
         COURSES_SORT_OPTIONS.map((option) => {
-          const checked = props.order == option.value;
+          const sortBy = props.order ? props.order : "title";
+          const checked = sortBy == option.value;
 
           return(
             <div key={`order-${option.value}`} className="radio-with-label label-right col-sm-12 col-md-6 col-lg-6">

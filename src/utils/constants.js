@@ -26,7 +26,8 @@ export const SEARCH_PROPS = {
     placeholder: 'Keyword, organization, facilitator, etc...',
   },
   courses: {
-    filters: ['topics', 'language', 'orderCourses', 'oer'],
+    filters: ['topics', 'language', 'oer'],
+    sort: ['orderCourses'],
     placeholder: 'Title, subject, etc...',
   }
 };
