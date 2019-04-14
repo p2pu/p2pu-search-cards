@@ -188,6 +188,12 @@ const SearchTags = (props) => {
     return searchSummaryItems;
   }
 
+  const reloadWindow = () => {
+    if (typeof window !== `undefined`) {
+      window.location.reload()
+    }
+  }
+
   const noResults = props.searchResults.length === 0;
 
   return(
@@ -197,7 +203,7 @@ const SearchTags = (props) => {
       </div>
       { noResults &&
         <div className='clear-search'>
-        To see more results, either remove some filters or <button onClick={() => {window.location.reload()}} className='p2pu-btn light with-outline'>reset the search form</button>
+        To see more results, either remove some filters or <button onClick={reloadWindow} className='p2pu-btn light with-outline'>reset the search form</button>
         </div>
       }
     </div>

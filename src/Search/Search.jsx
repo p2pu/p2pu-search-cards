@@ -10,13 +10,11 @@ import ApiHelper from '../utils/apiHelper'
 export default class Search extends Component {
   constructor(props) {
     super(props)
-    const urlParams = queryString.parse(window.location.search);
     this.state = {
       searchResults: [],
       totalResults: 0,
       distance: 50,
       useMiles: true,
-      team_id: urlParams.team_id || null,
       limit: 21,
       offset: 0,
       isLoading: false,
@@ -30,6 +28,13 @@ export default class Search extends Component {
     this.updateQueryParams = (params) => this._updateQueryParams(params);
     this.sendQuery = (opts) => this._sendQuery(opts);
     this.loadInitialData = () => this._loadInitialData();
+  }
+
+  componentDidMount() {
+    const urlParams = queryString.parse(window.location.search);
+    if (urlParams.team_id) {
+      this.setState({ team_id: urlParams.team_id })
+    }
 
     window.onscroll = () => {
       const { isLoading, hasMoreResults } = this.state;
@@ -46,9 +51,7 @@ export default class Search extends Component {
         this.updateQueryParams({ offset: this.state.searchResults.length, appendResults: true })
       }
     };
-  }
 
-  componentDidMount() {
     this.loadInitialData();
   }
 
