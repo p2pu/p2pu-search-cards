@@ -9,8 +9,13 @@
   "main": "dist/build.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --config webpack.config.demo.js",
+    "i18n:update": "ttag update i18n/af.po src/*",
     "build:demo": "webpack --mode production --config webpack.config.demo.js",
-    "build:main": "webpack --mode production --config webpack.config.main.js"
+    "build:demo:af": "webpack --mode production --config webpack.config.demo.js --env.locale=af",
+    "build:demo:de": "webpack --mode production --config webpack.config.demo.js --env.locale=de",
+    "build:main": "webpack --mode production --config webpack.config.main.js",
+    "build:main:af": "webpack --mode production --config webpack.config.main.js --env.locale=af",
+    "build:main:de": "webpack --mode production --config webpack.config.main.js --env.locale=de"
   },
   "author": "Sharon Kennedy <sharon@p2pu.org>",
   "license": "MIT",
@@ -24,15 +29,16 @@
     "p2pu-theme": "^1.1.2"
   },
   "devDependencies": {
-    "axios": "^0.18.0",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
+    "axios": "^0.18.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-plugin-ttag": "^1.7.8",
     "css-loader": "^2.1.0",
     "custom-event-polyfill": "^1.0.6",
     "html-webpack-plugin": "^3.2.0",

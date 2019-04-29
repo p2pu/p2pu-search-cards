@@ -1,11 +1,13 @@
+import {t} from 'ttag';
+
 export const MEETING_DAYS = [
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-  'Sunday'
+  t`Monday`,
+  t`Tuesday`,
+  t`Wednesday`,
+  t`Thursday`,
+  t`Friday`,
+  t`Saturday`,
+  t`Sunday`
 ];
 
 export const COURSES_SORT_OPTIONS = [
@@ -23,7 +25,7 @@ export const SEARCH_SUBJECTS = {
 export const SEARCH_PROPS = {
   learningCircles: {
     filters: ['location', 'topics', 'meetingDays'],
-    placeholder: 'Keyword, organization, facilitator, etc...',
+    placeholder: t`Keyword, organization, facilitator, etc...`,
   },
   courses: {
     filters: ['topics', 'language', 'oer'],

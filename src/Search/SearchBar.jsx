@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {t} from 'ttag';
 
 const SearchBar = ({ placeholder, updateQueryParams, q }) => {
   const onChange = (e) => {
@@ -13,7 +14,7 @@ const SearchBar = ({ placeholder, updateQueryParams, q }) => {
   return(
     <form className='search-bar' onSubmit={onSubmit}>
       <div className='label'>
-        Search
+        {t`Search`}
       </div>
       <div className="input">
         <div className='wrapper'>

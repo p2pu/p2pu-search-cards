@@ -1,13 +1,14 @@
 import React from 'react'
+import {t} from 'ttag';
 
 const Filter = ({filter, active, updateActiveFilter, label=null}) => {
   const filterNames = {
-    'location': 'Location',
-    'language': 'Language',
-    'topics': 'Topics',
-    'meetingDays': 'Meeting Day(s)',
-    'orderCourses': 'Sort by',
-    'oer': 'OER mode'
+    'location': t`Location`,
+    'language': t`Language`,
+    'topics': t`Topics`,
+    'meetingDays': t`Meeting Day(s)`,
+    'orderCourses': t`Sort by`,
+    'oer': t`OER mode`
   }
 
   const iconName = active ? 'remove' : 'add'
