@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { CheckboxWithLabel, RangeSliderWithLabel, CitySelect } from 'p2pu-input-fields';
 import axios from 'axios';
+import {t} from 'ttag';
 
 export default class LocationFilterForm extends Component {
   constructor(props) {
@@ -41,7 +42,7 @@ export default class LocationFilterForm extends Component {
     }
 
     const error = () => {
-      this.setState({ error: 'Unable to detect location.' })
+      this.setState({ error: t`Unable to detect location.` })
     }
 
     const options = {
@@ -52,7 +53,7 @@ export default class LocationFilterForm extends Component {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(success, error, options)
     } else {
-      this.setState({ error: 'Geolocation is not supported by this browser.'})
+      this.setState({ error: t`Geolocation is not supported by this browser.`})
     }
   }
 
@@ -68,14 +69,14 @@ export default class LocationFilterForm extends Component {
   }
 
   _generateLocationLabel() {
-    let label = 'Use my current location';
+    let label = t`Use my current location`;
 
     if (this.state.error) {
       label = this.state.error;
     } else if (this.state.gettingLocation) {
-      label = 'Detecting your location...';
+      label = t`Detecting your location...`;
     } else if (!this.state.gettingLocation && this.props.latitude && this.props.longitude) {
-      label = 'Using your current location';
+      label = t`Using your current location`;
     }
 
     return label;
@@ -96,9 +97,9 @@ export default class LocationFilterForm extends Component {
   }
 
   _generateDistanceSliderLabel() {
-    const unit = this.props.useMiles ? 'miles' : 'km'
+    const unit = this.props.useMiles ? t`miles` : t`km`
     const value = this.generateDistanceValue();
-    return `Within ${value} ${unit}`
+    return t`Within ${value} ${unit}`
   }
 
   _generateDistanceValue() {
@@ -135,11 +136,11 @@ export default class LocationFilterForm extends Component {
           <div className='divider-text'>or</div>
         </div>
         <div className='select-with-label label-left col-sm-12' >
-          <label htmlFor='select-city'>Select a location:</label>
+          <label htmlFor='select-city'>{t`Select a location`}:</label>
           <CitySelect
             classes=''
             name='select-city'
-            label="Select a location"
+            label={t`Select a location`}
             value={this.props.city}
             handleSelect={this.handleCitySelect}
           />
