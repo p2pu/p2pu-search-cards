@@ -16,6 +16,20 @@ const LearningCircleCard = (props) => {
   const name = learningCircle.course.title
   const colorClass = COLOR_CLASSES[(learningCircle.course.id % COLOR_CLASSES.length)];
 
+  var cta = (
+    <a href={ learningCircle.url } className="btn p2pu-btn transparent">
+      {t`Sign up`}
+    </a>
+  );
+  if (props.onSelectResult) {
+    cta = (
+      <button onClick={()=>props.onSelectResult(learningCircle)} className="btn p2pu-btn transparent">
+        {t`Sign up`}
+      </button>
+    );
+  }
+
+
   return (
     <Card colorClass={colorClass} classes={`${props.classes}`}>
       <CardTitle>{ name }</CardTitle>
@@ -52,9 +66,7 @@ const LearningCircleCard = (props) => {
         </p>
         <div className='actions'>
           <div className="primary-cta">
-            <a href={ learningCircle.url } className="btn p2pu-btn transparent">
-              {t`Sign up`}
-            </a>
+            {cta}
           </div>
         </div>
       </CardBody>

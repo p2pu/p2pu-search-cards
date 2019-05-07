@@ -4,7 +4,7 @@ import { t } from "ttag";
 
 import LearningCircleCard from './LearningCircleCard.jsx'
 
-const BrowseLearningCircles = ({ results }) => (
+const BrowseLearningCircles = ({ results, onSelectResult }) => (
   <Masonry className={"search-results row grid"}>
     {
       results.map((circle, index) => (
@@ -12,6 +12,7 @@ const BrowseLearningCircles = ({ results }) => (
           key={`learning-circle-${index}`}
           learningCircle={circle}
           classes="col-md-4"
+          onSelectResult={onSelectResult}
         />
       ))
     }

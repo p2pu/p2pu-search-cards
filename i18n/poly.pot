@@ -3,7 +3,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: src/LearningCircles/Browse.jsx:20
+#: src/LearningCircles/Browse.jsx:21
 msgid "Start a learning circle in your neighborhood"
 msgstr ""
 
@@ -17,16 +17,17 @@ msgstr ""
 msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:47
+#: src/LearningCircles/LearningCircleCard.jsx:21
+#: src/LearningCircles/LearningCircleCard.jsx:27
+msgid "Sign up"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:61
 msgid "Facilitated by ${ learningCircle.facilitator }"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:51
+#: src/LearningCircles/LearningCircleCard.jsx:65
 msgid "Meeting at ${ learningCircle.venue }"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:56
-msgid "Sign up"
 msgstr ""
 
 #: src/utils/constants.js:4
