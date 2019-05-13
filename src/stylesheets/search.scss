@@ -36,8 +36,7 @@ span.course-title {
 
   .search-bar {
     display: flex;
-    flex: 1 1 50%;
-    min-width: 300px;
+    flex: 1 1 100%;
     flex-direction: column;
 
     .input {
@@ -74,14 +73,13 @@ span.course-title {
 
   .filters-container {
     display: flex;
+    flex-wrap: wrap;
     flex: 1 1 50%;
-    min-width: 300px;
   }
 
   .filter-section {
     display: flex;
     flex: 1 1 auto;
-    min-width: 200px;
     flex-direction: column;
     border-left: 2px solid $white;
   }
@@ -674,11 +672,6 @@ span.course-title {
 }
 
 @media (max-width: $screen-xs-max) {
-  .search-container {
-    .filters-container {
-      flex-wrap: wrap;
-    }
-  }
 
   .filter-section {
     flex-direction: column;
@@ -736,5 +729,14 @@ span.course-title {
 
   .hidden-on-mobile {
     display: none !important;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .search-container {
+    .search-bar {
+      flex-basis: 50%;
+      min-width: 350px;
+    }
   }
 }
