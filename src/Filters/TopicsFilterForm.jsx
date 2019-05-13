@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ApiHelper from '../utils/apiHelper'
-
+import { t } from 'ttag'
 import { SelectWithLabel } from 'p2pu-input-fields'
 
 export default class TopicsFilterForm extends Component {
@@ -56,13 +56,13 @@ export default class TopicsFilterForm extends Component {
     return(
       <div className="col-sm-12">
         <SelectWithLabel
-          label='What topics are you interested in?'
+          label={t`What topics are you interested in?`}
           classes='no-flex'
           options={this.state.options}
           multi={true}
           value={value}
           onChange={this.handleSelect}
-          placeholder='Select as many topics as you want'
+          placeholder={t`Select as many topics as you want`}
         />
       </div>
     )

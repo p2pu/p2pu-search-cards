@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { ngettext, msgid } from 'ttag';
 
 import { MEETING_DAYS, SEARCH_SUBJECTS, COURSES_SORT_OPTIONS } from '../utils/constants';
 
@@ -102,7 +103,7 @@ const SearchTags = (props) => {
       const unit = props.useMiles ? 'miles' : 'km';
       const value = props.useMiles ? props.distance * 0.62 : props.distance;
       const roundedValue = Math.round(value / 10) * 10;
-      const text = `Within ${roundedValue} ${unit} of your location`;
+      const text = __(`Within ${roundedValue} ${unit} of your location`);
       const onDelete = (value) => {
         props.updateQueryParams({ latitude: null, longitude: null, distance: 50 })
       }
@@ -162,12 +163,19 @@ const SearchTags = (props) => {
   }
 
   const generateSearchSummary = () => {
-    const results = props.totalResults.length === 1 ? 'result' : 'results';
     const forSearchSubject = <span key='resultsSummary-1'>for {SEARCH_SUBJECTS[props.searchSubject]}</span>;
     const withSpan = <span key='resultsSummary-2'>with</span>;
     const tagsToDisplay = ['q', 'topics', 'location', 'meetingDays', 'language', 'teamName', 'order', 'oer'];
 
-    let searchSummaryItems = [<span key='resultsSummary-0'>Showing {props.searchResults.length} of {props.totalResults} {results}</span>];
+    let searchSummaryItems = [
+      <span key='resultsSummary-0'>{
+        ngettext(
+          msgid`Showing ${props.searchResults.length} of ${props.totalResults} result`, 
+          `Showing ${props.searchResults.length} of ${props.totalResults} results`, 
+          props.totalResults.length
+        )
+      }</span>
+    ];
 
     tagsToDisplay.map((tag) => {
       const tagsArray = generateTagsPhrase(tag);

@@ -1,7 +1,9 @@
 import React from 'react'
 import moment from 'moment'
+import { t } from "ttag";
 import { Card, CardTitle, CardBody } from '../Card';
 import { COLOR_CLASSES } from '../utils/constants';
+import { day } from '../utils/i18n';
 
 const LearningCircleCard = (props) => {
   const { learningCircle } = props;
@@ -10,10 +12,25 @@ const LearningCircleCard = (props) => {
   const formattedDate = startDate.format('MMMM Do, YYYY');
   const formattedStartTime = startDate.format('h:mma');
   const formattedEndTime = endDate.format('h:mma');
-  const schedule = `${learningCircle.day} from ${formattedStartTime} to ${formattedEndTime} (${learningCircle.time_zone})`;
-  const duration = `${learningCircle.weeks} weeks starting ${formattedDate}`;
+  const weekDay = day(learningCircle.day);
+  const schedule = t`${weekDay} from ${formattedStartTime} to ${formattedEndTime} (${learningCircle.time_zone})`;
+  const duration = t`${learningCircle.weeks} weeks starting ${formattedDate}`;
   const name = learningCircle.course.title
   const colorClass = COLOR_CLASSES[(learningCircle.course.id % COLOR_CLASSES.length)];
+
+  var cta = (
+    <a href={ learningCircle.url } className="btn p2pu-btn transparent">
+      {t`Sign up`}
+    </a>
+  );
+  if (props.onSelectResult) {
+    cta = (
+      <button onClick={()=>props.onSelectResult(learningCircle)} className="btn p2pu-btn transparent">
+        {t`Sign up`}
+      </button>
+    );
+  }
+
 
   return (
     <Card colorClass={colorClass} classes={`${props.classes}`}>
@@ -43,17 +60,15 @@ const LearningCircleCard = (props) => {
         </p>
         <p className="facilitator">
           <i className="material-icons">face</i>
-          Facilitated by { learningCircle.facilitator }
+          {t`Facilitated by ${learningCircle.facilitator}`}
         </p>
         <p className="location">
           <i className="material-icons">store</i>
-          Meeting at { learningCircle.venue }
+          {t`Meeting at ${learningCircle.venue}`}
         </p>
         <div className='actions'>
           <div className="primary-cta">
-            <a href={ learningCircle.url } className="btn p2pu-btn transparent">
-              Sign up
-            </a>
+            {cta}
           </div>
         </div>
       </CardBody>

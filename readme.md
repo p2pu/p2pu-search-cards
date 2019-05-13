@@ -27,7 +27,7 @@ npm i
 npm run build:main
 ```
 
-###To publish a new version
+### To publish a new version
 
 ```
 npm adduser
