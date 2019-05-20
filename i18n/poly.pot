@@ -75,6 +75,14 @@ msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults }
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Search/SearchTags.jsx:206
+msgid "reset the search form"
+msgstr ""
+
+#: src/Search/SearchTags.jsx:215
+msgid "To see more results, either remove some filters or ${ resetButton }"
+msgstr ""
+
 #: src/Search/SearchBar.jsx:17
 msgid "Search"
 msgstr ""
@@ -101,14 +109,6 @@ msgstr ""
 
 #: src/Filters/FilterButton.jsx:11
 msgid "OER mode"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:59
-msgid "What topics are you interested in?"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:65
-msgid "Select as many topics as you want"
 msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:45
@@ -146,4 +146,12 @@ msgstr ""
 #: src/Filters/LocationFilterForm.jsx:139
 #: src/Filters/LocationFilterForm.jsx:143
 msgid "Select a location"
+msgstr ""
+
+#: src/Filters/TopicsFilterForm.jsx:59
+msgid "What topics are you interested in?"
+msgstr ""
+
+#: src/Filters/TopicsFilterForm.jsx:65
+msgid "Select as many topics as you want"
 msgstr ""

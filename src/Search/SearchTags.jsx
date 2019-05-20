@@ -1,5 +1,5 @@
 import React from 'react';
-import { ngettext, msgid } from 'ttag';
+import { t, jt, ngettext, msgid } from 'ttag';
 
 import { MEETING_DAYS, SEARCH_SUBJECTS, COURSES_SORT_OPTIONS } from '../utils/constants';
 
@@ -202,7 +202,8 @@ const SearchTags = (props) => {
     }
   }
 
-  const noResults = props.searchResults.length === 0;
+  const noResults = props.searchResults.length === 0;a
+  const resetButton = <button onClick={reloadWindow} className='p2pu-btn light with-outline'>{t`reset the search form`}</button>;
 
   return(
     <div className='results-summary'>
@@ -211,7 +212,7 @@ const SearchTags = (props) => {
       </div>
       { noResults &&
         <div className='clear-search'>
-        To see more results, either remove some filters or <button onClick={reloadWindow} className='p2pu-btn light with-outline'>reset the search form</button>
+          {jt`To see more results, either remove some filters or ${resetButton}`}
         </div>
       }
     </div>
