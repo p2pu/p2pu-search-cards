@@ -1,6 +1,6 @@
 {
   "name": "p2pu-search-cards",
-  "version": "0.13.3",
+  "version": "0.13.5",
   "description": "Search component used in P2PU projects",
   "repository": {
     "type": "git",
@@ -9,13 +9,10 @@
   "main": "dist/build.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --config webpack.config.demo.js",
-    "i18n:update": "ttag update i18n/af.po src/*",
+    "build": "webpack --mode production --config webpack.config.js",
     "build:demo": "webpack --mode production --config webpack.config.demo.js",
     "build:demo:af": "webpack --mode production --config webpack.config.demo.js --env.locale=af",
-    "build:demo:de": "webpack --mode production --config webpack.config.demo.js --env.locale=de",
-    "build:main": "webpack --mode production --config webpack.config.main.js",
-    "build:main:af": "webpack --mode production --config webpack.config.main.js --env.locale=af",
-    "build:main:de": "webpack --mode production --config webpack.config.main.js --env.locale=de"
+    "build:demo:de": "webpack --mode production --config webpack.config.demo.js --env.locale=de"
   },
   "author": "Sharon Kennedy <sharon@p2pu.org>",
   "license": "MIT",

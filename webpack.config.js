@@ -3,8 +3,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = ( {locale}={} ) => {
 
+const makeLocaleConfig = (locale) => {
   let ttag = {
     resolve: { 
       translations: `i18n/${locale}.po`,
@@ -79,3 +79,10 @@ module.exports = ( {locale}={} ) => {
 
   return config;
 }
+
+module.exports = [
+  makeLocaleConfig('de'),
+  makeLocaleConfig('af'),
+  makeLocaleConfig(),
+]
+

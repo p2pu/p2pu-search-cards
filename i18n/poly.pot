@@ -7,54 +7,61 @@ msgstr ""
 msgid "Start a learning circle in your neighborhood"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:14
+#: src/LearningCircles/LearningCircleCard.jsx:16
 msgid ""
-"${ learningCircle.day } from ${ formattedStartTime } to ${ formattedEndTime "
-"} (${ learningCircle.time_zone })"
+"${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
+"learningCircle.time_zone })"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:15
+#: src/LearningCircles/LearningCircleCard.jsx:17
 msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:21
-#: src/LearningCircles/LearningCircleCard.jsx:27
+#: src/LearningCircles/LearningCircleCard.jsx:23
+#: src/LearningCircles/LearningCircleCard.jsx:29
 msgid "Sign up"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:61
+#: src/LearningCircles/LearningCircleCard.jsx:63
 msgid "Facilitated by ${ learningCircle.facilitator }"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:65
+#: src/LearningCircles/LearningCircleCard.jsx:67
 msgid "Meeting at ${ learningCircle.venue }"
 msgstr ""
 
 #: src/utils/constants.js:4
+#: src/utils/i18n.js:4
 msgid "Monday"
 msgstr ""
 
 #: src/utils/constants.js:5
+#: src/utils/i18n.js:5
 msgid "Tuesday"
 msgstr ""
 
 #: src/utils/constants.js:6
+#: src/utils/i18n.js:6
 msgid "Wednesday"
 msgstr ""
 
 #: src/utils/constants.js:7
+#: src/utils/i18n.js:7
 msgid "Thursday"
 msgstr ""
 
 #: src/utils/constants.js:8
+#: src/utils/i18n.js:8
 msgid "Friday"
 msgstr ""
 
 #: src/utils/constants.js:9
+#: src/utils/i18n.js:9
 msgid "Saturday"
 msgstr ""
 
 #: src/utils/constants.js:10
+#: src/utils/i18n.js:10
 msgid "Sunday"
 msgstr ""
 
@@ -67,6 +74,14 @@ msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result
 msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
 msgstr[0] ""
 msgstr[1] ""
+
+#: src/Search/SearchTags.jsx:206
+msgid "reset the search form"
+msgstr ""
+
+#: src/Search/SearchTags.jsx:215
+msgid "To see more results, either remove some filters or ${ resetButton }"
+msgstr ""
 
 #: src/Search/SearchBar.jsx:17
 msgid "Search"
@@ -94,14 +109,6 @@ msgstr ""
 
 #: src/Filters/FilterButton.jsx:11
 msgid "OER mode"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:59
-msgid "What topics are you interested in?"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:65
-msgid "Select as many topics as you want"
 msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:45
@@ -139,4 +146,12 @@ msgstr ""
 #: src/Filters/LocationFilterForm.jsx:139
 #: src/Filters/LocationFilterForm.jsx:143
 msgid "Select a location"
+msgstr ""
+
+#: src/Filters/TopicsFilterForm.jsx:59
+msgid "What topics are you interested in?"
+msgstr ""
+
+#: src/Filters/TopicsFilterForm.jsx:65
+msgid "Select as many topics as you want"
 msgstr ""

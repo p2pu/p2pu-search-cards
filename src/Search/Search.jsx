@@ -20,6 +20,7 @@ export default class Search extends Component {
       isLoading: false,
       hasMoreResults: false,
       appendResults: false,
+      ...props.initialState,
     }
     this.handleChange = (s) => this._handleChange(s);
     this.handleInputChange = () => this._handleInputChange();
