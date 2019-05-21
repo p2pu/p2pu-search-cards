@@ -1,6 +1,6 @@
 {
   "name": "p2pu-search-cards",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "description": "Search component used in P2PU projects",
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
     "build:demo:af": "webpack --mode production --config webpack.config.demo.js --env.locale=af",
     "build:demo:de": "webpack --mode production --config webpack.config.demo.js --env.locale=de",
     "publish": "npm publish",
-    "prepublish": "git push origin master",
+    "prepublish": "git push origin master"
   },
   "author": "Sharon Kennedy <sharon@p2pu.org>",
   "license": "MIT",
