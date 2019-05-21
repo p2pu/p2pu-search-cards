@@ -202,7 +202,7 @@ const SearchTags = (props) => {
     }
   }
 
-  const noResults = props.searchResults.length === 0;a
+  const noResults = props.searchResults.length === 0;
   const resetButton = <button onClick={reloadWindow} className='p2pu-btn light with-outline'>{t`reset the search form`}</button>;
 
   return(
