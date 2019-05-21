@@ -20,7 +20,7 @@ const OrderCoursesForm = (props) => {
           const checked = sortBy == option.value;
 
           return(
-            <div key={`order-${option.value}`} className="radio-with-label label-right col-sm-12 col-md-6 col-lg-6">
+            <div key={`order-${option.value}`} className="radio-with-label label-right col-12">
               <label>
                 <input
                   type="radio"

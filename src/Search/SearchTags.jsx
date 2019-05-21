@@ -170,9 +170,9 @@ const SearchTags = (props) => {
     let searchSummaryItems = [
       <span key='resultsSummary-0'>{
         ngettext(
-          msgid`Showing ${props.searchResults.length} of ${props.totalResults} result`, 
-          `Showing ${props.searchResults.length} of ${props.totalResults} results`, 
-          props.totalResults.length
+          msgid`Showing ${props.searchResults.length} of ${props.totalResults} result`,
+          `Showing ${props.searchResults.length} of ${props.totalResults} results`,
+          props.totalResults
         )
       }</span>
     ];
