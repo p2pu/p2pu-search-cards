@@ -5,13 +5,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 
 const makeLocaleConfig = (locale) => {
-  let ttag = {
-    resolve: { 
-      translations: `i18n/${locale}.po`,
-      unresolved: 'skip'
-    },
-  }
-
   let config = {
     entry: { build: path.join(__dirname, "src/index.js") },
     output: {
@@ -73,6 +66,12 @@ const makeLocaleConfig = (locale) => {
   };
 
   if (locale != null){
+    let ttag = {
+      resolve: { 
+        translations: `i18n/${locale}.po`,
+        unresolved: 'skip'
+      },
+    }
     config.output.filename = `[name]-${locale}.js`,
     config.module.rules[0].use.options.plugins = [['ttag', ttag]];
   }

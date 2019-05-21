@@ -111,6 +111,14 @@ msgstr ""
 msgid "OER mode"
 msgstr ""
 
+#: src/Filters/TopicsFilterForm.jsx:59
+msgid "What topics are you interested in?"
+msgstr ""
+
+#: src/Filters/TopicsFilterForm.jsx:65
+msgid "Select as many topics as you want"
+msgstr ""
+
 #: src/Filters/LocationFilterForm.jsx:45
 msgid "Unable to detect location."
 msgstr ""
@@ -146,12 +154,4 @@ msgstr ""
 #: src/Filters/LocationFilterForm.jsx:139
 #: src/Filters/LocationFilterForm.jsx:143
 msgid "Select a location"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:59
-msgid "What topics are you interested in?"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:65
-msgid "Select as many topics as you want"
 msgstr ""
