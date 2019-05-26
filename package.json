@@ -13,8 +13,8 @@
     "build:demo": "webpack --mode production --config webpack.config.demo.js",
     "build:demo:af": "webpack --mode production --config webpack.config.demo.js --env.locale=af",
     "build:demo:de": "webpack --mode production --config webpack.config.demo.js --env.locale=de",
-    "publish": "npm publish",
-    "prepublish": "git push origin master"
+    "deploy": "npm publish",
+    "predeploy": "git push origin master"
   },
   "author": "Sharon Kennedy <sharon@p2pu.org>",
   "license": "MIT",
