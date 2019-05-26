@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import queryString from 'query-string'
 import ReactLoading from 'react-loading';
 
 import SearchAndFilter from './SearchAndFilter'
@@ -32,11 +31,6 @@ export default class Search extends Component {
   }
 
   componentDidMount() {
-    const urlParams = queryString.parse(window.location.search);
-    if (urlParams.team_id) {
-      this.setState({ team_id: urlParams.team_id })
-    }
-
     window.onscroll = () => {
       const { isLoading, hasMoreResults } = this.state;
       if (isLoading || !hasMoreResults) {
@@ -57,7 +51,7 @@ export default class Search extends Component {
   }
 
   _loadInitialData() {
-    this.updateQueryParams({ active: true, signup: 'open', team_id: this.state.team_id, limit: this.state.limit, offset: this.state.offset });
+    this.updateQueryParams({ active: true, signup: 'open', limit: this.state.limit, offset: this.state.offset });
   }
 
   _sendQuery(opts={}) {
