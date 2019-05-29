@@ -1,4 +1,5 @@
 # Translators:
+# Dirk Uys <dirkcuys@gmail.com>, 2019
 # Pranke <Juliana.Pranke@zlb.de>, 2019
 # 
 msgid ""
@@ -9,25 +10,66 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/LearningCircles/Browse.jsx:20
+#: src/LearningCircles/Browse.jsx:21
 msgid "Start a learning circle in your neighborhood"
 msgstr "Starte ein Lernteam in deiner Umgebung"
 
-#: src/LearningCircles/LearningCircleCard.jsx:47
-msgid "Facilitated by ${ learningCircle.facilitator }"
-msgstr "Moderiert von ${ learningCircle.facilitator }"
+#: src/LearningCircles/LearningCircleCard.jsx:16
+msgid ""
+"${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
+"learningCircle.time_zone })"
+msgstr ""
+"${ weekDay } von ${ formattedStartTime } bis ${ formattedEndTime } (${ "
+"learningCircle.time_zone })"
 
-#: src/LearningCircles/LearningCircleCard.jsx:51
-msgid "Meeting at ${ learningCircle.venue }"
-msgstr "Ort des Treffens: ${ learningCircle.venue }"
+#: src/LearningCircles/LearningCircleCard.jsx:17
+msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
+msgstr "${ learningCircle.weeks } Wochen ab ${ formattedDate }"
 
-#: src/LearningCircles/LearningCircleCard.jsx:56
+#: src/LearningCircles/LearningCircleCard.jsx:23
+#: src/LearningCircles/LearningCircleCard.jsx:29
 msgid "Sign up"
 msgstr "Anmeldung"
 
-#: src/Search/SearchBar.jsx:17
-msgid "Search"
-msgstr "Suche"
+#: src/LearningCircles/LearningCircleCard.jsx:63
+msgid "Facilitated by ${ learningCircle.facilitator }"
+msgstr "Moderiert von ${ learningCircle.facilitator }"
+
+#: src/LearningCircles/LearningCircleCard.jsx:67
+msgid "Meeting at ${ learningCircle.venue }"
+msgstr "Ort des Treffens: ${ learningCircle.venue }"
+
+#: src/utils/constants.js:4 src/utils/i18n.js:4
+msgid "Monday"
+msgstr "Montag"
+
+#: src/utils/constants.js:5 src/utils/i18n.js:5
+msgid "Tuesday"
+msgstr "Dienstag"
+
+#: src/utils/constants.js:6 src/utils/i18n.js:6
+msgid "Wednesday"
+msgstr "Mittwoch"
+
+#: src/utils/constants.js:7 src/utils/i18n.js:7
+msgid "Thursday"
+msgstr "Donnerstag"
+
+#: src/utils/constants.js:8 src/utils/i18n.js:8
+msgid "Friday"
+msgstr "Freitag"
+
+#: src/utils/constants.js:9 src/utils/i18n.js:9
+msgid "Saturday"
+msgstr "Samstag"
+
+#: src/utils/constants.js:10 src/utils/i18n.js:10
+msgid "Sunday"
+msgstr "Sonnabend"
+
+#: src/utils/constants.js:28
+msgid "Keyword, organization, facilitator, etc..."
+msgstr "Stichwort, Organisation, Lernteam-Moderator/in, etc."
 
 #: src/Search/SearchTags.jsx:172
 msgid ""
@@ -39,6 +81,19 @@ msgstr[0] ""
 msgstr[1] ""
 "Zeige ${ props.searchResults.length } von ${ props.totalResults } "
 "Ergebnissen"
+
+#: src/Search/SearchTags.jsx:206
+msgid "reset the search form"
+msgstr "Setze das Suchformular zurück"
+
+#: src/Search/SearchTags.jsx:215
+msgid "To see more results, either remove some filters or ${ resetButton }"
+msgstr ""
+"Um mehr Ergebnisse zu sehen, entferne einige Filter oder ${ resetButton }"
+
+#: src/Search/SearchBar.jsx:17
+msgid "Search"
+msgstr "Suche"
 
 #: src/Filters/FilterButton.jsx:6
 msgid "Location"
@@ -54,7 +109,7 @@ msgstr "Themen"
 
 #: src/Filters/FilterButton.jsx:9
 msgid "Meeting Day(s)"
-msgstr "Tag(e) der Lernteam-Treffen"
+msgstr "Wochentag(e) der Lernteam-Treffen"
 
 #: src/Filters/FilterButton.jsx:10
 msgid "Sort by"
@@ -64,49 +119,13 @@ msgstr "Filter"
 msgid "OER mode"
 msgstr "OER Modus (Lizensierung der Lehr- und Lernmaterialien)"
 
-#: src/LearningCircles/LearningCircleCard.jsx:14
-msgid ""
-"${ learningCircle.day } from ${ formattedStartTime } to ${ formattedEndTime "
-"} (${ learningCircle.time_zone })"
-msgstr ""
-"${ learningCircle.day } von ${ formattedStartTime } bis ${ formattedEndTime "
-"} (${ learningCircle.time_zone })"
+#: src/Filters/TopicsFilterForm.jsx:59
+msgid "What topics are you interested in?"
+msgstr "Welche Themen interessieren dich?"
 
-#: src/LearningCircles/LearningCircleCard.jsx:15
-msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
-msgstr "${ learningCircle.weeks } Wochen ab ${ formattedDate }"
-
-#: src/utils/constants.js:4
-msgid "Monday"
-msgstr "Montag"
-
-#: src/utils/constants.js:5
-msgid "Tuesday"
-msgstr "Dienstag"
-
-#: src/utils/constants.js:6
-msgid "Wednesday"
-msgstr "Mittwoch"
-
-#: src/utils/constants.js:7
-msgid "Thursday"
-msgstr "Donnerstag"
-
-#: src/utils/constants.js:8
-msgid "Friday"
-msgstr "Freitag"
-
-#: src/utils/constants.js:9
-msgid "Saturday"
-msgstr "Samstag"
-
-#: src/utils/constants.js:10
-msgid "Sunday"
-msgstr "Sonnabend"
-
-#: src/utils/constants.js:28
-msgid "Keyword, organization, facilitator, etc..."
-msgstr "Stichwort, Organisation, Lernteam-Moderator/in, etc."
+#: src/Filters/TopicsFilterForm.jsx:65
+msgid "Select as many topics as you want"
+msgstr "Wähle so viele Themen wie du willst"
 
 #: src/Filters/LocationFilterForm.jsx:45
 msgid "Unable to detect location."
@@ -132,19 +151,15 @@ msgstr "Aktueller Standort ausgewählt"
 msgid "miles"
 msgstr "Kilometer"
 
+#: src/Filters/LocationFilterForm.jsx:100
+msgid "km"
+msgstr "Kilometer"
+
 #: src/Filters/LocationFilterForm.jsx:102
 msgid "Within ${ value } ${ unit }"
-msgstr "im Umkreis von ${value} ${unit}"
+msgstr "im Umkreis von ${ value } ${ unit }"
 
 #: src/Filters/LocationFilterForm.jsx:139
 #: src/Filters/LocationFilterForm.jsx:143
 msgid "Select a location"
 msgstr "Wähle einen Ort"
-
-#: src/Filters/TopicsFilterForm.jsx:59
-msgid "What topics are you interested in?"
-msgstr "Welche Themen interessieren dich?"
-
-#: src/Filters/TopicsFilterForm.jsx:65
-msgid "Select as many topics as you want"
-msgstr "Wähle so viele Themen wie du willst"
