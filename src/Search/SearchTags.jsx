@@ -188,9 +188,9 @@ const SearchTags = (props) => {
 
       if (!!tagsArray) {
         if (searchSummaryItems.length === 1) {
-          searchSummaryItems.push(forSearchSubject)
+          // TODO searchSummaryItems.push(forSearchSubject)
           if (tag === 'q' || tag === 'topics') {
-            searchSummaryItems.push(withSpan)
+            // TODO searchSummaryItems.push(withSpan)
           }
         } else {
           // TODO searchSummaryItems.push(<span key={`resultsSummary-${searchSummaryItems.length}`}>and</span>)
