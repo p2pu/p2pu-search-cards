@@ -18,6 +18,7 @@ const SearchTags = (props) => {
     if (props.q) {
       const onDelete = (value) => { props.updateQueryParams({ q: null }) }
 
+      return [<SearchTag key='queryTag-0' value={props.q} onDelete={onDelete} />];
       return [<span key='queryTagIntro'>the search query</span>, <SearchTag key='queryTag-0' value={props.q} onDelete={onDelete} />];
     }
   }
@@ -31,6 +32,7 @@ const SearchTags = (props) => {
       }
       const humanReadableName = decodeURIComponent(props.teamName);
 
+      return [<SearchTag key='queryTag-0' value={humanReadableName} onDelete={onDelete} />];
       return [<span key='queryTagIntro'>organized by</span>, <SearchTag key='queryTag-0' value={humanReadableName} onDelete={onDelete} />];
     }
   }
@@ -85,6 +87,7 @@ const SearchTags = (props) => {
 
       const introPhrase = props.topics.length === 1 ? 'the topic' : 'the topics';
       let topicsTagsArray = [<span key='topicTagIntro'>{introPhrase}</span>]
+      topicsTagsArray = []; // TODO
 
       props.topics.map((item, index) => {
         if (props.topics.length > 1 && index === (props.topics.length - 1)) {
@@ -107,11 +110,13 @@ const SearchTags = (props) => {
       const onDelete = (value) => {
         props.updateQueryParams({ latitude: null, longitude: null, distance: 50 })
       }
+      return [<SearchTag key='locationTag-0' value={text} onDelete={onDelete} />];
       return [<span key='locationTagIntro'>located</span>, <SearchTag key='locationTag-0' value={text} onDelete={onDelete} />];
     } else if (props.city) {
       const onDelete = (value) => {
         props.updateQueryParams({ city: null })
       }
+      return [<SearchTag key='locationTag-0' value={props.city} onDelete={onDelete} />];
       return [<span key='locationTagIntro'>located in</span>, <SearchTag key='locationTag-0' value={props.city} onDelete={onDelete} />];
     }
   }
@@ -126,6 +131,7 @@ const SearchTags = (props) => {
       }
 
       let weekdayTagsArray = [<span key='weekdayTagIntro'>meeting on</span>]
+      weekdayTagsArray = []; // TODO
 
       props.weekdays.map((dayIndex, index) => {
         const weekdayName = MEETING_DAYS[dayIndex];
@@ -187,7 +193,7 @@ const SearchTags = (props) => {
             searchSummaryItems.push(withSpan)
           }
         } else {
-          searchSummaryItems.push(<span key={`resultsSummary-${searchSummaryItems.length}`}>and</span>)
+          // TODO searchSummaryItems.push(<span key={`resultsSummary-${searchSummaryItems.length}`}>and</span>)
         }
         searchSummaryItems.push(tagsArray)
       }

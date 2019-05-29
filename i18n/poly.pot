@@ -69,17 +69,17 @@ msgstr ""
 msgid "Keyword, organization, facilitator, etc..."
 msgstr ""
 
-#: src/Search/SearchTags.jsx:172
+#: src/Search/SearchTags.jsx:178
 msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
 msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Search/SearchTags.jsx:206
+#: src/Search/SearchTags.jsx:212
 msgid "reset the search form"
 msgstr ""
 
-#: src/Search/SearchTags.jsx:215
+#: src/Search/SearchTags.jsx:221
 msgid "To see more results, either remove some filters or ${ resetButton }"
 msgstr ""
 
