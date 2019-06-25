@@ -12,7 +12,7 @@ msgstr ""
 
 #: src/LearningCircles/Browse.jsx:21
 msgid "Start a learning circle in your neighborhood"
-msgstr "Starte ein Lernteam in deiner Umgebung"
+msgstr "Starten Sie ein Lernteam in Ihrer Umgebung"
 
 #: src/LearningCircles/LearningCircleCard.jsx:16
 msgid ""
@@ -79,17 +79,18 @@ msgid_plural ""
 msgstr[0] ""
 "Zeige ${ props.searchResults.length } von ${ props.totalResults } Ergebnis"
 msgstr[1] ""
-"Zeige ${ props.searchResults.length } von ${ props.totalResults } "
+"Zeigt ${ props.searchResults.length } von ${ props.totalResults } "
 "Ergebnissen"
 
 #: src/Search/SearchTags.jsx:206
 msgid "reset the search form"
-msgstr "Setze das Suchformular zurück"
+msgstr "Setzen Sie das Suchformular zurück"
 
 #: src/Search/SearchTags.jsx:215
 msgid "To see more results, either remove some filters or ${ resetButton }"
 msgstr ""
-"Um mehr Ergebnisse zu sehen, entferne einige Filter oder ${ resetButton }"
+"Um mehr Ergebnisse zu sehen, entfernen Sie einige Filter oder ${ resetButton"
+" }"
 
 #: src/Search/SearchBar.jsx:17
 msgid "Search"
@@ -121,11 +122,11 @@ msgstr "OER Modus (Lizensierung der Lehr- und Lernmaterialien)"
 
 #: src/Filters/TopicsFilterForm.jsx:59
 msgid "What topics are you interested in?"
-msgstr "Welche Themen interessieren dich?"
+msgstr "Welche Themen interessieren Sie?"
 
 #: src/Filters/TopicsFilterForm.jsx:65
 msgid "Select as many topics as you want"
-msgstr "Wähle so viele Themen wie du willst"
+msgstr "Wählen Sie so viele Themen wie Sie wollen"
 
 #: src/Filters/LocationFilterForm.jsx:45
 msgid "Unable to detect location."
@@ -162,4 +163,4 @@ msgstr "im Umkreis von ${ value } ${ unit }"
 #: src/Filters/LocationFilterForm.jsx:139
 #: src/Filters/LocationFilterForm.jsx:143
 msgid "Select a location"
-msgstr "Wähle einen Ort"
+msgstr "Wählen Sie einen Ort"

@@ -97,7 +97,7 @@ export default class LocationFilterForm extends Component {
   }
 
   _generateDistanceSliderLabel() {
-    const unit = this.props.useMiles ? t`miles` : t`km`
+    const unit = this.props.useMiles ? t`miles` : t`km`;
     const value = this.generateDistanceValue();
     return t`Within ${value} ${unit}`
   }
