@@ -119,6 +119,7 @@ export default class Search extends Component {
           results={this.state.searchResults}
           updateQueryParams={this.updateQueryParams}
           onSelectResult={this.props.onSelectResult}
+          locale={this.props.locale}
         />
         {
           this.state.isLoading &&

@@ -3,7 +3,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: src/LearningCircles/Browse.jsx:21
+#: src/LearningCircles/Browse.jsx:22
 msgid "Start a learning circle in your neighborhood"
 msgstr ""
 

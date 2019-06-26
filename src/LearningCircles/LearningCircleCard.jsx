@@ -5,8 +5,8 @@ import { COLOR_CLASSES } from '../utils/constants';
 import { date, day, time } from '../utils/i18n';
 
 const LearningCircleCard = (props) => {
-  const { learningCircle } = props;
-  const formattedDate = date(learningCircle.start_date);
+  const { learningCircle, locale } = props;
+  const formattedDate = date(learningCircle.start_date, locale);
   const formattedStartTime = time(learningCircle.meeting_time);
   const formattedEndTime = time(learningCircle.end_time);
   const weekDay = day(learningCircle.day);

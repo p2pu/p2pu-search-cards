@@ -18,11 +18,13 @@ export function day(day_) {
 };
 
 /* Convert a date (YYYY-MM-DD) to the locale format */
-export function date(date_){
+export function date(date_, locale='default'){
   // Since a date without a time will be in UTC, the timeZone used for output should
   // also be UTC. If not specified, the timezone of the user will be used, iow, a meeting
   // late Monday evening EST would show as Tuesday in CEST.
-  let localDate = new Date(date_).toLocaleDateString('default', { 
+  // TODO - this translation is dynamic, while the rest of the translation is static
+  //      - it's baked in when webpack builds it
+  let localDate = new Date(date_).toLocaleDateString(locale, { 
     year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' 
   })
   return localDate;
