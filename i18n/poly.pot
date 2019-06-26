@@ -7,26 +7,26 @@ msgstr ""
 msgid "Start a learning circle in your neighborhood"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:16
+#: src/LearningCircles/LearningCircleCard.jsx:13
 msgid ""
 "${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
 "learningCircle.time_zone })"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:17
+#: src/LearningCircles/LearningCircleCard.jsx:14
 msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:23
-#: src/LearningCircles/LearningCircleCard.jsx:29
+#: src/LearningCircles/LearningCircleCard.jsx:20
+#: src/LearningCircles/LearningCircleCard.jsx:26
 msgid "Sign up"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:63
+#: src/LearningCircles/LearningCircleCard.jsx:60
 msgid "Facilitated by ${ learningCircle.facilitator }"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:67
+#: src/LearningCircles/LearningCircleCard.jsx:64
 msgid "Meeting at ${ learningCircle.venue }"
 msgstr ""
 

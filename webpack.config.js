@@ -50,7 +50,6 @@ const makeLocaleConfig = (locale) => {
     externals: {
       axios: "axios",
       jsonp: "jsonp",
-      moment: "moment",
       react: "react",
       "react-dom": "react-dom",
       "p2pu-input-fields": "p2pu-input-fields"
