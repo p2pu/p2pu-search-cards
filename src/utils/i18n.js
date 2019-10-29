@@ -38,3 +38,45 @@ export function time(time_){
   now.setMinutes(m);
   return now.toLocaleTimeString('default', {hour: 'numeric', minute:'2-digit'});
 }
+
+const LANGUAGES = {
+  "en": {
+    "name":"English",
+    "nativeName":"English"
+  },
+  "fi": {
+    "name":"Finnish",
+    "nativeName":"suomi, suomen kieli"
+  },
+  "fr": {
+    "name":"French",
+    "nativeName":"français, langue française"
+  },
+  "de": {
+    "name":"German",
+    "nativeName":"Deutsch"
+  },
+  "pl": {
+    "name":"Polish",
+    "nativeName":"polski"
+  },
+  "pt": {
+    "name":"Portuguese",
+    "nativeName":"Português"
+  },
+  "ro": {
+    "name":"Romanian, Moldavian, Moldovan",
+    "nativeName":"română"
+  },
+  "es": {
+    "name":"Spanish; Castilian",
+    "nativeName":"español, castellano"
+  },
+};
+
+export function isoCodeToLangName(code){
+  if (LANGUAGES.hasOwnProperty(code)){
+    return LANGUAGES[code].nativeName;
+  }
+  return code;
+}
