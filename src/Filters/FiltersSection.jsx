@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { t } from 'ttag';
 import FilterButton from './FilterButton'
 import FilterForm from './FilterForm'
 
@@ -17,7 +18,7 @@ export default class FilterSection extends Component {
     return(
       <div className="filter-section">
         <div className='label'>
-          Filter
+          {t`Filter`}
         </div>
         <div className='filters-bar'>
           {

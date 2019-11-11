@@ -1,10 +1,14 @@
 import React from 'react'
+import { t, ngettext, msgid } from 'ttag';
 
 const UsageBadge = ({ number, id }) => {
   const display = number > 0
-  const pluralizedText = number === 1 ? 'learning circle' : 'learning circles';
   const icon = number === 1 ? 'done' : 'done_all';
-  const tooltipText = `Used by ${number} ${pluralizedText}`;
+  const tooltipText = ngettext(
+    msgid`Used by ${number} learning circle`,
+    `Used by ${number} learning circles`,
+    number
+  );
 
   if (display) {
     return (

@@ -1,11 +1,12 @@
 import React from 'react'
+import { t } from 'ttag';
 import { SwitchWithLabels } from 'p2pu-input-fields'
 
 
 const OerFilterForm = (props) => {
   const formValues = {
-    true: "Only open educational resources (OER)",
-    false: "All courses"
+    true: t`Only open educational resources (OER)`,
+    false: t`All courses`
   }
 
   const handleSelect = (oer) => {
