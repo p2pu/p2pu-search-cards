@@ -1,37 +1,352 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: src/LearningCircles/Browse.jsx:20
-msgid "Start a learning circle in your neighborhood"
-msgstr "Begin a leersirkel in you buurt"
+#: src/Courses/CourseCard.jsx:9
+msgid "Always available"
+msgstr "Altyd beskikbaar"
 
-#: src/LearningCircles/LearningCircleCard.jsx:47
+#: src/Courses/CourseCard.jsx:9
+msgid "Check availability"
+msgstr "Sien beskikbaarheid"
+
+#: src/Courses/CourseCard.jsx:22
+#, javascript-format
+msgid "${ rating_number } ratings"
+msgstr "${ rating_number } graderings"
+
+#: src/Courses/CourseCard.jsx:24
+msgid "${ rating_number } rating"
+msgstr "${ rating_number } gradering"
+
+#: src/Courses/CourseCard.jsx:28
+#, javascript-format
+msgid "Used in ${ usage_number } learning circles"
+msgstr "Gebruik deur ${ usage_number } studiekringe"
+
+#: src/Courses/CourseCard.jsx:30
+msgid "Used in ${ usage_number } learning circle"
+msgstr "Gebruik deur ${ usage_number } studiekring"
+
+#: src/Courses/CourseCard.jsx:57 src/Filters/FilterButton.jsx:8
+msgid "Topics"
+msgstr "Onderwerpe"
+
+#: src/Courses/CourseCard.jsx:66
+msgid "Provider"
+msgstr "Verskaffer"
+
+#: src/Courses/CourseCard.jsx:71
+msgid "Platform"
+msgstr "Platform"
+
+#: src/Courses/CourseCard.jsx:76
+msgid "Access"
+msgstr "Toegang"
+
+#: src/Courses/CourseCard.jsx:81
+msgid "Community feedback"
+msgstr "Gemeenskap terugvoer"
+
+#: src/Courses/CourseCard.jsx:91
+msgid "More details"
+msgstr "Meer inligting"
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:32
+#, javascript-format
+msgid "Sign up for ${ course.title }"
+msgstr "Teken aan vir ${ course.title }"
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:42
+#: src/LearningCircles/LearningCircleCard.jsx:60
 msgid "Facilitated by ${ learningCircle.facilitator }"
 msgstr "Gefasiliteer deur ${ learningCircle.facilitator }"
 
-#: src/LearningCircles/LearningCircleCard.jsx:51
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:43
+#, javascript-format
+msgid "Course materials provided by ${ courseProviderLink }"
+msgstr "Kurses materiale work versaf deur ${ courseProviderLink }"
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:46
+#, javascript-format
+msgid ""
+"This learning circle meets ${ meetingDay } from ${ startTime } to "
+"${ endTime } (${ learningCircle.time_zone }), ${ startDate }."
+msgstr ""
+"${ meetingDay } vanaf ${ startTime } tot ${ endTime } (${ learningCircle."
+"time_zone }), ${ startDate }."
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:49
+#, javascript-format
+msgid ""
+"This learning circle meets every ${ meetingDay } from ${ startTime } to "
+"${ endTime } (${ learningCircle.time_zone }) starting ${ startDate } for "
+"${ learningCircle.weeks } weeks."
+msgstr ""
+"Hierdie studykring ontmoet elke ${ meetingDay } van ${ startTime } tot "
+"${ endTime } (${ learningCircle.time_zone }) vanaf ${ startDate } vir "
+"${ learningCircle.weeks } weke."
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:51
+msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
+msgstr "Ontmoet by ${ venueLink }, ${ learningCircle.venue_address }"
+
+#: src/Courses/Browse.jsx:30
+msgid "Use this course"
+msgstr "Gebruik hierdie kurses"
+
+#: src/LearningCircles/Browse.jsx:22
+msgid "Start a learning circle in your neighborhood"
+msgstr "Begin a studiekring in you buurt"
+
+#: src/LearningCircles/LearningCircleCard.jsx:13
+#, javascript-format
+msgid ""
+"${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } "
+"(${ learningCircle.time_zone })"
+msgstr ""
+"${ weekDay } vanaf ${ formattedStartTime } tot ${ formattedEndTime } "
+"(${ learningCircle.time_zone })"
+
+#: src/LearningCircles/LearningCircleCard.jsx:14
+#, javascript-format
+msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
+msgstr "${ learningCircle.weeks } weke vanaf ${ formattedDate }"
+
+#: src/LearningCircleSignup/SignupForm.jsx:210
+#: src/LearningCircles/LearningCircleCard.jsx:20
+#: src/LearningCircles/LearningCircleCard.jsx:26
+msgid "Sign up"
+msgstr "Skryf in"
+
+#: src/LearningCircles/LearningCircleCard.jsx:64
 msgid "Meeting at ${ learningCircle.venue }"
 msgstr "Ontmoet by ${ learningCircle.venue }"
 
-#: src/LearningCircles/LearningCircleCard.jsx:56
-msgid "Sign up"
-msgstr "Skryf in"
+#: src/utils/constants.js:4 src/utils/i18n.js:4
+msgid "Monday"
+msgstr "Maandag"
+
+#: src/utils/constants.js:5 src/utils/i18n.js:5
+msgid "Tuesday"
+msgstr "Dinsdag"
+
+#: src/utils/constants.js:6 src/utils/i18n.js:6
+msgid "Wednesday"
+msgstr "Woensdag"
+
+#: src/utils/constants.js:7 src/utils/i18n.js:7
+msgid "Thursday"
+msgstr "Donderdag"
+
+#: src/utils/constants.js:8 src/utils/i18n.js:8
+msgid "Friday"
+msgstr "Vrydag"
+
+#: src/utils/constants.js:9 src/utils/i18n.js:9
+msgid "Saturday"
+msgstr "Saturdag"
+
+#: src/utils/constants.js:10 src/utils/i18n.js:10
+msgid "Sunday"
+msgstr "Sondag"
+
+#: src/utils/constants.js:14
+msgid "Course title"
+msgstr "Kurses titel"
+
+#: src/utils/constants.js:15
+msgid "Popularity"
+msgstr "Gewildheid"
+
+#: src/utils/constants.js:16
+msgid "Community rating"
+msgstr "Gemeenskap gradering"
+
+#: src/utils/constants.js:17
+msgid "Recently added"
+msgstr "Onlangs toegevoeg"
+
+#: src/utils/constants.js:28
+msgid "Keyword, organization, facilitator, etc..."
+msgstr "Sleutelwoorde, organisasie, fasiliteerder, ens..."
+
+#: src/utils/constants.js:33
+msgid "Title, subject, etc..."
+msgstr "Titel, onderwerk, ens..."
+
+#: src/LearningCircleSignup/SignupForm.jsx:11
+msgid "To increase my employability"
+msgstr "Om my indiensneembaarheid te verbeter"
+
+#: src/LearningCircleSignup/SignupForm.jsx:12
+msgid "Professional development for my current job"
+msgstr "Profesionele ontwikkeling vir my huidige werk"
+
+#: src/LearningCircleSignup/SignupForm.jsx:13
+msgid "To accompany other educational programs"
+msgstr "Om ander opvoedkundige programme te vergesel"
+
+#: src/LearningCircleSignup/SignupForm.jsx:14
+msgid "Personal interest"
+msgstr "Personlike belangstelling"
+
+#: src/LearningCircleSignup/SignupForm.jsx:15
+msgid "Social reasons"
+msgstr "Sosiale redes"
+
+#: src/LearningCircleSignup/SignupForm.jsx:16
+msgid "For fun / to try something new"
+msgstr "Vir pret / om iets nuut uit the probeer"
+
+#: src/LearningCircleSignup/SignupForm.jsx:17
+msgid "Other"
+msgstr "Ander"
+
+#: src/LearningCircleSignup/SignupForm.jsx:21
+msgid "Both"
+msgstr "Albei"
+
+#: src/LearningCircleSignup/SignupForm.jsx:22
+msgid "Just a laptop"
+msgstr "Net 'n skootrekenaar"
+
+#: src/LearningCircleSignup/SignupForm.jsx:23
+msgid "Just headphones"
+msgstr "Net oorfone"
+
+#: src/LearningCircleSignup/SignupForm.jsx:24
+msgid "Neither"
+msgstr "Geeneen"
+
+#: src/LearningCircleSignup/SignupForm.jsx:28
+msgid "Can't do"
+msgstr "Kan nie doen nie."
+
+#: src/LearningCircleSignup/SignupForm.jsx:29
+msgid "Need help doing"
+msgstr "Het hulp nodig om te doen"
+
+#: src/LearningCircleSignup/SignupForm.jsx:30
+msgid "Can do with difficulty"
+msgstr "Kan met 'n gesukkel doen"
+
+#: src/LearningCircleSignup/SignupForm.jsx:31
+msgid "Can do"
+msgstr "Kan doen"
+
+#: src/LearningCircleSignup/SignupForm.jsx:32
+msgid "Expert (can teach others)"
+msgstr "Kenner"
+
+#: src/LearningCircleSignup/SignupForm.jsx:134
+msgid "Name"
+msgstr "Naam"
+
+#: src/LearningCircleSignup/SignupForm.jsx:143
+msgid "Email address"
+msgstr "Epos"
+
+#: src/LearningCircleSignup/SignupForm.jsx:152
+msgid "What is your goal for taking this learning circle?"
+msgstr "What is jou doel om hierdie studiekring te neem?"
+
+#: src/LearningCircleSignup/SignupForm.jsx:158
+#: src/LearningCircleSignup/SignupForm.jsx:178
+#: src/LearningCircleSignup/SignupForm.jsx:188
+msgid "Select one of the following"
+msgstr "Kies een van die volgende"
+
+#: src/LearningCircleSignup/SignupForm.jsx:162
+msgid ""
+"A successful study group requires the support of all of its members. How "
+"will you help your peers achieve their goals?"
+msgstr ""
+"'n Suksesvolle studiekring vereis die ondersteuning van alle lede. Hoe sal "
+"jy jou mede-lede ondersteun?"
+
+#: src/LearningCircleSignup/SignupForm.jsx:171
+msgid "Can you bring a laptop and headphones to the learning circle each week?"
+msgstr "Kan jy jou eie rekenaar en oorfone bring elke week?"
+
+#: src/LearningCircleSignup/SignupForm.jsx:181
+msgid "How comfortable are you using the internet?"
+msgstr "Hoe gemaklik is jy om die internet te gebruik?"
+
+#: src/LearningCircleSignup/SignupForm.jsx:191
+msgid ""
+"If you'd like to receive weekly text messages reminding you of upcoming "
+"learning circle meetings, put your phone number here."
+msgstr ""
+"As jy 'n weekliske herhindering per SMS wil ontvang, verskaf jou selfoon "
+"nommer hier."
+
+#: src/LearningCircleSignup/SignupForm.jsx:199
+msgid "Your number won't be shared with other participants."
+msgstr "Jou nommer sal nie gedeel word met onder ondernemers nie."
+
+#: src/LearningCircleSignup/SignupForm.jsx:202
+msgid ""
+"Would you like to receive information about other learning opportunities in "
+"the future?"
+msgstr "Wil u inligting oor ander studie geleenthede in die toekoms ontvang?"
+
+#: src/LearningCircleSignup/SignupForm.jsx:213
+msgid "Back to search"
+msgstr "Terug na soek"
+
+#: src/LearningCircleSignup/SignupForm.jsx:217
+msgid "Submitting..."
+msgstr "Besig om te versend"
+
+#: src/Search/SearchTags.jsx:180
+#, javascript-format
+msgid ""
+"Showing ${ props.searchResults.length } of ${ props.totalResults } result"
+msgid_plural ""
+"Showing ${ props.searchResults.length } of ${ props.totalResults } results"
+msgstr[0] ""
+"Vertoon ${ props.searchResults.length } van ${ props.totalResults } resultaat"
+msgstr[1] ""
+"Vertoon ${ props.searchResults.length } van ${ props.totalResults } resultate"
+
+#: src/Search/SearchTags.jsx:214
+msgid "reset the search form"
+msgstr "begin oor"
+
+#: src/Search/SearchTags.jsx:223
+#, javascript-format
+msgid "To see more results, either remove some filters or ${ resetButton }"
+msgstr "Om meer resultate te sien, verwyder sekere filters of ${ resetButton }"
 
 #: src/Search/SearchBar.jsx:17
 msgid "Search"
 msgstr "Soek"
 
-#: src/Search/SearchTags.jsx:172
-msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
-msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
-msgstr[0] ""
-"Vertoon ${ props.searchResults.length } van ${ props.totalResults } "
-"resultaat"
-msgstr[1] ""
-"Vertoon ${ props.searchResults.length } van ${ props.totalResults } "
-"resultate"
+#: src/LearningCircleSignup/SignupSuccess.jsx:8
+msgid ""
+"Thank you for signing up. We've sent you an email introducing you to your "
+"facilitator and we'll send you a reminder two days before each meeting."
+msgstr ""
+"Dankie dat n insgeskryf het. Ons het sopas 'n epos gestuur om jou aan you "
+"fasiliteerder voor te stel. Ons sal jou 2 day voor elke byeenkoms 'n "
+"herhnnering stuur."
+
+#: src/Filters/FilterButton.jsx:10 src/Filters/SortSection.jsx:30
+msgid "Sort by"
+msgstr "Sorteer volgens"
+
+#: src/Filters/FiltersSection.jsx:21
+msgid "Filter"
+msgstr "Filter"
+
+#: src/Card/UsageBadge.jsx:7
+#, javascript-format
+msgid "Used by ${ number } learning circle"
+msgid_plural "Used by ${ number } learning circles"
+msgstr[0] "Gebruik deur ${ number } studiekring"
+msgstr[1] "Gebruik deur ${ number } studiekringe"
 
 #: src/Filters/FilterButton.jsx:6
 msgid "Location"
@@ -41,25 +356,13 @@ msgstr "Ligging"
 msgid "Language"
 msgstr "Taal"
 
-#: src/Filters/FilterButton.jsx:8
-msgid "Topics"
-msgstr "Onderwerpe"
-
 #: src/Filters/FilterButton.jsx:9
 msgid "Meeting Day(s)"
 msgstr "Ontmoeting dag/dae"
 
-#: src/Filters/FilterButton.jsx:10
-msgid "Sort by"
-msgstr "Sorteer volgens"
-
 #: src/Filters/FilterButton.jsx:11
 msgid "OER mode"
 msgstr "OER mode"
-
-#: src/utils/constants.js:28
-msgid "Keyword, organization, facilitator, etc..."
-msgstr "Sleutelwoorde, organisasie, fasiliteerder, ens..."
 
 #: src/Filters/LocationFilterForm.jsx:45
 msgid "Unable to detect location."
@@ -81,58 +384,23 @@ msgstr "Ontdek jou ligging ..."
 msgid "Using your current location"
 msgstr "Gebruik jou huidige ligging"
 
-#: src/Filters/LocationFilterForm.jsx:139
-#: src/Filters/LocationFilterForm.jsx:143
-msgid "Select a location"
-msgstr "Kies 'n plek"
-
 #: src/Filters/LocationFilterForm.jsx:100
 msgid "miles"
 msgstr "myl"
 
+#: src/Filters/LocationFilterForm.jsx:100
+msgid "km"
+msgstr "km"
+
 #: src/Filters/LocationFilterForm.jsx:102
+#, javascript-format
 msgid "Within ${ value } ${ unit }"
 msgstr "Binne ${ value } ${ unit }"
 
-#: src/utils/constants.js:4
-msgid "Monday"
-msgstr "Maandag"
-
-#: src/utils/constants.js:5
-msgid "Tuesday"
-msgstr "Dinsdag"
-
-#: src/utils/constants.js:6
-msgid "Wednesday"
-msgstr "Woensdag"
-
-#: src/utils/constants.js:7
-msgid "Thursday"
-msgstr "Donderdag"
-
-#: src/utils/constants.js:8
-msgid "Friday"
-msgstr "Vrydag"
-
-#: src/utils/constants.js:9
-msgid "Saturday"
-msgstr "Saturdag"
-
-#: src/utils/constants.js:10
-msgid "Sunday"
-msgstr "Sondag"
-
-#: src/LearningCircles/LearningCircleCard.jsx:14
-msgid ""
-"${ learningCircle.day } from ${ formattedStartTime } to ${ formattedEndTime "
-"} (${ learningCircle.time_zone })"
-msgstr ""
-"${ learningCircle.day } vanaf ${ formattedStartTime } tot ${ "
-"formattedEndTime } (${ learningCircle.time_zone })"
-
-#: src/LearningCircles/LearningCircleCard.jsx:15
-msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
-msgstr "${ learningCircle.weeks } weke vanaf ${ formattedDate }"
+#: src/Filters/LocationFilterForm.jsx:139
+#: src/Filters/LocationFilterForm.jsx:143
+msgid "Select a location"
+msgstr "Kies 'n plek"
 
 #: src/Filters/TopicsFilterForm.jsx:59
 msgid "What topics are you interested in?"
@@ -141,3 +409,19 @@ msgstr "Watter onderwerpe stel jy belang in?"
 #: src/Filters/TopicsFilterForm.jsx:65
 msgid "Select as many topics as you want"
 msgstr "Kies soveel onderwerpe as wat jy wil"
+
+#: src/Filters/LanguageFilterForm.jsx:60
+msgid "What languages are you interested in?"
+msgstr "Watter tale stel jy belang in?"
+
+#: src/Filters/LanguageFilterForm.jsx:66
+msgid "Select as many languages as you want"
+msgstr "Kies soveel tale as wat jy wil"
+
+#: src/Filters/OerFilterForm.jsx:8
+msgid "Only open educational resources (OER)"
+msgstr "Sleg OER kursusse"
+
+#: src/Filters/OerFilterForm.jsx:9
+msgid "All courses"
+msgstr "Alle kursusse"

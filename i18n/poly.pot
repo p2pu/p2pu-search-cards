@@ -3,8 +3,55 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: src/LearningCircles/Browse.jsx:22
-msgid "Start a learning circle in your neighborhood"
+#: src/Courses/CourseCard.jsx:9
+msgid "Always available"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:9
+msgid "Check availability"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:22
+#, javascript-format
+msgid "${ rating_number } ratings"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:24
+msgid "${ rating_number } rating"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:28
+#, javascript-format
+msgid "Used in ${ usage_number } learning circles"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:30
+msgid "Used in ${ usage_number } learning circle"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:57
+#: src/Filters/FilterButton.jsx:8
+msgid "Topics"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:66
+msgid "Provider"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:71
+msgid "Platform"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:76
+msgid "Access"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:81
+msgid "Community feedback"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:91
+msgid "More details"
 msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:32
@@ -39,6 +86,14 @@ msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:51
 msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
+msgstr ""
+
+#: src/Courses/Browse.jsx:30
+msgid "Use this course"
+msgstr ""
+
+#: src/LearningCircles/Browse.jsx:22
+msgid "Start a learning circle in your neighborhood"
 msgstr ""
 
 #: src/LearningCircles/LearningCircleCard.jsx:13
@@ -98,8 +153,28 @@ msgstr ""
 msgid "Sunday"
 msgstr ""
 
+#: src/utils/constants.js:14
+msgid "Course title"
+msgstr ""
+
+#: src/utils/constants.js:15
+msgid "Popularity"
+msgstr ""
+
+#: src/utils/constants.js:16
+msgid "Community rating"
+msgstr ""
+
+#: src/utils/constants.js:17
+msgid "Recently added"
+msgstr ""
+
 #: src/utils/constants.js:28
 msgid "Keyword, organization, facilitator, etc..."
+msgstr ""
+
+#: src/utils/constants.js:33
+msgid "Title, subject, etc..."
 msgstr ""
 
 #: src/LearningCircleSignup/SignupForm.jsx:11
@@ -200,7 +275,7 @@ msgstr ""
 
 #: src/LearningCircleSignup/SignupForm.jsx:191
 msgid ""
-"If you’d like to receive weekly text messages reminding you of upcoming "
+"If you'd like to receive weekly text messages reminding you of upcoming "
 "learning circle meetings, put your phone number here."
 msgstr ""
 
@@ -248,6 +323,22 @@ msgid ""
 "facilitator and we'll send you a reminder two days before each meeting."
 msgstr ""
 
+#: src/Filters/FilterButton.jsx:10
+#: src/Filters/SortSection.jsx:30
+msgid "Sort by"
+msgstr ""
+
+#: src/Filters/FiltersSection.jsx:21
+msgid "Filter"
+msgstr ""
+
+#: src/Card/UsageBadge.jsx:7
+#, javascript-format
+msgid "Used by ${ number } learning circle"
+msgid_plural "Used by ${ number } learning circles"
+msgstr[0] ""
+msgstr[1] ""
+
 #: src/Filters/FilterButton.jsx:6
 msgid "Location"
 msgstr ""
@@ -256,28 +347,12 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: src/Filters/FilterButton.jsx:8
-msgid "Topics"
-msgstr ""
-
 #: src/Filters/FilterButton.jsx:9
 msgid "Meeting Day(s)"
 msgstr ""
 
-#: src/Filters/FilterButton.jsx:10
-msgid "Sort by"
-msgstr ""
-
 #: src/Filters/FilterButton.jsx:11
 msgid "OER mode"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:59
-msgid "What topics are you interested in?"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:65
-msgid "Select as many topics as you want"
 msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:45
@@ -316,4 +391,28 @@ msgstr ""
 #: src/Filters/LocationFilterForm.jsx:139
 #: src/Filters/LocationFilterForm.jsx:143
 msgid "Select a location"
+msgstr ""
+
+#: src/Filters/TopicsFilterForm.jsx:59
+msgid "What topics are you interested in?"
+msgstr ""
+
+#: src/Filters/TopicsFilterForm.jsx:65
+msgid "Select as many topics as you want"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:60
+msgid "What languages are you interested in?"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:66
+msgid "Select as many languages as you want"
+msgstr ""
+
+#: src/Filters/OerFilterForm.jsx:8
+msgid "Only open educational resources (OER)"
+msgstr ""
+
+#: src/Filters/OerFilterForm.jsx:9
+msgid "All courses"
 msgstr ""

@@ -188,7 +188,7 @@ export default class SignupForm extends React.Component {
                 placeholder={t`Select one of the following`}
               />
               <InputWithLabel
-                label={t`If you’d like to receive weekly text messages reminding you of upcoming learning circle meetings, put your phone number here.`}
+                label={t`If you'd like to receive weekly text messages reminding you of upcoming learning circle meetings, put your phone number here.`}
                 value={mobile}
                 handleChange={this.onDataChange}
                 name={'mobile'}
