@@ -54,12 +54,12 @@ msgstr ""
 msgid "More details"
 msgstr ""
 
-#: src/Courses/Browse.jsx:30
-msgid "Use this course"
-msgstr ""
-
 #: src/LearningCircles/Browse.jsx:22
 msgid "Start a learning circle in your neighborhood"
+msgstr ""
+
+#: src/Courses/Browse.jsx:30
+msgid "Use this course"
 msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:32
