@@ -22,6 +22,7 @@ class App extends React.Component {
         searchSubject={'courses'}
         Browse={BrowseCourses}
         onSelectResult={handleSelectResult}
+        initialState={{ languages: ['en'] }}
       />
     );
   }
