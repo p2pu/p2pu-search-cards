@@ -54,6 +54,14 @@ msgstr ""
 msgid "More details"
 msgstr ""
 
+#: src/Courses/Browse.jsx:30
+msgid "Use this course"
+msgstr ""
+
+#: src/LearningCircles/Browse.jsx:22
+msgid "Start a learning circle in your neighborhood"
+msgstr ""
+
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:32
 #, javascript-format
 msgid "Sign up for ${ course.title }"
@@ -88,14 +96,6 @@ msgstr ""
 msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
 msgstr ""
 
-#: src/Courses/Browse.jsx:30
-msgid "Use this course"
-msgstr ""
-
-#: src/LearningCircles/Browse.jsx:22
-msgid "Start a learning circle in your neighborhood"
-msgstr ""
-
 #: src/LearningCircles/LearningCircleCard.jsx:13
 #, javascript-format
 msgid ""
@@ -108,7 +108,8 @@ msgstr ""
 msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:210
+#: src/LearningCircleSignup/SignupForm.jsx:172
+#: src/LearningCircleSignup/SignupForm.jsx:173
 #: src/LearningCircles/LearningCircleCard.jsx:20
 #: src/LearningCircles/LearningCircleCard.jsx:26
 msgid "Sign up"
@@ -177,123 +178,51 @@ msgstr ""
 msgid "Title, subject, etc..."
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:11
-msgid "To increase my employability"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:12
-msgid "Professional development for my current job"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:13
-msgid "To accompany other educational programs"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:14
-msgid "Personal interest"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:15
-msgid "Social reasons"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:16
-msgid "For fun / to try something new"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:17
-msgid "Other"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:21
-msgid "Both"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:22
-msgid "Just a laptop"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:23
-msgid "Just headphones"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:24
-msgid "Neither"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:28
-msgid "Can't do"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:29
-msgid "Need help doing"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:30
-msgid "Can do with difficulty"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:31
-msgid "Can do"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:32
-msgid "Expert (can teach others)"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:134
+#: src/LearningCircleSignup/SignupForm.jsx:107
 msgid "Name"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:143
+#: src/LearningCircleSignup/SignupForm.jsx:116
 msgid "Email address"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:152
-msgid "What is your goal for taking this learning circle?"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:158
-#: src/LearningCircleSignup/SignupForm.jsx:178
-#: src/LearningCircleSignup/SignupForm.jsx:188
-msgid "Select one of the following"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:162
-msgid ""
-"A successful study group requires the support of all of its members. How "
-"will you help your peers achieve their goals?"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:171
-msgid "Can you bring a laptop and headphones to the learning circle each week?"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:181
-msgid "How comfortable are you using the internet?"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:191
+#: src/LearningCircleSignup/SignupForm.jsx:125
 msgid ""
 "If you'd like to receive weekly text messages reminding you of upcoming "
 "learning circle meetings, put your phone number here."
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:199
+#: src/LearningCircleSignup/SignupForm.jsx:133
 msgid "Your number won't be shared with other participants."
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:202
-msgid ""
-"Would you like to receive information about other learning opportunities in "
-"the future?"
+#: src/LearningCircleSignup/SignupForm.jsx:135
+msgid "Why do you want to learn this topic?"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:213
+#: src/LearningCircleSignup/SignupForm.jsx:144
+msgid ""
+"A successful study group requires the support of all of its members. How "
+"will you help your peers achieve their goals?"
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:154
+msgid ""
+"I give consent that P2PU can share my signup info with the learning circle "
+"facilitator and send me info regarding the learning circle."
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:164
+msgid ""
+"I would like to receive information about other learning opportunities in "
+"the future."
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:176
 msgid "Back to search"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:217
+#: src/LearningCircleSignup/SignupForm.jsx:180
 msgid "Submitting..."
 msgstr ""
 
@@ -323,13 +252,13 @@ msgid ""
 "facilitator and we'll send you a reminder two days before each meeting."
 msgstr ""
 
+#: src/Filters/FiltersSection.jsx:21
+msgid "Filter"
+msgstr ""
+
 #: src/Filters/FilterButton.jsx:10
 #: src/Filters/SortSection.jsx:30
 msgid "Sort by"
-msgstr ""
-
-#: src/Filters/FiltersSection.jsx:21
-msgid "Filter"
 msgstr ""
 
 #: src/Card/UsageBadge.jsx:7
@@ -353,6 +282,14 @@ msgstr ""
 
 #: src/Filters/FilterButton.jsx:11
 msgid "OER mode"
+msgstr ""
+
+#: src/Filters/TopicsFilterForm.jsx:59
+msgid "What topics are you interested in?"
+msgstr ""
+
+#: src/Filters/TopicsFilterForm.jsx:65
+msgid "Select as many topics as you want"
 msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:45
@@ -391,14 +328,6 @@ msgstr ""
 #: src/Filters/LocationFilterForm.jsx:139
 #: src/Filters/LocationFilterForm.jsx:143
 msgid "Select a location"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:59
-msgid "What topics are you interested in?"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:65
-msgid "Select as many topics as you want"
 msgstr ""
 
 #: src/Filters/LanguageFilterForm.jsx:60
