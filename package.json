@@ -13,6 +13,7 @@
     "build:demo": "webpack --mode production --config webpack.config.demo.js",
     "build:demo:af": "webpack --mode production --config webpack.config.demo.js --env.locale=af",
     "build:demo:de": "webpack --mode production --config webpack.config.demo.js --env.locale=de",
+    "build:demo:es": "webpack --mode production --config webpack.config.demo.js --env.locale=es",
     "deploy": "npm publish",
     "predeploy": "git push origin master"
   },

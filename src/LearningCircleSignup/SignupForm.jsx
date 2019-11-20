@@ -151,7 +151,7 @@ export default class SignupForm extends React.Component {
               />
               <CheckboxWithLabel
                 classes="d-flex"
-                label={t`I give consent that P2PU can share my signup info with the learning circle facilitator and send me info regarding the learning circle.`}
+                label={t`I consent that P2PU can share my signup information with the learning circle facilitator and send me emails and/or text messages related to this learning circle.`}
                 value={consent}
                 handleChange={this.onDataChange}
                 name='consent'
@@ -161,7 +161,7 @@ export default class SignupForm extends React.Component {
               />
               <CheckboxWithLabel
                 classes="d-flex"
-                label={t`I would like to receive information about other learning opportunities in the future.`}
+                label={t`I would like to receive emails about other future learning opportunities from P2PU.`}
                 value={communications_opt_in}
                 handleChange={this.onDataChange}
                 name={'communications_opt_in'}

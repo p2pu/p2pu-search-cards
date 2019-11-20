@@ -54,12 +54,12 @@ msgstr ""
 msgid "More details"
 msgstr ""
 
-#: src/LearningCircles/Browse.jsx:22
-msgid "Start a learning circle in your neighborhood"
-msgstr ""
-
 #: src/Courses/Browse.jsx:30
 msgid "Use this course"
+msgstr ""
+
+#: src/LearningCircles/Browse.jsx:22
+msgid "Start a learning circle in your neighborhood"
 msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:32
@@ -252,6 +252,13 @@ msgid ""
 "facilitator and we'll send you a reminder two days before each meeting."
 msgstr ""
 
+#: src/Card/UsageBadge.jsx:7
+#, javascript-format
+msgid "Used by ${ number } learning circle"
+msgid_plural "Used by ${ number } learning circles"
+msgstr[0] ""
+msgstr[1] ""
+
 #: src/Filters/FiltersSection.jsx:21
 msgid "Filter"
 msgstr ""
@@ -260,13 +267,6 @@ msgstr ""
 #: src/Filters/SortSection.jsx:30
 msgid "Sort by"
 msgstr ""
-
-#: src/Card/UsageBadge.jsx:7
-#, javascript-format
-msgid "Used by ${ number } learning circle"
-msgid_plural "Used by ${ number } learning circles"
-msgstr[0] ""
-msgstr[1] ""
 
 #: src/Filters/FilterButton.jsx:6
 msgid "Location"
@@ -282,14 +282,6 @@ msgstr ""
 
 #: src/Filters/FilterButton.jsx:11
 msgid "OER mode"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:59
-msgid "What topics are you interested in?"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:65
-msgid "Select as many topics as you want"
 msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:45
@@ -336,6 +328,14 @@ msgstr ""
 
 #: src/Filters/LanguageFilterForm.jsx:66
 msgid "Select as many languages as you want"
+msgstr ""
+
+#: src/Filters/TopicsFilterForm.jsx:59
+msgid "What topics are you interested in?"
+msgstr ""
+
+#: src/Filters/TopicsFilterForm.jsx:65
+msgid "Select as many topics as you want"
 msgstr ""
 
 #: src/Filters/OerFilterForm.jsx:8

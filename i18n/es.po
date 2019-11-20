@@ -1,0 +1,329 @@
+# Translators:
+# Maria Vargas <maria.vargas@edify.cr>, 2019
+# 
+msgid ""
+msgstr ""
+"Last-Translator: Maria Vargas <maria.vargas@edify.cr>, 2019\n"
+"Language-Team: Spanish (https://www.transifex.com/p2pu/teams/103124/es/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/LearningCircles/Browse.jsx:22
+msgid "Start a learning circle in your neighborhood"
+msgstr "Comience un círculo de aprendizaje en su vecindario"
+
+#: src/LearningCircles/LearningCircleCard.jsx:13
+msgid ""
+"${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
+"learningCircle.time_zone })"
+msgstr ""
+"${ weekDay } de ${ formattedStartTime } a ${ formattedEndTime } (${ "
+"learningCircle.time_zone })"
+
+#: src/LearningCircles/LearningCircleCard.jsx:14
+msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
+msgstr "${ learningCircle.weeks } semanas empezando el ${ formattedDate }"
+
+#: src/LearningCircles/LearningCircleCard.jsx:20
+#: src/LearningCircles/LearningCircleCard.jsx:26
+msgid "Sign up"
+msgstr "Inscripción"
+
+#: src/LearningCircles/LearningCircleCard.jsx:60
+msgid "Facilitated by ${ learningCircle.facilitator }"
+msgstr "Facilitado por ${ learningCircle.facilitator }"
+
+#: src/LearningCircles/LearningCircleCard.jsx:64
+msgid "Meeting at ${ learningCircle.venue }"
+msgstr "La reunión se llevará a cabo en ${ learningCircle.venue }"
+
+#: src/utils/constants.js:4 src/utils/i18n.js:4
+msgid "Monday"
+msgstr "Lunes"
+
+#: src/utils/constants.js:5 src/utils/i18n.js:5
+msgid "Tuesday"
+msgstr "Martes"
+
+#: src/utils/constants.js:6 src/utils/i18n.js:6
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#: src/utils/constants.js:7 src/utils/i18n.js:7
+msgid "Thursday"
+msgstr "Jueves"
+
+#: src/utils/constants.js:8 src/utils/i18n.js:8
+msgid "Friday"
+msgstr "Viernes"
+
+#: src/utils/constants.js:9 src/utils/i18n.js:9
+msgid "Saturday"
+msgstr "Sábado"
+
+#: src/utils/constants.js:10 src/utils/i18n.js:10
+msgid "Sunday"
+msgstr "Domingo"
+
+#: src/utils/constants.js:28
+msgid "Keyword, organization, facilitator, etc..."
+msgstr "Palabra clave, organización, facilitador, etc..."
+
+#: src/Search/SearchTags.jsx:178
+msgid ""
+"Showing ${ props.searchResults.length } of ${ props.totalResults } result"
+msgid_plural ""
+"Showing ${ props.searchResults.length } of ${ props.totalResults } results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Search/SearchTags.jsx:212
+msgid "reset the search form"
+msgstr "Reiniciar el formulario de búsqueda"
+
+#: src/Search/SearchTags.jsx:221
+msgid "To see more results, either remove some filters or ${ resetButton }"
+msgstr ""
+"Para ver más resultados,  puede o remover algunos filtros o ${ resetButton }"
+
+#: src/Search/SearchBar.jsx:17
+msgid "Search"
+msgstr "Buscar"
+
+#: src/Filters/FilterButton.jsx:6
+msgid "Location"
+msgstr "Ubicación"
+
+#: src/Filters/FilterButton.jsx:7
+msgid "Language"
+msgstr "Idioma"
+
+#: src/Filters/FilterButton.jsx:8
+msgid "Topics"
+msgstr "Temas"
+
+#: src/Filters/FilterButton.jsx:9
+msgid "Meeting Day(s)"
+msgstr "Día(s) de reunión"
+
+#: src/Filters/FilterButton.jsx:10
+msgid "Sort by"
+msgstr "Clasificar por"
+
+#: src/Filters/FilterButton.jsx:11
+msgid "OER mode"
+msgstr "Modo OER "
+
+#: src/Filters/TopicsFilterForm.jsx:59
+msgid "What topics are you interested in?"
+msgstr "En cuales temas estás interesado?"
+
+#: src/Filters/TopicsFilterForm.jsx:65
+msgid "Select as many topics as you want"
+msgstr "Seleccione todos los temas que desee"
+
+#: src/Filters/LocationFilterForm.jsx:45
+msgid "Unable to detect location."
+msgstr "No es posible detectar la ubicación."
+
+#: src/Filters/LocationFilterForm.jsx:56
+msgid "Geolocation is not supported by this browser."
+msgstr "Geolocalización no es compatible con este navegador."
+
+#: src/Filters/LocationFilterForm.jsx:72
+msgid "Use my current location"
+msgstr "Usar mi ubicación actual"
+
+#: src/Filters/LocationFilterForm.jsx:77
+msgid "Detecting your location..."
+msgstr "Detectando su ubicación"
+
+#: src/Filters/LocationFilterForm.jsx:79
+msgid "Using your current location"
+msgstr "Usando mi ubicación actual"
+
+#: src/Filters/LocationFilterForm.jsx:100
+msgid "miles"
+msgstr "Millas"
+
+#: src/Filters/LocationFilterForm.jsx:100
+msgid "km"
+msgstr "km"
+
+#: src/Filters/LocationFilterForm.jsx:102
+msgid "Within ${ value } ${ unit }"
+msgstr "Dentro de ${ value } ${ unit }"
+
+#: src/Filters/LocationFilterForm.jsx:139
+#: src/Filters/LocationFilterForm.jsx:143
+msgid "Select a location"
+msgstr "Seleccione una ubicación"
+
+#: assets/jsx/components/signup-form.jsx:11
+msgid "To increase my employability"
+msgstr "Para aumentar mis posibilidades de conseguir empleo"
+
+#: assets/jsx/components/signup-form.jsx:12
+msgid "Professional development for my current job"
+msgstr "Desarrollo profesional en mi empleo actual"
+
+#: assets/jsx/components/signup-form.jsx:13
+msgid "To accompany other educational programs"
+msgstr "Para complementar otros programas educativos"
+
+#: assets/jsx/components/signup-form.jsx:14
+msgid "Personal interest"
+msgstr "Interés personal"
+
+#: assets/jsx/components/signup-form.jsx:15
+msgid "Social reasons"
+msgstr "Motivos sociales"
+
+#: assets/jsx/components/signup-form.jsx:16
+msgid "For fun / to try something new"
+msgstr "Por diversión / Intentar algo nuevo"
+
+#: assets/jsx/components/signup-form.jsx:17
+msgid "Other"
+msgstr "Otro"
+
+#: assets/jsx/components/signup-form.jsx:21
+msgid "Both"
+msgstr "Ambos"
+
+#: assets/jsx/components/signup-form.jsx:22
+msgid "Just a laptop"
+msgstr "Sólo una computadora portátil"
+
+#: assets/jsx/components/signup-form.jsx:23
+msgid "Just headphones"
+msgstr "Sólo audífonos"
+
+#: assets/jsx/components/signup-form.jsx:24
+msgid "Neither"
+msgstr "Ninguno"
+
+#: assets/jsx/components/signup-form.jsx:28
+msgid "Can't do"
+msgstr "No puedo"
+
+#: assets/jsx/components/signup-form.jsx:29
+msgid "Need help doing"
+msgstr "Necesito ayuda para hacerlo"
+
+#: assets/jsx/components/signup-form.jsx:30
+msgid "Can do with difficulty"
+msgstr "Puedo hacerlo con dificultad"
+
+#: assets/jsx/components/signup-form.jsx:31
+msgid "Can do"
+msgstr "Puedo hacerlo"
+
+#: assets/jsx/components/signup-form.jsx:32
+msgid "Expert (can teach others)"
+msgstr "Experto (puedo enseñar a otros)"
+
+#: assets/jsx/components/signup-form.jsx:134
+msgid "Name"
+msgstr "Nombre"
+
+#: assets/jsx/components/signup-form.jsx:143
+msgid "Email address"
+msgstr "Dirección de correo electrónico"
+
+#: assets/jsx/components/signup-form.jsx:152
+msgid "What is your goal for taking this learning circle?"
+msgstr "Cual es su objetivo al tomar este curso?"
+
+#: assets/jsx/components/signup-form.jsx:158
+#: assets/jsx/components/signup-form.jsx:178
+#: assets/jsx/components/signup-form.jsx:188
+msgid "Select one of the following"
+msgstr "Seleccione uno de los siguientes"
+
+#: assets/jsx/components/signup-form.jsx:162
+msgid ""
+"A successful study group requires the support of all of its members. How "
+"will you help your peers achieve their goals?"
+msgstr ""
+"Un grupo de estudio exitoso requiere el apoyo de todos sus miembros. Como "
+"ayudará a sus compañeros a lograr sus objetivos?"
+
+#: assets/jsx/components/signup-form.jsx:171
+msgid ""
+"Can you bring a laptop and headphones to the learning circle each week?"
+msgstr ""
+"Puede traer una computadora portátil  y auriculares al círculo de "
+"aprendizaje cada semana?"
+
+#: assets/jsx/components/signup-form.jsx:181
+msgid "How comfortable are you using the internet?"
+msgstr "Qué tan cómodo se siente usando Internet?"
+
+#: assets/jsx/components/signup-form.jsx:191
+msgid ""
+"If you’d like to receive weekly text messages reminding you of upcoming "
+"learning circle meetings, put your phone number here."
+msgstr ""
+"Si quisiera recibir mensajes de texto cada semana recordándole las próximas "
+"reuniones del círculo de aprendizaje, por favor introduzca su número de "
+"teléfono aquí."
+
+#: assets/jsx/components/signup-form.jsx:199
+msgid "Your number won't be shared with other participants."
+msgstr "Su número no será compartido con otros participantes."
+
+#: assets/jsx/components/signup-form.jsx:202
+msgid ""
+"Would you like to receive information about other learning opportunities in "
+"the future?"
+msgstr ""
+"Le gustaría recibir información acerca de otras oportunidades de aprendizaje"
+" en el futuro?"
+
+#: assets/jsx/components/signup-form.jsx:213
+msgid "Back to search"
+msgstr "Regresar a búsqueda"
+
+#: assets/jsx/components/signup-form.jsx:217
+msgid "Submitting..."
+msgstr "Enviando..."
+
+#: assets/jsx/components/learning-circle-signup.jsx:32
+msgid "Sign up for ${ course.title }"
+msgstr "Inscribirse para ${ course.title }"
+
+#: assets/jsx/components/learning-circle-signup.jsx:43
+msgid "Course materials provided by ${ courseProviderLink }"
+msgstr "Materiales del curso suministrados por ${ courseProviderLink }"
+
+#: assets/jsx/components/learning-circle-signup.jsx:46
+msgid ""
+"This learning circle meets ${ meetingDay } from ${ startTime } to ${ endTime"
+" } (${ learningCircle.time_zone }), ${ startDate }."
+msgstr ""
+"El círculo de aprendizaje  se reúne ${ meetingDay } de ${ startTime } a ${ "
+"endTime } (${ learningCircle.time_zone }), ${ startDate }."
+
+#: assets/jsx/components/learning-circle-signup.jsx:49
+msgid ""
+"This learning circle meets every ${ meetingDay } from ${ startTime } to ${ "
+"endTime } (${ learningCircle.time_zone }) starting ${ startDate } for ${ "
+"learningCircle.weeks } weeks."
+msgstr ""
+"Este círculo de aprendizaje se reúne cada ${ meetingDay } de ${ startTime } "
+"a ${ endTime } (${ learningCircle.time_zone }) Empezando el ${ startDate } "
+"durante ${ learningCircle.weeks } weeks."
+
+#: assets/jsx/components/learning-circle-signup.jsx:51
+msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
+msgstr "En ${ venueLink }, ${ learningCircle.venue_address }"
+
+#: assets/jsx/components/signup-success.jsx:8
+msgid ""
+"Thank you for signing up. We've sent you an email introducing you to your "
+"facilitator and we'll send you a reminder two days before each meeting."
+msgstr ""
+"Gracias por inscribirse. Le hemos enviado un correo presentándole a su "
+"facilitador y recibirá un recordatorio dos días antes de cada reunión."
