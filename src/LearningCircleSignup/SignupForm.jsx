@@ -5,6 +5,7 @@ import 'whatwg-fetch'
 import {InputWithLabel} from 'p2pu-input-fields';
 import {CheckboxWithLabel} from 'p2pu-input-fields';
 import SignupSuccess from './SignupSuccess';
+import {MobileInput} from './MobileInput';
 
 export default class SignupForm extends React.Component {
 
@@ -121,7 +122,7 @@ export default class SignupForm extends React.Component {
                 errorMessage={this.getError('email')}
                 required={true}
               />
-              <InputWithLabel
+              <MobileInput
                 label={t`If you'd like to receive weekly text messages reminding you of upcoming learning circle meetings, put your phone number here.`}
                 value={mobile}
                 handleChange={this.onDataChange}

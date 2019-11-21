@@ -51,8 +51,10 @@ const makeLocaleConfig = (locale) => {
       axios: "axios",
       jsonp: "jsonp",
       react: "react",
+      react: "react",
       "react-dom": "react-dom",
-      "p2pu-input-fields": "p2pu-input-fields"
+      "react-telephone-input/lib/withStyles": "react-telephone-input/lib/withStyles",
+      "p2pu-input-fields": "p2pu-input-fields",
     },
     plugins: [
       new MiniCssExtractPlugin({
