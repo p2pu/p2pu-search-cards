@@ -293,22 +293,6 @@ msgstr ""
 msgid "Select as many topics as you want"
 msgstr ""
 
-#: src/Filters/LanguageFilterForm.jsx:60
-msgid "What languages are you interested in?"
-msgstr ""
-
-#: src/Filters/LanguageFilterForm.jsx:66
-msgid "Select as many languages as you want"
-msgstr ""
-
-#: src/Filters/OerFilterForm.jsx:8
-msgid "Only open educational resources (OER)"
-msgstr ""
-
-#: src/Filters/OerFilterForm.jsx:9
-msgid "All courses"
-msgstr ""
-
 #: src/Filters/LocationFilterForm.jsx:45
 msgid "Unable to detect location."
 msgstr ""
@@ -342,7 +326,35 @@ msgstr ""
 msgid "Within ${ value } ${ unit }"
 msgstr ""
 
+#: src/Filters/LocationFilterForm.jsx:136
+msgid "or"
+msgstr ""
+
 #: src/Filters/LocationFilterForm.jsx:139
 #: src/Filters/LocationFilterForm.jsx:143
 msgid "Select a location"
+msgstr ""
+
+#: src/Filters/LocationFilterForm.jsx:146
+msgid "Start typing a city name"
+msgstr ""
+
+#: src/Filters/LocationFilterForm.jsx:147
+msgid "No results for this city"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:60
+msgid "What languages are you interested in?"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:66
+msgid "Select as many languages as you want"
+msgstr ""
+
+#: src/Filters/OerFilterForm.jsx:8
+msgid "Only open educational resources (OER)"
+msgstr ""
+
+#: src/Filters/OerFilterForm.jsx:9
+msgid "All courses"
 msgstr ""

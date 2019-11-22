@@ -133,7 +133,7 @@ export default class LocationFilterForm extends Component {
         />
         <div className='divider col-sm-12'>
           <div className='divider-line'></div>
-          <div className='divider-text'>or</div>
+          <div className='divider-text'>{t`or`}</div>
         </div>
         <div className='select-with-label label-left col-sm-12' >
           <label htmlFor='select-city'>{t`Select a location`}:</label>
@@ -143,6 +143,8 @@ export default class LocationFilterForm extends Component {
             label={t`Select a location`}
             value={this.props.city}
             handleSelect={this.handleCitySelect}
+            placeholder={t`Start typing a city name`}
+            noResultsText={t`No results for this city`}
           />
         </div>
       </div>
