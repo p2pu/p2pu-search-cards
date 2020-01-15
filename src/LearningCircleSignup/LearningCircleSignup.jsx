@@ -1,7 +1,7 @@
 import React, { Fragment, Component, createRef } from 'react';
 import {ngettext, msgid, t, jt} from 'ttag';
 import SignupForm from './SignupForm';
-import {day, date, time} from '../utils/i18n';
+import {day, date, time} from 'utils/i18n';
 
 
 class LearningCircleSignup extends Component {

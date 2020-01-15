@@ -31,6 +31,7 @@ npm run build:main
 
 ```
 npm adduser
+npm version patch
 npm publish
 ```
 

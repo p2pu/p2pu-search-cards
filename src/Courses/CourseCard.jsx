@@ -76,13 +76,6 @@ const CourseCard = (props) => {
             <div className="label">{t`Access`}</div>
             <div>{ availability }</div>
 
-          { props.course.tagdorsements &&
-            <Fragment>
-              <div className="label">{t`Community feedback`}</div>
-              <div>{ props.course.tagdorsements.toLowerCase() }</div>
-            </Fragment>
-          }
-
           </div>
         </div>
 

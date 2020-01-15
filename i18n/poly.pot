@@ -46,20 +46,8 @@ msgstr ""
 msgid "Access"
 msgstr ""
 
-#: src/Courses/CourseCard.jsx:81
-msgid "Community feedback"
-msgstr ""
-
-#: src/Courses/CourseCard.jsx:91
+#: src/Courses/CourseCard.jsx:84
 msgid "More details"
-msgstr ""
-
-#: src/Courses/Browse.jsx:30
-msgid "Use this course"
-msgstr ""
-
-#: src/LearningCircles/Browse.jsx:22
-msgid "Start a learning circle in your neighborhood"
 msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:32
@@ -94,6 +82,14 @@ msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:51
 msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
+msgstr ""
+
+#: src/LearningCircles/Browse.jsx:22
+msgid "Start a learning circle in your neighborhood"
+msgstr ""
+
+#: src/Courses/Browse.jsx:30
+msgid "Use this course"
 msgstr ""
 
 #: src/LearningCircles/LearningCircleCard.jsx:13
@@ -253,13 +249,13 @@ msgid ""
 "facilitator and we'll send you a reminder two days before each meeting."
 msgstr ""
 
-#: src/Filters/FiltersSection.jsx:21
-msgid "Filter"
-msgstr ""
-
 #: src/Filters/FilterButton.jsx:10
 #: src/Filters/SortSection.jsx:30
 msgid "Sort by"
+msgstr ""
+
+#: src/Filters/FiltersSection.jsx:21
+msgid "Filter"
 msgstr ""
 
 #: src/Card/UsageBadge.jsx:7
@@ -343,18 +339,18 @@ msgstr ""
 msgid "No results for this city"
 msgstr ""
 
-#: src/Filters/LanguageFilterForm.jsx:60
-msgid "What languages are you interested in?"
-msgstr ""
-
-#: src/Filters/LanguageFilterForm.jsx:66
-msgid "Select as many languages as you want"
-msgstr ""
-
 #: src/Filters/OerFilterForm.jsx:8
 msgid "Only open educational resources (OER)"
 msgstr ""
 
 #: src/Filters/OerFilterForm.jsx:9
 msgid "All courses"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:60
+msgid "What languages are you interested in?"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:66
+msgid "Select as many languages as you want"
 msgstr ""

@@ -1,19 +1,114 @@
 # Translators:
 # Maria Vargas <maria.vargas@edify.cr>, 2019
+# Dirk Uys <dirkcuys@gmail.com>, 2019
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Maria Vargas <maria.vargas@edify.cr>, 2019\n"
+"Last-Translator: Dirk Uys <dirkcuys@gmail.com>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/p2pu/teams/103124/es/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: src/Courses/CourseCard.jsx:9
+msgid "Always available"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:9
+msgid "Check availability"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:22
+#, javascript-format
+msgid "${ rating_number } ratings"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:24
+msgid "${ rating_number } rating"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:28
+#, javascript-format
+msgid "Used in ${ usage_number } learning circles"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:30
+msgid "Used in ${ usage_number } learning circle"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:57 src/Filters/FilterButton.jsx:8
+msgid "Topics"
+msgstr "Temas"
+
+#: src/Courses/CourseCard.jsx:66
+msgid "Provider"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:71
+msgid "Platform"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:76
+msgid "Access"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:81
+msgid "Community feedback"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:91
+msgid "More details"
+msgstr ""
+
+#: src/Courses/Browse.jsx:30
+msgid "Use this course"
+msgstr ""
+
 #: src/LearningCircles/Browse.jsx:22
 msgid "Start a learning circle in your neighborhood"
 msgstr "Comience un círculo de aprendizaje en su vecindario"
 
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:32
+#, javascript-format
+msgid "Sign up for ${ course.title }"
+msgstr "Inscribirse para ${ course.title }"
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:42
+#: src/LearningCircles/LearningCircleCard.jsx:60
+msgid "Facilitated by ${ learningCircle.facilitator }"
+msgstr "Facilitado por ${ learningCircle.facilitator }"
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:43
+#, javascript-format
+msgid "Course materials provided by ${ courseProviderLink }"
+msgstr "Materiales del curso suministrados por ${ courseProviderLink }"
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:46
+#, javascript-format
+msgid ""
+"This learning circle meets ${ meetingDay } from ${ startTime } to ${ endTime"
+" } (${ learningCircle.time_zone }), ${ startDate }."
+msgstr ""
+"El círculo de aprendizaje  se reúne ${ meetingDay } de ${ startTime } a ${ "
+"endTime } (${ learningCircle.time_zone }), ${ startDate }."
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:49
+#, javascript-format
+msgid ""
+"This learning circle meets every ${ meetingDay } from ${ startTime } to ${ "
+"endTime } (${ learningCircle.time_zone }) starting ${ startDate } for ${ "
+"learningCircle.weeks } weeks."
+msgstr ""
+"Este círculo de aprendizaje se reúne cada ${ meetingDay } de ${ startTime } "
+"a ${ endTime } (${ learningCircle.time_zone }) Empezando el ${ startDate } "
+"durante ${ learningCircle.weeks } weeks."
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:51
+msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
+msgstr "En ${ venueLink }, ${ learningCircle.venue_address }"
+
 #: src/LearningCircles/LearningCircleCard.jsx:13
+#, javascript-format
 msgid ""
 "${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
 "learningCircle.time_zone })"
@@ -22,17 +117,16 @@ msgstr ""
 "learningCircle.time_zone })"
 
 #: src/LearningCircles/LearningCircleCard.jsx:14
+#, javascript-format
 msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
 msgstr "${ learningCircle.weeks } semanas empezando el ${ formattedDate }"
 
+#: src/LearningCircleSignup/SignupForm.jsx:173
+#: src/LearningCircleSignup/SignupForm.jsx:174
 #: src/LearningCircles/LearningCircleCard.jsx:20
 #: src/LearningCircles/LearningCircleCard.jsx:26
 msgid "Sign up"
 msgstr "Inscripción"
-
-#: src/LearningCircles/LearningCircleCard.jsx:60
-msgid "Facilitated by ${ learningCircle.facilitator }"
-msgstr "Facilitado por ${ learningCircle.facilitator }"
 
 #: src/LearningCircles/LearningCircleCard.jsx:64
 msgid "Meeting at ${ learningCircle.venue }"
@@ -66,11 +160,83 @@ msgstr "Sábado"
 msgid "Sunday"
 msgstr "Domingo"
 
+#: src/utils/constants.js:14
+msgid "Course title"
+msgstr ""
+
+#: src/utils/constants.js:15
+msgid "Popularity"
+msgstr ""
+
+#: src/utils/constants.js:16
+msgid "Community rating"
+msgstr ""
+
+#: src/utils/constants.js:17
+msgid "Recently added"
+msgstr ""
+
 #: src/utils/constants.js:28
 msgid "Keyword, organization, facilitator, etc..."
 msgstr "Palabra clave, organización, facilitador, etc..."
 
-#: src/Search/SearchTags.jsx:178
+#: src/utils/constants.js:33
+msgid "Title, subject, etc..."
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:108
+msgid "Name"
+msgstr "Nombre"
+
+#: src/LearningCircleSignup/SignupForm.jsx:117
+msgid "Email address"
+msgstr "Dirección de correo electrónico"
+
+#: src/LearningCircleSignup/SignupForm.jsx:126
+msgid ""
+"If you'd like to receive weekly text messages reminding you of upcoming "
+"learning circle meetings, put your phone number here."
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:134
+msgid "Your number won't be shared with other participants."
+msgstr "Su número no será compartido con otros participantes."
+
+#: src/LearningCircleSignup/SignupForm.jsx:136
+msgid "Why do you want to learn this topic?"
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:145
+msgid ""
+"A successful study group requires the support of all of its members. How "
+"will you help your peers achieve their goals?"
+msgstr ""
+"Un grupo de estudio exitoso requiere el apoyo de todos sus miembros. Como "
+"ayudará a sus compañeros a lograr sus objetivos?"
+
+#: src/LearningCircleSignup/SignupForm.jsx:155
+msgid ""
+"I consent that P2PU can share my signup information with the learning circle"
+" facilitator and send me emails and/or text messages related to this "
+"learning circle."
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:165
+msgid ""
+"I would like to receive emails about other future learning opportunities "
+"from P2PU."
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:177
+msgid "Back to search"
+msgstr "Regresar a búsqueda"
+
+#: src/LearningCircleSignup/SignupForm.jsx:181
+msgid "Submitting..."
+msgstr "Enviando..."
+
+#: src/Search/SearchTags.jsx:180
+#, javascript-format
 msgid ""
 "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
 msgid_plural ""
@@ -78,11 +244,12 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Search/SearchTags.jsx:212
+#: src/Search/SearchTags.jsx:214
 msgid "reset the search form"
 msgstr "Reiniciar el formulario de búsqueda"
 
-#: src/Search/SearchTags.jsx:221
+#: src/Search/SearchTags.jsx:223
+#, javascript-format
 msgid "To see more results, either remove some filters or ${ resetButton }"
 msgstr ""
 "Para ver más resultados,  puede o remover algunos filtros o ${ resetButton }"
@@ -90,6 +257,29 @@ msgstr ""
 #: src/Search/SearchBar.jsx:17
 msgid "Search"
 msgstr "Buscar"
+
+#: src/LearningCircleSignup/SignupSuccess.jsx:8
+msgid ""
+"Thank you for signing up. We've sent you an email introducing you to your "
+"facilitator and we'll send you a reminder two days before each meeting."
+msgstr ""
+"Gracias por inscribirse. Le hemos enviado un correo presentándole a su "
+"facilitador y recibirá un recordatorio dos días antes de cada reunión."
+
+#: src/Filters/FiltersSection.jsx:21
+msgid "Filter"
+msgstr ""
+
+#: src/Filters/FilterButton.jsx:10 src/Filters/SortSection.jsx:30
+msgid "Sort by"
+msgstr "Clasificar por"
+
+#: src/Card/UsageBadge.jsx:7
+#, javascript-format
+msgid "Used by ${ number } learning circle"
+msgid_plural "Used by ${ number } learning circles"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Filters/FilterButton.jsx:6
 msgid "Location"
@@ -99,17 +289,9 @@ msgstr "Ubicación"
 msgid "Language"
 msgstr "Idioma"
 
-#: src/Filters/FilterButton.jsx:8
-msgid "Topics"
-msgstr "Temas"
-
 #: src/Filters/FilterButton.jsx:9
 msgid "Meeting Day(s)"
 msgstr "Día(s) de reunión"
-
-#: src/Filters/FilterButton.jsx:10
-msgid "Sort by"
-msgstr "Clasificar por"
 
 #: src/Filters/FilterButton.jsx:11
 msgid "OER mode"
@@ -152,178 +334,39 @@ msgid "km"
 msgstr "km"
 
 #: src/Filters/LocationFilterForm.jsx:102
+#, javascript-format
 msgid "Within ${ value } ${ unit }"
 msgstr "Dentro de ${ value } ${ unit }"
+
+#: src/Filters/LocationFilterForm.jsx:136
+msgid "or"
+msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:139
 #: src/Filters/LocationFilterForm.jsx:143
 msgid "Select a location"
 msgstr "Seleccione una ubicación"
 
-#: assets/jsx/components/signup-form.jsx:11
-msgid "To increase my employability"
-msgstr "Para aumentar mis posibilidades de conseguir empleo"
-
-#: assets/jsx/components/signup-form.jsx:12
-msgid "Professional development for my current job"
-msgstr "Desarrollo profesional en mi empleo actual"
-
-#: assets/jsx/components/signup-form.jsx:13
-msgid "To accompany other educational programs"
-msgstr "Para complementar otros programas educativos"
-
-#: assets/jsx/components/signup-form.jsx:14
-msgid "Personal interest"
-msgstr "Interés personal"
-
-#: assets/jsx/components/signup-form.jsx:15
-msgid "Social reasons"
-msgstr "Motivos sociales"
-
-#: assets/jsx/components/signup-form.jsx:16
-msgid "For fun / to try something new"
-msgstr "Por diversión / Intentar algo nuevo"
-
-#: assets/jsx/components/signup-form.jsx:17
-msgid "Other"
-msgstr "Otro"
-
-#: assets/jsx/components/signup-form.jsx:21
-msgid "Both"
-msgstr "Ambos"
-
-#: assets/jsx/components/signup-form.jsx:22
-msgid "Just a laptop"
-msgstr "Sólo una computadora portátil"
-
-#: assets/jsx/components/signup-form.jsx:23
-msgid "Just headphones"
-msgstr "Sólo audífonos"
-
-#: assets/jsx/components/signup-form.jsx:24
-msgid "Neither"
-msgstr "Ninguno"
-
-#: assets/jsx/components/signup-form.jsx:28
-msgid "Can't do"
-msgstr "No puedo"
-
-#: assets/jsx/components/signup-form.jsx:29
-msgid "Need help doing"
-msgstr "Necesito ayuda para hacerlo"
-
-#: assets/jsx/components/signup-form.jsx:30
-msgid "Can do with difficulty"
-msgstr "Puedo hacerlo con dificultad"
-
-#: assets/jsx/components/signup-form.jsx:31
-msgid "Can do"
-msgstr "Puedo hacerlo"
-
-#: assets/jsx/components/signup-form.jsx:32
-msgid "Expert (can teach others)"
-msgstr "Experto (puedo enseñar a otros)"
-
-#: assets/jsx/components/signup-form.jsx:134
-msgid "Name"
-msgstr "Nombre"
-
-#: assets/jsx/components/signup-form.jsx:143
-msgid "Email address"
-msgstr "Dirección de correo electrónico"
-
-#: assets/jsx/components/signup-form.jsx:152
-msgid "What is your goal for taking this learning circle?"
-msgstr "Cual es su objetivo al tomar este curso?"
-
-#: assets/jsx/components/signup-form.jsx:158
-#: assets/jsx/components/signup-form.jsx:178
-#: assets/jsx/components/signup-form.jsx:188
-msgid "Select one of the following"
-msgstr "Seleccione uno de los siguientes"
-
-#: assets/jsx/components/signup-form.jsx:162
-msgid ""
-"A successful study group requires the support of all of its members. How "
-"will you help your peers achieve their goals?"
+#: src/Filters/LocationFilterForm.jsx:146
+msgid "Start typing a city name"
 msgstr ""
-"Un grupo de estudio exitoso requiere el apoyo de todos sus miembros. Como "
-"ayudará a sus compañeros a lograr sus objetivos?"
 
-#: assets/jsx/components/signup-form.jsx:171
-msgid ""
-"Can you bring a laptop and headphones to the learning circle each week?"
+#: src/Filters/LocationFilterForm.jsx:147
+msgid "No results for this city"
 msgstr ""
-"Puede traer una computadora portátil  y auriculares al círculo de "
-"aprendizaje cada semana?"
 
-#: assets/jsx/components/signup-form.jsx:181
-msgid "How comfortable are you using the internet?"
-msgstr "Qué tan cómodo se siente usando Internet?"
-
-#: assets/jsx/components/signup-form.jsx:191
-msgid ""
-"If you’d like to receive weekly text messages reminding you of upcoming "
-"learning circle meetings, put your phone number here."
+#: src/Filters/LanguageFilterForm.jsx:60
+msgid "What languages are you interested in?"
 msgstr ""
-"Si quisiera recibir mensajes de texto cada semana recordándole las próximas "
-"reuniones del círculo de aprendizaje, por favor introduzca su número de "
-"teléfono aquí."
 
-#: assets/jsx/components/signup-form.jsx:199
-msgid "Your number won't be shared with other participants."
-msgstr "Su número no será compartido con otros participantes."
-
-#: assets/jsx/components/signup-form.jsx:202
-msgid ""
-"Would you like to receive information about other learning opportunities in "
-"the future?"
+#: src/Filters/LanguageFilterForm.jsx:66
+msgid "Select as many languages as you want"
 msgstr ""
-"Le gustaría recibir información acerca de otras oportunidades de aprendizaje"
-" en el futuro?"
 
-#: assets/jsx/components/signup-form.jsx:213
-msgid "Back to search"
-msgstr "Regresar a búsqueda"
-
-#: assets/jsx/components/signup-form.jsx:217
-msgid "Submitting..."
-msgstr "Enviando..."
-
-#: assets/jsx/components/learning-circle-signup.jsx:32
-msgid "Sign up for ${ course.title }"
-msgstr "Inscribirse para ${ course.title }"
-
-#: assets/jsx/components/learning-circle-signup.jsx:43
-msgid "Course materials provided by ${ courseProviderLink }"
-msgstr "Materiales del curso suministrados por ${ courseProviderLink }"
-
-#: assets/jsx/components/learning-circle-signup.jsx:46
-msgid ""
-"This learning circle meets ${ meetingDay } from ${ startTime } to ${ endTime"
-" } (${ learningCircle.time_zone }), ${ startDate }."
+#: src/Filters/OerFilterForm.jsx:8
+msgid "Only open educational resources (OER)"
 msgstr ""
-"El círculo de aprendizaje  se reúne ${ meetingDay } de ${ startTime } a ${ "
-"endTime } (${ learningCircle.time_zone }), ${ startDate }."
 
-#: assets/jsx/components/learning-circle-signup.jsx:49
-msgid ""
-"This learning circle meets every ${ meetingDay } from ${ startTime } to ${ "
-"endTime } (${ learningCircle.time_zone }) starting ${ startDate } for ${ "
-"learningCircle.weeks } weeks."
+#: src/Filters/OerFilterForm.jsx:9
+msgid "All courses"
 msgstr ""
-"Este círculo de aprendizaje se reúne cada ${ meetingDay } de ${ startTime } "
-"a ${ endTime } (${ learningCircle.time_zone }) Empezando el ${ startDate } "
-"durante ${ learningCircle.weeks } weeks."
-
-#: assets/jsx/components/learning-circle-signup.jsx:51
-msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
-msgstr "En ${ venueLink }, ${ learningCircle.venue_address }"
-
-#: assets/jsx/components/signup-success.jsx:8
-msgid ""
-"Thank you for signing up. We've sent you an email introducing you to your "
-"facilitator and we'll send you a reminder two days before each meeting."
-msgstr ""
-"Gracias por inscribirse. Le hemos enviado un correo presentándole a su "
-"facilitador y recibirá un recordatorio dos días antes de cada reunión."
