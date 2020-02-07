@@ -84,6 +84,9 @@ module.exports = [
   makeLocaleConfig('de'),
   makeLocaleConfig('af'),
   makeLocaleConfig('es'),
+  makeLocaleConfig('pl'),
+  makeLocaleConfig('fi'),
+  makeLocaleConfig('pt'),
   makeLocaleConfig(),
 ]
 
