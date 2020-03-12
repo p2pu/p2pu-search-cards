@@ -22,8 +22,7 @@ export default class SignupForm extends React.Component {
       email: '',
       goals: '',
       support: '',
-      computer_access: '',
-      use_internet: '',
+      custom_question: '',
       mobile: '',
       communications_opt_in: false,
       errors: {},
@@ -35,12 +34,12 @@ export default class SignupForm extends React.Component {
     let {
       name,
       email,
+      mobile,
       goals,
       support,
-      computer_access,
-      use_internet,
-      mobile,
-      communications_opt_in
+      custom_question,
+      consent,
+      communications_opt_in,
     } = this.state;
 
     let data = {
@@ -48,9 +47,10 @@ export default class SignupForm extends React.Component {
       name,
       email,
       mobile,
+      consent,
       communications_opt_in,
       signup_questions: {
-        goals, support, computer_access, use_internet
+        goals, support, custom_question,
       },
     };
 
@@ -96,6 +96,7 @@ export default class SignupForm extends React.Component {
       mobile,
       goals,
       support,
+      custom_question,
       consent,
       communications_opt_in
     } = this.state;
@@ -138,7 +139,7 @@ export default class SignupForm extends React.Component {
                 value={goals}
                 handleChange={this.onDataChange}
                 id='id_email'
-                errorMessage={this.getError('goals')}
+                errorMessage={this.state.errors && this.state.errors.signup_questions && this.state.errors.signup_questions[0].goals}
                 required={true}
               />
               <InputWithLabel
@@ -150,6 +151,17 @@ export default class SignupForm extends React.Component {
                 errorMessage={this.state.errors && this.state.errors.signup_questions && this.state.errors.signup_questions[0].support}
                 required={true}
               />
+              { this.props.learningCircle.signup_question &&
+                <InputWithLabel
+                  label={this.props.learningCircle.signup_question}
+                  value={custom_question}
+                  handleChange={this.onDataChange}
+                  name={'custom_question'}
+                  id={'id_custom_questions'}
+                  errorMessage={this.state.errors && this.state.errors.signup_questions && this.state.errors.signup_questions[0].custom_question}
+                  required={true}
+                />
+              }
               <CheckboxWithLabel
                 classes="d-flex"
                 label={t`I consent that P2PU can share my signup information with the learning circle facilitator and send me emails and/or text messages related to this learning circle.`}
@@ -157,7 +169,7 @@ export default class SignupForm extends React.Component {
                 handleChange={this.onDataChange}
                 name='consent'
                 id={'id_consent'}
-                errorMessage={''}
+                errorMessage={this.getError('consent')}
                 required={false}
               />
               <CheckboxWithLabel

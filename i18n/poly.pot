@@ -3,10 +3,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: src/Courses/Browse.jsx:30
-msgid "Use this course"
-msgstr ""
-
 #: src/Courses/CourseCard.jsx:9
 msgid "Always available"
 msgstr ""
@@ -52,6 +48,10 @@ msgstr ""
 
 #: src/Courses/CourseCard.jsx:84
 msgid "More details"
+msgstr ""
+
+#: src/Courses/Browse.jsx:30
+msgid "Use this course"
 msgstr ""
 
 #: src/LearningCircles/Browse.jsx:22
@@ -104,8 +104,8 @@ msgstr ""
 msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:173
-#: src/LearningCircleSignup/SignupForm.jsx:174
+#: src/LearningCircleSignup/SignupForm.jsx:185
+#: src/LearningCircleSignup/SignupForm.jsx:186
 #: src/LearningCircles/LearningCircleCard.jsx:20
 #: src/LearningCircles/LearningCircleCard.jsx:26
 msgid "Sign up"
@@ -174,52 +174,52 @@ msgstr ""
 msgid "Title, subject, etc..."
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:108
+#: src/LearningCircleSignup/SignupForm.jsx:109
 msgid "Name"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:117
+#: src/LearningCircleSignup/SignupForm.jsx:118
 msgid "Email address"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:126
+#: src/LearningCircleSignup/SignupForm.jsx:127
 msgid ""
 "If you'd like to receive weekly text messages reminding you of upcoming "
 "learning circle meetings, put your phone number here."
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:134
+#: src/LearningCircleSignup/SignupForm.jsx:135
 msgid "Your number won't be shared with other participants."
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:136
+#: src/LearningCircleSignup/SignupForm.jsx:137
 msgid "Why do you want to learn this topic?"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:145
+#: src/LearningCircleSignup/SignupForm.jsx:146
 msgid ""
 "A successful study group requires the support of all of its members. How "
 "will you help your peers achieve their goals?"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:155
+#: src/LearningCircleSignup/SignupForm.jsx:167
 msgid ""
 "I consent that P2PU can share my signup information with the learning "
 "circle facilitator and send me emails and/or text messages related to this "
 "learning circle."
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:165
+#: src/LearningCircleSignup/SignupForm.jsx:177
 msgid ""
 "I would like to receive emails about other future learning opportunities "
 "from P2PU."
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:177
+#: src/LearningCircleSignup/SignupForm.jsx:189
 msgid "Back to search"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:181
+#: src/LearningCircleSignup/SignupForm.jsx:193
 msgid "Submitting..."
 msgstr ""
 
