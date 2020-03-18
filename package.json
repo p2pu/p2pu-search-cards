@@ -1,6 +1,6 @@
 {
   "name": "p2pu-search-cards",
-  "version": "0.14.20",
+  "version": "0.14.21",
   "description": "Search component used in P2PU projects",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
     "jsonp": "^0.2.1",
     "react": ">=15.0.1",
     "react-dom": ">=15.0.1",
-    "p2pu-input-fields": "^0.5.25",
+    "p2pu-input-fields": "^0.5.26",
     "p2pu-theme": "^1.1.2",
     "react-telephone-input": "^4.73.4"
   },

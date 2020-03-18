@@ -81,12 +81,13 @@ const makeLocaleConfig = (locale) => {
 }
 
 module.exports = [
-  makeLocaleConfig('de'),
   makeLocaleConfig('af'),
+  makeLocaleConfig('de'),
   makeLocaleConfig('es'),
-  makeLocaleConfig('pl'),
   makeLocaleConfig('fi'),
+  makeLocaleConfig('pl'),
   makeLocaleConfig('pt'),
+  makeLocaleConfig('ro'),
   makeLocaleConfig(),
 ]
 
