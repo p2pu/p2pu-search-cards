@@ -1,6 +1,6 @@
 {
   "name": "p2pu-search-cards",
-  "version": "0.14.6",
+  "version": "0.14.7",
   "description": "Search component used in P2PU projects",
   "repository": {
     "type": "git",
@@ -45,7 +45,7 @@
     "mini-css-extract-plugin": "^0.5.0",
     "moment": "^2.22.1",
     "moment-timezone": "^0.5.23",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "p2pu-input-fields": "^0.4.6",
     "p2pu-theme": "^1.1.2",
     "prop-types": "^15.6.2",

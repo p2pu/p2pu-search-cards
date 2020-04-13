@@ -67,7 +67,7 @@ const makeLocaleConfig = (locale) => {
 
   if (locale != null){
     let ttag = {
-      resolve: { 
+      resolve: {
         translations: `i18n/${locale}.po`,
         unresolved: 'skip'
       },

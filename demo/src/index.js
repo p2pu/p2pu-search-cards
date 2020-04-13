@@ -19,8 +19,8 @@ class App extends React.Component {
 
     return(
       <Search
-        searchSubject={'courses'}
-        Browse={BrowseCourses}
+        searchSubject={'learningCircles'}
+        Browse={BrowseLearningCircles}
         onSelectResult={handleSelectResult}
       />
     );

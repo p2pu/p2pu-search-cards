@@ -224,6 +224,8 @@ span.course-title {
 }
 
 .search-results {
+  margin-bottom: 1rem;
+
   .clear-search {
     padding-top: $padding-xs;
 
@@ -593,9 +595,12 @@ span.course-title {
 
 .result-item.start-learning-circle {
   align-items: center;
+  justify-content: center;
+  display: flex;
 
   p {
     padding: 20px 0 12px 0;
+    margin: 0;
   }
 
   .circle {
@@ -617,6 +622,11 @@ span.course-title {
   display: flex;
   align-items: center;
   justify-content: left;
+
+  label {
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+  }
 
   .city-select {
     flex-grow: 1;
