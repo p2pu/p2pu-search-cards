@@ -50,10 +50,11 @@ const makeLocaleConfig = (locale) => {
     externals: {
       axios: "axios",
       jsonp: "jsonp",
-      moment: "moment",
+      react: "react",
       react: "react",
       "react-dom": "react-dom",
-      "p2pu-input-fields": "p2pu-input-fields"
+      "react-telephone-input/lib/withStyles": "react-telephone-input/lib/withStyles",
+      "p2pu-input-fields": "p2pu-input-fields",
     },
     plugins: [
       new MiniCssExtractPlugin({
@@ -80,8 +81,13 @@ const makeLocaleConfig = (locale) => {
 }
 
 module.exports = [
-  makeLocaleConfig('de'),
   makeLocaleConfig('af'),
+  makeLocaleConfig('de'),
+  makeLocaleConfig('es'),
+  makeLocaleConfig('fi'),
+  makeLocaleConfig('pl'),
+  makeLocaleConfig('pt'),
+  makeLocaleConfig('ro'),
   makeLocaleConfig(),
 ]
 

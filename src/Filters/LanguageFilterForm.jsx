@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { t } from 'ttag';
 import ApiHelper from '../utils/apiHelper'
 
 import { SelectWithLabel } from 'p2pu-input-fields'
@@ -56,13 +57,13 @@ export default class LanguageFilterForm extends Component {
     return(
       <div className="col-sm-12">
         <SelectWithLabel
-          label='What languages are you interested in?'
+          label={t`What languages are you interested in?`}
           classes='no-flex'
           options={this.state.options}
           multi={true}
           value={value}
           onChange={this.handleSelect}
-          placeholder='Select as many languages as you want'
+          placeholder={t`Select as many languages as you want`}
         />
       </div>
     )

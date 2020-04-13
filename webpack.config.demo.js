@@ -11,10 +11,13 @@ module.exports = ({locale}={}) => {
   }
 
   let config = {
-    entry: path.join(__dirname, "demo/src/index.js"),
+    entry: {
+      index: path.join(__dirname, "demo/src/index.js"),
+      lc: path.join(__dirname, "demo/src/lc.js"),
+    },
     output: {
       path: path.join(__dirname, "demo/dist"),
-      filename: "bundle.js"
+      filename: "[name]-bundle.js"
     },
     module: {
       rules: [
@@ -52,11 +55,17 @@ module.exports = ({locale}={}) => {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: "bundle.css",
+        filename: "[name]-bundle.css",
       }),
       new HtmlWebpackPlugin({
         template: path.join(__dirname, "demo/src/index.html"),
-        filename: "./index.html"
+        filename: "./index.html",
+        chunks: ['index']
+      }),
+      new HtmlWebpackPlugin({
+        template: path.join(__dirname, "demo/src/lc.html"),
+        filename: "./lc.html",
+        chunks: ['lc']
       })
     ],
     resolve: {

@@ -1,17 +1,14 @@
 import React from 'react'
-import moment from 'moment'
 import { t } from "ttag";
 import { Card, CardTitle, CardBody } from '../Card';
 import { COLOR_CLASSES } from '../utils/constants';
-import { day } from '../utils/i18n';
+import { date, day, time } from '../utils/i18n';
 
 const LearningCircleCard = (props) => {
-  const { learningCircle } = props;
-  const startDate = moment(`${learningCircle.start_date} ${learningCircle.meeting_time}`);
-  const endDate = moment(`${learningCircle.start_date} ${learningCircle.end_time}`);
-  const formattedDate = startDate.format('MMMM Do, YYYY');
-  const formattedStartTime = startDate.format('h:mma');
-  const formattedEndTime = endDate.format('h:mma');
+  const { learningCircle, locale } = props;
+  const formattedDate = date(learningCircle.start_date, locale);
+  const formattedStartTime = time(learningCircle.meeting_time);
+  const formattedEndTime = time(learningCircle.end_time);
   const weekDay = day(learningCircle.day);
   const schedule = t`${weekDay} from ${formattedStartTime} to ${formattedEndTime} (${learningCircle.time_zone})`;
   const duration = t`${learningCircle.weeks} weeks starting ${formattedDate}`;

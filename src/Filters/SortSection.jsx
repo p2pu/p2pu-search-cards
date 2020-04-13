@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import FilterButton from './FilterButton'
 import FilterForm from './FilterForm'
 import { COURSES_SORT_OPTIONS } from '../utils/constants'
+import { t } from 'ttag';
 
 export default class FilterSection extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ export default class FilterSection extends Component {
     return(
       <div className="filter-section">
         <div className='label'>
-          Sort by
+          {t`Sort by`}
         </div>
         <div className='filters-bar'>
           {

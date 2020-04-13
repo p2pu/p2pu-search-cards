@@ -1,0 +1,161 @@
+# Translators:
+# Maria Vargas <maria.vargas@edify.cr>, 2019
+# 
+msgid ""
+msgstr ""
+"Last-Translator: Maria Vargas <maria.vargas@edify.cr>, 2019\n"
+"Language-Team: Spanish (https://www.transifex.com/p2pu/teams/103124/es/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/LearningCircles/Browse.jsx:22
+msgid "Start a learning circle in your neighborhood"
+msgstr "Comience un círculo de aprendizaje en su vecindario"
+
+#: src/LearningCircles/LearningCircleCard.jsx:13
+msgid ""
+"${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
+"learningCircle.time_zone })"
+msgstr ""
+"${ weekDay } de ${ formattedStartTime } a ${ formattedEndTime } (${ "
+"learningCircle.time_zone })"
+
+#: src/LearningCircles/LearningCircleCard.jsx:14
+msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
+msgstr "${ learningCircle.weeks } semanas empezando el ${ formattedDate }"
+
+#: src/LearningCircles/LearningCircleCard.jsx:20
+#: src/LearningCircles/LearningCircleCard.jsx:26
+msgid "Sign up"
+msgstr "Inscripción"
+
+#: src/LearningCircles/LearningCircleCard.jsx:60
+msgid "Facilitated by ${ learningCircle.facilitator }"
+msgstr "Facilitado por ${ learningCircle.facilitator }"
+
+#: src/LearningCircles/LearningCircleCard.jsx:64
+msgid "Meeting at ${ learningCircle.venue }"
+msgstr "La reunión se llevará a cabo en ${ learningCircle.venue }"
+
+#: src/utils/constants.js:4 src/utils/i18n.js:4
+msgid "Monday"
+msgstr "Lunes"
+
+#: src/utils/constants.js:5 src/utils/i18n.js:5
+msgid "Tuesday"
+msgstr "Martes"
+
+#: src/utils/constants.js:6 src/utils/i18n.js:6
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#: src/utils/constants.js:7 src/utils/i18n.js:7
+msgid "Thursday"
+msgstr "Jueves"
+
+#: src/utils/constants.js:8 src/utils/i18n.js:8
+msgid "Friday"
+msgstr "Viernes"
+
+#: src/utils/constants.js:9 src/utils/i18n.js:9
+msgid "Saturday"
+msgstr "Sábado"
+
+#: src/utils/constants.js:10 src/utils/i18n.js:10
+msgid "Sunday"
+msgstr "Domingo"
+
+#: src/utils/constants.js:28
+msgid "Keyword, organization, facilitator, etc..."
+msgstr "Palabra clave, organización, facilitador, etc..."
+
+#: src/Search/SearchTags.jsx:178
+msgid ""
+"Showing ${ props.searchResults.length } of ${ props.totalResults } result"
+msgid_plural ""
+"Showing ${ props.searchResults.length } of ${ props.totalResults } results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Search/SearchTags.jsx:212
+msgid "reset the search form"
+msgstr "Reiniciar el formulario de búsqueda"
+
+#: src/Search/SearchTags.jsx:221
+msgid "To see more results, either remove some filters or ${ resetButton }"
+msgstr ""
+"Para ver más resultados,  puede o remover algunos filtros o ${ resetButton }"
+
+#: src/Search/SearchBar.jsx:17
+msgid "Search"
+msgstr "Buscar"
+
+#: src/Filters/FilterButton.jsx:6
+msgid "Location"
+msgstr "Ubicación"
+
+#: src/Filters/FilterButton.jsx:7
+msgid "Language"
+msgstr "Idioma"
+
+#: src/Filters/FilterButton.jsx:8
+msgid "Topics"
+msgstr "Temas"
+
+#: src/Filters/FilterButton.jsx:9
+msgid "Meeting Day(s)"
+msgstr "Día(s) de reunión"
+
+#: src/Filters/FilterButton.jsx:10
+msgid "Sort by"
+msgstr "Clasificar por"
+
+#: src/Filters/FilterButton.jsx:11
+msgid "OER mode"
+msgstr "Modo OER "
+
+#: src/Filters/TopicsFilterForm.jsx:59
+msgid "What topics are you interested in?"
+msgstr "En cuales temas estás interesado?"
+
+#: src/Filters/TopicsFilterForm.jsx:65
+msgid "Select as many topics as you want"
+msgstr "Seleccione todos los temas que desee"
+
+#: src/Filters/LocationFilterForm.jsx:45
+msgid "Unable to detect location."
+msgstr "No es posible detectar la ubicación."
+
+#: src/Filters/LocationFilterForm.jsx:56
+msgid "Geolocation is not supported by this browser."
+msgstr "Geolocalización no es compatible con este navegador."
+
+#: src/Filters/LocationFilterForm.jsx:72
+msgid "Use my current location"
+msgstr "Usar mi ubicación actual"
+
+#: src/Filters/LocationFilterForm.jsx:77
+msgid "Detecting your location..."
+msgstr "Detectando su ubicación"
+
+#: src/Filters/LocationFilterForm.jsx:79
+msgid "Using your current location"
+msgstr "Usando mi ubicación actual"
+
+#: src/Filters/LocationFilterForm.jsx:100
+msgid "miles"
+msgstr "Millas"
+
+#: src/Filters/LocationFilterForm.jsx:100
+msgid "km"
+msgstr "km"
+
+#: src/Filters/LocationFilterForm.jsx:102
+msgid "Within ${ value } ${ unit }"
+msgstr "Dentro de ${ value } ${ unit }"
+
+#: src/Filters/LocationFilterForm.jsx:139
+#: src/Filters/LocationFilterForm.jsx:143
+msgid "Select a location"
+msgstr "Seleccione una ubicación"

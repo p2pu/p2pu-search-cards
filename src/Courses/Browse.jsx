@@ -1,6 +1,7 @@
 import React from 'react'
 import Masonry from 'react-masonry-component'
 import CourseCard from './CourseCard'
+import { t } from 'ttag';
 
 class BrowseCourses extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class BrowseCourses extends React.Component {
               course={course}
               updateQueryParams={updateQueryParams}
               onSelectResult={onSelectResult}
-              buttonText='Use this course'
+              buttonText={t`Use this course`}
               classes="col-md-4"
             />
           ))

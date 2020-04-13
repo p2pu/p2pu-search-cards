@@ -11,10 +11,10 @@ export const MEETING_DAYS = [
 ];
 
 export const COURSES_SORT_OPTIONS = [
-  { label: 'Course title', value: 'title' },
-  { label: 'Popularity', value: 'usage' },
-  { label: 'Community rating', value: 'overall_rating' },
-  { label: 'Recently added', value: 'created_at' },
+  { label: t`Course title`, value: 'title' },
+  { label: t`Popularity`, value: 'usage' },
+  { label: t`Community rating`, value: 'overall_rating' },
+  { label: t`Recently added`, value: 'created_at' },
 ]
 
 export const SEARCH_SUBJECTS = {
@@ -30,7 +30,7 @@ export const SEARCH_PROPS = {
   courses: {
     filters: ['topics', 'language', 'oer'],
     sort: ['orderCourses'],
-    placeholder: 'Title, subject, etc...',
+    placeholder: t`Title, subject, etc...`,
   }
 };
 

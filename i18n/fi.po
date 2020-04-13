@@ -1,88 +1,87 @@
 # Translators:
-# Dirk Uys <dirkcuys@gmail.com>, 2019
-# Nicole James <james@stbib-koeln.de>, 2020
+# Tuulikki Alamettälä <tuulikki.alamettala@gmail.com>, 2020
+# Piia Keihäs <piia.keihas@eoppimiskeskus.fi>, 2020
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Nicole James <james@stbib-koeln.de>, 2020\n"
-"Language-Team: German (https://www.transifex.com/p2pu/teams/103124/de/)\n"
+"Last-Translator: Piia Keihäs <piia.keihas@eoppimiskeskus.fi>, 2020\n"
+"Language-Team: Finnish (https://www.transifex.com/p2pu/teams/103124/fi/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Language: de\n"
+"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/Courses/CourseCard.jsx:9
 msgid "Always available"
-msgstr "Immer verfügbar"
+msgstr "Aina saatavilla"
 
 #: src/Courses/CourseCard.jsx:9
 msgid "Check availability"
-msgstr "Verfügbarkeit prüfen"
+msgstr "Tarkista saatavuus"
 
 #: src/Courses/CourseCard.jsx:22
 #, javascript-format
 msgid "${ rating_number } ratings"
-msgstr "${ rating_number} Bewertungen"
+msgstr "${ rating_number } arviota"
 
 #: src/Courses/CourseCard.jsx:24
 msgid "${ rating_number } rating"
-msgstr "${ rating_number } Bewertung"
+msgstr "${ rating_number } arvio"
 
 #: src/Courses/CourseCard.jsx:28
 #, javascript-format
 msgid "Used in ${ usage_number } learning circles"
-msgstr "Verwendet in ${ usage_number } Lernteams"
+msgstr "Käytetty ${ usage_number } opintopiirissä"
 
 #: src/Courses/CourseCard.jsx:30
 msgid "Used in ${ usage_number } learning circle"
-msgstr "Verwendet in ${ usage_number } Lernteam"
+msgstr "Used in ${ usage_number } opintopiirissä"
 
 #: src/Courses/CourseCard.jsx:57 src/Filters/FilterButton.jsx:8
 msgid "Topics"
-msgstr "Themen"
+msgstr "Aiheet"
 
 #: src/Courses/CourseCard.jsx:66
 msgid "Provider"
-msgstr "Anbieter"
+msgstr "Tarjoaja"
 
 #: src/Courses/CourseCard.jsx:71
 msgid "Platform"
-msgstr "Plattform"
+msgstr "Alusta"
 
 #: src/Courses/CourseCard.jsx:76
 msgid "Access"
-msgstr "Zugang"
+msgstr "Pääsy"
 
 #: src/Courses/CourseCard.jsx:81
 msgid "Community feedback"
-msgstr "Feedback der Community"
+msgstr "Yhteisön palaute"
 
 #: src/Courses/CourseCard.jsx:91
 msgid "More details"
-msgstr "Weitere Details"
+msgstr "Lisätietoja"
 
 #: src/Courses/Browse.jsx:30
 msgid "Use this course"
-msgstr "Nutze diesen Kurs"
+msgstr "Käytä tätä kurssia"
 
 #: src/LearningCircles/Browse.jsx:22
 msgid "Start a learning circle in your neighborhood"
-msgstr "Starten Sie ein Lernteam in Ihrer Nähe"
+msgstr "Aloita opintopiiri"
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:32
 #, javascript-format
 msgid "Sign up for ${ course.title }"
-msgstr "Anmeldung für ${ course.title }"
+msgstr "Ilmoittaudu kurssille ${ course.title }"
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:42
 #: src/LearningCircles/LearningCircleCard.jsx:60
 msgid "Facilitated by ${ learningCircle.facilitator }"
-msgstr "Moderiert von ${ learningCircle.facilitator }"
+msgstr "Ohjaajana toimii ${ learningCircle.facilitator }"
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:43
 #, javascript-format
 msgid "Course materials provided by ${ courseProviderLink }"
-msgstr ""
-"Kursmaterialien werden zur Verfügung gestellt von ${ courseProviderLink }"
+msgstr "Kurssimateriaalin tarjoaa ${ courseProviderLink }"
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:46
 #, javascript-format
@@ -90,8 +89,8 @@ msgid ""
 "This learning circle meets ${ meetingDay } from ${ startTime } to ${ endTime"
 " } (${ learningCircle.time_zone }), ${ startDate }."
 msgstr ""
-"Dieses Lernteam trifft sich ${ meetingDay } von ${ startTime } bis ${ "
-"endTime } Uhr (${ learningCircle.time_zone }), ab ${ startDate }."
+"Tämä opintopiiri kokoontuu ${ meetingDay } klo ${ startTime } - ${ endTime }"
+" (${ learningCircle.time_zone }), ${ startDate }"
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:49
 #, javascript-format
@@ -100,13 +99,13 @@ msgid ""
 "endTime } (${ learningCircle.time_zone }) starting ${ startDate } for ${ "
 "learningCircle.weeks } weeks."
 msgstr ""
-"Dieses Lernteam trifft sich jeden ${ meetingDay } von ${ startTime } bis ${ "
-"endTime } Uhr (${ learningCircle.time_zone }), beginnend ${ startDate } für "
-"${ learningCircle.weeks } Wochen."
+"Tämä opintopiiri kokoontuu joka ${ meetingDay } klo ${ startTime } - ${ "
+"endTime } (${ learningCircle.time_zone }) alkaen ${ startDate } ${ "
+"learningCircle.weeks } viikon ajan."
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:51
 msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
-msgstr "An folgendem Ort: ${ venueLink }, ${ learningCircle.venue_address }"
+msgstr "Paikka: ${ venueLink }, ${ learningCircle.venue_address }"
 
 #: src/LearningCircles/LearningCircleCard.jsx:13
 #, javascript-format
@@ -114,107 +113,108 @@ msgid ""
 "${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
 "learningCircle.time_zone })"
 msgstr ""
-"${ weekDay } von ${ formattedStartTime } bis ${ formattedEndTime } (${ "
+"${ weekDay } klo ${ formattedStartTime } - ${ formattedEndTime } (${ "
 "learningCircle.time_zone })"
 
 #: src/LearningCircles/LearningCircleCard.jsx:14
 #, javascript-format
 msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
-msgstr "${ learningCircle.weeks } Wochen ab ${ formattedDate }"
+msgstr "${ learningCircle.weeks } viikkoa alkaen ${ formattedDate }"
 
 #: src/LearningCircleSignup/SignupForm.jsx:173
 #: src/LearningCircleSignup/SignupForm.jsx:174
 #: src/LearningCircles/LearningCircleCard.jsx:20
 #: src/LearningCircles/LearningCircleCard.jsx:26
 msgid "Sign up"
-msgstr "Anmeldung"
+msgstr "Ilmoittaudu"
 
 #: src/LearningCircles/LearningCircleCard.jsx:64
 msgid "Meeting at ${ learningCircle.venue }"
-msgstr "Ort des Treffens: ${ learningCircle.venue }"
+msgstr "Tapaamispaikka ${ learningCircle.venue }"
 
 #: src/utils/constants.js:4 src/utils/i18n.js:4
 msgid "Monday"
-msgstr "Montag"
+msgstr "Maanantai"
 
 #: src/utils/constants.js:5 src/utils/i18n.js:5
 msgid "Tuesday"
-msgstr "Dienstag"
+msgstr "Tiistai"
 
 #: src/utils/constants.js:6 src/utils/i18n.js:6
 msgid "Wednesday"
-msgstr "Mittwoch"
+msgstr "Keskiviikko"
 
 #: src/utils/constants.js:7 src/utils/i18n.js:7
 msgid "Thursday"
-msgstr "Donnerstag"
+msgstr "Torstai"
 
 #: src/utils/constants.js:8 src/utils/i18n.js:8
 msgid "Friday"
-msgstr "Freitag"
+msgstr "Perjantai"
 
 #: src/utils/constants.js:9 src/utils/i18n.js:9
 msgid "Saturday"
-msgstr "Samstag"
+msgstr "Lauantai"
 
 #: src/utils/constants.js:10 src/utils/i18n.js:10
 msgid "Sunday"
-msgstr "Sonntag"
+msgstr "Sunnuntai"
 
 #: src/utils/constants.js:14
 msgid "Course title"
-msgstr "Kurstitel"
+msgstr "Kurssin nimi"
 
 #: src/utils/constants.js:15
 msgid "Popularity"
-msgstr "Beliebtheit"
+msgstr "Kurssin suosio"
 
 #: src/utils/constants.js:16
 msgid "Community rating"
-msgstr "Bewertung der Community"
+msgstr "Arviot"
 
 #: src/utils/constants.js:17
 msgid "Recently added"
-msgstr "Kürzlich hinzugefügt"
+msgstr "Viimeksi lisätyt"
 
 #: src/utils/constants.js:28
 msgid "Keyword, organization, facilitator, etc..."
-msgstr "Stichwort, Organisation, Lernteam-Moderator*in, etc."
+msgstr "Avainsana, organisaatio, ohjaaja, jne..."
 
 #: src/utils/constants.js:33
 msgid "Title, subject, etc..."
-msgstr "Titel, Thema etc."
+msgstr "Otsikko, aihe, jne..."
 
 #: src/LearningCircleSignup/SignupForm.jsx:108
 msgid "Name"
-msgstr "Vor- und Nachname"
+msgstr "Nimi"
 
 #: src/LearningCircleSignup/SignupForm.jsx:117
 msgid "Email address"
-msgstr "E-Mail-Adresse"
+msgstr "Sähköpostiosoite"
 
 #: src/LearningCircleSignup/SignupForm.jsx:126
 msgid ""
 "If you'd like to receive weekly text messages reminding you of upcoming "
 "learning circle meetings, put your phone number here."
 msgstr ""
+"Jos haluat saada tekstiviestitse muistutuksen tapaamisista, lisää "
+"puhelinnumerosi tähän."
 
 #: src/LearningCircleSignup/SignupForm.jsx:134
 msgid "Your number won't be shared with other participants."
-msgstr "Ihre Nummer wird nicht an andere Teilnehmer*innen weitergegeben."
+msgstr "Puhelinnumeroasi ei jaeta muille osallistujille."
 
 #: src/LearningCircleSignup/SignupForm.jsx:136
 msgid "Why do you want to learn this topic?"
-msgstr "Warum möchten etwas über dieses Thema lernen?"
+msgstr "Miksi olet kiinnostunut tästä aiheesta?"
 
 #: src/LearningCircleSignup/SignupForm.jsx:145
 msgid ""
 "A successful study group requires the support of all of its members. How "
 "will you help your peers achieve their goals?"
 msgstr ""
-"Eine erfolgreiche Lerngruppe braucht die Unterstützung aller ihrer "
-"Mitglieder. Wie können Sie Ihren Peers (Mitlernenden) helfen, ihre Ziele zu "
-"erreichen?"
+"Opintopiiri onnistuu parhaiten, kun kaikki osallistujat tukevat toisiaan. "
+"Miten voisit edistää yhteistä oppimista?"
 
 #: src/LearningCircleSignup/SignupForm.jsx:155
 msgid ""
@@ -222,23 +222,23 @@ msgid ""
 " facilitator and send me emails and/or text messages related to this "
 "learning circle."
 msgstr ""
-"Ich bin damit einverstanden, dass P2PU meine Anmeldedaten der bzw. dem "
-"Kursmoderator*in mitteilt und mir E-Mails zu diesem Lernteam schickt."
+"Hyväksyn, että ilmoittautumistietoni luovutetaan opintopiirin ohjaajalle ja "
+"että minulle lähetetään sähköpostia tai tekstiviestejä tähän opintopiiriin "
+"liittyen."
 
 #: src/LearningCircleSignup/SignupForm.jsx:165
 msgid ""
 "I would like to receive emails about other future learning opportunities "
 "from P2PU."
-msgstr ""
-"Ich würde gerne E-Mails zu zukünftigen Lernmöglichkeiten von P2PU erhalten."
+msgstr "Haluaisin saada sähköpostitse tietoa tulevista opintopiireistä."
 
 #: src/LearningCircleSignup/SignupForm.jsx:177
 msgid "Back to search"
-msgstr "Zurück zur Suche"
+msgstr "Takaisin hakuun"
 
 #: src/LearningCircleSignup/SignupForm.jsx:181
 msgid "Submitting..."
-msgstr "Wird gesendet..."
+msgstr "Lähetetään..."
 
 #: src/Search/SearchTags.jsx:180
 #, javascript-format
@@ -247,42 +247,38 @@ msgid ""
 msgid_plural ""
 "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
 msgstr[0] ""
-"Zeige ${ props.searchResults.length } von ${ props.totalResults } Ergebnis"
 msgstr[1] ""
-"Zeigt ${ props.searchResults.length } von ${ props.totalResults } "
-"Ergebnissen"
 
 #: src/Search/SearchTags.jsx:214
 msgid "reset the search form"
-msgstr "Setzen Sie das Suchformular zurück"
+msgstr "tyhjennä hakulomake"
 
 #: src/Search/SearchTags.jsx:223
 #, javascript-format
 msgid "To see more results, either remove some filters or ${ resetButton }"
 msgstr ""
-"Um mehr Ergebnisse zu sehen, entfernen Sie einige Filter oder ${ resetButton"
-" }"
+"Nähdäksesi lisää hakutuloksia vähennä kriteereitä tai ${ resetButton }"
 
 #: src/Search/SearchBar.jsx:17
 msgid "Search"
-msgstr "Suche"
+msgstr "Haku"
 
 #: src/LearningCircleSignup/SignupSuccess.jsx:8
 msgid ""
 "Thank you for signing up. We've sent you an email introducing you to your "
 "facilitator and we'll send you a reminder two days before each meeting."
 msgstr ""
-"Danke für die Anmeldung. Wir haben Ihnen eine E-Mail gesendet, in der Ihnen "
-"Ihr*e Moderator*in vorgestellt wird, und wir senden Ihnen zwei Tage vor "
-"jedem Treffen eine Erinnerung."
+"Kiitos ilmoittautumisestasi. Olemme lähettäneet sinulle sähköpostin, josta "
+"selviää opintopiirisi ohjaaja. Lähetämme muistutusviestin 2 päivää ennen "
+"jokaista tapaamista."
 
 #: src/Filters/FiltersSection.jsx:21
 msgid "Filter"
-msgstr "Filter"
+msgstr "Rajaa"
 
 #: src/Filters/FilterButton.jsx:10 src/Filters/SortSection.jsx:30
 msgid "Sort by"
-msgstr "Sortiere nach"
+msgstr "Lajittele"
 
 #: src/Card/UsageBadge.jsx:7
 #, javascript-format
@@ -293,90 +289,90 @@ msgstr[1] ""
 
 #: src/Filters/FilterButton.jsx:6
 msgid "Location"
-msgstr "Ort"
+msgstr "Sijainti"
 
 #: src/Filters/FilterButton.jsx:7
 msgid "Language"
-msgstr "Sprache"
+msgstr "Kieli"
 
 #: src/Filters/FilterButton.jsx:9
 msgid "Meeting Day(s)"
-msgstr "Wochentag(e) der Lernteam-Treffen"
+msgstr "Tapaamispäivä(t)"
 
 #: src/Filters/FilterButton.jsx:11
 msgid "OER mode"
-msgstr "OER Modus (Lizensierung der Lehr- und Lernmaterialien)"
+msgstr "Avoimet oppimateriaalit"
 
 #: src/Filters/TopicsFilterForm.jsx:59
 msgid "What topics are you interested in?"
-msgstr "Welche Themen interessieren Sie?"
+msgstr "Mistä aiheista olet kiinnostunut?"
 
 #: src/Filters/TopicsFilterForm.jsx:65
 msgid "Select as many topics as you want"
-msgstr "Wählen Sie so viele Themen wie Sie wollen"
+msgstr "Valitse niin monta aihetta kuin haluat"
 
 #: src/Filters/LocationFilterForm.jsx:45
 msgid "Unable to detect location."
-msgstr "Dieser Ort wurde nicht gefunden."
+msgstr "Sijaintia ei pystytä määrittämään"
 
 #: src/Filters/LocationFilterForm.jsx:56
 msgid "Geolocation is not supported by this browser."
-msgstr "Diese Geolocation wird nicht vom Browser unterstützt."
+msgstr "Sijainti ei ole käytettävissä"
 
 #: src/Filters/LocationFilterForm.jsx:72
 msgid "Use my current location"
-msgstr "Aktuellen Standort nutzen "
+msgstr "Käytä nykyistä sijaintiani"
 
 #: src/Filters/LocationFilterForm.jsx:77
 msgid "Detecting your location..."
-msgstr "Standort wird ermittelt..."
+msgstr "Haetaan sijaintia..."
 
 #: src/Filters/LocationFilterForm.jsx:79
 msgid "Using your current location"
-msgstr "Aktueller Standort ausgewählt"
+msgstr "Käytetään nykyistä sijaintiasi"
 
 #: src/Filters/LocationFilterForm.jsx:100
 msgid "miles"
-msgstr "Meilen"
+msgstr "mailia"
 
 #: src/Filters/LocationFilterForm.jsx:100
 msgid "km"
-msgstr "Kilometer"
+msgstr "kilometriä"
 
 #: src/Filters/LocationFilterForm.jsx:102
 #, javascript-format
 msgid "Within ${ value } ${ unit }"
-msgstr "im Umkreis von ${ value } ${ unit }"
+msgstr "Etsi ${ value } ${ unit } säteellä"
 
 #: src/Filters/LocationFilterForm.jsx:136
 msgid "or"
-msgstr "oder"
+msgstr "tai"
 
 #: src/Filters/LocationFilterForm.jsx:139
 #: src/Filters/LocationFilterForm.jsx:143
 msgid "Select a location"
-msgstr "Wählen Sie einen Ort"
+msgstr "Valitse sijainti"
 
 #: src/Filters/LocationFilterForm.jsx:146
 msgid "Start typing a city name"
-msgstr "Geben Sie den Namen der Stadt ein."
+msgstr "Kirjoita kaupungin nimi"
 
 #: src/Filters/LocationFilterForm.jsx:147
 msgid "No results for this city"
-msgstr "Leider keine Ergebnisse für diese Stadt"
+msgstr "Ei tuloksia tälle kaupungille"
 
 #: src/Filters/LanguageFilterForm.jsx:60
 msgid "What languages are you interested in?"
-msgstr "In welcher Sprache sollen die Kurse sein?"
+msgstr "Mistä kielistä olet kiinnostunut?"
 
 #: src/Filters/LanguageFilterForm.jsx:66
 msgid "Select as many languages as you want"
-msgstr "Wählen Sie so viele Sprachen aus wie Sie möchten."
+msgstr "Valitse niin monta kieltä kuin haluat"
 
 #: src/Filters/OerFilterForm.jsx:8
 msgid "Only open educational resources (OER)"
-msgstr "Nur OER-Materialien (open educational resources)"
+msgstr "Vain avoimet oppimateriaalit (OER)"
 
 #: src/Filters/OerFilterForm.jsx:9
 msgid "All courses"
-msgstr "Alle Kurse"
+msgstr "Kaikki kurssit"

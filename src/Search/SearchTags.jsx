@@ -1,6 +1,7 @@
 import React from 'react';
 import { t, jt, ngettext, msgid, __ } from 'ttag';
 
+import {isoCodeToLangName} from '../utils/i18n';
 import { MEETING_DAYS, SEARCH_SUBJECTS, COURSES_SORT_OPTIONS } from '../utils/constants';
 
 
@@ -52,8 +53,9 @@ const SearchTags = (props) => {
         if (props.languages.length > 1 && index === (props.languages.length - 1)) {
           languagesTagsArray.push(<span key={`languageTag-${index + 2}`}>or</span>)
         }
+        let languageName = isoCodeToLangName(item)
 
-        languagesTagsArray.push(<SearchTag value={item} key={`languageTag-${index}`} onDelete={onDelete} />)
+        languagesTagsArray.push(<SearchTag value={languageName} key={`languageTag-${index}`} onDelete={() => onDelete(item)} />)
       })
 
       return languagesTagsArray;

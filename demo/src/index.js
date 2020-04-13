@@ -22,6 +22,7 @@ class App extends React.Component {
         searchSubject={'learningCircles'}
         Browse={BrowseLearningCircles}
         onSelectResult={handleSelectResult}
+        initialState={{ languages: ['en'] }}
       />
     );
   }
