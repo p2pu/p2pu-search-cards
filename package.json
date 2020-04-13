@@ -57,7 +57,7 @@
     "react-telephone-input": "^4.73.4",
     "sass-loader": "^7.3.1",
     "style-loader": "^0.23.1",
-    "ttag": "^1.7.20",
+    "ttag": "^1.7.22",
     "ttag-cli": "^1.7.24",
     "webpack": "^4.41.2",
     "webpack-bundle-analyzer": "^3.6.0",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { t, jt, ngettext, msgid, __ } from 'ttag';
+import { t, jt, ngettext, msgid } from 'ttag';
 
 import {isoCodeToLangName} from '../utils/i18n';
 import { MEETING_DAYS, SEARCH_SUBJECTS, COURSES_SORT_OPTIONS } from '../utils/constants';
@@ -106,9 +106,9 @@ const SearchTags = (props) => {
   const generateLocationTag = () => {
     if (props.latitude && props.longitude) {
       const unit = props.useMiles ? 'miles' : 'km';
-      const value = props.useMiles ? props.distance * 0.62 : props.distance;
-      const roundedValue = Math.round(value / 10) * 10;
-      const text = t(`Within ${roundedValue} ${unit} of your location`);
+      let value = props.useMiles ? props.distance * 0.62 : props.distance;
+      value = Math.round(value / 10) * 10;
+      const text = t`Within ${ value } ${ unit }`;
       const onDelete = (value) => {
         props.updateQueryParams({ latitude: null, longitude: null, distance: 50 })
       }
