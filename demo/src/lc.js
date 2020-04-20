@@ -32,14 +32,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{ padding: "20px"}}>
         {
           this.state.selectedLearningCircle &&
             <LearningCircleSignup
               onCancel={this.handleSignupDialogClose}
               learningCircle={this.state.selectedLearningCircle}
               signUpUrl='https://learningcircles.p2pu.org/api/signup/'
-            /> 
+            />
         }
         <div className={this.state.selectedLearningCircle?'d-none':''}>
           <Search

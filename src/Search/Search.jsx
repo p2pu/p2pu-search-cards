@@ -97,7 +97,7 @@ export default class Search extends Component {
     const sortCollection = SEARCH_PROPS[this.props.searchSubject].sort;
     const placeholder = SEARCH_PROPS[this.props.searchSubject].placeholder;
     const resultsSubtitle = SEARCH_PROPS[this.props.searchSubject].resultsSubtitle;
-    const { Browse } = this.props;
+    const { Browse, NoResultsComponent } = this.props;
 
     return(
       <div className="page">
@@ -126,6 +126,10 @@ export default class Search extends Component {
           <div className="loader-container">
             <ReactLoading height={30} width={60} color={"#515665"} type="bubbles" />
           </div>
+        }
+        {
+          this.state.searchResults.length < 1 && NoResultsComponent &&
+          <NoResultsComponent />
         }
       </div>
     )
