@@ -24,6 +24,7 @@ class App extends React.Component {
         Browse={BrowseLearningCircles}
         onSelectResult={handleSelectResult}
         initialState={{ languages: ['en'] }}
+        origin={'http://localhost:8000'}
       />
     </div>
     );
