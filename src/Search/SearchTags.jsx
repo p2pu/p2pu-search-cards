@@ -106,9 +106,9 @@ const SearchTags = (props) => {
   const generateLocationTag = () => {
     if (props.latitude && props.longitude) {
       const unit = props.useMiles ? 'miles' : 'km';
-      const value = props.useMiles ? props.distance * 0.62 : props.distance;
-      const roundedValue = Math.round(value / 10) * 10;
-      const text = __(`Within ${roundedValue} ${unit} of your location`);
+      let value = props.useMiles ? props.distance * 0.62 : props.distance;
+      value = Math.round(value / 10) * 10;
+      const text = t`Within ${ value } ${ unit }`;
       const onDelete = (value) => {
         props.updateQueryParams({ latitude: null, longitude: null, distance: 50 })
       }
@@ -211,7 +211,7 @@ const SearchTags = (props) => {
   }
 
   const noResults = props.searchResults.length === 0;
-  const resetButton = <button onClick={reloadWindow} className='p2pu-btn light with-outline'>{t`reset the search form`}</button>;
+  const resetButton = <button key="reset-search" onClick={reloadWindow} className='p2pu-btn light with-outline'>{t`reset the search form`}</button>;
 
   return(
     <div className='results-summary'>

@@ -59,7 +59,7 @@ export default class LocationFilterForm extends Component {
 
   _detectDistanceUnit(lat, lon) {
     const countriesUsingMiles = ['US', 'GB', 'LR', 'MM'];
-    const url = `http://ws.geonames.org/countryCodeJSON?lat=${lat}&lng=${lon}&username=p2pu`;
+    const url = `http://api.geonames.org/countryCodeJSON?lat=${lat}&lng=${lon}&username=p2pu`;
 
     axios.get(url)
       .then(res => {
