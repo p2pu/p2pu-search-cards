@@ -54,6 +54,10 @@ msgstr ""
 msgid "Use this course"
 msgstr ""
 
+#: src/Search/Search.jsx:146
+msgid "There are no active learning circles right now."
+msgstr ""
+
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:32
 #, javascript-format
 msgid "Sign up for ${ course.title }"
@@ -258,13 +262,13 @@ msgid_plural "Used by ${ number } learning circles"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Filters/FiltersSection.jsx:21
-msgid "Filter"
-msgstr ""
-
 #: src/Filters/FilterButton.jsx:10
 #: src/Filters/SortSection.jsx:30
 msgid "Sort by"
+msgstr ""
+
+#: src/Filters/FiltersSection.jsx:21
+msgid "Filter"
 msgstr ""
 
 #: src/Filters/FilterButton.jsx:6

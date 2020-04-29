@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactLoading from 'react-loading';
+import { t } from 'ttag';
 
 import SearchAndFilter from './SearchAndFilter'
 import SearchTags from './SearchTags'
@@ -142,5 +143,5 @@ export default class Search extends Component {
 
 
 Search.defaultProps = {
-  NoResultsComponent: () => <p className="my-4">There are no active learning circles right now.</p>
+  NoResultsComponent: () => <p className="my-4">{t`There are no active learning circles right now.`}</p>
 }
