@@ -3,6 +3,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
+#: src/Search/Search.jsx:146
+msgid "There are no active learning circles right now."
+msgstr ""
+
+#: src/Courses/Browse.jsx:30
+msgid "Use this course"
+msgstr ""
+
 #: src/Courses/CourseCard.jsx:9
 msgid "Always available"
 msgstr ""
@@ -48,14 +56,6 @@ msgstr ""
 
 #: src/Courses/CourseCard.jsx:84
 msgid "More details"
-msgstr ""
-
-#: src/Courses/Browse.jsx:30
-msgid "Use this course"
-msgstr ""
-
-#: src/Search/Search.jsx:146
-msgid "There are no active learning circles right now."
 msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:32
@@ -255,13 +255,6 @@ msgid ""
 "facilitator and we'll send you a reminder two days before each meeting."
 msgstr ""
 
-#: src/Card/UsageBadge.jsx:7
-#, javascript-format
-msgid "Used by ${ number } learning circle"
-msgid_plural "Used by ${ number } learning circles"
-msgstr[0] ""
-msgstr[1] ""
-
 #: src/Filters/FilterButton.jsx:10
 #: src/Filters/SortSection.jsx:30
 msgid "Sort by"
@@ -270,6 +263,13 @@ msgstr ""
 #: src/Filters/FiltersSection.jsx:21
 msgid "Filter"
 msgstr ""
+
+#: src/Card/UsageBadge.jsx:7
+#, javascript-format
+msgid "Used by ${ number } learning circle"
+msgid_plural "Used by ${ number } learning circles"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Filters/FilterButton.jsx:6
 msgid "Location"
