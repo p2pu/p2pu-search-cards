@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactLoading from 'react-loading';
+import { t } from 'ttag';
 
 import SearchAndFilter from './SearchAndFilter'
 import SearchTags from './SearchTags'
@@ -9,7 +10,7 @@ import ApiHelper from '../utils/apiHelper'
 export default class Search extends Component {
   constructor(props) {
     super(props)
-    this.state = {
+    this.initialState = {
       searchResults: [],
       totalResults: 0,
       distance: 50,
@@ -19,8 +20,11 @@ export default class Search extends Component {
       isLoading: false,
       hasMoreResults: false,
       appendResults: false,
-      ...props.initialState,
+      active: true,
+      signup: 'open',
+      ...props.initialState
     }
+    this.state = this.initialState;
     this.handleChange = (s) => this._handleChange(s);
     this.handleInputChange = () => this._handleInputChange();
     this.handleSearchBarSubmit = (query) => this._handleSearchBarSubmit(query);
@@ -28,6 +32,7 @@ export default class Search extends Component {
     this.updateQueryParams = (params) => this._updateQueryParams(params);
     this.sendQuery = (opts) => this._sendQuery(opts);
     this.loadInitialData = () => this._loadInitialData();
+    this.apiHelper = new ApiHelper(this.props.searchSubject, this.props.origin);
   }
 
   componentDidMount() {
@@ -51,21 +56,20 @@ export default class Search extends Component {
   }
 
   _loadInitialData() {
-    this.updateQueryParams({ active: true, signup: 'open', limit: this.state.limit, offset: this.state.offset });
+    this.sendQuery({ initialQuery: true });
   }
 
   _sendQuery(opts={}) {
     this.setState({ isLoading: true }, () => {
       const params = this.state;
       const options = { params, callback: this.searchCallback, ...opts };
-      const api = new ApiHelper(this.props.searchSubject, this.props.origin);
 
-      api.fetchResource(options);
+      this.apiHelper.fetchResource(options);
     })
   }
 
   _updateQueryParams(params) {
-    this.setState(params, this.sendQuery);
+    this.setState(params, this.sendQuery());
   }
 
   _handleChange(selected) {
@@ -89,6 +93,7 @@ export default class Search extends Component {
       isLoading: false,
       appendResults: false,
       hasMoreResults: response.count > 0 && results.length < response.count,
+      initialQuery: opts.initialQuery
     })
   }
 
@@ -97,7 +102,8 @@ export default class Search extends Component {
     const sortCollection = SEARCH_PROPS[this.props.searchSubject].sort;
     const placeholder = SEARCH_PROPS[this.props.searchSubject].placeholder;
     const resultsSubtitle = SEARCH_PROPS[this.props.searchSubject].resultsSubtitle;
-    const { Browse } = this.props;
+    const { Browse, NoResultsComponent } = this.props;
+    const showNoResultsComponent = this.state.totalResults === 0 && this.state.initialQuery;
 
     return(
       <div className="page">
@@ -110,11 +116,14 @@ export default class Search extends Component {
           order={this.props.order}
           {...this.state}
         />
-        <SearchTags
-          updateQueryParams={this.updateQueryParams}
-          {...this.state}
-          {...this.props}
-        />
+        {showNoResultsComponent ?
+          <NoResultsComponent />:
+          <SearchTags
+            updateQueryParams={this.updateQueryParams}
+            {...this.state}
+            {...this.props}
+          />
+        }
         <Browse
           results={this.state.searchResults}
           updateQueryParams={this.updateQueryParams}
@@ -130,4 +139,9 @@ export default class Search extends Component {
       </div>
     )
   }
+}
+
+
+Search.defaultProps = {
+  NoResultsComponent: () => <p className="my-4">{t`There are no active learning circles right now.`}</p>
 }

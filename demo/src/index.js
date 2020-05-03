@@ -18,12 +18,15 @@ class App extends React.Component {
     }
 
     return(
+    <div style={{ padding: "20px"}}>
       <Search
         searchSubject={'learningCircles'}
         Browse={BrowseLearningCircles}
         onSelectResult={handleSelectResult}
         initialState={{ languages: ['en'] }}
+        origin={'http://localhost:8000'}
       />
+    </div>
     );
   }
 }

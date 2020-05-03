@@ -54,8 +54,8 @@ msgstr ""
 msgid "Use this course"
 msgstr ""
 
-#: src/LearningCircles/Browse.jsx:22
-msgid "Start a learning circle in your neighborhood"
+#: src/Search/Search.jsx:146
+msgid "There are no active learning circles right now."
 msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:32
@@ -174,6 +174,28 @@ msgstr ""
 msgid "Title, subject, etc..."
 msgstr ""
 
+#: src/Filters/LocationFilterForm.jsx:102
+#: src/Search/SearchTags.jsx:111
+#, javascript-format
+msgid "Within ${ value } ${ unit }"
+msgstr ""
+
+#: src/Search/SearchTags.jsx:180
+#, javascript-format
+msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
+msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Search/SearchTags.jsx:214
+msgid "reset the search form"
+msgstr ""
+
+#: src/Search/SearchTags.jsx:223
+#, javascript-format
+msgid "To see more results, either remove some filters or ${ resetButton }"
+msgstr ""
+
 #: src/LearningCircleSignup/SignupForm.jsx:109
 msgid "Name"
 msgstr ""
@@ -223,22 +245,6 @@ msgstr ""
 msgid "Submitting..."
 msgstr ""
 
-#: src/Search/SearchTags.jsx:180
-#, javascript-format
-msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
-msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/Search/SearchTags.jsx:214
-msgid "reset the search form"
-msgstr ""
-
-#: src/Search/SearchTags.jsx:223
-#, javascript-format
-msgid "To see more results, either remove some filters or ${ resetButton }"
-msgstr ""
-
 #: src/Search/SearchBar.jsx:17
 msgid "Search"
 msgstr ""
@@ -249,21 +255,21 @@ msgid ""
 "facilitator and we'll send you a reminder two days before each meeting."
 msgstr ""
 
-#: src/Filters/FiltersSection.jsx:21
-msgid "Filter"
-msgstr ""
-
-#: src/Filters/FilterButton.jsx:10
-#: src/Filters/SortSection.jsx:30
-msgid "Sort by"
-msgstr ""
-
 #: src/Card/UsageBadge.jsx:7
 #, javascript-format
 msgid "Used by ${ number } learning circle"
 msgid_plural "Used by ${ number } learning circles"
 msgstr[0] ""
 msgstr[1] ""
+
+#: src/Filters/FilterButton.jsx:10
+#: src/Filters/SortSection.jsx:30
+msgid "Sort by"
+msgstr ""
+
+#: src/Filters/FiltersSection.jsx:21
+msgid "Filter"
+msgstr ""
 
 #: src/Filters/FilterButton.jsx:6
 msgid "Location"
@@ -315,11 +321,6 @@ msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:100
 msgid "km"
-msgstr ""
-
-#: src/Filters/LocationFilterForm.jsx:102
-#, javascript-format
-msgid "Within ${ value } ${ unit }"
 msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:136
