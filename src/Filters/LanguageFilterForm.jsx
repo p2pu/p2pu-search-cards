@@ -44,7 +44,7 @@ export default class LanguageFilterForm extends Component {
   }
 
   _mapArrayToSelectOptions(array) {
-    return array.map((item) => ({ value: item.code, label: item.name }))
+    return array.map((item) => ({ value: item.code, label: item.name_local }))
   }
 
   _extractLanguagesArray(options) {
