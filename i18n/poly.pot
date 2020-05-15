@@ -3,58 +3,59 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: src/Search/Search.jsx:146
+#: src/Search/Search.jsx:148
 msgid "There are no active learning circles right now."
 msgstr ""
 
-#: src/Courses/CourseCard.jsx:9
+#: src/Courses/CourseCard.jsx:13
 msgid "Always available"
 msgstr ""
 
-#: src/Courses/CourseCard.jsx:9
+#: src/Courses/CourseCard.jsx:13
 msgid "Check availability"
 msgstr ""
 
-#: src/Courses/CourseCard.jsx:22
+#: src/Courses/CourseCard.jsx:26
 #, javascript-format
 msgid "${ rating_number } ratings"
 msgstr ""
 
-#: src/Courses/CourseCard.jsx:24
+#: src/Courses/CourseCard.jsx:28
 msgid "${ rating_number } rating"
 msgstr ""
 
-#: src/Courses/CourseCard.jsx:28
+#: src/Courses/CourseCard.jsx:32
 #, javascript-format
 msgid "Used in ${ usage_number } learning circles"
 msgstr ""
 
-#: src/Courses/CourseCard.jsx:30
+#: src/Courses/CourseCard.jsx:34
 msgid "Used in ${ usage_number } learning circle"
 msgstr ""
 
-#: src/Courses/CourseCard.jsx:57
+#: src/Courses/CourseCard.jsx:61
 #: src/Filters/FilterButton.jsx:8
 msgid "Topics"
 msgstr ""
 
-#: src/Courses/CourseCard.jsx:66
+#: src/Courses/CourseCard.jsx:70
 msgid "Provider"
 msgstr ""
 
-#: src/Courses/CourseCard.jsx:71
+#: src/Courses/CourseCard.jsx:75
 msgid "Platform"
 msgstr ""
 
-#: src/Courses/CourseCard.jsx:76
+#: src/Courses/CourseCard.jsx:80
 msgid "Access"
 msgstr ""
 
-#: src/Courses/CourseCard.jsx:84
+#: src/Courses/CourseCard.jsx:90
+#: src/Courses/CourseCard.jsx:94
 msgid "More details"
 msgstr ""
 
-#: src/Courses/Browse.jsx:30
+#: src/Courses/Browse.jsx:32
 msgid "Use this course"
 msgstr ""
 
