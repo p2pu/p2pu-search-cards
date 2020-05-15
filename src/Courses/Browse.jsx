@@ -26,6 +26,8 @@ class BrowseCourses extends React.Component {
               id={`course-card-${index}`}
               course={course}
               updateQueryParams={updateQueryParams}
+              courseLink={this.props.courseLink}
+              moreInfo={this.props.moreInfo}
               onSelectResult={onSelectResult}
               buttonText={t`Use this course`}
               classes="col-md-4"

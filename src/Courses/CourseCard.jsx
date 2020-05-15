@@ -5,6 +5,10 @@ import { Card, CardTitle, CardBody, UsageBadge } from '../Card';
 import { COLOR_CLASSES } from '../utils/constants';
 
 const CourseCard = (props) => {
+  const {
+    courseLink = false,
+    moreInfo = true,
+  } = props;
 
   const availability = props.course.on_demand ? t`Always available` : t`Check availability`;
   const handleFilterClick = topic => {
@@ -80,13 +84,20 @@ const CourseCard = (props) => {
         </div>
 
         <div className='actions'>
-            <div className="alt-cta">
-              <a href={ props.course.course_page_url } target="_blank" className="p2pu-btn dark secondary">{t`More details`}</a>
+          <div className="alt-cta">
+            { 
+              moreInfo &&
+                <a href={ props.course.course_page_url } target="_blank" className="p2pu-btn dark secondary">{t`More details`}</a> 
+            }
+            { 
+              courseLink &&
+                <a href={ props.course.link } target="_blank" className="p2pu-btn dark secondary">{t`More details`}</a> 
+            }
             {
               props.onSelectResult &&
               <button onClick={() => props.onSelectResult(props.course)} className="p2pu-btn dark">{props.buttonText}</button>
             }
-            </div>
+          </div>
         </div>
       </CardBody>
     </Card>
