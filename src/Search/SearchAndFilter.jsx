@@ -8,7 +8,6 @@ const SearchAndFilter = (props) => {
 
   return(
     <div className='search-container'>
-      { noResults && <div className='overlay'></div> }
       <SearchBar
         placeholder={props.placeholder}
         updateQueryParams={props.updateQueryParams}
