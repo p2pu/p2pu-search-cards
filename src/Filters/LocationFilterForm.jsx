@@ -138,13 +138,13 @@ export default class LocationFilterForm extends Component {
         <div className='select-with-label label-left col-sm-12' >
           <label htmlFor='select-city'>{t`Select a location`}:</label>
           <CitySelect
-            classes=''
+            classes='city-select'
             name='select-city'
-            label={t`Select a location`}
             value={this.props.city}
-            handleSelect={this.handleCitySelect}
+            handleChange={this.handleCitySelect}
             placeholder={t`Start typing a city name`}
             noResultsText={t`No results for this city`}
+            isMulti={false}
           />
         </div>
       </div>

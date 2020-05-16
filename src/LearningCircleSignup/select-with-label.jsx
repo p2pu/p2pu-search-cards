@@ -18,7 +18,7 @@ export default class SelectWithLabel extends React.Component {
   render(){
     let value_search = this.props.options.filter(({value, label}) => value == this.props.value);
     let value = value_search.length==1?value_search[0]:null;
-    // TODO clearable isn't passed to react-select widget :(
+
     return (
         <SWL
           label={this.props.label}
@@ -26,9 +26,9 @@ export default class SelectWithLabel extends React.Component {
           options={this.props.options}
           multi={this.props.multi}
           value={value}
-          onChange={this.handleSelect}
+          handleChange={this.handleSelect}
           placeholder={this.props.placeholder}
-          clearable={false}
+          isClearable={false}
         />
     );
   }

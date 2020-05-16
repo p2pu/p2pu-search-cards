@@ -47,6 +47,9 @@ export default class TopicsFilterForm extends Component {
   }
 
   _extractTopicsArray(options) {
+    if (!options) {
+      return null
+    }
     return options.map(option => option.value)
   }
 
@@ -59,9 +62,9 @@ export default class TopicsFilterForm extends Component {
           label={t`What topics are you interested in?`}
           classes='no-flex'
           options={this.state.options}
-          multi={true}
+          isMulti={true}
           value={value}
-          onChange={this.handleSelect}
+          handleChange={this.handleSelect}
           placeholder={t`Select as many topics as you want`}
         />
       </div>

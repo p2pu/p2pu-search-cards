@@ -62,7 +62,7 @@ export default class LanguageFilterForm extends Component {
           options={this.state.options}
           multi={true}
           value={value}
-          onChange={this.handleSelect}
+          handleChange={this.handleSelect}
           placeholder={t`Select as many languages as you want`}
         />
       </div>
