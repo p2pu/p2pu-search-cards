@@ -3,10 +3,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: src/Search/Search.jsx:148
-msgid "There are no active learning circles right now."
-msgstr ""
-
 #: src/Courses/CourseCard.jsx:13
 msgid "Always available"
 msgstr ""
@@ -93,6 +89,10 @@ msgstr ""
 msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
 msgstr ""
 
+#: src/Search/Search.jsx:148
+msgid "There are no active learning circles right now."
+msgstr ""
+
 #: src/LearningCircles/LearningCircleCard.jsx:13
 #, javascript-format
 msgid ""
@@ -175,28 +175,6 @@ msgstr ""
 msgid "Title, subject, etc..."
 msgstr ""
 
-#: src/Filters/LocationFilterForm.jsx:102
-#: src/Search/SearchTags.jsx:111
-#, javascript-format
-msgid "Within ${ value } ${ unit }"
-msgstr ""
-
-#: src/Search/SearchTags.jsx:180
-#, javascript-format
-msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
-msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/Search/SearchTags.jsx:214
-msgid "reset the search form"
-msgstr ""
-
-#: src/Search/SearchTags.jsx:223
-#, javascript-format
-msgid "To see more results, either remove some filters or ${ resetButton }"
-msgstr ""
-
 #: src/LearningCircleSignup/SignupForm.jsx:109
 msgid "Name"
 msgstr ""
@@ -246,8 +224,26 @@ msgstr ""
 msgid "Submitting..."
 msgstr ""
 
-#: src/Search/SearchBar.jsx:17
-msgid "Search"
+#: src/Filters/LocationFilterForm.jsx:102
+#: src/Search/SearchTags.jsx:111
+#, javascript-format
+msgid "Within ${ value } ${ unit }"
+msgstr ""
+
+#: src/Search/SearchTags.jsx:180
+#, javascript-format
+msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
+msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Search/SearchTags.jsx:214
+msgid "reset the search form"
+msgstr ""
+
+#: src/Search/SearchTags.jsx:223
+#, javascript-format
+msgid "To see more results, either remove some filters or ${ resetButton }"
 msgstr ""
 
 #: src/LearningCircleSignup/SignupSuccess.jsx:8
@@ -255,6 +251,17 @@ msgid ""
 "Thank you for signing up. We've sent you an email introducing you to your "
 "facilitator and we'll send you a reminder two days before each meeting."
 msgstr ""
+
+#: src/Search/SearchBar.jsx:17
+msgid "Search"
+msgstr ""
+
+#: src/Card/UsageBadge.jsx:7
+#, javascript-format
+msgid "Used by ${ number } learning circle"
+msgid_plural "Used by ${ number } learning circles"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Filters/FiltersSection.jsx:21
 msgid "Filter"
@@ -264,13 +271,6 @@ msgstr ""
 #: src/Filters/SortSection.jsx:30
 msgid "Sort by"
 msgstr ""
-
-#: src/Card/UsageBadge.jsx:7
-#, javascript-format
-msgid "Used by ${ number } learning circle"
-msgid_plural "Used by ${ number } learning circles"
-msgstr[0] ""
-msgstr[1] ""
 
 #: src/Filters/FilterButton.jsx:6
 msgid "Location"
@@ -340,11 +340,11 @@ msgstr ""
 msgid "No results for this city"
 msgstr ""
 
-#: src/Filters/LanguageFilterForm.jsx:60
+#: src/Filters/LanguageFilterForm.jsx:61
 msgid "What languages are you interested in?"
 msgstr ""
 
-#: src/Filters/LanguageFilterForm.jsx:66
+#: src/Filters/LanguageFilterForm.jsx:67
 msgid "Select as many languages as you want"
 msgstr ""
 

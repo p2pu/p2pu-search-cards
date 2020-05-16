@@ -19,8 +19,8 @@ class App extends React.Component {
     return(
     <div style={{ padding: "20px"}}>
       <Search
-        searchSubject={'learningCircles'}
-        Browse={BrowseLearningCircles}
+        searchSubject={'courses'}
+        Browse={BrowseCourses}
         onSelectResult={handleSelectResult}
         initialState={{ languages: ['en'] }}
         origin={'http://localhost:8000'}

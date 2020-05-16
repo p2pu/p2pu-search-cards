@@ -48,6 +48,7 @@ export default class LanguageFilterForm extends Component {
   }
 
   _extractLanguagesArray(options) {
+    if (!options) return null;
     return options.map(option => option.value)
   }
 
@@ -60,7 +61,7 @@ export default class LanguageFilterForm extends Component {
           label={t`What languages are you interested in?`}
           classes='no-flex'
           options={this.state.options}
-          multi={true}
+          isMulti={true}
           value={value}
           handleChange={this.handleSelect}
           placeholder={t`Select as many languages as you want`}
