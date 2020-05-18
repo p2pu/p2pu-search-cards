@@ -250,7 +250,11 @@ msgid ""
 msgid_plural ""
 "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
 msgstr[0] ""
+"Näytetään ${ props.searchResults.length } yhteensä ${ props.totalResults } "
+"tuloksesta."
 msgstr[1] ""
+"Näytetään ${ props.searchResults.length } yhteensä ${ props.totalResults } "
+"tuloksesta."
 
 #: src/Search/SearchTags.jsx:214
 msgid "reset the search form"

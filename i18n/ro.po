@@ -253,8 +253,14 @@ msgid ""
 msgid_plural ""
 "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
 msgstr[0] ""
+"Afișare ${ props.searchResults.length } din ${ props.totalResults } rezultat"
+" "
 msgstr[1] ""
+"Afișare ${ props.searchResults.length } din ${ props.totalResults } "
+"rezultate"
 msgstr[2] ""
+"Afișare ${ props.searchResults.length } din ${ props.totalResults } "
+"rezultate"
 
 #: src/Search/SearchTags.jsx:214
 msgid "reset the search form"
@@ -284,9 +290,9 @@ msgstr ""
 #, javascript-format
 msgid "Used by ${ number } learning circle"
 msgid_plural "Used by ${ number } learning circles"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Folosit în ${ number } cercuri de învățare "
+msgstr[1] "Folosit în ${ number } cercuri de învățare "
+msgstr[2] "Folosit în ${ number } cercuri de învățare "
 
 #: src/Filters/FiltersSection.jsx:21
 msgid "Filter"
