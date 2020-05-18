@@ -1,72 +1,70 @@
+# 
 # Translators:
 # Tuulikki Alamettälä <tuulikki.alamettala@gmail.com>, 2020
 # Piia Keihäs <piia.keihas@eoppimiskeskus.fi>, 2020
+# Dirk Uys <dirkcuys@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
-"Last-Translator: Piia Keihäs <piia.keihas@eoppimiskeskus.fi>, 2020\n"
+"Last-Translator: Dirk Uys <dirkcuys@gmail.com>, 2020\n"
 "Language-Team: Finnish (https://www.transifex.com/p2pu/teams/103124/fi/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/Courses/CourseCard.jsx:9
+#: src/Courses/CourseCard.jsx:13
 msgid "Always available"
 msgstr "Aina saatavilla"
 
-#: src/Courses/CourseCard.jsx:9
+#: src/Courses/CourseCard.jsx:13
 msgid "Check availability"
 msgstr "Tarkista saatavuus"
 
-#: src/Courses/CourseCard.jsx:22
+#: src/Courses/CourseCard.jsx:26
 #, javascript-format
 msgid "${ rating_number } ratings"
 msgstr "${ rating_number } arviota"
 
-#: src/Courses/CourseCard.jsx:24
+#: src/Courses/CourseCard.jsx:28
 msgid "${ rating_number } rating"
 msgstr "${ rating_number } arvio"
 
-#: src/Courses/CourseCard.jsx:28
+#: src/Courses/CourseCard.jsx:32
 #, javascript-format
 msgid "Used in ${ usage_number } learning circles"
 msgstr "Käytetty ${ usage_number } opintopiirissä"
 
-#: src/Courses/CourseCard.jsx:30
+#: src/Courses/CourseCard.jsx:34
 msgid "Used in ${ usage_number } learning circle"
 msgstr "Used in ${ usage_number } opintopiirissä"
 
-#: src/Courses/CourseCard.jsx:57 src/Filters/FilterButton.jsx:8
+#: src/Courses/CourseCard.jsx:61 src/Filters/FilterButton.jsx:8
 msgid "Topics"
 msgstr "Aiheet"
 
-#: src/Courses/CourseCard.jsx:66
+#: src/Courses/CourseCard.jsx:70
 msgid "Provider"
 msgstr "Tarjoaja"
 
-#: src/Courses/CourseCard.jsx:71
+#: src/Courses/CourseCard.jsx:75
 msgid "Platform"
 msgstr "Alusta"
 
-#: src/Courses/CourseCard.jsx:76
+#: src/Courses/CourseCard.jsx:80
 msgid "Access"
 msgstr "Pääsy"
 
-#: src/Courses/CourseCard.jsx:81
-msgid "Community feedback"
-msgstr "Yhteisön palaute"
-
-#: src/Courses/CourseCard.jsx:91
+#: src/Courses/CourseCard.jsx:90 src/Courses/CourseCard.jsx:94
 msgid "More details"
 msgstr "Lisätietoja"
 
-#: src/Courses/Browse.jsx:30
+#: src/Search/Search.jsx:148
+msgid "There are no active learning circles right now."
+msgstr "Tällä hetkellä ei ole käynnissä olevia opintopiirejä."
+
+#: src/Courses/Browse.jsx:32
 msgid "Use this course"
 msgstr "Käytä tätä kurssia"
-
-#: src/LearningCircles/Browse.jsx:22
-msgid "Start a learning circle in your neighborhood"
-msgstr "Aloita opintopiiri"
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:32
 #, javascript-format
@@ -121,8 +119,8 @@ msgstr ""
 msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
 msgstr "${ learningCircle.weeks } viikkoa alkaen ${ formattedDate }"
 
-#: src/LearningCircleSignup/SignupForm.jsx:173
-#: src/LearningCircleSignup/SignupForm.jsx:174
+#: src/LearningCircleSignup/SignupForm.jsx:185
+#: src/LearningCircleSignup/SignupForm.jsx:186
 #: src/LearningCircles/LearningCircleCard.jsx:20
 #: src/LearningCircles/LearningCircleCard.jsx:26
 msgid "Sign up"
@@ -184,15 +182,15 @@ msgstr "Avainsana, organisaatio, ohjaaja, jne..."
 msgid "Title, subject, etc..."
 msgstr "Otsikko, aihe, jne..."
 
-#: src/LearningCircleSignup/SignupForm.jsx:108
+#: src/LearningCircleSignup/SignupForm.jsx:109
 msgid "Name"
 msgstr "Nimi"
 
-#: src/LearningCircleSignup/SignupForm.jsx:117
+#: src/LearningCircleSignup/SignupForm.jsx:118
 msgid "Email address"
 msgstr "Sähköpostiosoite"
 
-#: src/LearningCircleSignup/SignupForm.jsx:126
+#: src/LearningCircleSignup/SignupForm.jsx:127
 msgid ""
 "If you'd like to receive weekly text messages reminding you of upcoming "
 "learning circle meetings, put your phone number here."
@@ -200,15 +198,15 @@ msgstr ""
 "Jos haluat saada tekstiviestitse muistutuksen tapaamisista, lisää "
 "puhelinnumerosi tähän."
 
-#: src/LearningCircleSignup/SignupForm.jsx:134
+#: src/LearningCircleSignup/SignupForm.jsx:135
 msgid "Your number won't be shared with other participants."
 msgstr "Puhelinnumeroasi ei jaeta muille osallistujille."
 
-#: src/LearningCircleSignup/SignupForm.jsx:136
+#: src/LearningCircleSignup/SignupForm.jsx:137
 msgid "Why do you want to learn this topic?"
 msgstr "Miksi olet kiinnostunut tästä aiheesta?"
 
-#: src/LearningCircleSignup/SignupForm.jsx:145
+#: src/LearningCircleSignup/SignupForm.jsx:146
 msgid ""
 "A successful study group requires the support of all of its members. How "
 "will you help your peers achieve their goals?"
@@ -216,7 +214,7 @@ msgstr ""
 "Opintopiiri onnistuu parhaiten, kun kaikki osallistujat tukevat toisiaan. "
 "Miten voisit edistää yhteistä oppimista?"
 
-#: src/LearningCircleSignup/SignupForm.jsx:155
+#: src/LearningCircleSignup/SignupForm.jsx:167
 msgid ""
 "I consent that P2PU can share my signup information with the learning circle"
 " facilitator and send me emails and/or text messages related to this "
@@ -226,19 +224,24 @@ msgstr ""
 "että minulle lähetetään sähköpostia tai tekstiviestejä tähän opintopiiriin "
 "liittyen."
 
-#: src/LearningCircleSignup/SignupForm.jsx:165
+#: src/LearningCircleSignup/SignupForm.jsx:177
 msgid ""
 "I would like to receive emails about other future learning opportunities "
 "from P2PU."
 msgstr "Haluaisin saada sähköpostitse tietoa tulevista opintopiireistä."
 
-#: src/LearningCircleSignup/SignupForm.jsx:177
+#: src/LearningCircleSignup/SignupForm.jsx:189
 msgid "Back to search"
 msgstr "Takaisin hakuun"
 
-#: src/LearningCircleSignup/SignupForm.jsx:181
+#: src/LearningCircleSignup/SignupForm.jsx:193
 msgid "Submitting..."
 msgstr "Lähetetään..."
+
+#: src/Filters/LocationFilterForm.jsx:102 src/Search/SearchTags.jsx:111
+#, javascript-format
+msgid "Within ${ value } ${ unit }"
+msgstr "Etsi ${ value } ${ unit } säteellä"
 
 #: src/Search/SearchTags.jsx:180
 #, javascript-format
@@ -272,6 +275,13 @@ msgstr ""
 "selviää opintopiirisi ohjaaja. Lähetämme muistutusviestin 2 päivää ennen "
 "jokaista tapaamista."
 
+#: src/Card/UsageBadge.jsx:7
+#, javascript-format
+msgid "Used by ${ number } learning circle"
+msgid_plural "Used by ${ number } learning circles"
+msgstr[0] "Käytetty ${ number } opintopiiriin"
+msgstr[1] "Käytetty ${ number } opintopiirissä"
+
 #: src/Filters/FiltersSection.jsx:21
 msgid "Filter"
 msgstr "Rajaa"
@@ -279,13 +289,6 @@ msgstr "Rajaa"
 #: src/Filters/FilterButton.jsx:10 src/Filters/SortSection.jsx:30
 msgid "Sort by"
 msgstr "Lajittele"
-
-#: src/Card/UsageBadge.jsx:7
-#, javascript-format
-msgid "Used by ${ number } learning circle"
-msgid_plural "Used by ${ number } learning circles"
-msgstr[0] ""
-msgstr[1] ""
 
 #: src/Filters/FilterButton.jsx:6
 msgid "Location"
@@ -303,11 +306,11 @@ msgstr "Tapaamispäivä(t)"
 msgid "OER mode"
 msgstr "Avoimet oppimateriaalit"
 
-#: src/Filters/TopicsFilterForm.jsx:59
+#: src/Filters/TopicsFilterForm.jsx:62
 msgid "What topics are you interested in?"
 msgstr "Mistä aiheista olet kiinnostunut?"
 
-#: src/Filters/TopicsFilterForm.jsx:65
+#: src/Filters/TopicsFilterForm.jsx:68
 msgid "Select as many topics as you want"
 msgstr "Valitse niin monta aihetta kuin haluat"
 
@@ -339,33 +342,27 @@ msgstr "mailia"
 msgid "km"
 msgstr "kilometriä"
 
-#: src/Filters/LocationFilterForm.jsx:102
-#, javascript-format
-msgid "Within ${ value } ${ unit }"
-msgstr "Etsi ${ value } ${ unit } säteellä"
-
 #: src/Filters/LocationFilterForm.jsx:136
 msgid "or"
 msgstr "tai"
 
 #: src/Filters/LocationFilterForm.jsx:139
-#: src/Filters/LocationFilterForm.jsx:143
 msgid "Select a location"
 msgstr "Valitse sijainti"
 
-#: src/Filters/LocationFilterForm.jsx:146
+#: src/Filters/LocationFilterForm.jsx:145
 msgid "Start typing a city name"
 msgstr "Kirjoita kaupungin nimi"
 
-#: src/Filters/LocationFilterForm.jsx:147
+#: src/Filters/LocationFilterForm.jsx:146
 msgid "No results for this city"
 msgstr "Ei tuloksia tälle kaupungille"
 
-#: src/Filters/LanguageFilterForm.jsx:60
+#: src/Filters/LanguageFilterForm.jsx:61
 msgid "What languages are you interested in?"
 msgstr "Mistä kielistä olet kiinnostunut?"
 
-#: src/Filters/LanguageFilterForm.jsx:66
+#: src/Filters/LanguageFilterForm.jsx:67
 msgid "Select as many languages as you want"
 msgstr "Valitse niin monta kieltä kuin haluat"
 
