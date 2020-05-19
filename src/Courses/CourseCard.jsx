@@ -91,7 +91,7 @@ const CourseCard = (props) => {
             }
             { 
               courseLink &&
-                <a href={ props.course.link } target="_blank" className="p2pu-btn dark secondary">{t`More details`}</a> 
+                <a href={ props.course.link } target="_blank" className="p2pu-btn dark secondary">{t`Course website`}</a> 
             }
             {
               props.onSelectResult &&

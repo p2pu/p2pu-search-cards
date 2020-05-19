@@ -51,8 +51,11 @@ msgid "Access"
 msgstr ""
 
 #: src/Courses/CourseCard.jsx:90
-#: src/Courses/CourseCard.jsx:94
 msgid "More details"
+msgstr ""
+
+#: src/Courses/CourseCard.jsx:94
+msgid "Course website"
 msgstr ""
 
 #: src/Courses/Browse.jsx:32
@@ -300,14 +303,6 @@ msgstr ""
 msgid "Select as many topics as you want"
 msgstr ""
 
-#: src/Filters/OerFilterForm.jsx:8
-msgid "Only open educational resources (OER)"
-msgstr ""
-
-#: src/Filters/OerFilterForm.jsx:9
-msgid "All courses"
-msgstr ""
-
 #: src/Filters/LocationFilterForm.jsx:45
 msgid "Unable to detect location."
 msgstr ""
@@ -350,6 +345,14 @@ msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:146
 msgid "No results for this city"
+msgstr ""
+
+#: src/Filters/OerFilterForm.jsx:8
+msgid "Only open educational resources (OER)"
+msgstr ""
+
+#: src/Filters/OerFilterForm.jsx:9
+msgid "All courses"
 msgstr ""
 
 #: src/Filters/LanguageFilterForm.jsx:61
