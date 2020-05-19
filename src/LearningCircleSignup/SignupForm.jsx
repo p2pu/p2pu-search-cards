@@ -1,5 +1,5 @@
 import React from 'react';
-import { t } from 'ttag';
+import { t, jt } from 'ttag';
 import Promise from 'promise-polyfill'
 import 'whatwg-fetch'
 import {InputWithLabel} from 'p2pu-input-fields';
@@ -100,6 +100,9 @@ export default class SignupForm extends React.Component {
       consent,
       communications_opt_in
     } = this.state;
+    const { gdprUrl='/gdpr' } = this.props;
+    let gdprLink = <a href={gdprUrl}>{t`More information.`}</a>;
+    let consentLabel = jt`I consent that P2PU may process my personal data provided here for the purpose of participating in this learning circle. ${gdprLink}`;
     return (
       <div className="signup-modal">
         { this.state.signupSuccess && <SignupSuccess learningCircle={this.props.learningCircle} /> }
@@ -164,7 +167,7 @@ export default class SignupForm extends React.Component {
               }
               <CheckboxWithLabel
                 classes="d-flex"
-                label={t`I consent that P2PU can share my signup information with the learning circle facilitator and send me emails and/or text messages related to this learning circle.`}
+                label={consentLabel}
                 value={consent}
                 handleChange={this.onDataChange}
                 name='consent'
