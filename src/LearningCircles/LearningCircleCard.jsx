@@ -12,7 +12,7 @@ const LearningCircleCard = (props) => {
   const weekDay = day(learningCircle.day);
   const schedule = t`${weekDay} from ${formattedStartTime} to ${formattedEndTime} (${learningCircle.time_zone})`;
   const duration = t`${learningCircle.weeks} weeks starting ${formattedDate}`;
-  const name = learningCircle.course.title
+  const name = learningCircle.name ? learningCircle.name : learningCircle.course.title;
   const colorClass = COLOR_CLASSES[(learningCircle.course.id % COLOR_CLASSES.length)];
 
   var cta = (
