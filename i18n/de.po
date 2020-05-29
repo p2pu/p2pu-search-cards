@@ -11,6 +11,10 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: src/Search/Search.jsx:148
+msgid "There are no active learning circles right now."
+msgstr "Es finden zur Zeit keine Lernteams statt."
+
 #: src/Courses/CourseCard.jsx:13
 msgid "Always available"
 msgstr "Immer verfügbar"
@@ -53,13 +57,13 @@ msgstr "Plattform"
 msgid "Access"
 msgstr "Zugang"
 
-#: src/Courses/CourseCard.jsx:90 src/Courses/CourseCard.jsx:94
+#: src/Courses/CourseCard.jsx:90
 msgid "More details"
 msgstr "Weitere Details"
 
-#: src/Search/Search.jsx:148
-msgid "There are no active learning circles right now."
-msgstr "Es finden zur Zeit keine Lernteams statt."
+#: src/Courses/CourseCard.jsx:94
+msgid "Course website"
+msgstr "Kurs-Webseite"
 
 #: src/Courses/Browse.jsx:32
 msgid "Use this course"
@@ -119,8 +123,8 @@ msgstr ""
 msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
 msgstr "${ learningCircle.weeks } Wochen ab ${ formattedDate }"
 
-#: src/LearningCircleSignup/SignupForm.jsx:185
-#: src/LearningCircleSignup/SignupForm.jsx:186
+#: src/LearningCircleSignup/SignupForm.jsx:188
+#: src/LearningCircleSignup/SignupForm.jsx:189
 #: src/LearningCircles/LearningCircleCard.jsx:20
 #: src/LearningCircles/LearningCircleCard.jsx:26
 msgid "Sign up"
@@ -182,15 +186,28 @@ msgstr "Stichwort, Organisation, Lernteam-Moderator*in, etc."
 msgid "Title, subject, etc..."
 msgstr "Titel, Thema etc."
 
-#: src/LearningCircleSignup/SignupForm.jsx:109
+#: src/LearningCircleSignup/SignupForm.jsx:104
+msgid "More information."
+msgstr "Weitere Informationen."
+
+#: src/LearningCircleSignup/SignupForm.jsx:105
+#, javascript-format
+msgid ""
+"I consent that P2PU may process my personal data provided here for the "
+"purpose of participating in this learning circle. ${ gdprLink }"
+msgstr ""
+"Ich willige ein, dass P2PU meine hier angegebenen personenbezogenen Daten "
+"zum Zweck der Teilnahme an diesem Lernteam verarbeiten darf. ${ gdprLink }"
+
+#: src/LearningCircleSignup/SignupForm.jsx:112
 msgid "Name"
 msgstr "Vor- und Nachname"
 
-#: src/LearningCircleSignup/SignupForm.jsx:118
+#: src/LearningCircleSignup/SignupForm.jsx:121
 msgid "Email address"
 msgstr "E-Mail-Adresse"
 
-#: src/LearningCircleSignup/SignupForm.jsx:127
+#: src/LearningCircleSignup/SignupForm.jsx:130
 msgid ""
 "If you'd like to receive weekly text messages reminding you of upcoming "
 "learning circle meetings, put your phone number here."
@@ -198,15 +215,15 @@ msgstr ""
 "Wenn Sie wöchentliche Textnachrichten über bevorstehende Lernteams erhalten "
 "möchten, geben Sie bitte hier Ihre Telefonnummer ein."
 
-#: src/LearningCircleSignup/SignupForm.jsx:135
+#: src/LearningCircleSignup/SignupForm.jsx:138
 msgid "Your number won't be shared with other participants."
 msgstr "Ihre Nummer wird nicht an andere Teilnehmer*innen weitergegeben."
 
-#: src/LearningCircleSignup/SignupForm.jsx:137
+#: src/LearningCircleSignup/SignupForm.jsx:140
 msgid "Why do you want to learn this topic?"
 msgstr "Warum möchten etwas über dieses Thema lernen?"
 
-#: src/LearningCircleSignup/SignupForm.jsx:146
+#: src/LearningCircleSignup/SignupForm.jsx:149
 msgid ""
 "A successful study group requires the support of all of its members. How "
 "will you help your peers achieve their goals?"
@@ -215,27 +232,18 @@ msgstr ""
 "Mitglieder. Wie können Sie Ihren Peers (Mitlernenden) helfen, ihre Ziele zu "
 "erreichen?"
 
-#: src/LearningCircleSignup/SignupForm.jsx:167
-msgid ""
-"I consent that P2PU can share my signup information with the learning circle"
-" facilitator and send me emails and/or text messages related to this "
-"learning circle."
-msgstr ""
-"Ich bin damit einverstanden, dass P2PU meine Anmeldedaten der bzw. dem "
-"Kursmoderator*in mitteilt und mir E-Mails zu diesem Lernteam schickt."
-
-#: src/LearningCircleSignup/SignupForm.jsx:177
+#: src/LearningCircleSignup/SignupForm.jsx:180
 msgid ""
 "I would like to receive emails about other future learning opportunities "
 "from P2PU."
 msgstr ""
 "Ich würde gerne E-Mails zu zukünftigen Lernmöglichkeiten von P2PU erhalten."
 
-#: src/LearningCircleSignup/SignupForm.jsx:189
+#: src/LearningCircleSignup/SignupForm.jsx:192
 msgid "Back to search"
 msgstr "Zurück zur Suche"
 
-#: src/LearningCircleSignup/SignupForm.jsx:193
+#: src/LearningCircleSignup/SignupForm.jsx:196
 msgid "Submitting..."
 msgstr "Wird gesendet..."
 
@@ -280,13 +288,6 @@ msgstr ""
 "Ihr*e Moderator*in vorgestellt wird, und wir senden Ihnen zwei Tage vor "
 "jedem Treffen eine Erinnerung."
 
-#: src/Card/UsageBadge.jsx:7
-#, javascript-format
-msgid "Used by ${ number } learning circle"
-msgid_plural "Used by ${ number } learning circles"
-msgstr[0] "Verwendet in ${ number } Lernteam"
-msgstr[1] "Verwendet in ${ number } Lernteams"
-
 #: src/Filters/FiltersSection.jsx:21
 msgid "Filter"
 msgstr "Filter"
@@ -294,6 +295,13 @@ msgstr "Filter"
 #: src/Filters/FilterButton.jsx:10 src/Filters/SortSection.jsx:30
 msgid "Sort by"
 msgstr "Sortiere nach"
+
+#: src/Card/UsageBadge.jsx:7
+#, javascript-format
+msgid "Used by ${ number } learning circle"
+msgid_plural "Used by ${ number } learning circles"
+msgstr[0] "Verwendet in ${ number } Lernteam"
+msgstr[1] "Verwendet in ${ number } Lernteams"
 
 #: src/Filters/FilterButton.jsx:6
 msgid "Location"
@@ -363,14 +371,6 @@ msgstr "Geben Sie den Namen der Stadt ein."
 msgid "No results for this city"
 msgstr "Leider keine Ergebnisse für diese Stadt"
 
-#: src/Filters/LanguageFilterForm.jsx:61
-msgid "What languages are you interested in?"
-msgstr "In welcher Sprache sollen die Kurse sein?"
-
-#: src/Filters/LanguageFilterForm.jsx:67
-msgid "Select as many languages as you want"
-msgstr "Wählen Sie so viele Sprachen aus wie Sie möchten."
-
 #: src/Filters/OerFilterForm.jsx:8
 msgid "Only open educational resources (OER)"
 msgstr "Nur OER-Materialien (open educational resources)"
@@ -378,3 +378,11 @@ msgstr "Nur OER-Materialien (open educational resources)"
 #: src/Filters/OerFilterForm.jsx:9
 msgid "All courses"
 msgstr "Alle Kurse"
+
+#: src/Filters/LanguageFilterForm.jsx:61
+msgid "What languages are you interested in?"
+msgstr "In welcher Sprache sollen die Kurse sein?"
+
+#: src/Filters/LanguageFilterForm.jsx:67
+msgid "Select as many languages as you want"
+msgstr "Wählen Sie so viele Sprachen aus wie Sie möchten."
