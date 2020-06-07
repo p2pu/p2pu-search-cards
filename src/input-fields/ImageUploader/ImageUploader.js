@@ -36,10 +36,8 @@ export default class ImageUploader extends Component {
     super(props);
     this.state = {
       image: this.props.image,
-      loading: false,
-
+      file: null,
     };
-    this.onChange = (e) => this._onChange(e);
   }
 
   saveImage = opts => {
@@ -64,7 +62,7 @@ export default class ImageUploader extends Component {
     })
   }
 
-  _onChange(e) {
+  onChange = (e) => {
     const url = this.props.imageUploadUrl;
     const file = e.currentTarget.files[0];
     const data = new FormData();
@@ -93,7 +91,20 @@ export default class ImageUploader extends Component {
   }
 
   render() {
-    const { label, name, required, errorMessage, helpText, labelStyles, inputStyles, imgStyles, acceptedMimetypes, buttonText, classes } = this.props;
+    const {
+      label,
+      name,
+      value,
+      required,
+      errorMessage,
+      helpText,
+      labelStyles,
+      inputStyles,
+      imgStyles,
+      acceptedMimetypes,
+      buttonText,
+      classes
+    } = this.props;
     const { image, file } = this.state;
     return(
       <InputWrapper

@@ -4,7 +4,7 @@ import InputWrapper from '../InputWrapper'
 import "./switch.css"
 
 const SwitchWithLabels = props => {
-  const { falseLabel, trueLabel, label, name, required, errorMessage, helpText, classes, offColor, onColor, value, handleChange } = props;
+  const { falseLabel, trueLabel, label, name, required, disabled, errorMessage, helpText, classes, offColor, onColor, value, handleChange } = props;
   const bgColor = value ? onColor : offColor;
 
   const onChange = (event) => {
@@ -33,6 +33,8 @@ const SwitchWithLabels = props => {
             onChange={ onChange }
             className="switch"
             type="checkbox"
+            disabled={disabled}
+            required={required}
           />
           <div className={`switch-background ${value ? 'on' : 'off'}`} style={{ backgroundColor: bgColor }}>
             <div className="switch-button"></div>

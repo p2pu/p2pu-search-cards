@@ -162,9 +162,9 @@ const App = () => {
         labelPosition="left"
       />
       <CheckboxWithLabel
-        name="checkbox-demo"
+        name="checkbox2-demo"
         label="Label positioned right"
-        value={content['checkbox-demo']}
+        value={content['checkbox2-demo']}
         handleChange={handleChange}
         labelPosition="right"
       />

@@ -3,29 +3,44 @@ import PropTypes from 'prop-types'
 import InputWrapper from '../InputWrapper'
 
 const InputWithLabel = (props) => {
+  const {
+    label,
+    name,
+    value,
+    handleChange,
+    required,
+    disabled,
+    classes,
+    type,
+    errorMessage,
+    helpText,
+    placeholder,
+    ...rest
+  } = props;
+
   const onChange = e => {
-    props.handleChange({ [props.name]: e.currentTarget.value })
+    handleChange({ [name]: e.currentTarget.value })
   }
 
   return (
     <InputWrapper
-      label={props.label}
-      name={props.name}
-      required={props.required}
-      errorMessage={props.errorMessage}
-      helpText={props.helpText}
-      classes={props.classes}
+      label={label}
+      name={name}
+      required={required}
+      errorMessage={errorMessage}
+      helpText={helpText}
+      classes={classes}
     >
       <input
-        type={props.type}
-        id={props.id}
-        value={props.value}
+        type={type}
+        id={name}
+        value={value}
         onChange={onChange}
-        placeholder={props.placeholder}
-        min={props.min}
-        max={props.max}
-        disabled={props.disabled}
+        placeholder={placeholder}
+        required={required}
+        disabled={disabled}
         className="form-control"
+        {...rest}
       />
     </InputWrapper>
   )
@@ -50,6 +65,7 @@ InputWithLabel.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
   classes: PropTypes.string,
+  placeholder: PropTypes.string,
 }
 
 export default InputWithLabel;

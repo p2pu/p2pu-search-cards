@@ -8,6 +8,7 @@ const SelectWithLabel = (props) => {
     name,
     label,
     required,
+    disabled,
     value,
     errorMessage,
     helpText,
@@ -67,6 +68,7 @@ const SelectWithLabel = (props) => {
         placeholder={ placeholder }
         isMulti={ isMulti }
         isClearable={ isClearable }
+        isDisabled={ disabled }
         theme={theme => ({
           ...theme,
           colors: {
@@ -90,6 +92,7 @@ SelectWithLabel.propTypes = {
   classes: PropTypes.string,
   selectClasses: PropTypes.string,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
   noResultsText: PropTypes.string,
   placeholder: PropTypes.string,
   options: PropTypes.array,

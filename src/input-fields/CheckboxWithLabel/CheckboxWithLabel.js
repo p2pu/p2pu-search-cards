@@ -45,6 +45,7 @@ CheckboxWithLabel.defaultProps = {
   label: "Checkbox label",
   labelPosition: "left",
   handleChange: (input) => console.log("Implement a function to save selection", input),
+  value: false
 }
 
 export default CheckboxWithLabel;

@@ -3,24 +3,37 @@ import PropTypes from 'prop-types'
 import InputWrapper from '../InputWrapper'
 
 const TextareaWithLabel = (props) => {
+  const {
+    name,
+    label,
+    value,
+    handleChange,
+    required,
+    disabled,
+    errorMessage,
+    helpText,
+    classes,
+    placeholder,
+  } = props;
   const onChange = e => {
     props.handleChange({ [props.name]: e.currentTarget.value })
   }
 
   return (
     <InputWrapper
-      label={props.label}
-      name={props.name}
-      required={props.required}
-      errorMessage={props.errorMessage}
-      helpText={props.helpText}
-      classes={props.classes}
+      label={label}
+      name={name}
+      required={required}
+      errorMessage={errorMessage}
+      helpText={helpText}
+      classes={classes}
     >
       <textarea
-        value={props.value}
+        value={value}
         onChange={onChange}
-        placeholder={props.placeholder}
-        disabled={props.disabled}
+        placeholder={placeholder}
+        disabled={disabled}
+        required={required}
         className="form-control"
       />
     </InputWrapper>

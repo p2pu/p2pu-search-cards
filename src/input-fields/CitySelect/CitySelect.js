@@ -110,6 +110,7 @@ export default class CitySelect extends Component {
 CitySelect.propTypes = {
   handleChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
+  value: PropTypes.string,
   handleInputChange: PropTypes.func,
   classes: PropTypes.string,
   noResultsText: PropTypes.string,
@@ -128,5 +129,6 @@ CitySelect.defaultProps = {
   handleChange: (selected) => console.log("Implement a function to save selection", selected),
   isClearable: true,
   isMulti: false,
+  value: null,
 }
 

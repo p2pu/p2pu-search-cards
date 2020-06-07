@@ -21,20 +21,32 @@ const generateDateTime = value => {
 }
 
 const TimePickerWithLabel = (props) => {
+  const {
+    name,
+    label,
+    value,
+    handleChange,
+    required,
+    disabled,
+    errorMessage,
+    helpText,
+    classes,
+  } = props;
+
   const onChange = (value) => {
     const time = !!value ? formatTimeString(value) : null;
-    props.handleChange({ [props.name]: time })
+    handleChange({ [name]: time })
   }
 
-  const time = !!props.value ? generateDateTime(props.value) : new Date();
+  const time = !!value ? generateDateTime(value) : new Date();
 
   return(
     <InputWrapper
-      label={props.label}
-      name={props.name}
-      required={props.required}
-      errorMessage={props.errorMessage}
-      classes={props.classes}
+      label={label}
+      name={name}
+      required={required}
+      errorMessage={errorMessage}
+      classes={classes}
     >
       <div>
         <DatePicker
@@ -45,8 +57,8 @@ const TimePickerWithLabel = (props) => {
           timeIntervals={30}
           timeCaption="Time"
           dateFormat={displayFormat}
-          name={props.name}
-          id={props.id}
+          name={name}
+          id={name}
           className="form-control"
         />
       </div>
