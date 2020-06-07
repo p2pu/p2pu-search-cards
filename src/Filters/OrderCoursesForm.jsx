@@ -1,6 +1,6 @@
 import React from 'react'
-import { SwitchWithLabels } from 'p2pu-input-fields'
 
+import SwitchWithLabels from '../input-fields/SwitchWithLabels'
 import { COURSES_SORT_OPTIONS } from '../utils/constants'
 
 

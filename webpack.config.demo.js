@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = ({locale}={}) => {
   let ttag = {
-    resolve: { 
+    resolve: {
       translations: `i18n/${locale}.po`,
       unresolved: 'skip'
     },
@@ -14,6 +14,7 @@ module.exports = ({locale}={}) => {
     entry: {
       index: path.join(__dirname, "demo/src/index.js"),
       lc: path.join(__dirname, "demo/src/lc.js"),
+      "input-fields": path.join(__dirname, "demo/src/input-fields.js"),
     },
     output: {
       path: path.join(__dirname, "demo/dist"),
@@ -66,10 +67,15 @@ module.exports = ({locale}={}) => {
         template: path.join(__dirname, "demo/src/lc.html"),
         filename: "./lc.html",
         chunks: ['lc']
+      }),
+      new HtmlWebpackPlugin({
+        template: path.join(__dirname, "demo/src/input-fields.html"),
+        filename: "./input-fields.html",
+        chunks: ['input-fields']
       })
     ],
     resolve: {
-      extensions: [".js", ".jsx", ".scss"]
+      extensions: [".js", ".jsx", ".scss", ".css"]
     },
     devServer: {
       port: 3001

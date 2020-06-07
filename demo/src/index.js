@@ -23,7 +23,7 @@ class App extends React.Component {
         Browse={BrowseCourses}
         onSelectResult={handleSelectResult}
         initialState={{ languages: ['en'] }}
-        origin={'http://localhost:8000'}
+        origin={'https://learningcircles.p2pu.org'}
       />
     </div>
     );
