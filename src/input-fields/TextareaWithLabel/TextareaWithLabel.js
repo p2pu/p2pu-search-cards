@@ -14,7 +14,7 @@ const TextareaWithLabel = (props) => {
     helpText,
     classes,
     placeholder,
-    {...rest}
+    ...rest
   } = props;
   const onChange = e => {
     props.handleChange({ [props.name]: e.currentTarget.value })

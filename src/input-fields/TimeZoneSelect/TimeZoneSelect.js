@@ -10,7 +10,6 @@ const GEONAMES_ENDPOINT = 'https://secure.geonames.org/timezoneJSON'
 export default class TimeZoneSelect extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: this.props.timezone };
   }
 
   componentDidMount() {
@@ -20,34 +19,30 @@ export default class TimeZoneSelect extends Component {
   onChange = (selected) => {
     const timezone = !!selected ? selected.value : null;
     this.props.handleChange({ [this.props.name]: timezone });
-    this.setState({ value: selected });
   }
 
   detectTimeZone = () => {
-    if (!!this.props.timezone) {
-      // use selected timezone
-      this.setState({ value: { value: this.props.timezone, label: this.props.timezone } })
-    } else if (!!this.props.latitude && !!this.props.longitude) {
-      // use selected city to detect timezone
-      const url = `${GEONAMES_ENDPOINT}?lat=${this.props.latitude}&lng=${this.props.longitude}&username=p2pu`;
-      axios.get(url).then(res => {
-        const timezone = res.data.timezoneId;
-        this.props.handleChange({ timezone })
-        this.setState({ value: { value: timezone, label: timezone } })
-      }).catch(err => console.log(err))
-    } else {
-      // detect timezone from browser
-      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      this.props.handleChange({ timezone })
-      this.setState({ value: { value: timezone, label: timezone } })
+    if (!this.props.value) {
+      if (!!this.props.latitude && !!this.props.longitude) {
+        // use selected city to detect timezone
+        const url = `${GEONAMES_ENDPOINT}?lat=${this.props.latitude}&lng=${this.props.longitude}&username=p2pu`;
+        axios.get(url).then(res => {
+          const timezone = res.data.timezoneId;
+          this.props.handleChange({ [this.props.name]: timezone })
+        }).catch(err => console.log(err))
+      } else {
+        // detect timezone from browser
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        this.props.handleChange({ [this.props.name]: timezone })
+      }
     }
   }
 
 
   render() {
+    const { label, name, value, required, disabled, errorMessage, helpText, classes, selectClasses, isClearable, isMulti, ...rest } = this.props
     const timezoneOptions = timezones.map((tz) => ({value: tz, label: tz }))
-    const { label, name, required, disabled, errorMessage, helpText, classes, selectClasses, isClearable, isMulti, ...rest } = this.props
-    const { value } = this.state;
+    const selected = timezoneOptions.find(opt => opt.value === value) || null;
 
     return(
       <InputWrapper
@@ -63,7 +58,7 @@ export default class TimeZoneSelect extends Component {
           name={ name }
           id={ name }
           className={ `form-group input-with-label ${selectClasses}` }
-          value={ value }
+          value={ selected }
           onChange={ this.onChange }
           options={timezoneOptions}
           isClearable={ isClearable }
@@ -102,7 +97,6 @@ TimeZoneSelect.propTypes = {
 TimeZoneSelect.defaultProps = {
   classes: "",
   selectClasses: "",
-  name: "id_timezone",
   handleChange: (selected) => console.log("Implement a function to save selection", selected),
   isClearable: true,
   isMulti: false,
