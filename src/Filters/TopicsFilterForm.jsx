@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ApiHelper from '../utils/apiHelper'
 import { t } from 'ttag'
-import SelectWithLabel from '../input-fields/SelectWithLabel'
+import SelectWithLabel from '../InputFields/SelectWithLabel'
 
 export default class TopicsFilterForm extends Component {
   constructor(props) {

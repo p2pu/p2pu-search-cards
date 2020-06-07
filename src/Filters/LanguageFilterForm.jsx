@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { t } from 'ttag';
 import ApiHelper from '../utils/apiHelper'
 
-import SelectWithLabel from '../input-fields/SelectWithLabel'
+import SelectWithLabel from '../InputFields/SelectWithLabel'
 
 export default class LanguageFilterForm extends Component {
   constructor(props) {

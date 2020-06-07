@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import CheckboxWithLabel from '../input-fields/CheckboxWithLabel'
+import CheckboxWithLabel from '../InputFields/CheckboxWithLabel'
 import { MEETING_DAYS } from '../utils/constants'
 
 const MeetingDaysFilterForm = props => {

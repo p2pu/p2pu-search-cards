@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import {t} from 'ttag';
-import CheckboxWithLabel from '../input-fields/CheckboxWithLabel'
-import RangeSliderWithLabel from '../input-fields/RangeSliderWithLabel'
-import CitySelect from '../input-fields/CitySelect'
+import CheckboxWithLabel from '../InputFields/CheckboxWithLabel'
+import RangeSliderWithLabel from '../InputFields/RangeSliderWithLabel'
+import CitySelect from '../InputFields/CitySelect'
 
 export default class LocationFilterForm extends Component {
   constructor(props) {

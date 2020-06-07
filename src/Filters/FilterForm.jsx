@@ -1,4 +1,5 @@
 import React from 'react'
+import OutsideClickHandler from 'react-outside-click-handler';
 import TopicsFilterForm from './TopicsFilterForm'
 import OrderCoursesForm from './OrderCoursesForm'
 import LocationFilterForm from './LocationFilterForm'
@@ -29,12 +30,14 @@ const FilterForm = (props) => {
   }
 
   return(
-    <div className={`filter-form-dropdown ${openClass}`}>
-      <div className='close' style={{ textAlign: 'right', float: 'none', cursor: 'pointer' }}>
-        <i className="material-icons" onClick={closeFilter}>close</i>
+    <OutsideClickHandler onOutsideClick={closeFilter}>
+      <div className={`filter-form-dropdown ${openClass}`}>
+        <div className='close' style={{ textAlign: 'right', float: 'none', cursor: 'pointer' }}>
+          <i className="material-icons" onClick={closeFilter}>close</i>
+        </div>
+        {internalForm()}
       </div>
-      {internalForm()}
-    </div>
+    </OutsideClickHandler>
   )
 }
 

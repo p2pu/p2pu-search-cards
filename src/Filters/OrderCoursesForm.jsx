@@ -1,6 +1,6 @@
 import React from 'react'
 
-import SwitchWithLabels from '../input-fields/SwitchWithLabels'
+import SwitchWithLabels from '../InputFields/SwitchWithLabels'
 import { COURSES_SORT_OPTIONS } from '../utils/constants'
 
 

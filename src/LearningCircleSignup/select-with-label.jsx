@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectWithLabel as SWL from '../input-fields/SelectWithLabel';
+import SelectWithLabel as SWL from '../InputFields/SelectWithLabel';
 
 export default class SelectWithLabel extends React.Component {
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { t } from 'ttag';
-import SwitchWithLabels from '../input-fields/SwitchWithLabels'
+import SwitchWithLabels from '../InputFields/SwitchWithLabels'
 
 
 const OerFilterForm = (props) => {
