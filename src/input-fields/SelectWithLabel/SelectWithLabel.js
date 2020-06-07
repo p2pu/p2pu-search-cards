@@ -20,7 +20,8 @@ const SelectWithLabel = (props) => {
     noResultsText,
     placeholder,
     isMulti,
-    isClearable
+    isClearable,
+    ...rest
   } = props
 
   const onChange = selected => {
@@ -53,6 +54,7 @@ const SelectWithLabel = (props) => {
       label={label}
       name={name}
       required={required}
+      disabled={disabled}
       errorMessage={errorMessage}
       helpText={helpText}
       classes={classes}
@@ -79,6 +81,7 @@ const SelectWithLabel = (props) => {
             primary25: '#F3F4F8'
           },
         })}
+        {...rest}
       />
     </InputWrapper>
   )

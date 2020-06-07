@@ -3,26 +3,44 @@ import PropTypes from 'prop-types'
 import InputWrapper from '../InputWrapper'
 
 const CheckboxWithLabel = (props) => {
+  const {
+    label,
+    name,
+    value,
+    handleChange,
+    required,
+    disabled,
+    classes,
+    type,
+    errorMessage,
+    helpText,
+    placeholder,
+    labelPosition,
+    ...rest
+  } = props;
+
   const onChange = (e) => {
     props.handleChange({ [props.name]: e.currentTarget.checked })
   }
 
   return (
     <InputWrapper
-      label={props.label}
-      name={props.name}
-      required={props.required}
-      errorMessage={props.errorMessage}
-      helpText={props.helpText}
-      classes={props.classes}
-      labelPosition={props.labelPosition}
+      label={label}
+      name={name}
+      required={required}
+      disabled={disabled}
+      errorMessage={errorMessage}
+      helpText={helpText}
+      classes={classes}
+      labelPosition={labelPosition}
     >
       <input
         type="checkbox"
-        id={props.id}
-        checked={props.value}
-        disabled={props.disabled}
+        checked={value}
+        disabled={disabled}
+        required={required}
         onChange={onChange}
+        {...rest}
       />
     </InputWrapper>
   )

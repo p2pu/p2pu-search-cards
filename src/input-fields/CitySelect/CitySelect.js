@@ -66,7 +66,7 @@ export default class CitySelect extends Component {
   }
 
   render() {
-    const { label, name, value, required, errorMessage, helpText, classes, selectClasses, handleInputChange, noResultsText, placeholder, isClearable, isMulti } = this.props;
+    const { label, name, value, disabled, required, errorMessage, helpText, classes, selectClasses, handleInputChange, noResultsText, placeholder, isClearable, isMulti, ...rest } = this.props;
     const { cities } = this.state;
     const selected = this.getSelected(value)
 
@@ -75,6 +75,7 @@ export default class CitySelect extends Component {
         label={label}
         name={name}
         required={required}
+        disabled={disabled}
         errorMessage={errorMessage}
         helpText={helpText}
         classes={classes}
@@ -90,6 +91,7 @@ export default class CitySelect extends Component {
           placeholder={ placeholder }
           isClearable={ isClearable }
           isMulti={ isMulti }
+          isDisabled={ disabled }
           theme={theme => ({
             ...theme,
             colors: {
@@ -100,6 +102,7 @@ export default class CitySelect extends Component {
               primary25: '#F3F4F8'
             },
           })}
+          {...rest}
         />
       </InputWrapper>
     )

@@ -46,7 +46,7 @@ export default class TimeZoneSelect extends Component {
 
   render() {
     const timezoneOptions = timezones.map((tz) => ({value: tz, label: tz }))
-    const { label, name, required, errorMessage, helpText, classes, selectClasses, isClearable, isMulti } = this.props
+    const { label, name, required, disabled, errorMessage, helpText, classes, selectClasses, isClearable, isMulti, ...rest } = this.props
     const { value } = this.state;
 
     return(
@@ -54,6 +54,7 @@ export default class TimeZoneSelect extends Component {
         label={label}
         name={name}
         required={required}
+        disabled={disabled}
         errorMessage={errorMessage}
         helpText={helpText}
         classes={classes}
@@ -67,6 +68,7 @@ export default class TimeZoneSelect extends Component {
           options={timezoneOptions}
           isClearable={ isClearable }
           isMulti={ isMulti }
+          isDisabled={ disabled }
           theme={theme => ({
             ...theme,
             colors: {
@@ -77,6 +79,7 @@ export default class TimeZoneSelect extends Component {
               primary25: '#F3F4F8'
             },
           })}
+          {...rest}
         />
       </InputWrapper>
     )

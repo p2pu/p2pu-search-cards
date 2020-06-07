@@ -14,6 +14,7 @@ const TextareaWithLabel = (props) => {
     helpText,
     classes,
     placeholder,
+    {...rest}
   } = props;
   const onChange = e => {
     props.handleChange({ [props.name]: e.currentTarget.value })
@@ -24,6 +25,7 @@ const TextareaWithLabel = (props) => {
       label={label}
       name={name}
       required={required}
+      disabled={disabled}
       errorMessage={errorMessage}
       helpText={helpText}
       classes={classes}
@@ -35,6 +37,7 @@ const TextareaWithLabel = (props) => {
         disabled={disabled}
         required={required}
         className="form-control"
+        {...rest}
       />
     </InputWrapper>
   )

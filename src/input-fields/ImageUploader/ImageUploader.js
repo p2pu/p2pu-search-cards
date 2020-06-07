@@ -96,6 +96,7 @@ export default class ImageUploader extends Component {
       name,
       value,
       required,
+      disabled,
       errorMessage,
       helpText,
       labelStyles,
@@ -103,7 +104,9 @@ export default class ImageUploader extends Component {
       imgStyles,
       acceptedMimetypes,
       buttonText,
-      classes
+      classes,
+      handleChange,
+      ...rest
     } = this.props;
     const { image, file } = this.state;
     return(
@@ -111,6 +114,7 @@ export default class ImageUploader extends Component {
         label={label}
         name={'image-upload'}
         required={required}
+        disabled={disabled}
         errorMessage={errorMessage}
         helpText={helpText}
         classes={classes}
@@ -122,11 +126,13 @@ export default class ImageUploader extends Component {
               className='image-upload form-control hidden'
               type='file'
               name={name}
-              id={name}
+              required={required}
+              disabled={disabled}
               onChange={this.onChange}
               style={{...defaultStyles.input, ...inputStyles}}
               hidden={true}
               accept={acceptedMimetypes}
+              {...rest}
             />
           </label>
           {

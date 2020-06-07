@@ -56,6 +56,7 @@ export default class LanguageSelect extends React.Component {
         label={props.label}
         name={props.name}
         required={props.required}
+        disabled={ props.disabled }
         errorMessage={props.errorMessage}
         helpText={props.helpText}
         classes={props.classes}
@@ -71,6 +72,7 @@ export default class LanguageSelect extends React.Component {
           placeholder={ props.placeholder }
           isMulti={ props.isMulti }
           isClearable={ props.isClearable }
+          isDisabled={ props.disabled }
           theme={theme => ({
             ...theme,
             colors: {
@@ -81,6 +83,7 @@ export default class LanguageSelect extends React.Component {
               primary25: '#F3F4F8'
             },
           })}
+          {...props.rest}
         />
       </InputWrapper>
     )

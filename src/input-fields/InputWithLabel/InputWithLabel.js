@@ -27,6 +27,7 @@ const InputWithLabel = (props) => {
       label={label}
       name={name}
       required={required}
+      disabled={disabled}
       errorMessage={errorMessage}
       helpText={helpText}
       classes={classes}

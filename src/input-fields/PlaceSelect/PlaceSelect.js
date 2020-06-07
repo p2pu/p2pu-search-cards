@@ -112,7 +112,7 @@ export default class PlaceSelect extends Component {
 
   render() {
     const options = this.state.hits.map(place => this.generateCityOption(place))
-    const { label, name, required, errorMessage, helpText, classes, selectClasses, handleInputChange, noResultsText, placeholder, isClearable, isMulti } = this.props
+    const { label, name, required, disabled, errorMessage, helpText, classes, selectClasses, handleInputChange, noResultsText, placeholder, isClearable, isMulti, ...rest } = this.props
     const { value } = this.state;
 
     return(
@@ -120,6 +120,7 @@ export default class PlaceSelect extends Component {
         label={label}
         name={name}
         required={required}
+        disabled={disabled}
         errorMessage={errorMessage}
         helpText={helpText}
         classes={classes}
@@ -136,6 +137,7 @@ export default class PlaceSelect extends Component {
           loadOptions={ this.searchPlaces }
           isClearable={ isClearable }
           isMulti={ isMulti }
+          isDisabled={ disabled }
           theme={theme => ({
             ...theme,
             colors: {
@@ -146,6 +148,7 @@ export default class PlaceSelect extends Component {
               primary25: '#F3F4F8'
             },
           })}
+          {...rest}
         />
       </InputWrapper>
     )

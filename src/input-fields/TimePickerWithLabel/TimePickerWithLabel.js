@@ -31,6 +31,7 @@ const TimePickerWithLabel = (props) => {
     errorMessage,
     helpText,
     classes,
+    ...rest
   } = props;
 
   const onChange = (value) => {
@@ -45,6 +46,7 @@ const TimePickerWithLabel = (props) => {
       label={label}
       name={name}
       required={required}
+      disabled={disabled}
       errorMessage={errorMessage}
       classes={classes}
     >
@@ -60,6 +62,7 @@ const TimePickerWithLabel = (props) => {
           name={name}
           id={name}
           className="form-control"
+          {...rest}
         />
       </div>
     </InputWrapper>

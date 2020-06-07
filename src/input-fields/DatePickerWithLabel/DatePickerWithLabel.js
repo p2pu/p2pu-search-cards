@@ -16,32 +16,49 @@ const formatDateString = date => {
 }
 
 const DatePickerWithLabel = (props) => {
+  const {
+    label,
+    name,
+    value,
+    handleChange,
+    required,
+    disabled,
+    classes,
+    type,
+    errorMessage,
+    helpText,
+    placeholder,
+    labelPosition,
+    minDate,
+    ...rest
+  } = props;
+
   const onChange = (value) => {
     const date = !!value ? formatDateString(value) : null;
-    props.handleChange({ [props.name]: date })
+    handleChange({ [name]: date })
   }
 
-  const date = !!props.value ? Date.parse(props.value) : new Date();
+  const date = !!value ? Date.parse(value) : new Date();
 
   return(
     <InputWrapper
-      label={props.label}
-      name={props.name}
-      required={props.required}
-      errorMessage={props.errorMessage}
-      helpText={props.helpText}
-      classes={props.classes}
+      label={label}
+      name={name}
+      required={required}
+      errorMessage={errorMessage}
+      helpText={helpText}
+      classes={classes}
     >
       <div>
         <DatePicker
           selected={date}
-          id={props.id}
           onChange={onChange}
           className="form-control"
-          minDate={props.minDate}
-          disabled={props.disabled}
-          required={props.required}
+          minDate={minDate}
+          disabled={disabled}
+          required={required}
           dateFormat={displayFormat}
+          {...rest}
         />
       </div>
     </InputWrapper>
