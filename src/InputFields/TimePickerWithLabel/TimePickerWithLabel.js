@@ -23,6 +23,7 @@ const generateDateTime = value => {
 const TimePickerWithLabel = (props) => {
   const {
     name,
+    id,
     label,
     value,
     handleChange,
@@ -45,6 +46,7 @@ const TimePickerWithLabel = (props) => {
     <InputWrapper
       label={label}
       name={name}
+      id={id}
       required={required}
       disabled={disabled}
       errorMessage={errorMessage}

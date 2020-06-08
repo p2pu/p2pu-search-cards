@@ -27,21 +27,25 @@ const KANSAS_CITY_OPTION = {
 export default class PlaceSelect extends Component {
   constructor(props) {
     super(props);
-    this.state = { hits: [], value: null };
+    this.state = { hits: [] };
   }
 
   componentDidMount() {
-    if (!!this.props.place_id) {
-      this.fetchPlaceById();
-    } else if (this.props.city === 'Kansas City, Missouri, United States of America') {
-      this.setState({ value: KANSAS_CITY_OPTION });
-    } else if (this.props.city) {
-      const value = { label: this.props.city, value: this.props.city }
-      this.setState({ value });
+    if (this.props.value) {
+      const { value } =  this.props
+
+      if (value.place_id) {
+        this.fetchPlaceById(value.place_id);
+      } else if (value.city === 'Kansas City, Missouri, United States of America') {
+        this.handleSelect(KANSAS_CITY_OPTION)
+      } else if (value.city) {
+        // not sure what to do with this
+        console.log("value.city but no value.place_id", value)
+      }
     }
   }
 
-  handleChange = (selected) => {
+  handleSelect = (selected) => {
     console.log(selected)
     let cityData = {};
 
@@ -59,8 +63,7 @@ export default class PlaceSelect extends Component {
       }
     }
 
-    this.props.handleChange(cityData)
-    this.setState({ value: selected })
+    this.props.handleChange({ [this.props.name]: cityData })
   }
 
   searchPlaces = (query) => {
@@ -90,8 +93,8 @@ export default class PlaceSelect extends Component {
     })
   }
 
-  fetchPlaceById = () => {
-    const url = `${ALGOLIA_ENDPOINT}/${this.props.place_id}`;
+  fetchPlaceById = (placeId) => {
+    const url = `${ALGOLIA_ENDPOINT}/${placeId}`;
 
     axios.get(url)
       .then(res => {
@@ -111,14 +114,15 @@ export default class PlaceSelect extends Component {
   }
 
   render() {
+    const { label, name, id, value, required, disabled, errorMessage, helpText, classes, selectClasses, handleInputChange, noResultsText, placeholder, isClearable, isMulti, ...rest } = this.props
     const options = this.state.hits.map(place => this.generateCityOption(place))
-    const { label, name, required, disabled, errorMessage, helpText, classes, selectClasses, handleInputChange, noResultsText, placeholder, isClearable, isMulti, ...rest } = this.props
-    const { value } = this.state;
+    const selected = options.find(o => o.value === value)
 
     return(
       <InputWrapper
         label={label}
         name={name}
+        id={id}
         required={required}
         disabled={disabled}
         errorMessage={errorMessage}
@@ -128,9 +132,9 @@ export default class PlaceSelect extends Component {
         <AsyncSelect
           name={ name }
           className={ `city-select ${selectClasses}` }
-          value={ value }
+          value={ selected }
           options={ options }
-          onChange={ this.handleChange }
+          onChange={ this.handleSelect }
           onInputChange={ handleInputChange }
           noResultsText={ noResultsText }
           placeholder={ placeholder }

@@ -5,6 +5,7 @@ import InputWrapper from '../InputWrapper'
 const TextareaWithLabel = (props) => {
   const {
     name,
+    id,
     label,
     value,
     handleChange,
@@ -24,6 +25,7 @@ const TextareaWithLabel = (props) => {
     <InputWrapper
       label={label}
       name={name}
+      id={id}
       required={required}
       disabled={disabled}
       errorMessage={errorMessage}

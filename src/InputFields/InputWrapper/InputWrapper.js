@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 import "./input_wrapper.css"
 
 const InputWrapper = props => {
-  const { name, label, labelPosition, required, disabled, errorMessage, helpText, classes, children } = props;
+  const { id, name, label, labelPosition, required, disabled, errorMessage, helpText, classes, children } = props;
   const wrapperClasses = `form-group ${classes ? classes : ""} ${disabled ? "disabled" : ""}`
 
   switch (labelPosition) {
     case 'left':
       return(
-        <div className={wrapperClasses}>
+        <div className={wrapperClasses} id={id}>
           <div style={{ display: 'flex', alignItems: 'center'}}>
             <label
               htmlFor={name}
@@ -26,7 +26,7 @@ const InputWrapper = props => {
       )
     case 'right':
       return(
-        <div className={wrapperClasses}>
+        <div className={wrapperClasses} id={id}>
           <div style={{ display: 'flex', alignItems: 'center'}}>
             { React.cloneElement(children, { id: name, name, required }) }
             <label
@@ -42,7 +42,7 @@ const InputWrapper = props => {
       )
     default:
       return(
-        <div className={wrapperClasses}>
+        <div className={wrapperClasses} id={id}>
           <label htmlFor={name} className='input-label'>{`${label} ${required ? '*' : ''}`}</label>
           { helpText && <div className='form-text help-text'>{ helpText }</div> }
           { React.cloneElement(children, { id: name, name, required }) }

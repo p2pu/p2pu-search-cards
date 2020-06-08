@@ -7,6 +7,10 @@ msgstr ""
 msgid "There are no active learning circles right now."
 msgstr ""
 
+#: src/Courses/Browse.jsx:32
+msgid "Use this course"
+msgstr ""
+
 #: src/Courses/CourseCard.jsx:13
 msgid "Always available"
 msgstr ""
@@ -56,10 +60,6 @@ msgstr ""
 
 #: src/Courses/CourseCard.jsx:94
 msgid "Course website"
-msgstr ""
-
-#: src/Courses/Browse.jsx:32
-msgid "Use this course"
 msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:32

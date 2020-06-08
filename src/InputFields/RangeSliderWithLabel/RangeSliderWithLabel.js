@@ -7,7 +7,7 @@ import './rangeslider.css'
 
 const RangeSliderWithLabel = (props) => {
   const disabledClass = props.disabled ? 'disabled' : '';
-  const { label, name, handleChange, required, disabled, errorMessage, helpText, classes, value, min, max, step, ...rest } = props;
+  const { label, name, id, handleChange, required, disabled, errorMessage, helpText, classes, value, min, max, step, ...rest } = props;
 
   const onChange = value => {
     if (props.disabled) return null;
@@ -19,6 +19,7 @@ const RangeSliderWithLabel = (props) => {
     <InputWrapper
       label={label}
       name={name}
+      id={id}
       required={required}
       disabled={disabled}
       errorMessage={errorMessage}

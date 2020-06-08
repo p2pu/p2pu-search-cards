@@ -66,7 +66,7 @@ export default class CitySelect extends Component {
   }
 
   render() {
-    const { label, name, value, disabled, required, errorMessage, helpText, classes, selectClasses, handleInputChange, noResultsText, placeholder, isClearable, isMulti, ...rest } = this.props;
+    const { label, name, id, value, disabled, required, errorMessage, helpText, classes, selectClasses, handleInputChange, noResultsText, placeholder, isClearable, isMulti, ...rest } = this.props;
     const { cities } = this.state;
     const selected = this.getSelected(value)
 
@@ -74,6 +74,7 @@ export default class CitySelect extends Component {
       <InputWrapper
         label={label}
         name={name}
+        id={id}
         required={required}
         disabled={disabled}
         errorMessage={errorMessage}

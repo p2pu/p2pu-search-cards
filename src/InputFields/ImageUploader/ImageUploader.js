@@ -106,13 +106,15 @@ export default class ImageUploader extends Component {
       buttonText,
       classes,
       handleChange,
+      id,
       ...rest
     } = this.props;
     const { image, file } = this.state;
     return(
       <InputWrapper
         label={label}
-        name={'image-upload'}
+        name={name}
+        id={id}
         required={required}
         disabled={disabled}
         errorMessage={errorMessage}
@@ -120,12 +122,13 @@ export default class ImageUploader extends Component {
         classes={classes}
       >
         <div>
-          <label htmlFor={name} className="btn p2pu-btn dark" style={{...defaultStyles.label, ...labelStyles}}>
+          <label htmlFor={"image-uploader"} className="btn p2pu-btn dark" style={{...defaultStyles.label, ...labelStyles}}>
             { buttonText }
             <input
               className='image-upload form-control hidden'
               type='file'
-              name={name}
+              name={"image-uploader"}
+              id={"image-uploader"}
               required={required}
               disabled={disabled}
               onChange={this.onChange}

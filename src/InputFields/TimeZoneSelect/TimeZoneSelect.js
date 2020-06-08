@@ -40,7 +40,7 @@ export default class TimeZoneSelect extends Component {
 
 
   render() {
-    const { label, name, value, required, disabled, errorMessage, helpText, classes, selectClasses, isClearable, isMulti, ...rest } = this.props
+    const { label, name, id, value, required, disabled, errorMessage, helpText, classes, selectClasses, isClearable, isMulti, ...rest } = this.props
     const timezoneOptions = timezones.map((tz) => ({value: tz, label: tz }))
     const selected = timezoneOptions.find(opt => opt.value === value) || null;
 
@@ -48,6 +48,7 @@ export default class TimeZoneSelect extends Component {
       <InputWrapper
         label={label}
         name={name}
+        id={id}
         required={required}
         disabled={disabled}
         errorMessage={errorMessage}

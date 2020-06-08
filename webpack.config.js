@@ -22,6 +22,7 @@ const makeLocaleConfig = (locale) => {
               plugins: [
                 [ 'ttag', {extract: {output: 'i18n/poly.pot'}} ]
               ],
+              sourceMap: true
             },
           },
           exclude: /node_modules/

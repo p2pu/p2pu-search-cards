@@ -55,6 +55,7 @@ export default class LanguageSelect extends React.Component {
       <InputWrapper
         label={props.label}
         name={props.name}
+        id={props.id}
         required={props.required}
         disabled={ props.disabled }
         errorMessage={props.errorMessage}

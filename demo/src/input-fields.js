@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { render } from 'react-dom';
 
-import CitySelect from "../../src/input-fields/CitySelect";
-import PlaceSelect from "../../src/input-fields/PlaceSelect";
-import TimeZoneSelect from "../../src/input-fields/TimeZoneSelect";
-import LanguageSelect from "../../src/input-fields/LanguageSelect";
-import SelectWithLabel from "../../src/input-fields/SelectWithLabel";
+import CitySelect from "../../src/InputFields/CitySelect";
+import PlaceSelect from "../../src/InputFields/PlaceSelect";
+import TimeZoneSelect from "../../src/InputFields/TimeZoneSelect";
+import LanguageSelect from "../../src/InputFields/LanguageSelect";
+import SelectWithLabel from "../../src/InputFields/SelectWithLabel";
 
-import CheckboxWithLabel from "../../src/input-fields/CheckboxWithLabel"
-import DatePickerWithLabel from "../../src/input-fields/DatePickerWithLabel"
-import ImageUploader from "../../src/input-fields/ImageUploader"
-import InputWithLabel from "../../src/input-fields/InputWithLabel"
-import RangeSliderWithLabel from "../../src/input-fields/RangeSliderWithLabel"
-import SwitchWithLabels from "../../src/input-fields/SwitchWithLabels"
-import TextareaWithLabel from "../../src/input-fields/TextareaWithLabel"
-import TimePickerWithLabel from "../../src/input-fields/TimePickerWithLabel"
+import CheckboxWithLabel from "../../src/InputFields/CheckboxWithLabel"
+import DatePickerWithLabel from "../../src/InputFields/DatePickerWithLabel"
+import ImageUploader from "../../src/InputFields/ImageUploader"
+import InputWithLabel from "../../src/InputFields/InputWithLabel"
+import RangeSliderWithLabel from "../../src/InputFields/RangeSliderWithLabel"
+import SwitchWithLabels from "../../src/InputFields/SwitchWithLabels"
+import TextareaWithLabel from "../../src/InputFields/TextareaWithLabel"
+import TimePickerWithLabel from "../../src/InputFields/TimePickerWithLabel"
 
 const App = () => {
   const [content, setContent] = useState({});

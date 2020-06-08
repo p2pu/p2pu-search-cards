@@ -6,6 +6,7 @@ import InputWrapper from '../InputWrapper'
 const SelectWithLabel = (props) => {
   const {
     name,
+    id,
     label,
     required,
     disabled,
@@ -53,6 +54,7 @@ const SelectWithLabel = (props) => {
     <InputWrapper
       label={label}
       name={name}
+      id={id}
       required={required}
       disabled={disabled}
       errorMessage={errorMessage}

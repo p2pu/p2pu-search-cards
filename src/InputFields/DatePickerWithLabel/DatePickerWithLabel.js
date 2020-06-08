@@ -19,6 +19,7 @@ const DatePickerWithLabel = (props) => {
   const {
     label,
     name,
+    id,
     value,
     handleChange,
     required,
@@ -44,6 +45,7 @@ const DatePickerWithLabel = (props) => {
     <InputWrapper
       label={label}
       name={name}
+      id={id}
       required={required}
       errorMessage={errorMessage}
       helpText={helpText}

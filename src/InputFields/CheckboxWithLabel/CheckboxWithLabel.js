@@ -6,6 +6,7 @@ const CheckboxWithLabel = (props) => {
   const {
     label,
     name,
+    id,
     value,
     handleChange,
     required,
@@ -27,6 +28,7 @@ const CheckboxWithLabel = (props) => {
     <InputWrapper
       label={label}
       name={name}
+      id={id}
       required={required}
       disabled={disabled}
       errorMessage={errorMessage}

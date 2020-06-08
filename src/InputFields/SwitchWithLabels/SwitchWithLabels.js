@@ -4,7 +4,7 @@ import InputWrapper from '../InputWrapper'
 import "./switch.css"
 
 const SwitchWithLabels = props => {
-  const { falseLabel, trueLabel, label, name, required, disabled, errorMessage, helpText, classes, offColor, onColor, value, handleChange, ...rest } = props;
+  const { falseLabel, trueLabel, label, name, id, required, disabled, errorMessage, helpText, classes, offColor, onColor, value, handleChange, ...rest } = props;
   const bgColor = value ? onColor : offColor;
 
   const onChange = (event) => {
@@ -20,6 +20,7 @@ const SwitchWithLabels = props => {
     <InputWrapper
       label={label}
       name={name}
+      id={id}
       required={required}
       disabled={disabled}
       errorMessage={errorMessage}
