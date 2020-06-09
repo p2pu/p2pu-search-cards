@@ -34,8 +34,8 @@ export default class PlaceSelect extends Component {
     if (this.props.value) {
       const { value, name, handleChange } =  this.props
 
-      if (!!value.place_id) {
-        this.fetchPlaceById(value.place_id);
+      if (!!value.objectID) {
+        this.fetchPlaceById(value.objectID);
       } else if (value.city === 'Kansas City, Missouri, United States of America') {
         this.handleSelect(KANSAS_CITY_OPTION)
       } else {
