@@ -45,7 +45,8 @@ export default class PlaceSelect extends Component {
   }
 
   handleSelect = (selected) => {
-    this.props.handleChange({ [this.props.name]: selected.value })
+    const value = selected ? selected.value : null
+    this.props.handleChange({ [this.props.name]: value })
     this.setState({ selected })
   }
 
