@@ -107,6 +107,7 @@ export default class ImageUploader extends Component {
       classes,
       handleChange,
       id,
+      imageUploadUrl,
       ...rest
     } = this.props;
     const { image, file } = this.state;
