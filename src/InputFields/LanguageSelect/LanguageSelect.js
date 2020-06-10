@@ -74,6 +74,7 @@ export default class LanguageSelect extends React.Component {
           isMulti={ props.isMulti }
           isClearable={ props.isClearable }
           isDisabled={ props.disabled }
+          classNamePrefix={'language-select'}
           theme={theme => ({
             ...theme,
             colors: {

@@ -24,6 +24,11 @@ const KANSAS_CITY_OPTION = {
   }
 };
 
+const CustomOption = ({ innerProps, isDisabled }) =>
+  !isDisabled ? (
+    <div {...innerProps}>{/* your component internals */}</div>
+  ) : null;
+
 export default class PlaceSelect extends Component {
   constructor(props) {
     super(props);
@@ -124,6 +129,7 @@ export default class PlaceSelect extends Component {
           isClearable={ isClearable }
           isMulti={ isMulti }
           isDisabled={ disabled }
+          classNamePrefix={'place-select'}
           theme={theme => ({
             ...theme,
             colors: {

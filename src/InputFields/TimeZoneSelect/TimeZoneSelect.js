@@ -65,6 +65,7 @@ export default class TimeZoneSelect extends Component {
           isClearable={ isClearable }
           isMulti={ isMulti }
           isDisabled={ disabled }
+          classNamePrefix={'timezone-select'}
           theme={theme => ({
             ...theme,
             colors: {

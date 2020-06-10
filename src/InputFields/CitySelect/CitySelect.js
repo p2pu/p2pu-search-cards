@@ -93,6 +93,7 @@ export default class CitySelect extends Component {
           isClearable={ isClearable }
           isMulti={ isMulti }
           isDisabled={ disabled }
+          classNamePrefix={'city-select'}
           theme={theme => ({
             ...theme,
             colors: {

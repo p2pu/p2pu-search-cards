@@ -73,6 +73,7 @@ const SelectWithLabel = (props) => {
         isMulti={ isMulti }
         isClearable={ isClearable }
         isDisabled={ disabled }
+        classNamePrefix={'react-select'}
         theme={theme => ({
           ...theme,
           colors: {
