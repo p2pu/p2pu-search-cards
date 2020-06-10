@@ -61,8 +61,6 @@ const TimePickerWithLabel = (props) => {
           timeIntervals={30}
           timeCaption="Time"
           dateFormat={displayFormat}
-          name={name}
-          id={name}
           className="form-control"
           {...rest}
         />
