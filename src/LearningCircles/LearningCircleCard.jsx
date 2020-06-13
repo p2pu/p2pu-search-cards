@@ -15,8 +15,8 @@ const LearningCircleCard = (props) => {
   const name = learningCircle.name ? learningCircle.name : learningCircle.course.title;
   const colorClass = COLOR_CLASSES[(learningCircle.course.id % COLOR_CLASSES.length)];
 
-  var cta = (
-    <a href={ learningCircle.url } className="btn p2pu-btn transparent">
+  let cta = (
+    <a href={ `${learningCircle.url}?prev=${encodeURIComponent(window.location.href)}` } className="btn p2pu-btn transparent">
       {t`Sign up`}
     </a>
   );
