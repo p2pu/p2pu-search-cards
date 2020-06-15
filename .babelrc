@@ -3,6 +3,7 @@
   "plugins": [
     "transform-react-jsx",
     "transform-class-properties",
+    "@babel/plugin-transform-runtime",
     [
         "module-resolver", {
             "root": ["./src"]

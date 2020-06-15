@@ -2,8 +2,8 @@ import React from 'react';
 import { t, jt } from 'ttag';
 import Promise from 'promise-polyfill'
 import 'whatwg-fetch'
-import {InputWithLabel} from 'p2pu-input-fields';
-import {CheckboxWithLabel} from 'p2pu-input-fields';
+import InputWithLabel from '../InputFields/InputWithLabel';
+import CheckboxWithLabel from '../InputFields/CheckboxWithLabel';
 import SignupSuccess from './SignupSuccess';
 import {MobileInput} from './MobileInput';
 

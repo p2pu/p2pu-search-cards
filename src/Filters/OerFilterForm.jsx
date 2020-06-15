@@ -1,6 +1,6 @@
 import React from 'react'
 import { t } from 'ttag';
-import { SwitchWithLabels } from 'p2pu-input-fields'
+import SwitchWithLabels from '../InputFields/SwitchWithLabels'
 
 
 const OerFilterForm = (props) => {
@@ -9,17 +9,18 @@ const OerFilterForm = (props) => {
     false: t`All courses`
   }
 
-  const handleSelect = (oer) => {
-    props.updateQueryParams({ oer })
+  const handleChange = (selected) => {
+    props.updateQueryParams(selected)
   }
 
   return(
     <SwitchWithLabels
-      name="order-courses"
-      labelRight={formValues.true}
-      labelLeft={formValues.false}
-      onChange={handleSelect}
-      defaultChecked={Boolean(props.oer)}
+      name="oer"
+      trueLabel={formValues.true}
+      falseLabel={formValues.false}
+      handleChange={handleChange}
+      value={Boolean(props.oer)}
+      label="What types of courses do you want to see?"
     />
   )
 }

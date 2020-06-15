@@ -3,7 +3,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: src/Search/Search.jsx:148
+#: src/Search/Search.jsx:151
 msgid "There are no active learning circles right now."
 msgstr ""
 
@@ -178,6 +178,28 @@ msgstr ""
 msgid "Title, subject, etc..."
 msgstr ""
 
+#: src/Filters/LocationFilterForm.jsx:96
+#: src/Search/SearchTags.jsx:111
+#, javascript-format
+msgid "Within ${ value } ${ unit }"
+msgstr ""
+
+#: src/Search/SearchTags.jsx:180
+#, javascript-format
+msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
+msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Search/SearchTags.jsx:214
+msgid "reset the search form"
+msgstr ""
+
+#: src/Search/SearchTags.jsx:223
+#, javascript-format
+msgid "To see more results, either remove some filters or ${ resetButton }"
+msgstr ""
+
 #: src/LearningCircleSignup/SignupForm.jsx:104
 msgid "More information."
 msgstr ""
@@ -231,28 +253,6 @@ msgstr ""
 msgid "Submitting..."
 msgstr ""
 
-#: src/Filters/LocationFilterForm.jsx:102
-#: src/Search/SearchTags.jsx:111
-#, javascript-format
-msgid "Within ${ value } ${ unit }"
-msgstr ""
-
-#: src/Search/SearchTags.jsx:180
-#, javascript-format
-msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
-msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/Search/SearchTags.jsx:214
-msgid "reset the search form"
-msgstr ""
-
-#: src/Search/SearchTags.jsx:223
-#, javascript-format
-msgid "To see more results, either remove some filters or ${ resetButton }"
-msgstr ""
-
 #: src/Search/SearchBar.jsx:17
 msgid "Search"
 msgstr ""
@@ -295,58 +295,6 @@ msgstr ""
 msgid "OER mode"
 msgstr ""
 
-#: src/Filters/TopicsFilterForm.jsx:62
-msgid "What topics are you interested in?"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:68
-msgid "Select as many topics as you want"
-msgstr ""
-
-#: src/Filters/LocationFilterForm.jsx:45
-msgid "Unable to detect location."
-msgstr ""
-
-#: src/Filters/LocationFilterForm.jsx:56
-msgid "Geolocation is not supported by this browser."
-msgstr ""
-
-#: src/Filters/LocationFilterForm.jsx:72
-msgid "Use my current location"
-msgstr ""
-
-#: src/Filters/LocationFilterForm.jsx:77
-msgid "Detecting your location..."
-msgstr ""
-
-#: src/Filters/LocationFilterForm.jsx:79
-msgid "Using your current location"
-msgstr ""
-
-#: src/Filters/LocationFilterForm.jsx:100
-msgid "miles"
-msgstr ""
-
-#: src/Filters/LocationFilterForm.jsx:100
-msgid "km"
-msgstr ""
-
-#: src/Filters/LocationFilterForm.jsx:136
-msgid "or"
-msgstr ""
-
-#: src/Filters/LocationFilterForm.jsx:139
-msgid "Select a location"
-msgstr ""
-
-#: src/Filters/LocationFilterForm.jsx:145
-msgid "Start typing a city name"
-msgstr ""
-
-#: src/Filters/LocationFilterForm.jsx:146
-msgid "No results for this city"
-msgstr ""
-
 #: src/Filters/OerFilterForm.jsx:8
 msgid "Only open educational resources (OER)"
 msgstr ""
@@ -355,10 +303,62 @@ msgstr ""
 msgid "All courses"
 msgstr ""
 
-#: src/Filters/LanguageFilterForm.jsx:61
+#: src/Filters/LanguageFilterForm.jsx:43
 msgid "What languages are you interested in?"
 msgstr ""
 
-#: src/Filters/LanguageFilterForm.jsx:67
+#: src/Filters/LanguageFilterForm.jsx:49
 msgid "Select as many languages as you want"
+msgstr ""
+
+#: src/Filters/LocationFilterForm.jsx:40
+msgid "Unable to detect location."
+msgstr ""
+
+#: src/Filters/LocationFilterForm.jsx:51
+msgid "Geolocation is not supported by this browser."
+msgstr ""
+
+#: src/Filters/LocationFilterForm.jsx:67
+msgid "Use my current location"
+msgstr ""
+
+#: src/Filters/LocationFilterForm.jsx:72
+msgid "Detecting your location..."
+msgstr ""
+
+#: src/Filters/LocationFilterForm.jsx:74
+msgid "Using your current location"
+msgstr ""
+
+#: src/Filters/LocationFilterForm.jsx:94
+msgid "miles"
+msgstr ""
+
+#: src/Filters/LocationFilterForm.jsx:94
+msgid "km"
+msgstr ""
+
+#: src/Filters/LocationFilterForm.jsx:130
+msgid "or"
+msgstr ""
+
+#: src/Filters/LocationFilterForm.jsx:133
+msgid "Select a location"
+msgstr ""
+
+#: src/Filters/LocationFilterForm.jsx:138
+msgid "Start typing a city name"
+msgstr ""
+
+#: src/Filters/LocationFilterForm.jsx:139
+msgid "No results for this city"
+msgstr ""
+
+#: src/Filters/TopicsFilterForm.jsx:42
+msgid "What topics are you interested in?"
+msgstr ""
+
+#: src/Filters/TopicsFilterForm.jsx:48
+msgid "Select as many topics as you want"
 msgstr ""

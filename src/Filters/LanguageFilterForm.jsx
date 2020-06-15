@@ -2,30 +2,19 @@ import React, { Component } from 'react'
 import { t } from 'ttag';
 import ApiHelper from '../utils/apiHelper'
 
-import { SelectWithLabel } from 'p2pu-input-fields'
+import SelectWithLabel from '../InputFields/SelectWithLabel'
 
 export default class LanguageFilterForm extends Component {
   constructor(props) {
     super(props)
     this.state = { options: [] };
-    this.mapArrayToSelectOptions = (arr) => this._mapArrayToSelectOptions(arr);
-    this.extractLanguagesArray = (opts) => this._extractLanguagesArray(opts);
-    this.handleSelect = (selected) => this._handleSelect(selected);
-    this.fetchLanguages = () => this._fetchLanguages();
   }
 
   componentDidMount() {
     this.fetchLanguages();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props !== nextProps) {
-      const languages = nextProps.languages || [];
-      this.setState({ languages: languages })
-    }
-  }
-
-  _fetchLanguages() {
+  fetchLanguages = () => {
     const resourceType = `coursesLanguages`;
     const api = new ApiHelper(resourceType);
     const params = {};
@@ -37,34 +26,27 @@ export default class LanguageFilterForm extends Component {
     api.fetchResource({ params, callback })
   }
 
-  _handleSelect(selected) {
-    this.setState({ selected });
-    const newLanguagesList = this.extractLanguagesArray(selected);
-    this.props.updateQueryParams({ languages: newLanguagesList })
+  handleSelect = (selected) => {
+    this.props.updateQueryParams(selected)
   }
 
-  _mapArrayToSelectOptions(array) {
+  mapArrayToSelectOptions = (array) => {
     return array.map((item) => ({ value: item.code, label: item.name_local }))
   }
 
-  _extractLanguagesArray(options) {
-    if (!options) return null;
-    return options.map(option => option.value)
-  }
-
   render() {
-    const value = this.state.selected || [];
-
+    console.log('this.props.languages', this.props.languages)
     return(
       <div className="col-sm-12">
         <SelectWithLabel
+          name={'languages'}
           label={t`What languages are you interested in?`}
           classes='no-flex'
           options={this.state.options}
           isMulti={true}
-          value={value}
+          value={this.props.languages}
           handleChange={this.handleSelect}
-          placeholder={t`Select as many languages as you want`}
+          helpText={t`Select as many languages as you want`}
         />
       </div>
     )
