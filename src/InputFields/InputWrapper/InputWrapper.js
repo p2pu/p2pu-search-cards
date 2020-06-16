@@ -11,12 +11,13 @@ const InputWrapper = props => {
     case 'left':
       return(
         <div className={wrapperClasses} id={id}>
-          <div style={{ display: 'flex', alignItems: 'center'}}>
+          <div style={{ display: 'flex', alignItems: 'baseline'}}>
             <label
               htmlFor={name}
               className='input-label left'
             >
-              {`${label} ${required ? '*' : ''}`}
+              {label}
+              {required && '*'}
             </label>
             { React.cloneElement(children, { id: name, name, required }) }
           </div>
@@ -27,13 +28,14 @@ const InputWrapper = props => {
     case 'right':
       return(
         <div className={wrapperClasses} id={id}>
-          <div style={{ display: 'flex', alignItems: 'center'}}>
+          <div style={{ display: 'flex', alignItems: 'baseline'}}>
             { React.cloneElement(children, { id: name, name, required }) }
             <label
               htmlFor={name}
               className='input-label right'
             >
-              {`${label} ${required ? '*' : ''}`}
+              {label}
+              {required && '*'}
             </label>
           </div>
           { helpText && <div className='form-text help-text'>{ helpText }</div> }
@@ -43,7 +45,10 @@ const InputWrapper = props => {
     default:
       return(
         <div className={wrapperClasses} id={id}>
-          <label htmlFor={name} className='input-label'>{`${label} ${required ? '*' : ''}`}</label>
+          <label htmlFor={name} className='input-label'>
+            {label}
+            {required && '*'}
+          </label>
           { helpText && <div className='form-text help-text'>{ helpText }</div> }
           { React.cloneElement(children, { id: name, name, required }) }
           { errorMessage && <div className='error-message minicaps'>{ errorMessage }</div> }

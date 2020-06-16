@@ -109,7 +109,6 @@ msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
 msgstr ""
 
 #: src/LearningCircleSignup/SignupForm.jsx:188
-#: src/LearningCircleSignup/SignupForm.jsx:189
 #: src/LearningCircles/LearningCircleCard.jsx:20
 #: src/LearningCircles/LearningCircleCard.jsx:26
 msgid "Sign up"
@@ -200,40 +199,40 @@ msgstr ""
 msgid "To see more results, either remove some filters or ${ resetButton }"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:104
+#: src/LearningCircleSignup/SignupForm.jsx:105
 msgid "More information."
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:105
+#: src/LearningCircleSignup/SignupForm.jsx:106
 #, javascript-format
 msgid ""
 "I consent that P2PU may process my personal data provided here for the "
 "purpose of participating in this learning circle. ${ gdprLink }"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:112
+#: src/LearningCircleSignup/SignupForm.jsx:113
 msgid "Name"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:121
+#: src/LearningCircleSignup/SignupForm.jsx:122
 msgid "Email address"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:130
+#: src/LearningCircleSignup/SignupForm.jsx:132
 msgid ""
 "If you'd like to receive weekly text messages reminding you of upcoming "
 "learning circle meetings, put your phone number here."
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:138
+#: src/LearningCircleSignup/SignupForm.jsx:140
 msgid "Your number won't be shared with other participants."
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:140
+#: src/LearningCircleSignup/SignupForm.jsx:142
 msgid "Why do you want to learn this topic?"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:149
+#: src/LearningCircleSignup/SignupForm.jsx:151
 msgid ""
 "A successful study group requires the support of all of its members. How "
 "will you help your peers achieve their goals?"
@@ -245,11 +244,11 @@ msgid ""
 "from P2PU."
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:192
+#: src/LearningCircleSignup/SignupForm.jsx:191
 msgid "Back to search"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:196
+#: src/LearningCircleSignup/SignupForm.jsx:195
 msgid "Submitting..."
 msgstr ""
 
@@ -311,6 +310,14 @@ msgstr ""
 msgid "Select as many languages as you want"
 msgstr ""
 
+#: src/Filters/TopicsFilterForm.jsx:42
+msgid "What topics are you interested in?"
+msgstr ""
+
+#: src/Filters/TopicsFilterForm.jsx:48
+msgid "Select as many topics as you want"
+msgstr ""
+
 #: src/Filters/LocationFilterForm.jsx:40
 msgid "Unable to detect location."
 msgstr ""
@@ -353,12 +360,4 @@ msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:139
 msgid "No results for this city"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:42
-msgid "What topics are you interested in?"
-msgstr ""
-
-#: src/Filters/TopicsFilterForm.jsx:48
-msgid "Select as many topics as you want"
 msgstr ""

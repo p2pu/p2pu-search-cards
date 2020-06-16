@@ -63,7 +63,7 @@ CheckboxWithLabel.propTypes = {
 CheckboxWithLabel.defaultProps = {
   classes: "",
   label: "Checkbox label",
-  labelPosition: "left",
+  labelPosition: "right",
   handleChange: (input) => console.log("Implement a function to save selection", input),
   value: false
 }

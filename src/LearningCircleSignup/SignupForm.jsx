@@ -25,6 +25,7 @@ export default class SignupForm extends React.Component {
       custom_question: '',
       mobile: '',
       communications_opt_in: false,
+      consent: false,
       errors: {},
     };
   }
@@ -101,10 +102,10 @@ export default class SignupForm extends React.Component {
       communications_opt_in
     } = this.state;
     const { gdprUrl='/gdpr' } = this.props;
-    let gdprLink = <a href={gdprUrl}>{t`More information.`}</a>;
+    let gdprLink = <a href={gdprUrl} key="gdprLink">{t`More information.`}</a>;
     let consentLabel = jt`I consent that P2PU may process my personal data provided here for the purpose of participating in this learning circle. ${gdprLink}`;
     return (
-      <div className="signup-modal">
+      <form className="signup-modal">
         { this.state.signupSuccess && <SignupSuccess learningCircle={this.props.learningCircle} /> }
         { !this.state.signupSuccess &&
             <div>
@@ -121,6 +122,7 @@ export default class SignupForm extends React.Component {
                 label={t`Email address`}
                 value={email}
                 handleChange={this.onDataChange}
+                type="email"
                 name='email'
                 id='id_email'
                 errorMessage={this.getError('email')}
@@ -166,14 +168,12 @@ export default class SignupForm extends React.Component {
                 />
               }
               <CheckboxWithLabel
-                classes="d-flex"
+                name="consent"
                 label={consentLabel}
                 value={consent}
                 handleChange={this.onDataChange}
-                name='consent'
-                id={'id_consent'}
                 errorMessage={this.getError('consent')}
-                required={false}
+                required={true}
               />
               <CheckboxWithLabel
                 classes="d-flex"
@@ -185,8 +185,7 @@ export default class SignupForm extends React.Component {
                 errorMessage={''}
                 required={false}
               />
-              {this.state.consent && <button className="p2pu-btn blue" onClick={this.onSubmit}>{t`Sign up`}</button>}
-              {!this.state.consent && <button className="p2pu-btn blue" disabled>{t`Sign up`}</button>}
+              <button className="btn p2pu-btn blue" type="submit" onClick={this.onSubmit} disabled={!this.state.consent}>{t`Sign up`}</button>
             </div>
         }
         <button className="p2pu-btn blue secondary" onClick={this.props.onCancel}>{t`Back to search`}</button>
@@ -197,7 +196,7 @@ export default class SignupForm extends React.Component {
               </div>
             </div>
         }
-      </div>
+      </form>
     );
   }
 };
