@@ -36,13 +36,16 @@ export default class Search extends Component {
   }
 
   componentDidMount() {
-    window.onscroll = () => {
+    const { scrollContainer } = this.props;
+    const scrollContainerEl = scrollContainer ? document.querySelector(scrollContainer) : document.body
+
+    scrollContainerEl.onscroll = () => {
       const { isLoading, hasMoreResults } = this.state;
       if (isLoading || !hasMoreResults) {
         return;
       }
 
-      const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+      const scrollTop = scrollContainerEl.scrollTop;
       const scrollHeight = (document.querySelector(".search-results") && document.querySelector(".search-results").scrollHeight) || document.body.scrollHeight;
       const clientHeight = window.innerHeight;
       const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;

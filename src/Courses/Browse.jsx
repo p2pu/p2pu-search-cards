@@ -8,12 +8,6 @@ class BrowseCourses extends React.Component {
     super(props)
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps != this.props) {
-      $('[data-toggle="tooltip"]').tooltip();
-    }
-  }
-
   render() {
     const { results, updateQueryParams, onSelectResult } = this.props;
 

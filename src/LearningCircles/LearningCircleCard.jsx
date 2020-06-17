@@ -12,11 +12,11 @@ const LearningCircleCard = (props) => {
   const weekDay = day(learningCircle.day);
   const schedule = t`${weekDay} from ${formattedStartTime} to ${formattedEndTime} (${learningCircle.time_zone})`;
   const duration = t`${learningCircle.weeks} weeks starting ${formattedDate}`;
-  const name = learningCircle.course.title
+  const name = learningCircle.name ? learningCircle.name : learningCircle.course.title;
   const colorClass = COLOR_CLASSES[(learningCircle.course.id % COLOR_CLASSES.length)];
 
-  var cta = (
-    <a href={ learningCircle.url } className="btn p2pu-btn transparent">
+  let cta = (
+    <a href={ `${learningCircle.url}?prev=${encodeURIComponent(window.location.href)}` } className="btn p2pu-btn transparent">
       {t`Sign up`}
     </a>
   );

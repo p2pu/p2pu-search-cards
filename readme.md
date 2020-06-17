@@ -35,4 +35,4 @@ npm version patch
 npm publish
 ```
 
-You'll need the right credentials to publish to p2pu-search-cards.
+You'll need the right credentials to publish to p2pu-components.

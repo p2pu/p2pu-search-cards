@@ -35,7 +35,7 @@ const CourseCard = (props) => {
   }
 
   return (
-    <Card classes={`alt ${props.classes}`} colorClass={colorClass}>
+    <Card classes={`alt ${props.classes}`} colorClass={colorClass} id={props.id}>
       <CardTitle>{ props.course.title }</CardTitle>
       <CardBody>
         <div className={`stars mb-2 ${props.course.total_ratings == 0 && 'disabled'}`}>
@@ -85,13 +85,13 @@ const CourseCard = (props) => {
 
         <div className='actions'>
           <div className="alt-cta">
-            { 
+            {
               moreInfo &&
-                <a href={ props.course.course_page_url } target="_blank" className="p2pu-btn dark secondary">{t`More details`}</a> 
+                <a href={ props.course.course_page_url } target="_blank" className="p2pu-btn dark secondary">{t`More details`}</a>
             }
-            { 
+            {
               courseLink &&
-                <a href={ props.course.link } target="_blank" className="p2pu-btn dark secondary">{t`Course website`}</a> 
+                <a href={ props.course.link } target="_blank" className="p2pu-btn dark secondary">{t`Course website`}</a>
             }
             {
               props.onSelectResult &&

@@ -1,30 +1,25 @@
 import React, { Component } from 'react'
-import { CheckboxWithLabel, RangeSliderWithLabel, CitySelect } from 'p2pu-input-fields';
 import axios from 'axios';
 import {t} from 'ttag';
+import CheckboxWithLabel from '../InputFields/CheckboxWithLabel'
+import RangeSliderWithLabel from '../InputFields/RangeSliderWithLabel'
+import CitySelect from '../InputFields/CitySelect'
 
 export default class LocationFilterForm extends Component {
   constructor(props) {
     super(props)
-    this.state = { useLocation: false }
-    this.getLocation = (checkboxValue) => this._getLocation(checkboxValue);
-    this.handleCitySelect = (city) => this._handleCitySelect(city);
-    this.handleRangeChange = (value) => this._handleRangeChange(value);
-    this.generateLocationLabel = () => this._generateLocationLabel();
-    this.detectDistanceUnit = (lat, lon) => this._detectDistanceUnit(lat, lon);
-    this.generateDistanceValue = () => this._generateDistanceValue();
-    this.generateDistanceSliderLabel = () => this._generateDistanceSliderLabel();
+    this.state = { useLocation: (Boolean(props.latitude) && Boolean(props.longitude)) }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props !== nextProps) {
-      if (nextProps.latitude === null && nextProps.longitude === null) {
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) {
+      if (this.props.latitude === null && this.props.longitude === null) {
         this.setState({ useLocation: false })
       }
     }
   }
 
-  _getLocation(checkboxValue) {
+  getLocation = (checkboxValue) => {
     const useGeolocation = checkboxValue['geolocation'];
 
     this.setState({ gettingLocation: useGeolocation, useLocation: useGeolocation });
@@ -57,7 +52,7 @@ export default class LocationFilterForm extends Component {
     }
   }
 
-  _detectDistanceUnit(lat, lon) {
+  detectDistanceUnit = (lat, lon) => {
     const countriesUsingMiles = ['US', 'GB', 'LR', 'MM'];
     const url = `http://api.geonames.org/countryCodeJSON?lat=${lat}&lng=${lon}&username=p2pu`;
 
@@ -68,7 +63,7 @@ export default class LocationFilterForm extends Component {
       })
   }
 
-  _generateLocationLabel() {
+  generateLocationLabel = () => {
     let label = t`Use my current location`;
 
     if (this.state.error) {
@@ -82,27 +77,26 @@ export default class LocationFilterForm extends Component {
     return label;
   }
 
-  _handleCitySelect(city) {
-    this.props.updateQueryParams({ city, latitude: null, longitude: null, distance: 50 });
+  handleCitySelect = (city) => {
+    this.props.updateQueryParams({ ...city, latitude: null, longitude: null, distance: 50 });
     this.setState({ useLocation: false });
     this.props.closeFilter();
   }
 
-  _handleRangeChange(value) {
-    let distance = value;
+  handleRangeChange = ({ distance }) => {
     if (this.props.useMiles) {
-      distance = value * 1.6
+      return this.props.updateQueryParams({ distance: distance * 1.6 })
     }
     this.props.updateQueryParams({ distance })
   }
 
-  _generateDistanceSliderLabel() {
+  generateDistanceSliderLabel = () => {
     const unit = this.props.useMiles ? t`miles` : t`km`;
     const value = this.generateDistanceValue();
     return t`Within ${value} ${unit}`
   }
 
-  _generateDistanceValue() {
+  generateDistanceValue = () => {
     const value = this.props.useMiles ? this.props.distance * 0.62 : this.props.distance;
     return Math.round(value / 10) * 10;
   }
@@ -117,13 +111,13 @@ export default class LocationFilterForm extends Component {
           classes='col-sm-12'
           name='geolocation'
           label={this.generateLocationLabel()}
-          checked={this.state.useLocation}
+          value={this.state.useLocation || false}
           handleChange={this.getLocation}
         />
         <RangeSliderWithLabel
           classes='col-sm-12'
           label={distanceSliderLabel}
-          name='distance-slider'
+          name='distance'
           value={distanceValue}
           handleChange={this.handleRangeChange}
           min={10}
@@ -135,18 +129,16 @@ export default class LocationFilterForm extends Component {
           <div className='divider-line'></div>
           <div className='divider-text'>{t`or`}</div>
         </div>
-        <div className='select-with-label label-left col-sm-12' >
-          <label htmlFor='select-city'>{t`Select a location`}:</label>
-          <CitySelect
-            classes='city-select'
-            name='select-city'
-            value={this.props.city}
-            handleChange={this.handleCitySelect}
-            placeholder={t`Start typing a city name`}
-            noResultsText={t`No results for this city`}
-            isMulti={false}
-          />
-        </div>
+        <CitySelect
+          label={t`Select a location`}
+          classes='city-select col-sm-12'
+          name='city'
+          value={this.props.city}
+          handleChange={this.handleCitySelect}
+          placeholder={t`Start typing a city name`}
+          noResultsText={t`No results for this city`}
+          isMulti={false}
+        />
       </div>
     )
   }

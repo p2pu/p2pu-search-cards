@@ -1,5 +1,5 @@
 import React from 'react';
-import {SelectWithLabel as SWL} from 'p2pu-input-fields';
+import SelectWithLabel as SWL from '../InputFields/SelectWithLabel';
 
 export default class SelectWithLabel extends React.Component {
 

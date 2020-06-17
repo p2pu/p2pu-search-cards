@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactTelInput from 'react-telephone-input/lib/withStyles'
+import ReactTelInput from 'react-telephone-input'
+import 'react-telephone-input/css/default.css'
 
 export const MobileInput = props => {
   return (
