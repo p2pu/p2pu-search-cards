@@ -12,7 +12,7 @@ export default class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.onDataChange = this.onDataChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.getError = this.getError.bind(this);
 
     this.state = {
@@ -30,7 +30,7 @@ export default class SignupForm extends React.Component {
     };
   }
 
-  onSubmit() {
+  handleSubmit(e) {
     // Send data to signup API
     let {
       name,
@@ -105,7 +105,7 @@ export default class SignupForm extends React.Component {
     let gdprLink = <a href={gdprUrl} key="gdprLink">{t`More information.`}</a>;
     let consentLabel = jt`I consent that P2PU may process my personal data provided here for the purpose of participating in this learning circle. ${gdprLink}`;
     return (
-      <form className="signup-modal">
+      <form className="signup-modal" onSubmit={this.handleSubmit} >
         { this.state.signupSuccess && <SignupSuccess learningCircle={this.props.learningCircle} /> }
         { !this.state.signupSuccess &&
             <div>
@@ -185,7 +185,7 @@ export default class SignupForm extends React.Component {
                 errorMessage={''}
                 required={false}
               />
-              <button className="btn p2pu-btn blue" type="submit" onClick={this.onSubmit} disabled={!this.state.consent}>{t`Sign up`}</button>
+              <button className="btn p2pu-btn blue" type="submit">{t`Sign up`}</button>
             </div>
         }
         <button className="p2pu-btn blue secondary" onClick={this.props.onCancel}>{t`Back to search`}</button>
