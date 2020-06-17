@@ -31,6 +31,7 @@ export default class SignupForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     // Send data to signup API
     let {
       name,
