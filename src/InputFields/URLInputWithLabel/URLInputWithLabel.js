@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import InputWrapper from '../InputWrapper'
 
-const InputWithLabel = (props) => {
+const URLInputWithLabel = (props) => {
   const [ browserError, setBrowserError ] = useState()
   const {
     label,
@@ -24,7 +24,14 @@ const InputWithLabel = (props) => {
 
   const onChange = e => {
     setBrowserError(null)
-    handleChange({ [name]: e.currentTarget.value })
+
+    const value = e.currentTarget.value
+
+    if (value.length >= 5 && value.substr(0,5) != 'https' && value.substr(0,5) != 'http:'){
+      return handleChange({[name]: 'http://' + value});
+    }
+
+    handleChange({ [name]: value })
   }
 
   const checkValidity = () => {
@@ -47,7 +54,7 @@ const InputWithLabel = (props) => {
     >
       <input
         ref={inputEl}
-        type={type}
+        type={"url"}
         id={name}
         value={value}
         onChange={onChange}
@@ -62,7 +69,7 @@ const InputWithLabel = (props) => {
   )
 }
 
-InputWithLabel.defaultProps = {
+URLInputWithLabel.defaultProps = {
   type: 'text',
   value: "",
   required: false,
@@ -72,7 +79,7 @@ InputWithLabel.defaultProps = {
   handleChange: (input) => console.log("Implement a function to save input", input)
 }
 
-InputWithLabel.propTypes = {
+URLInputWithLabel.propTypes = {
   handleChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
@@ -84,4 +91,4 @@ InputWithLabel.propTypes = {
   placeholder: PropTypes.string,
 }
 
-export default InputWithLabel;
+export default URLInputWithLabel;

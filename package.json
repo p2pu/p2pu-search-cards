@@ -97,5 +97,9 @@
     "setupFiles": [
       "<rootDir>/jest/setup.js"
     ]
-  }
+  },
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ]
 }

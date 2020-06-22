@@ -11,6 +11,7 @@ import CheckboxWithLabel from "../../src/InputFields/CheckboxWithLabel"
 import DatePickerWithLabel from "../../src/InputFields/DatePickerWithLabel"
 import ImageUploader from "../../src/InputFields/ImageUploader"
 import InputWithLabel from "../../src/InputFields/InputWithLabel"
+import URLInputWithLabel from "../../src/InputFields/URLInputWithLabel"
 import RangeSliderWithLabel from "../../src/InputFields/RangeSliderWithLabel"
 import SwitchWithLabels from "../../src/InputFields/SwitchWithLabels"
 import TextareaWithLabel from "../../src/InputFields/TextareaWithLabel"
@@ -36,6 +37,14 @@ const App = () => {
         label="Text input"
         value={content['text-input-demo']}
         handleChange={handleChange}
+        type={"url"}
+      />
+      <URLInputWithLabel
+        name="url-input-demo"
+        label="URL input"
+        value={content['url-input-demo']}
+        handleChange={handleChange}
+        type={"url"}
       />
       <InputWithLabel
         name="number-input-demo"
