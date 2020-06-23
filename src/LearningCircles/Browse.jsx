@@ -4,14 +4,14 @@ import { t } from "ttag";
 
 import LearningCircleCard from './LearningCircleCard.jsx'
 
-const breakpoints = {
+const defaultBreakpoints = {
   default: 3,
   992: 2,
   768: 1
 };
 
-const BrowseLearningCircles = ({ results, onSelectResult, locale }) => (
-  <Masonry breakpointCols={breakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
+const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoints }) => (
+  <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
     {
       results.map((circle, index) => (
         <LearningCircleCard

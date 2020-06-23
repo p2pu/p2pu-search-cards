@@ -77,7 +77,6 @@ const App = () => {
         label="Date picker"
         value={content['datepicker-demo']}
         handleChange={handleChange}
-        minDate={new Date()}
       />
       <TimePickerWithLabel
         name="timepicker-demo"

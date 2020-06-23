@@ -133,6 +133,7 @@ export default class Search extends Component {
           courseLink={this.props.courseLink}
           moreInfo={this.props.moreInfo}
           locale={this.props.locale}
+          columnBreakpoints={this.props.columnBreakpoints}
         />
         {
           this.state.isLoading &&
