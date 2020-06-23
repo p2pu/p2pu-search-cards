@@ -9,6 +9,7 @@ import CitySelect from "./InputFields/CitySelect";
 import DatePickerWithLabel from "./InputFields/DatePickerWithLabel";
 import ImageUploader from "./InputFields/ImageUploader";
 import InputWithLabel from "./InputFields/InputWithLabel";
+import URLInputWithLabel from "./InputFields/URLInputWithLabel";
 import LanguageSelect from "./InputFields/LanguageSelect";
 import PlaceSelect from "./InputFields/PlaceSelect";
 import RangeSliderWithLabel from "./InputFields/RangeSliderWithLabel";
@@ -32,6 +33,7 @@ export {
   DatePickerWithLabel,
   ImageUploader,
   InputWithLabel,
+  URLInputWithLabel,
   LanguageSelect,
   PlaceSelect,
   RangeSliderWithLabel,

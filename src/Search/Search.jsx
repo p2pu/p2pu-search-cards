@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ReactLoading from 'react-loading';
 import { t } from 'ttag';
 
 import SearchAndFilter from './SearchAndFilter'
@@ -137,9 +136,7 @@ export default class Search extends Component {
         />
         {
           this.state.isLoading &&
-          <div className="loader-container">
-            <ReactLoading height={30} width={60} color={"#515665"} type="bubbles" />
-          </div>
+          <div className="loader" />
         }
       </div>
     )

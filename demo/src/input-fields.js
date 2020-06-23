@@ -54,13 +54,6 @@ const App = () => {
         type={'number'}
       />
       <InputWithLabel
-        name="nativedate-input-demo"
-        label="Native date input"
-        value={content['nativedate-input-demo']}
-        handleChange={handleChange}
-        type={'date'}
-      />
-      <InputWithLabel
         name="color-input-demo"
         label="Colour picker"
         value={content['color-input-demo']}
@@ -84,6 +77,7 @@ const App = () => {
         label="Date picker"
         value={content['datepicker-demo']}
         handleChange={handleChange}
+        minDate={new Date()}
       />
       <TimePickerWithLabel
         name="timepicker-demo"

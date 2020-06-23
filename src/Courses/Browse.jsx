@@ -1,7 +1,13 @@
 import React from 'react'
-import Masonry from 'react-masonry-component'
+import Masonry from 'react-masonry-css'
 import CourseCard from './CourseCard'
 import { t } from 'ttag';
+
+const breakpoints = {
+  default: 3,
+  992: 2,
+  768: 1
+};
 
 class BrowseCourses extends React.Component {
   constructor(props) {
@@ -12,7 +18,7 @@ class BrowseCourses extends React.Component {
     const { results, updateQueryParams, onSelectResult } = this.props;
 
     return (
-      <Masonry className={"search-results row grid"}>
+      <Masonry breakpointCols={breakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
         {
           results.map((course, index) => (
             <CourseCard
@@ -24,7 +30,7 @@ class BrowseCourses extends React.Component {
               moreInfo={this.props.moreInfo}
               onSelectResult={onSelectResult}
               buttonText={t`Use this course`}
-              classes="col-md-4"
+              classes="col-12"
             />
           ))
         }

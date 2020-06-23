@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { t, jt } from 'ttag';
 import Promise from 'promise-polyfill'
 import 'whatwg-fetch'
@@ -7,30 +7,24 @@ import CheckboxWithLabel from '../InputFields/CheckboxWithLabel';
 import SignupSuccess from './SignupSuccess';
 import {MobileInput} from './MobileInput';
 
-export default class SignupForm extends React.Component {
+const SignupForm = props => {
+  const initialState = {
+    submitting: false,
+    signupSuccess: false,
+    name: '',
+    email: '',
+    goals: '',
+    support: '',
+    custom_question: '',
+    mobile: '',
+    communications_opt_in: false,
+    consent: false,
+    errors: {},
+  };
 
-  constructor(props) {
-    super(props);
-    this.onDataChange = this.onDataChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.getError = this.getError.bind(this);
+  const [ state, setState ] = useState(initialState)
 
-    this.state = {
-      submitting: false,
-      signupSuccess: false,
-      name: '',
-      email: '',
-      goals: '',
-      support: '',
-      custom_question: '',
-      mobile: '',
-      communications_opt_in: false,
-      consent: false,
-      errors: {},
-    };
-  }
-
-  handleSubmit(e) {
+  const handleSubmit = e => {
     e.preventDefault();
     // Send data to signup API
     let {
@@ -42,10 +36,10 @@ export default class SignupForm extends React.Component {
       custom_question,
       consent,
       communications_opt_in,
-    } = this.state;
+    } = state;
 
     let data = {
-      learning_circle: this.props.learningCircle.id,
+      learning_circle: props.learningCircle.id,
       name,
       email,
       mobile,
@@ -56,8 +50,10 @@ export default class SignupForm extends React.Component {
       },
     };
 
-    this.setState({...this.state, submitting: true, errors: {} });
-    fetch(this.props.signUpUrl, {
+    setForm
+
+    setState({...state, submitting: true, errors: {} });
+    fetch(props.signUpUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -67,138 +63,137 @@ export default class SignupForm extends React.Component {
       // check respose code
       if (json.status == 'created'){
         console.log('Signed up!');
-        this.setState({...this.state, submitting: false, signupSuccess: true });
-        // TODO this.props.onSignupSuccess;
+        setState({...state, submitting: false, signupSuccess: true });
+        // TODO props.onSignupSuccess;
       } else {
         console.log('Error, signup failed: ' + JSON.stringify(json));
-        this.setState({...this.state, submitting: false, errors: json.errors });
+        setState({...state, submitting: false, errors: json.errors });
       }
     }).catch(error => {
       console.log('Error: something went wrong with the request');
       // check error
-      this.setState({...this.state, submitting: false });
+      setState({...state, submitting: false });
     });
   }
 
-  getError(fieldName){
-    if (this.state.errors && this.state.errors[fieldName]){
-      return this.state.errors[fieldName];
+  const getError = (fieldName) => {
+    if (state.errors && state.errors[fieldName]) {
+      return state.errors[fieldName];
     }
     return null;
   }
 
-  onDataChange(data, callback=null) {
-    this.setState({...this.state, ...data}, callback);
+  const onDataChange = (data, callback=null) => {
+    setState({...state, ...data}, callback);
   }
 
-  render() {
-    const {
-      name,
-      email,
-      mobile,
-      goals,
-      support,
-      custom_question,
-      consent,
-      communications_opt_in
-    } = this.state;
-    const { gdprUrl='/gdpr' } = this.props;
-    let gdprLink = <a href={gdprUrl} key="gdprLink">{t`More information.`}</a>;
-    let consentLabel = jt`I consent that P2PU may process my personal data provided here for the purpose of participating in this learning circle. ${gdprLink}`;
-    return (
-      <form className="signup-modal" onSubmit={this.handleSubmit} >
-        { this.state.signupSuccess && <SignupSuccess learningCircle={this.props.learningCircle} /> }
-        { !this.state.signupSuccess &&
-            <div>
+  const {
+    name,
+    email,
+    mobile,
+    goals,
+    support,
+    custom_question,
+    consent,
+    communications_opt_in
+  } = state;
+  const { gdprUrl='/gdpr' } = props;
+  let gdprLink = <a href={gdprUrl} key="gdprLink">{t`More information.`}</a>;
+  let consentLabel = jt`I consent that P2PU may process my personal data provided here for the purpose of participating in this learning circle. ${gdprLink}`;
+  return (
+    <form className="signup-modal" onSubmit={handleSubmit} >
+      { state.signupSuccess && <SignupSuccess learningCircle={props.learningCircle} /> }
+      { !state.signupSuccess &&
+          <div>
+            <InputWithLabel
+              label={t`Name`}
+              value={name}
+              handleChange={onDataChange}
+              name={'name'}
+              id={'id_name'}
+              errorMessage={getError('name')}
+              required={true}
+            />
+            <InputWithLabel
+              label={t`Email address`}
+              value={email}
+              handleChange={onDataChange}
+              type="email"
+              name='email'
+              id='id_email'
+              errorMessage={getError('email')}
+              required={true}
+            />
+            <MobileInput
+              label={t`If you'd like to receive weekly text messages reminding you of upcoming learning circle meetings, put your phone number here.`}
+              value={mobile}
+              handleChange={onDataChange}
+              name={'mobile'}
+              id={'id_mobile'}
+              errorMessage={getError('mobile')}
+              required={false}
+            />
+            <p>{t`Your number won't be shared with other participants.`}</p>
+            <InputWithLabel
+              label={t`Why do you want to learn this topic?`}
+              name='goals'
+              value={goals}
+              handleChange={onDataChange}
+              id='id_email'
+              errorMessage={state.errors && state.errors.signup_questions && state.errors.signup_questions[0].goals}
+              required={true}
+            />
+            <InputWithLabel
+              label={t`A successful study group requires the support of all of its members. How will you help your peers achieve their goals?`}
+              value={support}
+              handleChange={onDataChange}
+              name={'support'}
+              id={'id_support'}
+              errorMessage={state.errors && state.errors.signup_questions && state.errors.signup_questions[0].support}
+              required={true}
+            />
+            { props.learningCircle.signup_question &&
               <InputWithLabel
-                label={t`Name`}
-                value={name}
-                handleChange={this.onDataChange}
-                name={'name'}
-                id={'id_name'}
-                errorMessage={this.getError('name')}
+                label={props.learningCircle.signup_question}
+                value={custom_question}
+                handleChange={onDataChange}
+                name={'custom_question'}
+                id={'id_custom_questions'}
+                errorMessage={state.errors && state.errors.signup_questions && state.errors.signup_questions[0].custom_question}
                 required={true}
               />
-              <InputWithLabel
-                label={t`Email address`}
-                value={email}
-                handleChange={this.onDataChange}
-                type="email"
-                name='email'
-                id='id_email'
-                errorMessage={this.getError('email')}
-                required={true}
-              />
-              <MobileInput
-                label={t`If you'd like to receive weekly text messages reminding you of upcoming learning circle meetings, put your phone number here.`}
-                value={mobile}
-                handleChange={this.onDataChange}
-                name={'mobile'}
-                id={'id_mobile'}
-                errorMessage={this.getError('mobile')}
-                required={false}
-              />
-              <p>{t`Your number won't be shared with other participants.`}</p>
-              <InputWithLabel
-                label={t`Why do you want to learn this topic?`}
-                name='goals'
-                value={goals}
-                handleChange={this.onDataChange}
-                id='id_email'
-                errorMessage={this.state.errors && this.state.errors.signup_questions && this.state.errors.signup_questions[0].goals}
-                required={true}
-              />
-              <InputWithLabel
-                label={t`A successful study group requires the support of all of its members. How will you help your peers achieve their goals?`}
-                value={support}
-                handleChange={this.onDataChange}
-                name={'support'}
-                id={'id_support'}
-                errorMessage={this.state.errors && this.state.errors.signup_questions && this.state.errors.signup_questions[0].support}
-                required={true}
-              />
-              { this.props.learningCircle.signup_question &&
-                <InputWithLabel
-                  label={this.props.learningCircle.signup_question}
-                  value={custom_question}
-                  handleChange={this.onDataChange}
-                  name={'custom_question'}
-                  id={'id_custom_questions'}
-                  errorMessage={this.state.errors && this.state.errors.signup_questions && this.state.errors.signup_questions[0].custom_question}
-                  required={true}
-                />
-              }
-              <CheckboxWithLabel
-                name="consent"
-                label={consentLabel}
-                value={consent}
-                handleChange={this.onDataChange}
-                errorMessage={this.getError('consent')}
-                required={true}
-              />
-              <CheckboxWithLabel
-                classes="d-flex"
-                label={t`I would like to receive emails about other future learning opportunities from P2PU.`}
-                value={communications_opt_in}
-                handleChange={this.onDataChange}
-                name={'communications_opt_in'}
-                id={'id_communications_opt_in'}
-                errorMessage={''}
-                required={false}
-              />
-              <button className="btn p2pu-btn blue" type="submit">{t`Sign up`}</button>
+            }
+            <CheckboxWithLabel
+              name="consent"
+              label={consentLabel}
+              value={consent}
+              handleChange={onDataChange}
+              errorMessage={getError('consent')}
+              required={true}
+            />
+            <CheckboxWithLabel
+              classes="d-flex"
+              label={t`I would like to receive emails about other future learning opportunities from P2PU.`}
+              value={communications_opt_in}
+              handleChange={onDataChange}
+              name={'communications_opt_in'}
+              id={'id_communications_opt_in'}
+              errorMessage={''}
+              required={false}
+            />
+            <button className="btn p2pu-btn blue" type="submit">{t`Sign up`}</button>
+          </div>
+      }
+      <button className="p2pu-btn blue secondary" onClick={props.onCancel}>{t`Back to search`}</button>
+      { state.submitting &&
+          <div className="signup-form-submitting" style={{position: 'absolute', top: '0px', left: '0px', width: '100%', height: '100%', background: 'rgba(255,255,255, 0.9)', ['text-align']: 'center'}}>
+            <div className="spinner-border" role="status">
+              <span className="sr-only">{t`Submitting...`}</span>
             </div>
-        }
-        <button className="p2pu-btn blue secondary" onClick={this.props.onCancel}>{t`Back to search`}</button>
-        { this.state.submitting &&
-            <div className="signup-form-submitting" style={{position: 'absolute', top: '0px', left: '0px', width: '100%', height: '100%', background: 'rgba(255,255,255, 0.9)', ['text-align']: 'center'}}>
-              <div className="spinner-border" role="status">
-                <span className="sr-only">{t`Submitting...`}</span>
-              </div>
-            </div>
-        }
-      </form>
-    );
-  }
+          </div>
+      }
+    </form>
+  );
 };
 
+export default SignupForm

@@ -6,10 +6,17 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const makeLocaleConfig = (locale) => {
   let config = {
-    entry: { build: path.join(__dirname, "src/index.js") },
+    mode: 'production',
+    entry: {
+      'input-fields': path.join(__dirname, "src/input-fields.js"),
+      'search-courses': path.join(__dirname, "src/search-courses.js"),
+      'search-lcs': path.join(__dirname, "src/search-lcs.js"),
+      build: path.join(__dirname, "src/index.js"),
+    },
     output: {
       path: path.join(__dirname, "dist"),
       filename: `[name].js`,
+      library: "p2pu-components",
       libraryTarget: 'commonjs2',
     },
     module: {
@@ -44,14 +51,14 @@ const makeLocaleConfig = (locale) => {
                 sourceMap: true
               }
             }
-          ]
+          ],
+          sideEffects: true
         }
       ]
     },
     externals: {
       axios: "axios",
       jsonp: "jsonp",
-      react: "react",
       react: "react",
       "react-dom": "react-dom",
     },
@@ -62,6 +69,9 @@ const makeLocaleConfig = (locale) => {
     ],
     resolve: {
       extensions: [".js", ".jsx"]
+    },
+    optimization: {
+      usedExports: true,
     }
   };
 

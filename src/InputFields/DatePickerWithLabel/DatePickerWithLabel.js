@@ -1,21 +1,19 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
-import DatePicker from 'react-datepicker'
 import InputWrapper from '../InputWrapper'
-
-import 'react-datepicker/dist/react-datepicker.css'
 
 const displayFormat = 'MMMM d, yyyy'
 
 const formatDateString = date => {
   const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
+  const month = `0${date.getMonth() + 1}`.slice(-2)
+  const day = `0${date.getDate()}`.slice(-2)
 
   return `${year}-${month}-${day}`
 }
 
 const DatePickerWithLabel = (props) => {
+  const [ browserError, setBrowserError ] = useState()
   const {
     label,
     name,
@@ -34,12 +32,19 @@ const DatePickerWithLabel = (props) => {
     ...rest
   } = props;
 
-  const onChange = (value) => {
-    const date = !!value ? formatDateString(value) : null;
-    handleChange({ [name]: date })
+  const inputEl = useRef()
+
+  const onChange = (e) => {
+    setBrowserError(null)
+    handleChange({ [name]: e.currentTarget.value })
   }
 
-  const date = !!value ? Date.parse(value) : new Date();
+  const checkValidity = () => {
+    const validationMessage = inputEl.current.validationMessage
+    setBrowserError(validationMessage)
+  }
+
+  const combinedErrorMessage = [browserError, errorMessage].filter(Boolean).join("; ")
 
   return(
     <InputWrapper
@@ -47,22 +52,25 @@ const DatePickerWithLabel = (props) => {
       name={name}
       id={id}
       required={required}
-      errorMessage={errorMessage}
+      errorMessage={combinedErrorMessage}
       helpText={helpText}
       classes={classes}
     >
-      <div>
-        <DatePicker
-          selected={date}
-          onChange={onChange}
-          className="form-control"
-          minDate={minDate}
-          disabled={disabled}
-          required={required}
-          dateFormat={displayFormat}
-          {...rest}
-        />
-      </div>
+      <input
+        ref={inputEl}
+        type="date"
+        id={name}
+        value={value}
+        onChange={onChange}
+        onBlur={checkValidity}
+        placeholder={"YYYY-MM-DD"}
+        required={required}
+        disabled={disabled}
+        className="form-control"
+        min={formatDateString(minDate)}
+        pattern="\d{4}-\d{2}-\d{2}"
+        {...rest}
+      />
     </InputWrapper>
   )
 }
@@ -77,6 +85,7 @@ DatePickerWithLabel.propTypes = {
   errorMessage: PropTypes.string,
   helpText: PropTypes.string,
   value: PropTypes.string,
+  minDate: PropTypes.object
 }
 
 DatePickerWithLabel.defaultProps = {
