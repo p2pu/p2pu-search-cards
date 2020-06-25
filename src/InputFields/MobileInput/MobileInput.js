@@ -21,6 +21,11 @@ const MobileInput = (props) => {
     errorMessage,
     helpText,
     placeholder,
+    autoFormat,
+    defaultCountry,
+    flagsImagePath,
+    onlyCountries,
+    preferredCountries,
     ...rest
   } = props;
 
@@ -51,16 +56,21 @@ const MobileInput = (props) => {
     >
       <ReactTelInput
         ref={inputEl}
-        onBlur={checkValidity}
         placeholder={placeholder}
-        flagsImagePath="https://learningcircles.p2pu.org/static/images/flags.png"
-        id={name}
+        flagsImagePath={flagsImagePath}
         value={value}
         onChange={onChange}
-        required={required}
+        onBlur={checkValidity}
+        defaultCountry={defaultCountry}
         disabled={disabled}
-        defaultCountry="us"
-        {...rest}
+        autoFormat={autoFormat}
+        onlyCountries={onlyCountries}
+        preferredCountries={preferredCountries}
+        inputProps={{
+          id: name,
+          required: required,
+          ...rest
+        }}
       />
     </InputWrapper>
   )
@@ -73,7 +83,11 @@ MobileInput.defaultProps = {
   disabled: false,
   label: 'Text input',
   classes: '',
-  handleChange: (input) => console.log("Implement a function to save input", input)
+  handleChange: (input) => console.log("Implement a function to save input", input),
+  defaultCountry: 'us',
+  autoFormat: true,
+  placeholder: '',
+  flagsImagePath: "https://learningcircles.p2pu.org/static/images/flags.png",
 }
 
 MobileInput.propTypes = {

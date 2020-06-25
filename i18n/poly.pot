@@ -7,6 +7,10 @@ msgstr ""
 msgid "There are no active learning circles right now."
 msgstr ""
 
+#: src/Courses/Browse.jsx:32
+msgid "Use this course"
+msgstr ""
+
 #: src/Courses/CourseCard.jsx:13
 msgid "Always available"
 msgstr ""
@@ -56,10 +60,6 @@ msgstr ""
 
 #: src/Courses/CourseCard.jsx:94
 msgid "Course website"
-msgstr ""
-
-#: src/Courses/Browse.jsx:32
-msgid "Use this course"
 msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:24
@@ -340,18 +340,18 @@ msgstr ""
 msgid "No results for this city"
 msgstr ""
 
-#: src/Filters/OerFilterForm.jsx:8
-msgid "Only open educational resources (OER)"
-msgstr ""
-
-#: src/Filters/OerFilterForm.jsx:9
-msgid "All courses"
-msgstr ""
-
 #: src/Filters/LanguageFilterForm.jsx:43
 msgid "What languages are you interested in?"
 msgstr ""
 
 #: src/Filters/LanguageFilterForm.jsx:49
 msgid "Select as many languages as you want"
+msgstr ""
+
+#: src/Filters/OerFilterForm.jsx:8
+msgid "Only open educational resources (OER)"
+msgstr ""
+
+#: src/Filters/OerFilterForm.jsx:9
+msgid "All courses"
 msgstr ""

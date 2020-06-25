@@ -44,6 +44,7 @@ const App = () => {
         label="Mobile input"
         value={content['mobile-input-demo']}
         handleChange={handleChange}
+        autoformat={true}
       />
       <URLInputWithLabel
         name="url-input-demo"
