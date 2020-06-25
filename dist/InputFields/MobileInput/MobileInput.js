@@ -64,6 +64,7 @@ const MobileInput = props => {
     onlyCountries: onlyCountries,
     preferredCountries: preferredCountries,
     inputProps: {
+      name: name,
       id: name,
       required: required,
       ...rest
