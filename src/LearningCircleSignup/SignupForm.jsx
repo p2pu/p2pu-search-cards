@@ -4,8 +4,8 @@ import Promise from 'promise-polyfill'
 import 'whatwg-fetch'
 import InputWithLabel from '../InputFields/InputWithLabel';
 import CheckboxWithLabel from '../InputFields/CheckboxWithLabel';
+import MobileInput from '../InputFields/MobileInput';
 import SignupSuccess from './SignupSuccess';
-import {MobileInput} from './MobileInput';
 
 const SignupForm = props => {
   const initialState = {
@@ -99,7 +99,7 @@ const SignupForm = props => {
   } = state;
   const { gdprUrl='/gdpr' } = props;
   let gdprLink = <a href={gdprUrl} key="gdprLink">{t`More information.`}</a>;
-  let consentLabel = jt`I consent that P2PU may process my personal data provided here for the purpose of participating in this learning circle. ${gdprLink}`;
+  let consentLabel = t`I consent that P2PU may process my personal data provided here for the purpose of participating in this learning circle.`;
   return (
     <form className="signup-modal" onSubmit={handleSubmit} >
       { state.signupSuccess && <SignupSuccess learningCircle={props.learningCircle} /> }
@@ -166,6 +166,7 @@ const SignupForm = props => {
             <CheckboxWithLabel
               name="consent"
               label={consentLabel}
+              helpText={gdprLink}
               value={consent}
               handleChange={onDataChange}
               errorMessage={getError('consent')}

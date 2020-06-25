@@ -15,7 +15,7 @@ const InputWrapper = props => {
     classes,
     children
   } = props;
-  const wrapperClasses = `form-group ${classes ? classes : ""} ${disabled ? "disabled" : ""}`;
+  const wrapperClasses = `form-group ${classes ? classes : ""} ${disabled ? "disabled" : ""} ${labelPosition ? labelPosition : ""}`;
 
   switch (labelPosition) {
     case 'left':
@@ -35,7 +35,10 @@ const InputWrapper = props => {
         name,
         required
       })), helpText && /*#__PURE__*/React.createElement("div", {
-        className: "form-text help-text"
+        className: "form-text help-text",
+        style: {
+          marginRight: 'calc(13px + 0.5rem)'
+        }
       }, helpText), errorMessage && /*#__PURE__*/React.createElement("div", {
         className: "error-message minicaps"
       }, errorMessage));
@@ -57,7 +60,10 @@ const InputWrapper = props => {
         htmlFor: name,
         className: "input-label right"
       }, label, required && '*')), helpText && /*#__PURE__*/React.createElement("div", {
-        className: "form-text help-text"
+        className: "form-text help-text",
+        style: {
+          marginLeft: 'calc(13px + 0.5rem)'
+        }
       }, helpText), errorMessage && /*#__PURE__*/React.createElement("div", {
         className: "error-message minicaps"
       }, errorMessage));
@@ -85,7 +91,6 @@ InputWrapper.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   errorMessage: PropTypes.string,
-  helpText: PropTypes.string,
   required: PropTypes.bool,
   labelPosition: PropTypes.oneOf(['left', 'right']),
   classes: PropTypes.string

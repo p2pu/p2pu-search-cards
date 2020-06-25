@@ -28,6 +28,7 @@ const DatePickerWithLabel = props => {
     placeholder,
     labelPosition,
     minDate,
+    maxDate,
     ...rest
   } = props;
   const inputEl = useRef();
@@ -45,6 +46,8 @@ const DatePickerWithLabel = props => {
   };
 
   const combinedErrorMessage = [browserError, errorMessage].filter(Boolean).join("; ");
+  const min = minDate ? formatDateString(minDate) : null;
+  const max = maxDate ? formatDateString(maxDate) : null;
   return /*#__PURE__*/React.createElement(InputWrapper, {
     label: label,
     name: name,
@@ -64,7 +67,8 @@ const DatePickerWithLabel = props => {
     required: required,
     disabled: disabled,
     className: "form-control",
-    min: formatDateString(minDate),
+    min: min,
+    max: max,
     pattern: "\\d{4}-\\d{2}-\\d{2}"
   }, rest)));
 };

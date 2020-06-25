@@ -1,0 +1,15 @@
+.react-tel-input {
+  width: 100%;
+}
+
+.react-tel-input .selected-flag {
+  width: 42px;
+  height: 38px;
+}
+
+.react-tel-input input[type='tel'] {
+  height: 40px;
+  width: 100%;
+  padding-left: 48px;
+  box-shadow: none;
+}

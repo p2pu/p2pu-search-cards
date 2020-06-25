@@ -8,9 +8,6 @@ const makeLocaleConfig = (locale) => {
   let config = {
     mode: 'production',
     entry: {
-      'input-fields': path.join(__dirname, "src/input-fields.js"),
-      'search-courses': path.join(__dirname, "src/search-courses.js"),
-      'search-lcs': path.join(__dirname, "src/search-lcs.js"),
       build: path.join(__dirname, "src/index.js"),
     },
     output: {

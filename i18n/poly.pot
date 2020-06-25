@@ -7,64 +7,6 @@ msgstr ""
 msgid "There are no active learning circles right now."
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:13
-#, javascript-format
-msgid ""
-"${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
-"learningCircle.time_zone })"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:14
-#, javascript-format
-msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:184
-#: src/LearningCircles/LearningCircleCard.jsx:20
-#: src/LearningCircles/LearningCircleCard.jsx:26
-msgid "Sign up"
-msgstr ""
-
-#: src/LearningCircleSignup/LearningCircleSignup.jsx:34
-#: src/LearningCircles/LearningCircleCard.jsx:60
-#, javascript-format
-msgid "Facilitated by ${ learningCircle.facilitator }"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:64
-#, javascript-format
-msgid "Meeting at ${ learningCircle.venue }"
-msgstr ""
-
-#: src/LearningCircleSignup/LearningCircleSignup.jsx:24
-#, javascript-format
-msgid "Sign up for ${ course.title }"
-msgstr ""
-
-#: src/LearningCircleSignup/LearningCircleSignup.jsx:35
-#, javascript-format
-msgid "Course materials provided by ${ courseProviderLink }"
-msgstr ""
-
-#: src/LearningCircleSignup/LearningCircleSignup.jsx:38
-#, javascript-format
-msgid ""
-"This learning circle meets ${ meetingDay } from ${ startTime } to ${ "
-"endTime } (${ learningCircle.time_zone }), ${ startDate }."
-msgstr ""
-
-#: src/LearningCircleSignup/LearningCircleSignup.jsx:41
-#, javascript-format
-msgid ""
-"This learning circle meets every ${ meetingDay } from ${ startTime } to ${ "
-"endTime } (${ learningCircle.time_zone }) starting ${ startDate } for ${ "
-"learningCircle.weeks } weeks."
-msgstr ""
-
-#: src/LearningCircleSignup/LearningCircleSignup.jsx:43
-msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
-msgstr ""
-
 #: src/Courses/CourseCard.jsx:13
 msgid "Always available"
 msgstr ""
@@ -118,6 +60,64 @@ msgstr ""
 
 #: src/Courses/Browse.jsx:32
 msgid "Use this course"
+msgstr ""
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:24
+#, javascript-format
+msgid "Sign up for ${ course.title }"
+msgstr ""
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:34
+#: src/LearningCircles/LearningCircleCard.jsx:60
+#, javascript-format
+msgid "Facilitated by ${ learningCircle.facilitator }"
+msgstr ""
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:35
+#, javascript-format
+msgid "Course materials provided by ${ courseProviderLink }"
+msgstr ""
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:38
+#, javascript-format
+msgid ""
+"This learning circle meets ${ meetingDay } from ${ startTime } to ${ "
+"endTime } (${ learningCircle.time_zone }), ${ startDate }."
+msgstr ""
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:41
+#, javascript-format
+msgid ""
+"This learning circle meets every ${ meetingDay } from ${ startTime } to ${ "
+"endTime } (${ learningCircle.time_zone }) starting ${ startDate } for ${ "
+"learningCircle.weeks } weeks."
+msgstr ""
+
+#: src/LearningCircleSignup/LearningCircleSignup.jsx:43
+msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:13
+#, javascript-format
+msgid ""
+"${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
+"learningCircle.time_zone })"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:14
+#, javascript-format
+msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:185
+#: src/LearningCircles/LearningCircleCard.jsx:20
+#: src/LearningCircles/LearningCircleCard.jsx:26
+msgid "Sign up"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:64
+#, javascript-format
+msgid "Meeting at ${ learningCircle.venue }"
 msgstr ""
 
 #: src/utils/constants.js:4
@@ -206,10 +206,9 @@ msgid "More information."
 msgstr ""
 
 #: src/LearningCircleSignup/SignupForm.jsx:102
-#, javascript-format
 msgid ""
 "I consent that P2PU may process my personal data provided here for the "
-"purpose of participating in this learning circle. ${ gdprLink }"
+"purpose of participating in this learning circle."
 msgstr ""
 
 #: src/LearningCircleSignup/SignupForm.jsx:109
@@ -240,17 +239,17 @@ msgid ""
 "will you help your peers achieve their goals?"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:176
+#: src/LearningCircleSignup/SignupForm.jsx:177
 msgid ""
 "I would like to receive emails about other future learning opportunities "
 "from P2PU."
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:187
+#: src/LearningCircleSignup/SignupForm.jsx:188
 msgid "Back to search"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:191
+#: src/LearningCircleSignup/SignupForm.jsx:192
 msgid "Submitting..."
 msgstr ""
 
@@ -341,18 +340,18 @@ msgstr ""
 msgid "No results for this city"
 msgstr ""
 
-#: src/Filters/LanguageFilterForm.jsx:43
-msgid "What languages are you interested in?"
-msgstr ""
-
-#: src/Filters/LanguageFilterForm.jsx:49
-msgid "Select as many languages as you want"
-msgstr ""
-
 #: src/Filters/OerFilterForm.jsx:8
 msgid "Only open educational resources (OER)"
 msgstr ""
 
 #: src/Filters/OerFilterForm.jsx:9
 msgid "All courses"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:43
+msgid "What languages are you interested in?"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:49
+msgid "Select as many languages as you want"
 msgstr ""

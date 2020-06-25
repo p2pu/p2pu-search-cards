@@ -18,7 +18,7 @@ const LearningCircleSignup = ({ learningCircle, ...rest }) => {
   let venueLink = <a href={learningCircle.venue_website}>{ learningCircle.venue }</a>;
 
   return (
-    <div className="form-container pt-5" ref={this.form}>
+    <div className="form-container pt-5" ref={form}>
       <div className="row">
         <div className="col-12">
           <h2 className="mb-5">{t`Sign up for ${course.title}`}</h2>

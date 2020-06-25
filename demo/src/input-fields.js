@@ -16,6 +16,7 @@ import RangeSliderWithLabel from "../../src/InputFields/RangeSliderWithLabel"
 import SwitchWithLabels from "../../src/InputFields/SwitchWithLabels"
 import TextareaWithLabel from "../../src/InputFields/TextareaWithLabel"
 import TimePickerWithLabel from "../../src/InputFields/TimePickerWithLabel"
+import MobileInput from "../../src/InputFields/MobileInput"
 
 const App = () => {
   const [content, setContent] = useState({});
@@ -37,7 +38,12 @@ const App = () => {
         label="Text input"
         value={content['text-input-demo']}
         handleChange={handleChange}
-        type={"url"}
+      />
+      <MobileInput
+        name="mobile-input-demo"
+        label="Mobile input"
+        value={content['mobile-input-demo']}
+        handleChange={handleChange}
       />
       <URLInputWithLabel
         name="url-input-demo"

@@ -28,7 +28,7 @@ const LearningCircleSignup = ({
   }, learningCircle.venue);
   return /*#__PURE__*/React.createElement("div", {
     className: "form-container pt-5",
-    ref: this.form
+    ref: form
   }, /*#__PURE__*/React.createElement("div", {
     className: "row"
   }, /*#__PURE__*/React.createElement("div", {
