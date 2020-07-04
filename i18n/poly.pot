@@ -58,10 +58,6 @@ msgstr ""
 msgid "Course website"
 msgstr ""
 
-#: src/Courses/Browse.jsx:32
-msgid "Use this course"
-msgstr ""
-
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:24
 #, javascript-format
 msgid "Sign up for ${ course.title }"
@@ -95,6 +91,10 @@ msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:43
 msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
+msgstr ""
+
+#: src/Courses/Browse.jsx:32
+msgid "Use this course"
 msgstr ""
 
 #: src/LearningCircles/LearningCircleCard.jsx:13

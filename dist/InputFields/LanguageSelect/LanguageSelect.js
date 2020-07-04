@@ -12,7 +12,7 @@ const LANGUAGES = [{
   value: 'de'
 }, {
   label: 'Polish',
-  value: 'po'
+  value: 'pl'
 }, {
   label: 'Romanian',
   value: 'ro'
