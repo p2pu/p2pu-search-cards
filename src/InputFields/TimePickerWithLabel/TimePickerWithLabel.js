@@ -100,7 +100,7 @@ const TimePickerWithLabel = (props) => {
   }
 
   const convertTo12h = time24h => {
-    if (!time24h) return "";
+    if (!time24h) return null;
     let [hours, minutes] = time24h.split(':')
     hours = parseInt(hours)
     let hours12 = hours
@@ -147,7 +147,8 @@ const TimePickerWithLabel = (props) => {
 
   const options = times.map(t => {return { label: t, value: t }})
   const formattedSelection = convertTo12h(value)
-  const selected = { label: formattedSelection, value: formattedSelection }
+  const selected = formattedSelection ? { label: formattedSelection, value: formattedSelection } : formattedSelection
+
 
   return(
     <InputWrapper
@@ -202,6 +203,7 @@ TimePickerWithLabel.propTypes = {
   placeholder: PropTypes.string,
   options: PropTypes.array,
   errorMessage: PropTypes.string,
+  helpText: PropTypes.string,
   isClearable: PropTypes.bool,
   isMulti: PropTypes.bool,
 }
@@ -215,10 +217,10 @@ TimePickerWithLabel.defaultProps = {
   disabled: false,
   errorMessage: null,
   value: "",
-  options: [],
   isClearable: true,
   isMulti: false,
-  placeholder: "HH:MM AM/PM"
+  placeholder: "HH:MM AM/PM",
+  helpText: 'Select a time or type it in.'
 }
 
 export default TimePickerWithLabel;
