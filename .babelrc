@@ -3,11 +3,10 @@
     [
       "@babel/preset-env",
       {
-        "targets": {
-          "node": "12"
-        },
-        "modules": false
-      },
+        "modules": false,
+        "useBuiltIns": "entry",
+        "corejs": "3"
+      }
     ],
     "@babel/preset-react"
   ],

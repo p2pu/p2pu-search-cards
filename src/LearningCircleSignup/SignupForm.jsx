@@ -50,8 +50,6 @@ const SignupForm = props => {
       },
     };
 
-    setForm
-
     setState({...state, submitting: true, errors: {} });
     fetch(props.signUpUrl, {
       method: 'POST',
