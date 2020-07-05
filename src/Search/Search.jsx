@@ -38,13 +38,15 @@ export default class Search extends Component {
     const { scrollContainer } = this.props;
     const scrollContainerEl = scrollContainer ? document.querySelector(scrollContainer) : document.body
 
+    const getScrollTop = scrollContainer ? () => { return scrollContainerEl.scrollTop } : () => { return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop }
+
     scrollContainerEl.onscroll = () => {
       const { isLoading, hasMoreResults } = this.state;
       if (isLoading || !hasMoreResults) {
         return;
       }
 
-      const scrollTop = scrollContainerEl.scrollTop;
+      const scrollTop = getScrollTop()
       const scrollHeight = (document.querySelector(".search-results") && document.querySelector(".search-results").scrollHeight) || document.body.scrollHeight;
       const clientHeight = window.innerHeight;
       const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
@@ -71,7 +73,7 @@ export default class Search extends Component {
   }
 
   _updateQueryParams(params) {
-    this.setState(params, this.sendQuery());
+    this.setState(params, this.sendQuery);
   }
 
   _handleChange(selected) {
