@@ -89,7 +89,8 @@ DatePickerWithLabel.propTypes = {
   errorMessage: PropTypes.string,
   helpText: PropTypes.string,
   value: PropTypes.string,
-  minDate: PropTypes.object
+  minDate: PropTypes.object,
+  maxDate: PropTypes.object,
 }
 
 DatePickerWithLabel.defaultProps = {
@@ -99,6 +100,7 @@ DatePickerWithLabel.defaultProps = {
   required: false,
   disabled: false,
   value: "",
+  maxDate: new Date(2999,12,31)
 }
 
 export default DatePickerWithLabel;

@@ -153,30 +153,6 @@ msgstr ""
 msgid "Sunday"
 msgstr ""
 
-#: src/utils/constants.js:14
-msgid "Course title"
-msgstr ""
-
-#: src/utils/constants.js:15
-msgid "Popularity"
-msgstr ""
-
-#: src/utils/constants.js:16
-msgid "Community rating"
-msgstr ""
-
-#: src/utils/constants.js:17
-msgid "Recently added"
-msgstr ""
-
-#: src/utils/constants.js:28
-msgid "Keyword, organization, facilitator, etc..."
-msgstr ""
-
-#: src/utils/constants.js:33
-msgid "Title, subject, etc..."
-msgstr ""
-
 #: src/LearningCircleSignup/SignupForm.jsx:99
 msgid "More information."
 msgstr ""
@@ -227,6 +203,30 @@ msgstr ""
 
 #: src/LearningCircleSignup/SignupForm.jsx:190
 msgid "Submitting..."
+msgstr ""
+
+#: src/utils/constants.js:14
+msgid "Course title"
+msgstr ""
+
+#: src/utils/constants.js:15
+msgid "Popularity"
+msgstr ""
+
+#: src/utils/constants.js:16
+msgid "Community rating"
+msgstr ""
+
+#: src/utils/constants.js:17
+msgid "Recently added"
+msgstr ""
+
+#: src/utils/constants.js:28
+msgid "Keyword, organization, facilitator, etc..."
+msgstr ""
+
+#: src/utils/constants.js:33
+msgid "Title, subject, etc..."
 msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:96
