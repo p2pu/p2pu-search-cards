@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
 import { t } from 'ttag';
 import queryString from 'query-string';
 
