@@ -206,6 +206,7 @@ const SearchTags = (props) => {
 
   const reloadWindow = () => {
     if (typeof window !== `undefined`) {
+      window.history.replaceState({}, document.title, window.location.pathname)
       window.location.reload()
     }
   }

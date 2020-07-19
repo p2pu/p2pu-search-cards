@@ -1,15 +1,30 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 import { t } from 'ttag';
+import queryString from 'query-string';
 
 import SearchAndFilter from './SearchAndFilter'
 import SearchTags from './SearchTags'
-import { SEARCH_PROPS } from '../utils/constants'
+import { SEARCH_PROPS, API_ENDPOINTS } from '../utils/constants'
 import ApiHelper from '../utils/apiHelper'
 
 export default class Search extends Component {
   constructor(props) {
     super(props)
-    this.initialState = {
+    this.initialState = this.setInitialState()
+    this.state = this.initialState;
+    this.handleChange = (s) => this._handleChange(s);
+    this.handleInputChange = () => this._handleInputChange();
+    this.handleSearchBarSubmit = (query) => this._handleSearchBarSubmit(query);
+    this.searchCallback = (response, opts) => this._searchCallback(response, opts);
+    this.updateQueryParams = (params) => this._updateQueryParams(params);
+    this.sendQuery = (opts) => this._sendQuery(opts);
+    this.loadInitialData = () => this._loadInitialData();
+    this.apiHelper = new ApiHelper(this.props.searchSubject, this.props.origin);
+  }
+
+  setInitialState = () => {
+    const defaults = {
       searchResults: [],
       totalResults: 0,
       distance: 50,
@@ -21,17 +36,22 @@ export default class Search extends Component {
       appendResults: false,
       active: true,
       signup: 'open',
-      ...props.initialState
     }
-    this.state = this.initialState;
-    this.handleChange = (s) => this._handleChange(s);
-    this.handleInputChange = () => this._handleInputChange();
-    this.handleSearchBarSubmit = (query) => this._handleSearchBarSubmit(query);
-    this.searchCallback = (response, opts) => this._searchCallback(response, opts);
-    this.updateQueryParams = (params) => this._updateQueryParams(params);
-    this.sendQuery = (opts) => this._sendQuery(opts);
-    this.loadInitialData = () => this._loadInitialData();
-    this.apiHelper = new ApiHelper(this.props.searchSubject, this.props.origin);
+
+    let parsedParams = queryString.parse(window.location.search, { arrayFormat: 'comma' });
+    const arrayItems = API_ENDPOINTS[this.props.searchSubject].arrayItems;
+
+    arrayItems.forEach(term => {
+      if (parsedParams[term] && typeof(parsedParams[term] === "string")) {
+        parsedParams[term] = [parsedParams[term]]
+      }
+    })
+
+    return {
+      ...defaults,
+      ...this.props.initialState,
+      ...parsedParams
+    }
   }
 
   componentDidMount() {
@@ -73,7 +93,26 @@ export default class Search extends Component {
   }
 
   _updateQueryParams(params) {
-    this.setState(params, this.sendQuery);
+    this.setState(params, () => {
+      this.sendQuery()
+      this.updateURL()
+    })
+  }
+
+  updateURL = params => {
+    const searchParams = API_ENDPOINTS[this.props.searchSubject].searchParams;
+    const privateParams = API_ENDPOINTS[this.props.searchSubject].privateParams;
+    const allowedParams = Object.keys(this.state)
+      .filter(key => (searchParams.includes(key) && !privateParams.includes(key)))
+      .reduce((obj, key) => {
+        return {
+          ...obj,
+          [key]: this.state[key]
+        };
+      }, {});
+
+    const query = queryString.stringify(allowedParams, { skipNull: true, skipEmptyString: true, arrayFormat: 'comma' })
+    window.history.replaceState(allowedParams, document.title, `${window.location.pathname}?${query}`)
   }
 
   _handleChange(selected) {
@@ -107,7 +146,7 @@ export default class Search extends Component {
     const placeholder = SEARCH_PROPS[this.props.searchSubject].placeholder;
     const resultsSubtitle = SEARCH_PROPS[this.props.searchSubject].resultsSubtitle;
     const { Browse, NoResultsComponent } = this.props;
-    const showNoResultsComponent = this.state.totalResults === 0 && this.state.initialQuery;
+    const showNoResultsComponent = this.state.totalResults === 0 && this.state.initialQuery && !Boolean(window.location.search);
 
     return(
       <div className="page">
