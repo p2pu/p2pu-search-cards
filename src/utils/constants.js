@@ -34,7 +34,8 @@ export const SEARCH_PROPS = {
   }
 };
 
-export const DEFAULT_ORIGIN = 'https://learningcircles.p2pu.org'
+// export const DEFAULT_ORIGIN = 'https://learningcircles.p2pu.org'
+export const DEFAULT_ORIGIN = 'http://localhost:8000'
 
 export const API_ENDPOINTS = {
   learningCircle: `/api/learning-circle/`,
@@ -43,7 +44,7 @@ export const API_ENDPOINTS = {
   learningCircles: {
     postUrl: `/api/learning-circle/`,
     baseUrl: `/api/learningcircles/?`,
-    searchParams: ['q', 'topics', 'weekdays', 'latitude', 'longitude', 'distance', 'active', 'limit', 'offset', 'city', 'signup', 'team_id'],
+    searchParams: ['q', 'topics', 'weekdays', 'latitude', 'longitude', 'distance', 'active', 'limit', 'offset', 'city', 'signup', 'team_id', 'order'],
     arrayItems: ['topics', 'weekdays'],
     privateParams: ['limit', 'offset', 'active', 'signup', 'distance', 'latitude', 'longitude'],
   },

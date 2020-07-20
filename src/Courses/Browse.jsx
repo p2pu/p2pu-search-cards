@@ -30,7 +30,7 @@ class BrowseCourses extends React.Component {
               moreInfo={this.props.moreInfo}
               onSelectResult={onSelectResult}
               buttonText={t`Use this course`}
-              classes="col-12"
+              classes="col-12 mb-4"
             />
           ))
         }

@@ -196,12 +196,21 @@ span.course-title {
       border: none;
       padding: $padding-xs;
       color: inherit;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
+
+      .actions {
+        .primary-cta {
+          .p2pu-btn {
+            transition: all 0.3s ease;
+          }
+        }
+      }
 
       &:hover {
         text-decoration: none;
         box-shadow: -2px 2px 8px 2px rgba(0, 0, 0, 0.1);
         transform: translate(2px, -6px);
+        opacity: 1;
 
         .actions {
           .primary-cta {
@@ -224,7 +233,6 @@ span.course-title {
       }
 
       .card-body {
-        background: $white;
         padding: $padding-xs;
         color: $gray-darker;
 
@@ -283,7 +291,6 @@ span.course-title {
         }
 
         a.p2pu-btn {
-          transition: all 0.2s ease;
           &:hover {
             text-decoration: none;
           }
@@ -315,6 +322,7 @@ span.course-title {
             font-size: 1em;
             padding: 10px 20px;
             font-weight: bold;
+            transition: all 0.3s ease;
           }
         }
       }
@@ -388,10 +396,14 @@ span.course-title {
       .image {
         padding: 40px 60px;
         z-index: 1;
+        min-height: 180px;
 
         img {
           width: 100%;
           background-color: $white;
+          box-shadow: -1px 1px 2px 1px rgba(0, 0, 0, 0.1);
+          max-height: 300px;
+          object-fit: cover;
         }
       }
     }
@@ -523,6 +535,45 @@ span.course-title {
         .primary-cta {
           .p2pu-btn {
             background: $p2pu-green;
+          }
+        }
+      }
+    }
+
+    &.closed {
+      .card {
+        border-top: 6px solid $gray-darker;
+        background: $gray-lighter;
+
+        .status-tag {
+          border-color: $gray-darker;
+        }
+
+        .start-date {
+          color: $gray-darker;
+        }
+
+        .image-container {
+          .circle {
+            background-color: $white;
+            bottom: 0;
+            left: 0;
+          }
+
+          .square {
+            -webkit-mask-image: url(../images/p2pu-pattern-1.svg);
+            mask-image: url(../images/p2pu-pattern-1.svg);
+            background-color: $white;
+            top: 0;
+            right: 0;
+            left: unset;
+          }
+
+        }
+
+        .primary-cta {
+          .p2pu-btn {
+            background: $gray-darker;
           }
         }
       }

@@ -33,8 +33,6 @@ export default class Search extends Component {
       isLoading: false,
       hasMoreResults: false,
       appendResults: false,
-      active: true,
-      signup: 'open',
     }
 
     let parsedParams = queryString.parse(window.location.search, { arrayFormat: 'comma' });

@@ -18,7 +18,7 @@ const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoi
           key={`learning-circle-${index}`}
           learningCircle={circle}
           locale={locale}
-          classes="col-12 mb-5"
+          classes="col-12 mb-5 mt-4"
           onSelectResult={onSelectResult}
         />
       ))
