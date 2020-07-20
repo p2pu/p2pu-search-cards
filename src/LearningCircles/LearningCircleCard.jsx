@@ -30,19 +30,26 @@ const LearningCircleCard = (props) => {
 
 
   return (
-    <Card colorClass={colorClass} classes={`${props.classes}`}>
+    <Card colorClass={colorClass} classes={`${props.classes}`} component="a" href={`${learningCircle.url}?prev=${encodeURIComponent(window.location.href)}`}>
+      <div className="status-tag minicaps bold">{ t`Registration open!`}</div>
       <CardTitle>{ name }</CardTitle>
-
-      {
-        learningCircle.image_url &&
-        <div className="image-container hidden-on-mobile">
-          <div className="image">
-            <img src={ learningCircle.image_url } alt={ name } />
-          </div>
-        </div>
-      }
-
       <CardBody>
+        <p className="start-date bold m-0">
+          {t`Starting ${formattedDate}`}
+        </p>
+      </CardBody>
+      <CardBody>
+        {
+          learningCircle.image_url &&
+          <div className="image-container hidden-on-mobile mb-2">
+            <div className="square" />
+            <div className="circle" />
+            <div className="image">
+              <img src={ learningCircle.image_url } alt={ name } />
+            </div>
+          </div>
+        }
+
         <p className="schedule">
           <i className="material-icons">schedule</i>
           { schedule }

@@ -51,6 +51,18 @@ module.exports = ({locale}={}) => {
               }
             }
           ]
+        },
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                esModule: false,
+                extract: true,
+              }
+            }
+          ]
         }
       ]
     },
@@ -75,7 +87,7 @@ module.exports = ({locale}={}) => {
       })
     ],
     resolve: {
-      extensions: [".js", ".jsx", ".scss", ".css"]
+      extensions: [".js", ".jsx", ".scss", ".css", ".svg"]
     },
     devServer: {
       port: 3001

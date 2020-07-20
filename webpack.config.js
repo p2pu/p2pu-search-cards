@@ -50,6 +50,18 @@ const makeLocaleConfig = (locale) => {
             }
           ],
           sideEffects: true
+        },
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                esModule: false,
+                extract: true,
+              }
+            }
+          ]
         }
       ]
     },

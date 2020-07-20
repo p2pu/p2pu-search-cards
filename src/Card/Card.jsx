@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Card = (props) => {
+const Card = ({ component, colorClass, classes, id, children, ...rest }) => {
+  const Component = component || 'div'
   return (
-    <div className={`result-item grid-item ${props.colorClass} ${props.classes}`} id={props.id}>
-      <div className="card">
-        {props.children}
-      </div>
+    <div className={`result-item grid-item ${colorClass} ${classes}`} id={id}>
+      <Component className="card" {...rest}>
+        {children}
+      </Component>
     </div>
   );
 }

@@ -35,7 +35,7 @@ const CourseCard = (props) => {
   }
 
   return (
-    <Card classes={`alt ${props.classes}`} colorClass={colorClass} id={props.id}>
+    <Card classes={`${props.classes}`} colorClass={colorClass} id={props.id}>
       <CardTitle>{ props.course.title }</CardTitle>
       <CardBody>
         <div className={`stars mb-2 ${props.course.total_ratings == 0 && 'disabled'}`}>
