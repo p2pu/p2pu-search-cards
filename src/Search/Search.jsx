@@ -41,7 +41,7 @@ export default class Search extends Component {
     const arrayItems = API_ENDPOINTS[this.props.searchSubject].arrayItems;
 
     arrayItems.forEach(term => {
-      if (parsedParams[term] && typeof(parsedParams[term] === "string")) {
+      if (parsedParams[term] && typeof(parsedParams[term]) === "string") {
         parsedParams[term] = [parsedParams[term]]
       }
     })
