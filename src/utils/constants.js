@@ -43,11 +43,15 @@ export const API_ENDPOINTS = {
   learningCircles: {
     postUrl: `/api/learning-circle/`,
     baseUrl: `/api/learningcircles/?`,
-    searchParams: ['q', 'topics', 'weekdays', 'latitude', 'longitude', 'distance', 'active', 'limit', 'offset', 'city', 'signup', 'team_id']
+    searchParams: ['q', 'topics', 'weekdays', 'latitude', 'longitude', 'distance', 'active', 'limit', 'offset', 'city', 'signup', 'team_id'],
+    arrayItems: ['topics', 'weekdays'],
+    privateParams: ['limit', 'offset', 'active', 'signup', 'distance', 'latitude', 'longitude'],
   },
   courses: {
     baseUrl: `/api/courses/?`,
-    searchParams: ['q', 'topics', 'order', 'limit', 'offset', 'languages', 'oer']
+    searchParams: ['q', 'topics', 'order', 'limit', 'offset', 'languages', 'oer'],
+    arrayItems: ['topics', 'languages'],
+    privateParams: ['limit', 'offset'],
   },
   learningCirclesTopics: {
     baseUrl: `/api/learningcircles/topics/?`,

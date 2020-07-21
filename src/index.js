@@ -1,3 +1,8 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+import 'custom-event-polyfill'
+import './stylesheets/search.scss'
+
 import Search from './Search/Search';
 import CourseCard from './Courses/CourseCard';
 import BrowseCourses from './Courses/Browse';
@@ -20,8 +25,6 @@ import TimePickerWithLabel from "./InputFields/TimePickerWithLabel";
 import TimeZoneSelect from "./InputFields/TimeZoneSelect";
 import MobileInput from "./InputFields/MobileInput";
 
-import './stylesheets/search.scss'
-import 'custom-event-polyfill'
 
 export {
   CourseCard,

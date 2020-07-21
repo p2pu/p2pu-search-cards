@@ -22,13 +22,13 @@ const CourseCard = (props) => {
   });
   const colorClass = COLOR_CLASSES[(props.course.id % COLOR_CLASSES.length)];
 
-  const rating_number = <strong>{props.course.total_ratings}</strong>;
+  const rating_number = props.course.total_ratings;
   let rating = jt`${rating_number} ratings`;
   if (props.course.total_ratings == 1){
     rating = jt`${rating_number} rating`;
   }
 
-  let usage_number = <strong>{props.course.learning_circles}</strong>;
+  let usage_number = props.course.learning_circles;
   let usage = jt`Used in ${usage_number} learning circles`;
   if (props.course.learning_circles == 1){
     usage = jt`Used in ${usage_number} learning circle`;
@@ -62,7 +62,7 @@ const CourseCard = (props) => {
             <div>
               <span className='topics-list'>
                 { topicsList.map((topic, index) => {
-                  return <span key={index}>{!!index && ', '}{topic}</span>
+                  return <span key={`topic-${index}`}>{!!index && ', '}{topic}</span>
                 })}
               </span>
             </div>

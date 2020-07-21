@@ -57,7 +57,6 @@ CheckboxWithLabel.propTypes = {
   value: PropTypes.bool,
   required: PropTypes.bool,
   errorMessage: PropTypes.string,
-  helpText: PropTypes.string,
 }
 
 CheckboxWithLabel.defaultProps = {
