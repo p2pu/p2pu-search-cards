@@ -543,7 +543,6 @@ span.course-title {
     &.closed {
       .card {
         border-top: 6px solid $gray-darker;
-        background: $gray-lighter;
 
         .status-tag {
           border-color: $gray-darker;
@@ -555,18 +554,19 @@ span.course-title {
 
         .image-container {
           .circle {
-            background-color: $white;
-            bottom: 0;
+            background-color: $gray-lighter;
+            top: 0;
             left: 0;
           }
 
           .square {
             -webkit-mask-image: url(../images/p2pu-pattern-1.svg);
             mask-image: url(../images/p2pu-pattern-1.svg);
-            background-color: $white;
-            top: 0;
+            background-color: $gray;
+            bottom: 0;
             right: 0;
             left: unset;
+            top: unset;
           }
 
         }
@@ -622,8 +622,9 @@ span.course-title {
 }
 
 .results-summary {
-  padding-left: $padding-sm;
-  padding-right: $padding-sm;
+  padding-left: $padding-xs;
+  padding-right: $padding-xs;
+  padding-bottom: $padding-xs;
 
   .search-tags {
     display: flex;
@@ -677,6 +678,23 @@ span.course-title {
 }
 .masonry-grid_column {
   background-clip: padding-box;
+}
+
+.react-tabs__tab-list {
+  border-bottom: 1px solid $gray-light;
+
+  .react-tabs__tab {
+    padding: 0 $padding-xs;
+    margin-right: $padding-xs;
+    border: none;
+  }
+
+  .react-tabs__tab--selected {
+    border: none;
+    border-radius: 0;
+    border-bottom: 5px solid $p2pu-blue;
+    color: inherit;
+  }
 }
 
 

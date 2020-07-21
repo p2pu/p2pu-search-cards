@@ -50,7 +50,7 @@ const LearningCircleCard = (props) => {
             <div className="square" />
             <div className="circle" />
             <div className="image">
-              <img src={ learningCircle.image_url } alt={ name } />
+              <img src={ `${learningCircle.image_url}` } alt={ name } />
             </div>
           </div>
         }
