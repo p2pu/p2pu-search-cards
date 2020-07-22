@@ -17,6 +17,8 @@ import SwitchWithLabels from "../../src/InputFields/SwitchWithLabels"
 import TextareaWithLabel from "../../src/InputFields/TextareaWithLabel"
 import TimePickerWithLabel from "../../src/InputFields/TimePickerWithLabel"
 import MobileInput from "../../src/InputFields/MobileInput"
+import RichTextWithLabel from "../../src/InputFields/RichTextWithLabel"
+
 
 const App = () => {
   const [content, setContent] = useState({});
@@ -71,6 +73,12 @@ const App = () => {
         name="textarea-demo"
         label="Text area"
         value={content['textarea-demo']}
+        handleChange={handleChange}
+      />
+      <RichTextWithLabel
+        name="richtext-demo"
+        label="Rich text editor"
+        value={content['richtext-demo']}
         handleChange={handleChange}
       />
       <CheckboxWithLabel
