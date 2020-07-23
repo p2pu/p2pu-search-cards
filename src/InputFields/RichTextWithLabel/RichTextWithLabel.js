@@ -17,7 +17,6 @@ const TextareaWithLabel = (props) => {
     classes,
     placeholder,
     apiKey,
-    initialValue,
     ...rest
   } = props;
 
@@ -38,8 +37,9 @@ const TextareaWithLabel = (props) => {
     >
       <Editor
         apiKey={apiKey}
-         initialValue={initialValue}
-         init={{
+        value={value}
+        onEditorChange={onChange}
+        init={{
           height: 300,
           menubar: false,
           plugins: [
@@ -48,8 +48,7 @@ const TextareaWithLabel = (props) => {
           toolbar: 'undo redo | formatselect | bold italic | bullist numlist | link | removeformat',
           'valid_elements': 'p,h3,h4,h5,h6,strong,em,a,a[href|target=_blank|rel=noopener],ul,ol,li,div,span',
           'block_formats': 'Paragraph=p; Heading 1=h3; Heading 2=h4; Heading 3=h5',
-         }}
-         onEditorChange={onChange}
+        }}
       />
     </InputWrapper>
   )
@@ -58,7 +57,6 @@ const TextareaWithLabel = (props) => {
 TextareaWithLabel.defaultProps = {
   type: 'text',
   value: "",
-  initialValue: "",
   required: false,
   disabled: false,
   label: 'Textarea input',

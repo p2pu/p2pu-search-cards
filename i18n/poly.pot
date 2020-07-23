@@ -37,10 +37,6 @@ msgstr ""
 msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
 msgstr ""
 
-#: src/Courses/Browse.jsx:32
-msgid "Use this course"
-msgstr ""
-
 #: src/Courses/CourseCard.jsx:13
 msgid "Always available"
 msgstr ""
@@ -90,6 +86,10 @@ msgstr ""
 
 #: src/Courses/CourseCard.jsx:94
 msgid "Course website"
+msgstr ""
+
+#: src/Courses/Browse.jsx:32
+msgid "Use this course"
 msgstr ""
 
 #: src/Search/Search.jsx:189
@@ -261,13 +261,13 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#: src/Filters/FiltersSection.jsx:21
+msgid "Filter"
+msgstr ""
+
 #: src/Filters/FilterButton.jsx:10
 #: src/Filters/SortSection.jsx:30
 msgid "Sort by"
-msgstr ""
-
-#: src/Filters/FiltersSection.jsx:21
-msgid "Filter"
 msgstr ""
 
 #: src/Filters/FilterButton.jsx:6
@@ -284,6 +284,14 @@ msgstr ""
 
 #: src/Filters/FilterButton.jsx:11
 msgid "OER mode"
+msgstr ""
+
+#: src/Filters/OerFilterForm.jsx:8
+msgid "Only open educational resources (OER)"
+msgstr ""
+
+#: src/Filters/OerFilterForm.jsx:9
+msgid "All courses"
 msgstr ""
 
 #: src/Filters/TopicsFilterForm.jsx:42
@@ -344,12 +352,4 @@ msgstr ""
 
 #: src/Filters/LanguageFilterForm.jsx:49
 msgid "Select as many languages as you want"
-msgstr ""
-
-#: src/Filters/OerFilterForm.jsx:8
-msgid "Only open educational resources (OER)"
-msgstr ""
-
-#: src/Filters/OerFilterForm.jsx:9
-msgid "All courses"
 msgstr ""
