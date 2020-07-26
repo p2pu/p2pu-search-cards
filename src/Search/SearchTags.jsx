@@ -171,11 +171,11 @@ const SearchTags = (props) => {
   }
 
   const generateSearchSummary = () => {
+    let searchSummaryItems = []
     const forSearchSubject = <span key='resultsSummary-1'>for {SEARCH_SUBJECTS[props.searchSubject]}</span>;
     const withSpan = <span key='resultsSummary-2'>with</span>;
     const tagsToDisplay = ['q', 'topics', 'location', 'meetingDays', 'language', 'teamName', 'order', 'oer'];
-
-    let searchSummaryItems = [
+    const resultsCount =
       <span key='resultsSummary-0'>{
         ngettext(
           msgid`Showing ${props.searchResults.length} of ${props.totalResults} result`,
@@ -183,7 +183,10 @@ const SearchTags = (props) => {
           props.totalResults
         )
       }</span>
-    ];
+
+    if (props.searchSubject === 'courses') {
+      searchSummaryItems.push(resultsCount)
+    }
 
     tagsToDisplay.map((tag) => {
       const tagsArray = generateTagsPhrase(tag);

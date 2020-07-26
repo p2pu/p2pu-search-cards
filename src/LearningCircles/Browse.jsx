@@ -12,14 +12,12 @@ const defaultBreakpoints = {
   768: 1
 };
 
-const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoints }) => {
+const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoints, signupOpenCount, signupClosedCount, resultsTab, updateResultsTab }) => {
   const signupOpen = []
   const signupClosed = []
 
   results.forEach(lc => {
-    const isSignupOpen = lc.signup_open
-    const isCompleted = new Date(lc.last_meeting_date) < new Date()
-    if (isSignupOpen && !isCompleted) {
+    if (lc.signup_open) {
       signupOpen.push(lc)
     } else {
       signupClosed.push(lc)
@@ -27,10 +25,10 @@ const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoi
   })
 
   return (
-    <Tabs>
+    <Tabs selectedIndex={resultsTab} onSelect={updateResultsTab}>
       <TabList>
-        <Tab><span className="minicaps bold text-xs">{`Signup open (${signupOpen.length})`}</span></Tab>
-        <Tab><span className="minicaps bold text-xs">{`Signup closed (${signupClosed.length})`}</span></Tab>
+        <Tab><span className="minicaps bold text-xs">{`Signup open (${signupOpenCount})`}</span></Tab>
+        <Tab><span className="minicaps bold text-xs">{`Signup closed (${signupClosedCount})`}</span></Tab>
       </TabList>
       <TabPanel>
         <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
