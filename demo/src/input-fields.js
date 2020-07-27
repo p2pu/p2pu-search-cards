@@ -104,6 +104,7 @@ const App = () => {
         label="Image uploader"
         value={content['image-demo']}
         handleChange={handleChange}
+        imageUploadUrl="http://localhost:8000/api/upload_image/"
       />
       <RangeSliderWithLabel
         name="range-demo"
