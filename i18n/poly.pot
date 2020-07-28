@@ -177,6 +177,28 @@ msgstr ""
 msgid "Title, subject, etc..."
 msgstr ""
 
+#: src/Filters/LocationFilterForm.jsx:96
+#: src/Search/SearchTags.jsx:111
+#, javascript-format
+msgid "Within ${ value } ${ unit }"
+msgstr ""
+
+#: src/Search/SearchTags.jsx:180
+#, javascript-format
+msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
+msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Search/SearchTags.jsx:215
+msgid "reset the search form"
+msgstr ""
+
+#: src/Search/SearchTags.jsx:224
+#, javascript-format
+msgid "To see more results, either remove some filters or ${ resetButton }"
+msgstr ""
+
 #: src/LearningCircleSignup/SignupForm.jsx:99
 msgid "More information."
 msgstr ""
@@ -229,34 +251,6 @@ msgstr ""
 msgid "Submitting..."
 msgstr ""
 
-#: src/Filters/LocationFilterForm.jsx:96
-#: src/Search/SearchTags.jsx:111
-#, javascript-format
-msgid "Within ${ value } ${ unit }"
-msgstr ""
-
-#: src/Search/SearchTags.jsx:180
-#, javascript-format
-msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
-msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/Search/SearchTags.jsx:215
-msgid "reset the search form"
-msgstr ""
-
-#: src/Search/SearchTags.jsx:224
-#, javascript-format
-msgid "To see more results, either remove some filters or ${ resetButton }"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupSuccess.jsx:8
-msgid ""
-"Thank you for signing up. We've sent you an email introducing you to your "
-"facilitator and we'll send you a reminder two days before each meeting."
-msgstr ""
-
 #: src/Search/SearchBar.jsx:17
 msgid "Search"
 msgstr ""
@@ -268,6 +262,12 @@ msgstr ""
 #: src/Filters/FilterButton.jsx:10
 #: src/Filters/SortSection.jsx:30
 msgid "Sort by"
+msgstr ""
+
+#: src/LearningCircleSignup/SignupSuccess.jsx:8
+msgid ""
+"Thank you for signing up. We've sent you an email introducing you to your "
+"facilitator and we'll send you a reminder two days before each meeting."
 msgstr ""
 
 #: src/Filters/FilterButton.jsx:6
@@ -292,6 +292,14 @@ msgstr ""
 
 #: src/Filters/TopicsFilterForm.jsx:48
 msgid "Select as many topics as you want"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:43
+msgid "What languages are you interested in?"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:49
+msgid "Select as many languages as you want"
 msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:40
@@ -336,14 +344,6 @@ msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:139
 msgid "No results for this city"
-msgstr ""
-
-#: src/Filters/LanguageFilterForm.jsx:43
-msgid "What languages are you interested in?"
-msgstr ""
-
-#: src/Filters/LanguageFilterForm.jsx:49
-msgid "Select as many languages as you want"
 msgstr ""
 
 #: src/Filters/OerFilterForm.jsx:8

@@ -17,6 +17,7 @@ const TextareaWithLabel = (props) => {
     classes,
     placeholder,
     apiKey,
+    tinymceScriptSrc,
     ...rest
   } = props;
 
@@ -37,6 +38,7 @@ const TextareaWithLabel = (props) => {
     >
       <Editor
         apiKey={apiKey}
+        tinymceScriptSrc={tinymceScriptSrc}
         value={value}
         onEditorChange={onChange}
         init={{
