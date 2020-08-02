@@ -15,7 +15,7 @@ const LearningCircleCard = (props) => {
   const duration = t`${learningCircle.weeks} weeks starting ${formattedStartDate}`;
   const name = learningCircle.name ? learningCircle.name : learningCircle.course.title;
   const colorClass = COLOR_CLASSES[(learningCircle.course.id % COLOR_CLASSES.length)];
-  const isSignupOpen = learningCircle.signup_open
+  const isSignupOpen = props.isSignupOpen
   const isCompleted = new Date(learningCircle.last_meeting_date) < new Date()
   const isInProgress = !isCompleted && new Date(learningCircle.start_date) < new Date()
 

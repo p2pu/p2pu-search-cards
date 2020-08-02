@@ -36,6 +36,7 @@ export default class Search extends Component {
       hasMoreResults: false,
       appendResults: false,
       resultsTab: 0, // open for signup
+      signup: 'open'
     }
 
     let parsedParams = queryString.parse(window.location.search, { arrayFormat: 'comma' });
@@ -146,7 +147,10 @@ export default class Search extends Component {
   }
 
   updateResultsTab = (tabIndex) => {
-    this.setState({ resultsTab: tabIndex })
+    this.updateQueryParams({
+      resultsTab: tabIndex,
+      signup: tabIndex === 0 ? 'open' : 'closed',
+    })
   }
 
   render() {

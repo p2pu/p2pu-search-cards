@@ -12,17 +12,8 @@ const defaultBreakpoints = {
   768: 1
 };
 
-const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoints, signupOpenCount, signupClosedCount, resultsTab, updateResultsTab }) => {
-  const signupOpen = []
-  const signupClosed = []
-
-  results.forEach(lc => {
-    if (lc.signup_open) {
-      signupOpen.push(lc)
-    } else {
-      signupClosed.push(lc)
-    }
-  })
+const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoints, resultsCount, signupOpenCount, signupClosedCount, resultsTab, updateResultsTab }) => {
+  console.log(results)
 
   return (
     <Tabs selectedIndex={resultsTab} onSelect={updateResultsTab}>
@@ -33,13 +24,14 @@ const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoi
       <TabPanel>
         <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
           {
-            signupOpen.map((circle, index) => (
+            results.map((circle, index) => (
               <LearningCircleCard
                 key={`learning-circle-${index}`}
                 learningCircle={circle}
                 locale={locale}
                 classes="col-12 mb-5 mt-4"
                 onSelectResult={onSelectResult}
+                isSignupOpen={true}
               />
             ))
           }
@@ -48,13 +40,14 @@ const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoi
       <TabPanel>
         <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
           {
-            signupClosed.map((circle, index) => (
+            results.map((circle, index) => (
               <LearningCircleCard
                 key={`learning-circle-${index}`}
                 learningCircle={circle}
                 locale={locale}
                 classes="col-12 mb-5 mt-4"
                 onSelectResult={onSelectResult}
+                isSignupOpen={false}
               />
             ))
           }
@@ -62,6 +55,13 @@ const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoi
       </TabPanel>
     </Tabs>
   )
+}
+
+BrowseLearningCircles.defaultProps = {
+  results: [],
+  signupOpenCount: 0,
+  signupClosedCount: 0,
+  resultsCount: 0
 }
 
 

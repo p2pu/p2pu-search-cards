@@ -194,7 +194,7 @@ span.course-title {
       margin-top: 15px;
       border-radius: 0;
       border: none;
-      padding: $padding-xs;
+      padding: 15px;
       color: inherit;
       transition: all 0.3s ease;
 
@@ -314,7 +314,6 @@ span.course-title {
           flex-direction: column;
           align-items: center;
           margin-top: $padding-xs;
-          padding: 5px;
 
           .p2pu-btn {
             position: absolute;
