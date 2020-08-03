@@ -3,7 +3,7 @@ import {t} from 'ttag';
 
 const SearchBar = ({ placeholder, updateQueryParams, q }) => {
   const onChange = (e) => {
-    const value = e.currentTarget.value;
+    const value = e.currentTarget.value.trim() ;
     updateQueryParams({q: value});
   }
 

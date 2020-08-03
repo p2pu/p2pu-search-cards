@@ -5,7 +5,7 @@ import { COLOR_CLASSES } from '../utils/constants';
 import { date, day, time } from '../utils/i18n';
 
 const LearningCircleCard = (props) => {
-  const { learningCircle, locale } = props;
+  const { learningCircle, locale, onSelectResult } = props;
   const formattedStartDate = date(learningCircle.start_date, locale);
   const formattedStartTime = time(learningCircle.meeting_time);
   const formattedEndDate = date(learningCircle.last_meeting_date, locale);
@@ -19,23 +19,17 @@ const LearningCircleCard = (props) => {
   const isCompleted = new Date(learningCircle.last_meeting_date) < new Date()
   const isInProgress = !isCompleted && new Date(learningCircle.start_date) < new Date()
 
-
-  let cta = (
-    <a href={ `${learningCircle.url}?prev=${encodeURIComponent(window.location.href)}` } className="btn p2pu-btn transparent">
-      {t`Sign up`}
-    </a>
-  );
-  if (props.onSelectResult) {
-    cta = (
-      <button onClick={()=>props.onSelectResult(learningCircle)} className="btn p2pu-btn transparent">
-        {t`Sign up`}
-      </button>
-    );
+  const onClick = () => {
+    if (onSelectResult) {
+      onSelectResult(learningCircle)
+    } else {
+      const url = `${learningCircle.url}?prev=${encodeURIComponent(window.location.href)}`
+      window.location.href = url;
+    }
   }
 
-
   return (
-    <Card colorClass={colorClass} classes={`${props.classes} ${isSignupOpen ? "" : "closed"}`} component="a" href={`${learningCircle.url}?prev=${encodeURIComponent(window.location.href)}`}>
+    <Card colorClass={colorClass} classes={`${props.classes} ${isSignupOpen ? "" : "closed"}`} role='button' tabIndex={0} onClick={onClick}>
       { isSignupOpen && <div className="status-tag minicaps bold">{ t`Registration open!`}</div> }
       <CardTitle>{ name }</CardTitle>
       <CardBody>
@@ -79,7 +73,9 @@ const LearningCircleCard = (props) => {
         { isSignupOpen &&
           <div className='actions'>
             <div className="primary-cta">
-              {cta}
+              <button className="btn p2pu-btn transparent">
+                {t`Sign up`}
+              </button>
             </div>
           </div>
         }
