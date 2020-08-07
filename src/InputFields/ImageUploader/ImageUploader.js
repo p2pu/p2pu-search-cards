@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import slugify from 'slugify';
 import InputWrapper from '../InputWrapper'
 
 const defaultStyles = {
@@ -65,8 +66,9 @@ export default class ImageUploader extends Component {
   onChange = (e) => {
     const url = this.props.imageUploadUrl;
     const file = e.currentTarget.files[0];
+    const filename = slugify(file.name)
     const data = new FormData();
-    data.append('image', file)
+    data.append('image', file, filename)
 
     this.setState({ file })
 
@@ -174,4 +176,5 @@ ImageUploader.defaultProps = {
   handleChange: (imgUrl) => `Implement a function to save image ${imgUrl}`,
   acceptedMimetypes: "image/*",
   buttonText: 'Choose file',
+  imageUploadUrl: "https://learningcircles.p2pu.org/api/upload_image/"
 }

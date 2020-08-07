@@ -24,6 +24,7 @@ import TextareaWithLabel from "./InputFields/TextareaWithLabel";
 import TimePickerWithLabel from "./InputFields/TimePickerWithLabel";
 import TimeZoneSelect from "./InputFields/TimeZoneSelect";
 import MobileInput from "./InputFields/MobileInput";
+import RichTextWithLabel from "./InputFields/RichTextWithLabel";
 
 
 export {
@@ -46,5 +47,6 @@ export {
   TextareaWithLabel,
   TimePickerWithLabel,
   TimeZoneSelect,
-  MobileInput
+  MobileInput,
+  RichTextWithLabel
 }

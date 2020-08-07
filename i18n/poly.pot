@@ -261,13 +261,13 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#: src/Filters/FiltersSection.jsx:21
+msgid "Filter"
+msgstr ""
+
 #: src/Filters/FilterButton.jsx:10
 #: src/Filters/SortSection.jsx:30
 msgid "Sort by"
-msgstr ""
-
-#: src/Filters/FiltersSection.jsx:21
-msgid "Filter"
 msgstr ""
 
 #: src/Filters/FilterButton.jsx:6
@@ -292,14 +292,6 @@ msgstr ""
 
 #: src/Filters/TopicsFilterForm.jsx:48
 msgid "Select as many topics as you want"
-msgstr ""
-
-#: src/Filters/LanguageFilterForm.jsx:43
-msgid "What languages are you interested in?"
-msgstr ""
-
-#: src/Filters/LanguageFilterForm.jsx:49
-msgid "Select as many languages as you want"
 msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:40
@@ -344,6 +336,14 @@ msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:139
 msgid "No results for this city"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:43
+msgid "What languages are you interested in?"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:49
+msgid "Select as many languages as you want"
 msgstr ""
 
 #: src/Filters/OerFilterForm.jsx:8
