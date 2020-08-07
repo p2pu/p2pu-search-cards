@@ -87,7 +87,6 @@ export default class Search extends Component {
   _sendQuery(opts={}) {
     this.setState({ isLoading: true }, () => {
       const params = this.state;
-      console.log("search params", params)
       const options = { params, callback: this.searchCallback, ...opts };
 
       this.apiHelper.fetchResource(options);
@@ -129,7 +128,6 @@ export default class Search extends Component {
 
   _searchCallback(response, opts) {
     const results = this.state.appendResults ? this.state.searchResults.concat(response.items) : response.items;
-    const resultsTab = opts.initialQuery ? (response.signup_open_count && response.signup_open_count > 0) ? 0 : 1 : this.state.resultsTab;
 
     this.setState({
       searchResults: results,
@@ -142,7 +140,6 @@ export default class Search extends Component {
       initialQuery: opts.initialQuery,
       signupOpenCount: response.signup_open_count,
       signupClosedCount: response.signup_closed_count,
-      resultsTab: resultsTab,
     })
   }
 
