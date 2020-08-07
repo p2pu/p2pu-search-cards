@@ -3,8 +3,8 @@ import SearchBar from './SearchBar';
 import FiltersSection from '../Filters/FiltersSection';
 import SortSection from '../Filters/SortSection';
 
-const SearchAndFilter = props => {
-  const noResults = props.searchResults.length === 0;
+var SearchAndFilter = function SearchAndFilter(props) {
+  var noResults = props.searchResults.length === 0;
   return /*#__PURE__*/React.createElement("div", {
     className: "search-container"
   }, /*#__PURE__*/React.createElement(SearchBar, {

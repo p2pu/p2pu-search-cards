@@ -2,20 +2,20 @@ import React from 'react';
 import SwitchWithLabels from '../InputFields/SwitchWithLabels';
 import { COURSES_SORT_OPTIONS } from '../utils/constants';
 
-const OrderCoursesForm = props => {
-  const handleChange = event => {
-    const order = event.target.value;
+var OrderCoursesForm = function OrderCoursesForm(props) {
+  var handleChange = function handleChange(event) {
+    var order = event.target.value;
     props.updateQueryParams({
-      order
+      order: order
     });
     props.closeFilter();
   };
 
-  return /*#__PURE__*/React.createElement("div", null, COURSES_SORT_OPTIONS.map(option => {
-    const sortBy = props.order ? props.order : "title";
-    const checked = sortBy == option.value;
+  return /*#__PURE__*/React.createElement("div", null, COURSES_SORT_OPTIONS.map(function (option) {
+    var sortBy = props.order ? props.order : "title";
+    var checked = sortBy == option.value;
     return /*#__PURE__*/React.createElement("div", {
-      key: `order-${option.value}`,
+      key: "order-".concat(option.value),
       className: "radio-with-label label-right col-12"
     }, /*#__PURE__*/React.createElement("label", null, /*#__PURE__*/React.createElement("input", {
       type: "radio",

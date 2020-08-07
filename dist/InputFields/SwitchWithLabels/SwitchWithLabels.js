@@ -1,41 +1,38 @@
 import _extends from "@babel/runtime/helpers/extends";
+import _defineProperty from "@babel/runtime/helpers/defineProperty";
+import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import InputWrapper from '../InputWrapper';
 import "./switch.css";
 
-const SwitchWithLabels = props => {
-  const {
-    falseLabel,
-    trueLabel,
-    label,
-    name,
-    id,
-    required,
-    disabled,
-    errorMessage,
-    helpText,
-    classes,
-    offColor,
-    onColor,
-    value,
-    handleChange,
-    ...rest
-  } = props;
-  const bgColor = value ? onColor : offColor;
+var SwitchWithLabels = function SwitchWithLabels(props) {
+  var falseLabel = props.falseLabel,
+      trueLabel = props.trueLabel,
+      label = props.label,
+      name = props.name,
+      id = props.id,
+      required = props.required,
+      disabled = props.disabled,
+      errorMessage = props.errorMessage,
+      helpText = props.helpText,
+      classes = props.classes,
+      offColor = props.offColor,
+      onColor = props.onColor,
+      value = props.value,
+      handleChange = props.handleChange,
+      rest = _objectWithoutProperties(props, ["falseLabel", "trueLabel", "label", "name", "id", "required", "disabled", "errorMessage", "helpText", "classes", "offColor", "onColor", "value", "handleChange"]);
 
-  const onChange = event => {
-    const checked = event.currentTarget.checked;
-    handleChange({
-      [name]: checked
-    });
+  var bgColor = value ? onColor : offColor;
+
+  var onChange = function onChange(event) {
+    var checked = event.currentTarget.checked;
+    handleChange(_defineProperty({}, name, checked));
   };
 
-  const onClickLabel = checked => {
-    return () => {
-      handleChange({
-        [name]: checked
-      });
+  var onClickLabel = function onClickLabel(checked) {
+    return function () {
+      handleChange(_defineProperty({}, name, checked));
     };
   };
 
@@ -60,7 +57,7 @@ const SwitchWithLabels = props => {
     disabled: disabled,
     required: required
   }, rest)), /*#__PURE__*/React.createElement("div", {
-    className: `switch-background ${value ? 'on' : 'off'}`,
+    className: "switch-background ".concat(value ? 'on' : 'off'),
     style: {
       backgroundColor: bgColor
     }
@@ -85,7 +82,9 @@ SwitchWithLabels.propTypes = {
   onColor: PropTypes.string
 };
 SwitchWithLabels.defaultProps = {
-  handleChange: checked => `Implement a function to save checked input: ${checked}`,
+  handleChange: function handleChange(checked) {
+    return "Implement a function to save checked input: ".concat(checked);
+  },
   falseLabel: "Off",
   trueLabel: "On",
   value: false,

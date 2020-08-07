@@ -1,40 +1,44 @@
 import _extends from "@babel/runtime/helpers/extends";
+import _defineProperty from "@babel/runtime/helpers/defineProperty";
+import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
+import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import InputWrapper from '../InputWrapper';
 
-const InputWithLabel = props => {
-  const [browserError, setBrowserError] = useState();
-  const {
-    label,
-    name,
-    id,
-    value,
-    handleChange,
-    required,
-    disabled,
-    classes,
-    type,
-    errorMessage,
-    helpText,
-    placeholder,
-    ...rest
-  } = props;
-  const inputEl = useRef();
+var InputWithLabel = function InputWithLabel(props) {
+  var _useState = useState(),
+      _useState2 = _slicedToArray(_useState, 2),
+      browserError = _useState2[0],
+      setBrowserError = _useState2[1];
 
-  const onChange = e => {
+  var label = props.label,
+      name = props.name,
+      id = props.id,
+      value = props.value,
+      handleChange = props.handleChange,
+      required = props.required,
+      disabled = props.disabled,
+      classes = props.classes,
+      type = props.type,
+      errorMessage = props.errorMessage,
+      helpText = props.helpText,
+      placeholder = props.placeholder,
+      rest = _objectWithoutProperties(props, ["label", "name", "id", "value", "handleChange", "required", "disabled", "classes", "type", "errorMessage", "helpText", "placeholder"]);
+
+  var inputEl = useRef();
+
+  var onChange = function onChange(e) {
     setBrowserError(null);
-    handleChange({
-      [name]: e.currentTarget.value
-    });
+    handleChange(_defineProperty({}, name, e.currentTarget.value));
   };
 
-  const checkValidity = () => {
-    const validationMessage = inputEl.current.validationMessage;
+  var checkValidity = function checkValidity() {
+    var validationMessage = inputEl.current.validationMessage;
     setBrowserError(validationMessage);
   };
 
-  const combinedErrorMessage = [browserError, errorMessage].filter(Boolean).join("; ");
+  var combinedErrorMessage = [browserError, errorMessage].filter(Boolean).join("; ");
   return /*#__PURE__*/React.createElement(InputWrapper, {
     label: label,
     name: name,
@@ -65,7 +69,9 @@ InputWithLabel.defaultProps = {
   disabled: false,
   label: 'Text input',
   classes: '',
-  handleChange: input => console.log("Implement a function to save input", input)
+  handleChange: function handleChange(input) {
+    return console.log("Implement a function to save input", input);
+  }
 };
 InputWithLabel.propTypes = {
   handleChange: PropTypes.func.isRequired,

@@ -1,3 +1,11 @@
+import _defineProperty from "@babel/runtime/helpers/defineProperty";
+import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
+import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactTelInput from 'react-telephone-input';
@@ -5,43 +13,44 @@ import 'react-telephone-input/css/default.css';
 import './mobile-input.css';
 import InputWrapper from '../InputWrapper';
 
-const MobileInput = props => {
-  const [browserError, setBrowserError] = useState();
-  const {
-    label,
-    name,
-    id,
-    value,
-    handleChange,
-    required,
-    disabled,
-    classes,
-    type,
-    errorMessage,
-    helpText,
-    placeholder,
-    autoFormat,
-    defaultCountry,
-    flagsImagePath,
-    onlyCountries,
-    preferredCountries,
-    ...rest
-  } = props;
-  const inputEl = useRef();
+var MobileInput = function MobileInput(props) {
+  var _useState = useState(),
+      _useState2 = _slicedToArray(_useState, 2),
+      browserError = _useState2[0],
+      setBrowserError = _useState2[1];
 
-  const onChange = (phone, country) => {
+  var label = props.label,
+      name = props.name,
+      id = props.id,
+      value = props.value,
+      handleChange = props.handleChange,
+      required = props.required,
+      disabled = props.disabled,
+      classes = props.classes,
+      type = props.type,
+      errorMessage = props.errorMessage,
+      helpText = props.helpText,
+      placeholder = props.placeholder,
+      autoFormat = props.autoFormat,
+      defaultCountry = props.defaultCountry,
+      flagsImagePath = props.flagsImagePath,
+      onlyCountries = props.onlyCountries,
+      preferredCountries = props.preferredCountries,
+      rest = _objectWithoutProperties(props, ["label", "name", "id", "value", "handleChange", "required", "disabled", "classes", "type", "errorMessage", "helpText", "placeholder", "autoFormat", "defaultCountry", "flagsImagePath", "onlyCountries", "preferredCountries"]);
+
+  var inputEl = useRef();
+
+  var onChange = function onChange(phone, country) {
     setBrowserError(null);
-    handleChange({
-      [name]: phone
-    });
+    handleChange(_defineProperty({}, name, phone));
   };
 
-  const checkValidity = () => {
-    const validationMessage = inputEl.current.validationMessage;
+  var checkValidity = function checkValidity() {
+    var validationMessage = inputEl.current.validationMessage;
     setBrowserError(validationMessage);
   };
 
-  const combinedErrorMessage = [browserError, errorMessage].filter(Boolean).join("; ");
+  var combinedErrorMessage = [browserError, errorMessage].filter(Boolean).join("; ");
   return /*#__PURE__*/React.createElement(InputWrapper, {
     label: label,
     name: name,
@@ -63,12 +72,11 @@ const MobileInput = props => {
     autoFormat: autoFormat,
     onlyCountries: onlyCountries,
     preferredCountries: preferredCountries,
-    inputProps: {
+    inputProps: _objectSpread({
       name: name,
       id: name,
-      required: required,
-      ...rest
-    }
+      required: required
+    }, rest)
   }));
 };
 
@@ -79,7 +87,9 @@ MobileInput.defaultProps = {
   disabled: false,
   label: 'Text input',
   classes: '',
-  handleChange: input => console.log("Implement a function to save input", input),
+  handleChange: function handleChange(input) {
+    return console.log("Implement a function to save input", input);
+  },
   defaultCountry: 'us',
   autoFormat: true,
   placeholder: '',

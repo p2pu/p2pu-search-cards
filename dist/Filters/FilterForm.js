@@ -8,14 +8,14 @@ import MeetingDaysFilterForm from './MeetingDaysFilterForm';
 import LanguageFilterForm from './LanguageFilterForm';
 import OerFilterForm from './OerFilterForm';
 
-const FilterForm = props => {
-  const closeFilter = () => {
+var FilterForm = function FilterForm(props) {
+  var closeFilter = function closeFilter() {
     props.updateActiveFilter(null);
   };
 
-  const openClass = props.activeFilter ? 'open' : '';
+  var openClass = props.activeFilter ? 'open' : '';
 
-  const internalForm = () => {
+  var internalForm = function internalForm() {
     switch (props.activeFilter) {
       case 'topics':
         return /*#__PURE__*/React.createElement(TopicsFilterForm, props);
@@ -48,12 +48,12 @@ const FilterForm = props => {
   return /*#__PURE__*/React.createElement(OutsideClickHandler, {
     onOutsideClick: closeFilter
   }, /*#__PURE__*/React.createElement("div", {
-    className: `filter-form-dropdown ${openClass}`
+    className: "filter-form-dropdown ".concat(openClass)
   }, /*#__PURE__*/React.createElement("div", {
     className: "close",
     style: {
       textAlign: 'right',
-      float: 'none',
+      "float": 'none',
       cursor: 'pointer'
     }
   }, /*#__PURE__*/React.createElement("i", {

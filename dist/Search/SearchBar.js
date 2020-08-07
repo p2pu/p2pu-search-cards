@@ -1,19 +1,31 @@
+import _taggedTemplateLiteral from "@babel/runtime/helpers/taggedTemplateLiteral";
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["Search"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
 import React from 'react';
 import { t } from 'ttag';
 
-const SearchBar = ({
-  placeholder,
-  updateQueryParams,
-  q
-}) => {
-  const onChange = e => {
-    const value = e.currentTarget.value;
+var SearchBar = function SearchBar(_ref) {
+  var placeholder = _ref.placeholder,
+      updateQueryParams = _ref.updateQueryParams,
+      q = _ref.q;
+
+  var onChange = function onChange(e) {
+    var value = e.currentTarget.value.trim();
     updateQueryParams({
       q: value
     });
   };
 
-  const onSubmit = e => {
+  var onSubmit = function onSubmit(e) {
     e.preventDefault();
   };
 
@@ -22,7 +34,7 @@ const SearchBar = ({
     onSubmit: onSubmit
   }, /*#__PURE__*/React.createElement("div", {
     className: "label"
-  }, t`Search`), /*#__PURE__*/React.createElement("div", {
+  }, t(_templateObject())), /*#__PURE__*/React.createElement("div", {
     className: "input"
   }, /*#__PURE__*/React.createElement("div", {
     className: "wrapper"

@@ -2,20 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import "./input_wrapper.css";
 
-const InputWrapper = props => {
-  const {
-    id,
-    name,
-    label,
-    labelPosition,
-    required,
-    disabled,
-    errorMessage,
-    helpText,
-    classes,
-    children
-  } = props;
-  const wrapperClasses = `form-group ${classes ? classes : ""} ${disabled ? "disabled" : ""} ${labelPosition ? labelPosition : ""}`;
+var InputWrapper = function InputWrapper(props) {
+  var id = props.id,
+      name = props.name,
+      label = props.label,
+      labelPosition = props.labelPosition,
+      required = props.required,
+      disabled = props.disabled,
+      errorMessage = props.errorMessage,
+      helpText = props.helpText,
+      classes = props.classes,
+      children = props.children;
+  var wrapperClasses = "form-group ".concat(classes ? classes : "", " ").concat(disabled ? "disabled" : "", " ").concat(labelPosition ? labelPosition : "");
 
   switch (labelPosition) {
     case 'left':
@@ -32,8 +30,8 @@ const InputWrapper = props => {
         className: "input-label left"
       }, label, required && '*'), /*#__PURE__*/React.cloneElement(children, {
         id: name,
-        name,
-        required
+        name: name,
+        required: required
       })), helpText && /*#__PURE__*/React.createElement("div", {
         className: "form-text help-text",
         style: {
@@ -54,8 +52,8 @@ const InputWrapper = props => {
         }
       }, /*#__PURE__*/React.cloneElement(children, {
         id: name,
-        name,
-        required
+        name: name,
+        required: required
       }), /*#__PURE__*/React.createElement("label", {
         htmlFor: name,
         className: "input-label right"
@@ -79,8 +77,8 @@ const InputWrapper = props => {
         className: "form-text help-text"
       }, helpText), /*#__PURE__*/React.cloneElement(children, {
         id: name,
-        name,
-        required
+        name: name,
+        required: required
       }), errorMessage && /*#__PURE__*/React.createElement("div", {
         className: "error-message minicaps"
       }, errorMessage));

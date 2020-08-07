@@ -9,7 +9,7 @@ msgid "Sign up for ${ course.title }"
 msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:34
-#: src/LearningCircles/LearningCircleCard.jsx:60
+#: src/LearningCircles/LearningCircleCard.jsx:66
 msgid "Facilitated by ${ learningCircle.facilitator }"
 msgstr ""
 
@@ -92,30 +92,48 @@ msgstr ""
 msgid "Course website"
 msgstr ""
 
-#: src/Search/Search.jsx:189
+#: src/Search/Search.jsx:203
 msgid "There are no active learning circles right now."
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:13
+#: src/LearningCircles/LearningCircleCard.jsx:14
 #, javascript-format
 msgid ""
 "${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
 "learningCircle.time_zone })"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:14
+#: src/LearningCircles/LearningCircleCard.jsx:15
 #, javascript-format
-msgid "${ learningCircle.weeks } weeks starting ${ formattedDate }"
+msgid "${ learningCircle.weeks } weeks starting ${ formattedStartDate }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:33
+msgid "Registration open!"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:37
+#, javascript-format
+msgid "Ended ${ formattedEndDate }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:37
+msgid "Started ${ formattedStartDate }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:37
+#, javascript-format
+msgid "Starting ${ formattedStartDate }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:70
+#, javascript-format
+msgid "Meeting at ${ learningCircle.venue }"
 msgstr ""
 
 #: src/LearningCircleSignup/SignupForm.jsx:183
-#: src/LearningCircles/LearningCircleCard.jsx:20
-#: src/LearningCircles/LearningCircleCard.jsx:26
+#: src/LearningCircles/LearningCircleCard.jsx:77
 msgid "Sign up"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:64
-msgid "Meeting at ${ learningCircle.venue }"
 msgstr ""
 
 #: src/utils/constants.js:4
@@ -242,11 +260,11 @@ msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults }
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Search/SearchTags.jsx:215
+#: src/Search/SearchTags.jsx:218
 msgid "reset the search form"
 msgstr ""
 
-#: src/Search/SearchTags.jsx:224
+#: src/Search/SearchTags.jsx:227
 #, javascript-format
 msgid "To see more results, either remove some filters or ${ resetButton }"
 msgstr ""

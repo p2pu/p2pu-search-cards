@@ -1,27 +1,70 @@
+import _taggedTemplateLiteral from "@babel/runtime/helpers/taggedTemplateLiteral";
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["To see more results, either remove some filters or ", ""]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["reset the search form"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["Showing ", " of ", " result"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["Within ", " ", ""]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
 import React from 'react';
 import { t, jt, ngettext, msgid } from 'ttag';
 import { isoCodeToLangName } from '../utils/i18n';
 import { MEETING_DAYS, SEARCH_SUBJECTS, COURSES_SORT_OPTIONS } from '../utils/constants';
 
-const SearchTag = ({
-  value,
-  onDelete
-}) => {
+var SearchTag = function SearchTag(_ref) {
+  var value = _ref.value,
+      onDelete = _ref.onDelete;
   return /*#__PURE__*/React.createElement("div", {
     className: "search-tag"
   }, value, /*#__PURE__*/React.createElement("i", {
     className: "material-icons",
-    onClick: () => onDelete(value),
+    onClick: function onClick() {
+      return onDelete(value);
+    },
     style: {
       cursor: 'pointer'
     }
   }, "clear"));
 };
 
-const SearchTags = props => {
-  const generateQueryTag = () => {
+var SearchTags = function SearchTags(props) {
+  var generateQueryTag = function generateQueryTag() {
     if (props.q) {
-      const onDelete = value => {
+      var onDelete = function onDelete(value) {
         props.updateQueryParams({
           q: null
         });
@@ -42,9 +85,9 @@ const SearchTags = props => {
     }
   };
 
-  const generateTeamNameTag = () => {
+  var generateTeamNameTag = function generateTeamNameTag() {
     if (props.teamName) {
-      const onDelete = value => {
+      var onDelete = function onDelete(value) {
         props.updateQueryParams({
           teamName: null,
           team_id: null
@@ -53,7 +96,7 @@ const SearchTags = props => {
         document.getElementById('search-subtitle').style.display = 'block';
       };
 
-      const humanReadableName = decodeURIComponent(props.teamName);
+      var humanReadableName = decodeURIComponent(props.teamName);
       return [/*#__PURE__*/React.createElement(SearchTag, {
         key: "queryTag-0",
         value: humanReadableName,
@@ -69,47 +112,53 @@ const SearchTags = props => {
     }
   };
 
-  const generateLanguageTag = () => {
+  var generateLanguageTag = function generateLanguageTag() {
     if (props.languages && props.languages.length > 0) {
-      const onDelete = value => {
-        const newLanguagesArray = props.languages.filter(v => v != value);
-        const languages = newLanguagesArray.length > 0 ? newLanguagesArray : null;
+      var _onDelete = function onDelete(value) {
+        var newLanguagesArray = props.languages.filter(function (v) {
+          return v != value;
+        });
+        var languages = newLanguagesArray.length > 0 ? newLanguagesArray : null;
         props.updateQueryParams({
-          languages
+          languages: languages
         });
       };
 
-      const introPhrase = props.languages.length === 1 ? 'in' : 'in';
-      let languagesTagsArray = [/*#__PURE__*/React.createElement("span", {
+      var introPhrase = props.languages.length === 1 ? 'in' : 'in';
+      var languagesTagsArray = [/*#__PURE__*/React.createElement("span", {
         key: "languageTagIntro"
       }, introPhrase)];
-      props.languages.map((item, index) => {
+      props.languages.map(function (item, index) {
         if (props.languages.length > 1 && index === props.languages.length - 1) {
           languagesTagsArray.push( /*#__PURE__*/React.createElement("span", {
-            key: `languageTag-${index + 2}`
+            key: "languageTag-".concat(index + 2)
           }, "or"));
         }
 
-        let languageName = isoCodeToLangName(item);
+        var languageName = isoCodeToLangName(item);
         languagesTagsArray.push( /*#__PURE__*/React.createElement(SearchTag, {
           value: languageName,
-          key: `languageTag-${index}`,
-          onDelete: () => onDelete(item)
+          key: "languageTag-".concat(index),
+          onDelete: function onDelete() {
+            return _onDelete(item);
+          }
         }));
       });
       return languagesTagsArray;
     }
   };
 
-  const generateOrderTag = () => {
+  var generateOrderTag = function generateOrderTag() {
     if (props.order) {
-      const onDelete = value => {
+      var onDelete = function onDelete(value) {
         props.updateQueryParams({
           order: null
         });
       };
 
-      const order = COURSES_SORT_OPTIONS.find(order => order.value == props.order);
+      var order = COURSES_SORT_OPTIONS.find(function (order) {
+        return order.value == props.order;
+      });
       return [/*#__PURE__*/React.createElement("span", {
         key: "queryTagIntro"
       }, "sorted by "), /*#__PURE__*/React.createElement(SearchTag, {
@@ -120,9 +169,9 @@ const SearchTags = props => {
     }
   };
 
-  const generateOerTag = () => {
+  var generateOerTag = function generateOerTag() {
     if (props.oer) {
-      const onDelete = value => {
+      var onDelete = function onDelete(value) {
         props.updateQueryParams({
           oer: false
         });
@@ -138,32 +187,34 @@ const SearchTags = props => {
     }
   };
 
-  const generateTopicsTags = () => {
+  var generateTopicsTags = function generateTopicsTags() {
     if (props.topics && props.topics.length > 0) {
-      const onDelete = value => {
-        const newTopicsArray = props.topics.filter(v => v != value);
-        const topics = newTopicsArray.length > 0 ? newTopicsArray : null;
+      var onDelete = function onDelete(value) {
+        var newTopicsArray = props.topics.filter(function (v) {
+          return v != value;
+        });
+        var topics = newTopicsArray.length > 0 ? newTopicsArray : null;
         props.updateQueryParams({
-          topics
+          topics: topics
         });
       };
 
-      const introPhrase = props.topics.length === 1 ? 'the topic' : 'the topics';
-      let topicsTagsArray = [/*#__PURE__*/React.createElement("span", {
+      var introPhrase = props.topics.length === 1 ? 'the topic' : 'the topics';
+      var topicsTagsArray = [/*#__PURE__*/React.createElement("span", {
         key: "topicTagIntro"
       }, introPhrase)];
       topicsTagsArray = []; // TODO
 
-      props.topics.map((item, index) => {
+      props.topics.map(function (item, index) {
         if (props.topics.length > 1 && index === props.topics.length - 1) {
           topicsTagsArray.push( /*#__PURE__*/React.createElement("span", {
-            key: `topicTag-${index + 2}`
+            key: "topicTag-".concat(index + 2)
           }, "or"));
         }
 
         topicsTagsArray.push( /*#__PURE__*/React.createElement(SearchTag, {
           value: item,
-          key: `topicTag-${index}`,
+          key: "topicTag-".concat(index),
           onDelete: onDelete
         }));
       });
@@ -171,14 +222,14 @@ const SearchTags = props => {
     }
   };
 
-  const generateLocationTag = () => {
+  var generateLocationTag = function generateLocationTag() {
     if (props.latitude && props.longitude) {
-      const unit = props.useMiles ? 'miles' : 'km';
-      let value = props.useMiles ? props.distance * 0.62 : props.distance;
+      var unit = props.useMiles ? 'miles' : 'km';
+      var value = props.useMiles ? props.distance * 0.62 : props.distance;
       value = Math.round(value / 10) * 10;
-      const text = t`Within ${value} ${unit}`;
+      var text = t(_templateObject(), value, unit);
 
-      const onDelete = value => {
+      var onDelete = function onDelete(value) {
         props.updateQueryParams({
           latitude: null,
           longitude: null,
@@ -199,7 +250,7 @@ const SearchTags = props => {
         onDelete: onDelete
       })];
     } else if (props.city) {
-      const onDelete = value => {
+      var _onDelete2 = function _onDelete2(value) {
         props.updateQueryParams({
           city: null
         });
@@ -208,46 +259,48 @@ const SearchTags = props => {
       return [/*#__PURE__*/React.createElement(SearchTag, {
         key: "locationTag-0",
         value: props.city,
-        onDelete: onDelete
+        onDelete: _onDelete2
       })];
       return [/*#__PURE__*/React.createElement("span", {
         key: "locationTagIntro"
       }, "located in"), /*#__PURE__*/React.createElement(SearchTag, {
         key: "locationTag-0",
         value: props.city,
-        onDelete: onDelete
+        onDelete: _onDelete2
       })];
     }
   };
 
-  const generateMeetingDaysTags = () => {
+  var generateMeetingDaysTags = function generateMeetingDaysTags() {
     if (props.weekdays && props.weekdays.length > 0) {
-      const onDelete = day => {
-        const dayIndex = MEETING_DAYS.indexOf(day);
-        const newWeekdayArray = props.weekdays.filter(val => val != dayIndex);
-        const weekdays = newWeekdayArray.length > 0 ? newWeekdayArray : null;
+      var onDelete = function onDelete(day) {
+        var dayIndex = MEETING_DAYS.indexOf(day);
+        var newWeekdayArray = props.weekdays.filter(function (val) {
+          return val != dayIndex;
+        });
+        var weekdays = newWeekdayArray.length > 0 ? newWeekdayArray : null;
         props.updateQueryParams({
-          weekdays
+          weekdays: weekdays
         });
       };
 
-      let weekdayTagsArray = [/*#__PURE__*/React.createElement("span", {
+      var weekdayTagsArray = [/*#__PURE__*/React.createElement("span", {
         key: "weekdayTagIntro"
       }, "meeting on")];
       weekdayTagsArray = []; // TODO
 
-      props.weekdays.map((dayIndex, index) => {
-        const weekdayName = MEETING_DAYS[dayIndex];
+      props.weekdays.map(function (dayIndex, index) {
+        var weekdayName = MEETING_DAYS[dayIndex];
 
         if (props.weekdays.length > 1 && index === props.weekdays.length - 1) {
           weekdayTagsArray.push( /*#__PURE__*/React.createElement("span", {
-            key: `weekdayTag-${index + 2}`
+            key: "weekdayTag-".concat(index + 2)
           }, "or"));
         }
 
         weekdayTagsArray.push( /*#__PURE__*/React.createElement(SearchTag, {
           value: weekdayName,
-          key: `weekdatTag-${index}`,
+          key: "weekdatTag-".concat(index),
           onDelete: onDelete
         }));
       });
@@ -255,7 +308,7 @@ const SearchTags = props => {
     }
   };
 
-  const generateTagsPhrase = tag => {
+  var generateTagsPhrase = function generateTagsPhrase(tag) {
     switch (tag) {
       case 'q':
         return generateQueryTag();
@@ -283,19 +336,25 @@ const SearchTags = props => {
     }
   };
 
-  const generateSearchSummary = () => {
-    const forSearchSubject = /*#__PURE__*/React.createElement("span", {
+  var generateSearchSummary = function generateSearchSummary() {
+    var searchSummaryItems = [];
+    var forSearchSubject = /*#__PURE__*/React.createElement("span", {
       key: "resultsSummary-1"
     }, "for ", SEARCH_SUBJECTS[props.searchSubject]);
-    const withSpan = /*#__PURE__*/React.createElement("span", {
+    var withSpan = /*#__PURE__*/React.createElement("span", {
       key: "resultsSummary-2"
     }, "with");
-    const tagsToDisplay = ['q', 'topics', 'location', 'meetingDays', 'language', 'teamName', 'order', 'oer'];
-    let searchSummaryItems = [/*#__PURE__*/React.createElement("span", {
+    var tagsToDisplay = ['q', 'topics', 'location', 'meetingDays', 'language', 'teamName', 'order', 'oer'];
+    var resultsCount = /*#__PURE__*/React.createElement("span", {
       key: "resultsSummary-0"
-    }, ngettext(msgid`Showing ${props.searchResults.length} of ${props.totalResults} result`, `Showing ${props.searchResults.length} of ${props.totalResults} results`, props.totalResults))];
-    tagsToDisplay.map(tag => {
-      const tagsArray = generateTagsPhrase(tag);
+    }, ngettext(msgid(_templateObject2(), props.searchResults.length, props.totalResults), "Showing ".concat(props.searchResults.length, " of ").concat(props.totalResults, " results"), props.totalResults));
+
+    if (props.searchSubject === 'courses') {
+      searchSummaryItems.push(resultsCount);
+    }
+
+    tagsToDisplay.map(function (tag) {
+      var tagsArray = generateTagsPhrase(tag);
 
       if (!!tagsArray) {
         if (searchSummaryItems.length === 1) {
@@ -311,25 +370,26 @@ const SearchTags = props => {
     return searchSummaryItems;
   };
 
-  const reloadWindow = () => {
-    if (typeof window !== `undefined`) {
+  var reloadWindow = function reloadWindow() {
+    if (typeof window !== "undefined") {
+      window.history.replaceState({}, document.title, window.location.pathname);
       window.location.reload();
     }
   };
 
-  const noResults = props.searchResults.length === 0;
-  const resetButton = /*#__PURE__*/React.createElement("button", {
+  var noResults = props.searchResults.length === 0;
+  var resetButton = /*#__PURE__*/React.createElement("button", {
     key: "reset-search",
     onClick: reloadWindow,
     className: "p2pu-btn light with-outline"
-  }, t`reset the search form`);
+  }, t(_templateObject3()));
   return /*#__PURE__*/React.createElement("div", {
     className: "results-summary"
   }, /*#__PURE__*/React.createElement("div", {
     className: "search-tags wrapper"
   }, generateSearchSummary()), noResults && /*#__PURE__*/React.createElement("div", {
     className: "clear-search"
-  }, jt`To see more results, either remove some filters or ${resetButton}`));
+  }, jt(_templateObject4(), resetButton)));
 };
 
 export default SearchTags;

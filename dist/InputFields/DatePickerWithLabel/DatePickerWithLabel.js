@@ -1,53 +1,57 @@
 import _extends from "@babel/runtime/helpers/extends";
+import _defineProperty from "@babel/runtime/helpers/defineProperty";
+import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
+import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import InputWrapper from '../InputWrapper';
-const displayFormat = 'MMMM d, yyyy';
+var displayFormat = 'MMMM d, yyyy';
 
-const formatDateString = date => {
-  const year = date.getFullYear();
-  const month = `0${date.getMonth() + 1}`.slice(-2);
-  const day = `0${date.getDate()}`.slice(-2);
-  return `${year}-${month}-${day}`;
+var formatDateString = function formatDateString(date) {
+  var year = date.getFullYear();
+  var month = "0".concat(date.getMonth() + 1).slice(-2);
+  var day = "0".concat(date.getDate()).slice(-2);
+  return "".concat(year, "-").concat(month, "-").concat(day);
 };
 
-const DatePickerWithLabel = props => {
-  const [browserError, setBrowserError] = useState();
-  const {
-    label,
-    name,
-    id,
-    value,
-    handleChange,
-    required,
-    disabled,
-    classes,
-    type,
-    errorMessage,
-    helpText,
-    placeholder,
-    labelPosition,
-    minDate,
-    maxDate,
-    ...rest
-  } = props;
-  const inputEl = useRef();
+var DatePickerWithLabel = function DatePickerWithLabel(props) {
+  var _useState = useState(),
+      _useState2 = _slicedToArray(_useState, 2),
+      browserError = _useState2[0],
+      setBrowserError = _useState2[1];
 
-  const onChange = e => {
+  var label = props.label,
+      name = props.name,
+      id = props.id,
+      value = props.value,
+      handleChange = props.handleChange,
+      required = props.required,
+      disabled = props.disabled,
+      classes = props.classes,
+      type = props.type,
+      errorMessage = props.errorMessage,
+      helpText = props.helpText,
+      placeholder = props.placeholder,
+      labelPosition = props.labelPosition,
+      minDate = props.minDate,
+      maxDate = props.maxDate,
+      rest = _objectWithoutProperties(props, ["label", "name", "id", "value", "handleChange", "required", "disabled", "classes", "type", "errorMessage", "helpText", "placeholder", "labelPosition", "minDate", "maxDate"]);
+
+  var inputEl = useRef();
+
+  var onChange = function onChange(e) {
     setBrowserError(null);
-    handleChange({
-      [name]: e.currentTarget.value
-    });
+    handleChange(_defineProperty({}, name, e.currentTarget.value));
   };
 
-  const checkValidity = () => {
-    const validationMessage = inputEl.current.validationMessage;
+  var checkValidity = function checkValidity() {
+    var validationMessage = inputEl.current.validationMessage;
     setBrowserError(validationMessage);
   };
 
-  const combinedErrorMessage = [browserError, errorMessage].filter(Boolean).join("; ");
-  const min = minDate ? formatDateString(minDate) : null;
-  const max = maxDate ? formatDateString(maxDate) : null;
+  var combinedErrorMessage = [browserError, errorMessage].filter(Boolean).join("; ");
+  var min = minDate ? formatDateString(minDate) : null;
+  var max = maxDate ? formatDateString(maxDate) : null;
   return /*#__PURE__*/React.createElement(InputWrapper, {
     label: label,
     name: name,
@@ -83,14 +87,18 @@ DatePickerWithLabel.propTypes = {
   errorMessage: PropTypes.string,
   helpText: PropTypes.string,
   value: PropTypes.string,
-  minDate: PropTypes.object
+  minDate: PropTypes.object,
+  maxDate: PropTypes.object
 };
 DatePickerWithLabel.defaultProps = {
   classes: "",
   label: "Time picker",
-  handleChange: input => console.log("Implement a function to save selection", input),
+  handleChange: function handleChange(input) {
+    return console.log("Implement a function to save selection", input);
+  },
   required: false,
   disabled: false,
-  value: ""
+  value: "",
+  maxDate: new Date(2999, 12, 31)
 };
 export default DatePickerWithLabel;

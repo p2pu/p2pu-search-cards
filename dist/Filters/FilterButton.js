@@ -1,31 +1,93 @@
+import _taggedTemplateLiteral from "@babel/runtime/helpers/taggedTemplateLiteral";
+
+function _templateObject6() {
+  var data = _taggedTemplateLiteral(["OER mode"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["Sort by"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["Meeting Day(s)"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["Topics"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["Language"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["Location"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
 import React from 'react';
 import { t } from 'ttag';
 
-const Filter = ({
-  filter,
-  active,
-  updateActiveFilter,
-  label = null
-}) => {
-  const filterNames = {
-    'location': t`Location`,
-    'language': t`Language`,
-    'topics': t`Topics`,
-    'meetingDays': t`Meeting Day(s)`,
-    'orderCourses': t`Sort by`,
-    'oer': t`OER mode`
+var Filter = function Filter(_ref) {
+  var filter = _ref.filter,
+      active = _ref.active,
+      updateActiveFilter = _ref.updateActiveFilter,
+      _ref$label = _ref.label,
+      label = _ref$label === void 0 ? null : _ref$label;
+  var filterNames = {
+    'location': t(_templateObject()),
+    'language': t(_templateObject2()),
+    'topics': t(_templateObject3()),
+    'meetingDays': t(_templateObject4()),
+    'orderCourses': t(_templateObject5()),
+    'oer': t(_templateObject6())
   };
-  const iconName = active ? 'remove' : 'add';
-  const activeClass = active ? 'active' : '';
+  var iconName = active ? 'remove' : 'add';
+  var activeClass = active ? 'active' : '';
 
-  const handleClick = () => {
-    const newValue = active ? '' : filter;
+  var handleClick = function handleClick() {
+    var newValue = active ? '' : filter;
     updateActiveFilter(newValue);
   };
 
-  const filterLabel = label || filterNames[filter];
+  var filterLabel = label || filterNames[filter];
   return /*#__PURE__*/React.createElement("div", {
-    className: `filter ${activeClass}`
+    className: "filter ".concat(activeClass)
   }, /*#__PURE__*/React.createElement("button", {
     className: "p2pu-btn light with-outline",
     onClick: handleClick
