@@ -155,7 +155,7 @@ export default class Search extends Component {
     const sortCollection = SEARCH_PROPS[this.props.searchSubject].sort;
     const placeholder = SEARCH_PROPS[this.props.searchSubject].placeholder;
     const resultsSubtitle = SEARCH_PROPS[this.props.searchSubject].resultsSubtitle;
-    const { Browse, NoResultsComponent } = this.props;
+    const { Browse } = this.props;
     const showNoResultsComponent = this.state.totalResults === 0 && this.state.initialQuery && !Boolean(window.location.search);
 
     return(
@@ -169,25 +169,20 @@ export default class Search extends Component {
           order={this.props.order}
           {...this.state}
         />
-        {showNoResultsComponent ?
-          <NoResultsComponent />:
-          <SearchTags
-            updateQueryParams={this.updateQueryParams}
-            {...this.state}
-            {...this.props}
-          />
-        }
+        <SearchTags
+          updateQueryParams={this.updateQueryParams}
+          {...this.state}
+          {...this.props}
+        />
         <Browse
           results={this.state.searchResults}
           updateQueryParams={this.updateQueryParams}
-          onSelectResult={this.props.onSelectResult}
-          courseLink={this.props.courseLink}
-          moreInfo={this.props.moreInfo}
-          locale={this.props.locale}
-          columnBreakpoints={this.props.columnBreakpoints}
           signupClosedCount={this.state.signupClosedCount}
           signupOpenCount={this.state.signupOpenCount}
           updateResultsTab={this.updateResultsTab}
+          resultsTab={this.state.resultsTab}
+          showNoResultsComponent={true}
+          {...this.props}
         />
         {
           this.state.isLoading &&
@@ -198,7 +193,46 @@ export default class Search extends Component {
   }
 }
 
+const DefaultNoResults = props => {
+  console.log(props)
+  const renderLinks = () => {
+    const links = []
+    if (props.updateResultsTab) {
+      const otherTab = props.tabIndex === 0 ? 1 : 0
+      const otherTabName = otherTab === 0 ? 'open' : 'closed'
+      links.push(
+        <button key="reset-btn" className='btn p2pu-btn btn-sm dark d-inline-flex align-items-center py-2 px-3' onClick={() => props.updateResultsTab(otherTab)}>
+          <span className="material-icons mr-1">
+            arrow_forward
+          </span>
+          {t`View ${otherTabName} learning circles`}
+        </button>
+      )
+    }
+
+    if (props.contact) {
+      links.push(
+        <a key="contact-btn" href={`mailto:${props.contact}`} className='btn p2pu-btn btn-sm dark d-inline-flex align-items-center py-2 px-3'>
+          <span className="material-icons mr-1">
+            alternate_email
+          </span>
+          {t`Contact this team`}
+        </a>
+      )
+    }
+
+    return links
+  }
+
+  return (
+    <div className="my-4">
+      <p>{t`There are no learning circles available right now.`}</p>
+      { renderLinks() }
+    </div>
+  )
+}
+
 
 Search.defaultProps = {
-  NoResultsComponent: () => <p className="my-4">{t`There are no active learning circles right now.`}</p>
+  NoResultsComponent: (props) => <DefaultNoResults {...props} />
 }

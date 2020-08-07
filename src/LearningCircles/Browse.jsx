@@ -12,8 +12,7 @@ const defaultBreakpoints = {
   768: 1
 };
 
-const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoints, resultsCount, signupOpenCount, signupClosedCount, resultsTab, updateResultsTab }) => {
-  console.log(results)
+const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoints, resultsCount, signupOpenCount, signupClosedCount, resultsTab, updateResultsTab, NoResultsComponent, showNoResultsComponent, contact }) => {
 
   return (
     <Tabs selectedIndex={resultsTab} onSelect={updateResultsTab}>
@@ -22,36 +21,42 @@ const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoi
         <Tab><span className="minicaps bold text-xs">{`Signup closed (${signupClosedCount})`}</span></Tab>
       </TabList>
       <TabPanel>
-        <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
-          {
-            results.map((circle, index) => (
-              <LearningCircleCard
-                key={`learning-circle-${index}`}
-                learningCircle={circle}
-                locale={locale}
-                classes="col-12 mb-5 mt-4"
-                onSelectResult={onSelectResult}
-                isSignupOpen={true}
-              />
-            ))
-          }
-        </Masonry>
+        {true ?
+          <NoResultsComponent updateResultsTab={updateResultsTab} tabIndex={resultsTab} contact={contact} /> :
+          <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
+            {
+              results.map((circle, index) => (
+                <LearningCircleCard
+                  key={`learning-circle-${index}`}
+                  learningCircle={circle}
+                  locale={locale}
+                  classes="col-12 mb-5 mt-4"
+                  onSelectResult={onSelectResult}
+                  isSignupOpen={true}
+                />
+              ))
+            }
+          </Masonry>
+        }
       </TabPanel>
       <TabPanel>
-        <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
-          {
-            results.map((circle, index) => (
-              <LearningCircleCard
-                key={`learning-circle-${index}`}
-                learningCircle={circle}
-                locale={locale}
-                classes="col-12 mb-5 mt-4"
-                onSelectResult={onSelectResult}
-                isSignupOpen={false}
-              />
-            ))
-          }
-        </Masonry>
+        {true ?
+          <NoResultsComponent updateResultsTab={updateResultsTab} tabIndex={resultsTab} contact={contact} /> :
+          <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
+            {
+              results.map((circle, index) => (
+                <LearningCircleCard
+                  key={`learning-circle-${index}`}
+                  learningCircle={circle}
+                  locale={locale}
+                  classes="col-12 mb-5 mt-4"
+                  onSelectResult={onSelectResult}
+                  isSignupOpen={false}
+                />
+              ))
+            }
+          </Masonry>
+        }
       </TabPanel>
     </Tabs>
   )
