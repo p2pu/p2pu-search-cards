@@ -37,10 +37,6 @@ msgstr ""
 msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
 msgstr ""
 
-#: src/Courses/Browse.jsx:32
-msgid "Use this course"
-msgstr ""
-
 #: src/Courses/CourseCard.jsx:13
 msgid "Always available"
 msgstr ""
@@ -90,6 +86,10 @@ msgstr ""
 
 #: src/Courses/CourseCard.jsx:94
 msgid "Course website"
+msgstr ""
+
+#: src/Courses/Browse.jsx:32
+msgid "Use this course"
 msgstr ""
 
 #: src/Search/Search.jsx:208

@@ -21,7 +21,7 @@ const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoi
         <Tab><span className="minicaps bold text-xs">{`Signup closed (${signupClosedCount})`}</span></Tab>
       </TabList>
       <TabPanel>
-        {true ?
+        {results.length === 0 ?
           <NoResultsComponent updateResultsTab={updateResultsTab} tabIndex={resultsTab} contact={contact} /> :
           <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
             {
@@ -40,7 +40,7 @@ const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoi
         }
       </TabPanel>
       <TabPanel>
-        {true ?
+        {results.length === 0 ?
           <NoResultsComponent updateResultsTab={updateResultsTab} tabIndex={resultsTab} contact={contact} /> :
           <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
             {
