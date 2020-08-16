@@ -37,6 +37,10 @@ msgstr ""
 msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
 msgstr ""
 
+#: src/Courses/Browse.jsx:32
+msgid "Use this course"
+msgstr ""
+
 #: src/Courses/CourseCard.jsx:13
 msgid "Always available"
 msgstr ""
@@ -86,10 +90,6 @@ msgstr ""
 
 #: src/Courses/CourseCard.jsx:94
 msgid "Course website"
-msgstr ""
-
-#: src/Courses/Browse.jsx:32
-msgid "Use this course"
 msgstr ""
 
 #: src/Search/Search.jsx:208
@@ -180,52 +180,6 @@ msgstr ""
 msgid "Sunday"
 msgstr ""
 
-#: src/utils/constants.js:14
-msgid "Course title"
-msgstr ""
-
-#: src/utils/constants.js:15
-msgid "Popularity"
-msgstr ""
-
-#: src/utils/constants.js:16
-msgid "Community rating"
-msgstr ""
-
-#: src/utils/constants.js:17
-msgid "Recently added"
-msgstr ""
-
-#: src/utils/constants.js:28
-msgid "Keyword, organization, facilitator, etc..."
-msgstr ""
-
-#: src/utils/constants.js:33
-msgid "Title, subject, etc..."
-msgstr ""
-
-#: src/Filters/LocationFilterForm.jsx:96
-#: src/Search/SearchTags.jsx:111
-#, javascript-format
-msgid "Within ${ value } ${ unit }"
-msgstr ""
-
-#: src/Search/SearchTags.jsx:180
-#, javascript-format
-msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
-msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/Search/SearchTags.jsx:218
-msgid "reset the search form"
-msgstr ""
-
-#: src/Search/SearchTags.jsx:227
-#, javascript-format
-msgid "To see more results, either remove some filters or ${ resetButton }"
-msgstr ""
-
 #: src/LearningCircleSignup/SignupForm.jsx:99
 msgid "More information."
 msgstr ""
@@ -278,8 +232,50 @@ msgstr ""
 msgid "Submitting..."
 msgstr ""
 
-#: src/Search/SearchBar.jsx:17
-msgid "Search"
+#: src/utils/constants.js:14
+msgid "Course title"
+msgstr ""
+
+#: src/utils/constants.js:15
+msgid "Popularity"
+msgstr ""
+
+#: src/utils/constants.js:16
+msgid "Community rating"
+msgstr ""
+
+#: src/utils/constants.js:17
+msgid "Recently added"
+msgstr ""
+
+#: src/utils/constants.js:28
+msgid "Keyword, organization, facilitator, etc..."
+msgstr ""
+
+#: src/utils/constants.js:33
+msgid "Title, subject, etc..."
+msgstr ""
+
+#: src/Filters/LocationFilterForm.jsx:96
+#: src/Search/SearchTags.jsx:111
+#, javascript-format
+msgid "Within ${ value } ${ unit }"
+msgstr ""
+
+#: src/Search/SearchTags.jsx:180
+#, javascript-format
+msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
+msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Search/SearchTags.jsx:218
+msgid "reset the search form"
+msgstr ""
+
+#: src/Search/SearchTags.jsx:227
+#, javascript-format
+msgid "To see more results, either remove some filters or ${ resetButton }"
 msgstr ""
 
 #: src/LearningCircleSignup/SignupSuccess.jsx:8
@@ -288,13 +284,17 @@ msgid ""
 "facilitator and we'll send you a reminder two days before each meeting."
 msgstr ""
 
-#: src/Filters/FiltersSection.jsx:21
-msgid "Filter"
+#: src/Search/SearchBar.jsx:17
+msgid "Search"
 msgstr ""
 
 #: src/Filters/FilterButton.jsx:10
 #: src/Filters/SortSection.jsx:30
 msgid "Sort by"
+msgstr ""
+
+#: src/Filters/FiltersSection.jsx:21
+msgid "Filter"
 msgstr ""
 
 #: src/Filters/FilterButton.jsx:6
@@ -319,6 +319,14 @@ msgstr ""
 
 #: src/Filters/TopicsFilterForm.jsx:48
 msgid "Select as many topics as you want"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:43
+msgid "What languages are you interested in?"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:49
+msgid "Select as many languages as you want"
 msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:40
@@ -363,14 +371,6 @@ msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:139
 msgid "No results for this city"
-msgstr ""
-
-#: src/Filters/LanguageFilterForm.jsx:43
-msgid "What languages are you interested in?"
-msgstr ""
-
-#: src/Filters/LanguageFilterForm.jsx:49
-msgid "Select as many languages as you want"
 msgstr ""
 
 #: src/Filters/OerFilterForm.jsx:8

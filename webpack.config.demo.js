@@ -53,16 +53,11 @@ module.exports = ({locale}={}) => {
           ]
         },
         {
-          test: /\.svg$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                esModule: false,
-                extract: true,
-              }
-            }
-          ]
+        test: /\.svg/,
+          use: {
+            loader: 'svg-url-loader',
+            options: {}
+          }
         }
       ]
     },
