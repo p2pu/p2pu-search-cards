@@ -63,7 +63,7 @@ const SearchTags = (props) => {
   }
 
   const generateOrderTag = () => {
-    if (props.order) {
+    if (props.searchSubject === 'courses' && props.order) {
       const onDelete = (value) => { props.updateQueryParams({ order: null }) };
       const order = COURSES_SORT_OPTIONS.find(order => order.value == props.order)
 
