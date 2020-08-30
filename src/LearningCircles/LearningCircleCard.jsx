@@ -90,25 +90,14 @@ const LearningCircleCard = (props) => {
           {t`Meeting at ${learningCircle.venue}`}
         </p>
 
-        { isSignupOpen &&
-          <div className='actions'>
-            <div className="primary-cta">
-              <button className="btn p2pu-btn transparent">
-                {t`Sign up`}
-              </button>
-            </div>
+        <div className='actions'>
+          <div className="primary-cta">
+            <button className="btn p2pu-btn transparent">
+              {isSignupOpen ? t`Sign up` : t`View details`}
+            </button>
           </div>
-        }
+        </div>
 
-        { !isSignupOpen &&
-          <div className='actions'>
-            <div className="primary-cta">
-              <button className="btn p2pu-btn transparent">
-                {t`View details`}
-              </button>
-            </div>
-          </div>
-        }
       </CardBody>
     </Card>
   );

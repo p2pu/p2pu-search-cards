@@ -19,7 +19,7 @@ export default class CitySelect extends Component {
   }
 
   populateCities = () => {
-    const url = 'http://localhost:8000/api/learningcircles/cities'
+    const url = 'https://learningcircles.p2pu.org/api/learningcircles/cities'
     jsonp(url, null, (err, res) => {
       if (err) {
         console.log(err)
