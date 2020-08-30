@@ -149,7 +149,7 @@ var SearchTags = function SearchTags(props) {
   };
 
   var generateOrderTag = function generateOrderTag() {
-    if (props.order) {
+    if (props.searchSubject === 'courses' && props.order) {
       var onDelete = function onDelete(value) {
         props.updateQueryParams({
           order: null

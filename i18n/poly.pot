@@ -9,7 +9,7 @@ msgid "Sign up for ${ course.title }"
 msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:34
-#: src/LearningCircles/LearningCircleCard.jsx:66
+#: src/LearningCircles/LearningCircleCard.jsx:86
 msgid "Facilitated by ${ learningCircle.facilitator }"
 msgstr ""
 
@@ -92,57 +92,61 @@ msgstr ""
 msgid "Course website"
 msgstr ""
 
-#: src/Search/Search.jsx:208
+#: src/Search/Search.jsx:217
 #, javascript-format
 msgid "View ${ otherTabName } learning circles"
 msgstr ""
 
-#: src/Search/Search.jsx:219
+#: src/Search/Search.jsx:228
 msgid "Contact this team"
 msgstr ""
 
-#: src/Search/Search.jsx:229
+#: src/Search/Search.jsx:238
 msgid "There are no learning circles available right now."
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:14
+#: src/LearningCircles/LearningCircleCard.jsx:21
 #, javascript-format
 msgid ""
 "${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
 "learningCircle.time_zone })"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:15
+#: src/LearningCircles/LearningCircleCard.jsx:22
 #, javascript-format
 msgid "${ learningCircle.weeks } weeks starting ${ formattedStartDate }"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:33
+#: src/LearningCircles/LearningCircleCard.jsx:53
 msgid "Registration open!"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:37
+#: src/LearningCircles/LearningCircleCard.jsx:57
 #, javascript-format
 msgid "Ended ${ formattedEndDate }"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:37
+#: src/LearningCircles/LearningCircleCard.jsx:57
 msgid "Started ${ formattedStartDate }"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:37
+#: src/LearningCircles/LearningCircleCard.jsx:57
 #, javascript-format
 msgid "Starting ${ formattedStartDate }"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:70
+#: src/LearningCircles/LearningCircleCard.jsx:90
 #, javascript-format
 msgid "Meeting at ${ learningCircle.venue }"
 msgstr ""
 
 #: src/LearningCircleSignup/SignupForm.jsx:183
-#: src/LearningCircles/LearningCircleCard.jsx:77
+#: src/LearningCircles/LearningCircleCard.jsx:96
 msgid "Sign up"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:96
+msgid "View details"
 msgstr ""
 
 #: src/utils/constants.js:4
@@ -178,6 +182,30 @@ msgstr ""
 #: src/utils/constants.js:10
 #: src/utils/i18n.js:10
 msgid "Sunday"
+msgstr ""
+
+#: src/utils/constants.js:14
+msgid "Course title"
+msgstr ""
+
+#: src/utils/constants.js:15
+msgid "Popularity"
+msgstr ""
+
+#: src/utils/constants.js:16
+msgid "Community rating"
+msgstr ""
+
+#: src/utils/constants.js:17
+msgid "Recently added"
+msgstr ""
+
+#: src/utils/constants.js:28
+msgid "Keyword, organization, facilitator, etc..."
+msgstr ""
+
+#: src/utils/constants.js:33
+msgid "Title, subject, etc..."
 msgstr ""
 
 #: src/LearningCircleSignup/SignupForm.jsx:99
@@ -232,30 +260,6 @@ msgstr ""
 msgid "Submitting..."
 msgstr ""
 
-#: src/utils/constants.js:14
-msgid "Course title"
-msgstr ""
-
-#: src/utils/constants.js:15
-msgid "Popularity"
-msgstr ""
-
-#: src/utils/constants.js:16
-msgid "Community rating"
-msgstr ""
-
-#: src/utils/constants.js:17
-msgid "Recently added"
-msgstr ""
-
-#: src/utils/constants.js:28
-msgid "Keyword, organization, facilitator, etc..."
-msgstr ""
-
-#: src/utils/constants.js:33
-msgid "Title, subject, etc..."
-msgstr ""
-
 #: src/Filters/LocationFilterForm.jsx:96
 #: src/Search/SearchTags.jsx:111
 #, javascript-format
@@ -288,13 +292,13 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#: src/Filters/FiltersSection.jsx:21
+msgid "Filter"
+msgstr ""
+
 #: src/Filters/FilterButton.jsx:10
 #: src/Filters/SortSection.jsx:30
 msgid "Sort by"
-msgstr ""
-
-#: src/Filters/FiltersSection.jsx:21
-msgid "Filter"
 msgstr ""
 
 #: src/Filters/FilterButton.jsx:6

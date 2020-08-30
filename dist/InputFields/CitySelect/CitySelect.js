@@ -36,13 +36,6 @@ var CitySelect = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "convertCityToSelectOption", function (city) {
-      return {
-        label: city,
-        value: city.split(',')[0].toLowerCase().replace(/ /, '_')
-      };
-    });
-
     _defineProperty(_assertThisInitialized(_this), "onChange", function (selected) {
       var query = selected ? selected.label : selected;
 
@@ -50,7 +43,7 @@ var CitySelect = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "populateCities", function () {
-      var url = 'https://learningcircles.p2pu.org/api/learningcircles/?active=true&signup=open';
+      var url = 'https://learningcircles.p2pu.org/api/learningcircles/cities';
       jsonp(url, null, function (err, res) {
         if (err) {
           console.log(err);
@@ -60,27 +53,19 @@ var CitySelect = /*#__PURE__*/function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "filterCitiesFromResults", function (courses) {
-      var cities = courses.map(function (course) {
-        if (course.city.length > 0) {
-          return _this.convertCityToSelectOption(course.city);
-        }
-      });
+    _defineProperty(_assertThisInitialized(_this), "filterCitiesFromResults", function (cities) {
       cities = cities.filter(function (city) {
         return city;
       });
 
       var uniqBy = function uniqBy(arr, fn) {
-        return _toConsumableArray(new Map(arr.reverse().map(function (x) {
+        return _toConsumableArray(new Map(arr.map(function (x) {
           return [typeof fn === 'function' ? fn(x) : x[fn], x];
         })).values());
       };
 
       cities = uniqBy(cities, function (el) {
         return el.value;
-      });
-      cities.sort(function (el) {
-        return el.label;
       });
 
       _this.setState({

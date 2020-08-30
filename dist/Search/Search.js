@@ -8,8 +8,28 @@ import _possibleConstructorReturn from "@babel/runtime/helpers/possibleConstruct
 import _getPrototypeOf from "@babel/runtime/helpers/getPrototypeOf";
 import _defineProperty from "@babel/runtime/helpers/defineProperty";
 
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["There are no learning circles available right now."]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["Contact this team"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["There are no active learning circles right now."]);
+  var data = _taggedTemplateLiteral(["View ", " learning circles"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -60,7 +80,8 @@ var Search = /*#__PURE__*/function (_Component) {
         appendResults: false,
         resultsTab: 0,
         // open for signup
-        signup: 'open'
+        signup: 'open',
+        order: _this.props.searchSubject === 'learningCircles' ? 'first_meeting_date' : null
       };
       var parsedParams = queryString.parse(window.location.search, {
         arrayFormat: 'comma'
@@ -91,9 +112,14 @@ var Search = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "updateResultsTab", function (tabIndex) {
+      _this.setState({
+        searchResults: []
+      });
+
       _this.updateQueryParams({
         resultsTab: tabIndex,
-        signup: tabIndex === 0 ? 'open' : 'closed'
+        signup: tabIndex === 0 ? 'open' : 'closed',
+        order: tabIndex === 0 ? 'first_meeting_date' : 'last_meeting_date'
       });
     });
 
@@ -170,6 +196,13 @@ var Search = /*#__PURE__*/function (_Component) {
       this.loadInitialData();
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (prevState.city !== this.state.city) {
+        this.updateResultsTab(0);
+      }
+    }
+  }, {
     key: "_loadInitialData",
     value: function _loadInitialData() {
       this.sendQuery({
@@ -244,9 +277,7 @@ var Search = /*#__PURE__*/function (_Component) {
       var sortCollection = SEARCH_PROPS[this.props.searchSubject].sort;
       var placeholder = SEARCH_PROPS[this.props.searchSubject].placeholder;
       var resultsSubtitle = SEARCH_PROPS[this.props.searchSubject].resultsSubtitle;
-      var _this$props = this.props,
-          Browse = _this$props.Browse,
-          NoResultsComponent = _this$props.NoResultsComponent;
+      var Browse = this.props.Browse;
       var showNoResultsComponent = this.state.totalResults === 0 && this.state.initialQuery && !Boolean(window.location.search);
       return /*#__PURE__*/React.createElement("div", {
         className: "page"
@@ -257,20 +288,17 @@ var Search = /*#__PURE__*/function (_Component) {
         sortCollection: sortCollection,
         searchSubject: this.props.searchSubject,
         order: this.props.order
-      }, this.state)), showNoResultsComponent ? /*#__PURE__*/React.createElement(NoResultsComponent, null) : /*#__PURE__*/React.createElement(SearchTags, _extends({
+      }, this.state)), /*#__PURE__*/React.createElement(SearchTags, _extends({
         updateQueryParams: this.updateQueryParams
-      }, this.state, this.props)), /*#__PURE__*/React.createElement(Browse, {
+      }, this.state, this.props)), /*#__PURE__*/React.createElement(Browse, _extends({
         results: this.state.searchResults,
         updateQueryParams: this.updateQueryParams,
-        onSelectResult: this.props.onSelectResult,
-        courseLink: this.props.courseLink,
-        moreInfo: this.props.moreInfo,
-        locale: this.props.locale,
-        columnBreakpoints: this.props.columnBreakpoints,
         signupClosedCount: this.state.signupClosedCount,
         signupOpenCount: this.state.signupOpenCount,
-        updateResultsTab: this.updateResultsTab
-      }), this.state.isLoading && /*#__PURE__*/React.createElement("div", {
+        updateResultsTab: this.updateResultsTab,
+        resultsTab: this.state.resultsTab,
+        showNoResultsComponent: true
+      }, this.props)), this.state.isLoading && /*#__PURE__*/React.createElement("div", {
         className: "loader"
       }));
     }
@@ -280,10 +308,47 @@ var Search = /*#__PURE__*/function (_Component) {
 }(Component);
 
 export { Search as default };
+
+var DefaultNoResults = function DefaultNoResults(props) {
+  console.log(props);
+
+  var renderLinks = function renderLinks() {
+    var links = [];
+
+    if (props.updateResultsTab) {
+      var otherTab = props.tabIndex === 0 ? 1 : 0;
+      var otherTabName = otherTab === 0 ? 'open' : 'closed and completed';
+      links.push( /*#__PURE__*/React.createElement("button", {
+        key: "reset-btn",
+        className: "btn p2pu-btn btn-sm dark d-inline-flex align-items-center py-2 px-3",
+        onClick: function onClick() {
+          return props.updateResultsTab(otherTab);
+        }
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "material-icons mr-1"
+      }, "arrow_forward"), t(_templateObject(), otherTabName)));
+    }
+
+    if (props.contact) {
+      links.push( /*#__PURE__*/React.createElement("a", {
+        key: "contact-btn",
+        href: "mailto:".concat(props.contact),
+        className: "btn p2pu-btn btn-sm dark d-inline-flex align-items-center py-2 px-3"
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "material-icons mr-1"
+      }, "alternate_email"), t(_templateObject2())));
+    }
+
+    return links;
+  };
+
+  return /*#__PURE__*/React.createElement("div", {
+    className: "my-4"
+  }, /*#__PURE__*/React.createElement("p", null, t(_templateObject3())), renderLinks());
+};
+
 Search.defaultProps = {
-  NoResultsComponent: function NoResultsComponent() {
-    return /*#__PURE__*/React.createElement("p", {
-      className: "my-4"
-    }, t(_templateObject()));
+  NoResultsComponent: function NoResultsComponent(props) {
+    return /*#__PURE__*/React.createElement(DefaultNoResults, props);
   }
 };

@@ -212,6 +212,10 @@ span.course-title {
         transform: translate(2px, -6px);
         opacity: 1;
 
+        .title {
+          text-decoration: underline;
+        }
+
         .actions {
           .primary-cta {
             .p2pu-btn {
@@ -283,7 +287,7 @@ span.course-title {
           }
         }
 
-        a {
+        a, &a {
           &:hover {
             text-decoration: underline;
             cursor: pointer;

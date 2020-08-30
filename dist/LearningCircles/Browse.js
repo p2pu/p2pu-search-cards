@@ -19,8 +19,10 @@ var BrowseLearningCircles = function BrowseLearningCircles(_ref) {
       signupOpenCount = _ref.signupOpenCount,
       signupClosedCount = _ref.signupClosedCount,
       resultsTab = _ref.resultsTab,
-      updateResultsTab = _ref.updateResultsTab;
-  console.log(results);
+      updateResultsTab = _ref.updateResultsTab,
+      NoResultsComponent = _ref.NoResultsComponent,
+      showNoResultsComponent = _ref.showNoResultsComponent,
+      contact = _ref.contact;
   return /*#__PURE__*/React.createElement(Tabs, {
     selectedIndex: resultsTab,
     onSelect: updateResultsTab
@@ -28,7 +30,11 @@ var BrowseLearningCircles = function BrowseLearningCircles(_ref) {
     className: "minicaps bold text-xs"
   }, "Signup open (".concat(signupOpenCount, ")"))), /*#__PURE__*/React.createElement(Tab, null, /*#__PURE__*/React.createElement("span", {
     className: "minicaps bold text-xs"
-  }, "Signup closed (".concat(signupClosedCount, ")")))), /*#__PURE__*/React.createElement(TabPanel, null, /*#__PURE__*/React.createElement(Masonry, {
+  }, "Signup closed (".concat(signupClosedCount, ")")))), /*#__PURE__*/React.createElement(TabPanel, null, results.length === 0 ? /*#__PURE__*/React.createElement(NoResultsComponent, {
+    updateResultsTab: updateResultsTab,
+    tabIndex: resultsTab,
+    contact: contact
+  }) : /*#__PURE__*/React.createElement(Masonry, {
     breakpointCols: columnBreakpoints || defaultBreakpoints,
     className: "masonry-grid search-results row grid",
     columnClassName: "masonry-grid_column"
@@ -41,7 +47,11 @@ var BrowseLearningCircles = function BrowseLearningCircles(_ref) {
       onSelectResult: onSelectResult,
       isSignupOpen: true
     });
-  }))), /*#__PURE__*/React.createElement(TabPanel, null, /*#__PURE__*/React.createElement(Masonry, {
+  }))), /*#__PURE__*/React.createElement(TabPanel, null, results.length === 0 ? /*#__PURE__*/React.createElement(NoResultsComponent, {
+    updateResultsTab: updateResultsTab,
+    tabIndex: resultsTab,
+    contact: contact
+  }) : /*#__PURE__*/React.createElement(Masonry, {
     breakpointCols: columnBreakpoints || defaultBreakpoints,
     className: "masonry-grid search-results row grid",
     columnClassName: "masonry-grid_column"

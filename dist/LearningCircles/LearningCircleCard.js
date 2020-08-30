@@ -1,5 +1,15 @@
 import _taggedTemplateLiteral from "@babel/runtime/helpers/taggedTemplateLiteral";
 
+function _templateObject10() {
+  var data = _taggedTemplateLiteral(["View details"]);
+
+  _templateObject10 = function _templateObject10() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject9() {
   var data = _taggedTemplateLiteral(["Sign up"]);
 
@@ -95,6 +105,12 @@ import { t } from "ttag";
 import { Card, CardTitle, CardBody } from '../Card';
 import { COLOR_CLASSES } from '../utils/constants';
 import { date, day, time } from '../utils/i18n';
+var coloursByStatus = {
+  startingSoon: 'p2pu-blue',
+  inProgressOpen: 'p2pu-green',
+  inProgressClosed: 'p2pu-yellow',
+  completed: 'p2pu-orange'
+};
 
 var LearningCircleCard = function LearningCircleCard(props) {
   var learningCircle = props.learningCircle,
@@ -108,10 +124,22 @@ var LearningCircleCard = function LearningCircleCard(props) {
   var schedule = t(_templateObject(), weekDay, formattedStartTime, formattedEndTime, learningCircle.time_zone);
   var duration = t(_templateObject2(), learningCircle.weeks, formattedStartDate);
   var name = learningCircle.name ? learningCircle.name : learningCircle.course.title;
-  var colorClass = COLOR_CLASSES[learningCircle.course.id % COLOR_CLASSES.length];
   var isSignupOpen = props.isSignupOpen;
   var isCompleted = new Date(learningCircle.last_meeting_date) < new Date();
   var isInProgress = !isCompleted && new Date(learningCircle.start_date) < new Date();
+  var status;
+
+  if (isSignupOpen && new Date(learningCircle.start_date) > new Date()) {
+    status = 'startingSoon';
+  } else if (isSignupOpen && isInProgress) {
+    status = 'inProgressOpen';
+  } else if (isInProgress) {
+    status = 'inProgressClosed';
+  } else {
+    status = 'completed';
+  }
+
+  var colorClass = coloursByStatus[status];
 
   var onClick = function onClick() {
     if (onSelectResult) {
@@ -124,7 +152,7 @@ var LearningCircleCard = function LearningCircleCard(props) {
 
   return /*#__PURE__*/React.createElement(Card, {
     colorClass: colorClass,
-    classes: "".concat(props.classes, " ").concat(isSignupOpen ? "" : "closed"),
+    classes: "".concat(props.classes),
     role: "button",
     tabIndex: 0,
     onClick: onClick
@@ -163,13 +191,13 @@ var LearningCircleCard = function LearningCircleCard(props) {
     className: "location"
   }, /*#__PURE__*/React.createElement("i", {
     className: "material-icons"
-  }, "store"), t(_templateObject8(), learningCircle.venue)), isSignupOpen && /*#__PURE__*/React.createElement("div", {
+  }, "store"), t(_templateObject8(), learningCircle.venue)), /*#__PURE__*/React.createElement("div", {
     className: "actions"
   }, /*#__PURE__*/React.createElement("div", {
     className: "primary-cta"
   }, /*#__PURE__*/React.createElement("button", {
     className: "btn p2pu-btn transparent"
-  }, t(_templateObject9()))))));
+  }, isSignupOpen ? t(_templateObject9()) : t(_templateObject10()))))));
 };
 
 export default LearningCircleCard;
