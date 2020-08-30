@@ -4,6 +4,13 @@ import { Card, CardTitle, CardBody } from '../Card';
 import { COLOR_CLASSES } from '../utils/constants';
 import { date, day, time } from '../utils/i18n';
 
+const coloursByStatus = {
+  startingSoon: 'p2pu-blue',
+  inProgressOpen: 'p2pu-green',
+  inProgressClosed: 'p2pu-yellow',
+  completed: 'p2pu-orange',
+}
+
 const LearningCircleCard = (props) => {
   const { learningCircle, locale, onSelectResult } = props;
   const formattedStartDate = date(learningCircle.start_date, locale);
@@ -14,10 +21,23 @@ const LearningCircleCard = (props) => {
   const schedule = t`${weekDay} from ${formattedStartTime} to ${formattedEndTime} (${learningCircle.time_zone})`;
   const duration = t`${learningCircle.weeks} weeks starting ${formattedStartDate}`;
   const name = learningCircle.name ? learningCircle.name : learningCircle.course.title;
-  const colorClass = COLOR_CLASSES[(learningCircle.course.id % COLOR_CLASSES.length)];
   const isSignupOpen = props.isSignupOpen
   const isCompleted = new Date(learningCircle.last_meeting_date) < new Date()
   const isInProgress = !isCompleted && new Date(learningCircle.start_date) < new Date()
+
+  let status;
+
+  if (isSignupOpen && new Date(learningCircle.start_date) > new Date()) {
+    status = 'startingSoon'
+  } else if (isSignupOpen && isInProgress) {
+    status = 'inProgressOpen'
+  } else if (isInProgress) {
+    status = 'inProgressClosed'
+  } else {
+    status = 'completed'
+  }
+
+  const colorClass = coloursByStatus[status]
 
   const onClick = () => {
     if (onSelectResult) {
@@ -29,7 +49,7 @@ const LearningCircleCard = (props) => {
   }
 
   return (
-    <Card colorClass={colorClass} classes={`${props.classes} ${isSignupOpen ? "" : "closed"}`} role='button' tabIndex={0} onClick={onClick}>
+    <Card colorClass={colorClass} classes={`${props.classes}`} role='button' tabIndex={0} onClick={onClick}>
       { isSignupOpen && <div className="status-tag minicaps bold">{ t`Registration open!`}</div> }
       <CardTitle>{ name }</CardTitle>
       <CardBody>
@@ -70,15 +90,14 @@ const LearningCircleCard = (props) => {
           {t`Meeting at ${learningCircle.venue}`}
         </p>
 
-        { isSignupOpen &&
-          <div className='actions'>
-            <div className="primary-cta">
-              <button className="btn p2pu-btn transparent">
-                {t`Sign up`}
-              </button>
-            </div>
+        <div className='actions'>
+          <div className="primary-cta">
+            <button className="btn p2pu-btn transparent">
+              {isSignupOpen ? t`Sign up` : t`View details`}
+            </button>
           </div>
-        }
+        </div>
+
       </CardBody>
     </Card>
   );

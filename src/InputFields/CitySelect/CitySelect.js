@@ -12,13 +12,6 @@ export default class CitySelect extends Component {
     this.populateCities();
   }
 
-  convertCityToSelectOption = (city) => {
-    return {
-      label: city,
-      value: city.split(',')[0].toLowerCase().replace(/ /, '_')
-    }
-  }
-
   onChange = (selected) => {
     const query = selected ? selected.label : selected;
 
@@ -26,7 +19,7 @@ export default class CitySelect extends Component {
   }
 
   populateCities = () => {
-    const url = 'https://learningcircles.p2pu.org/api/learningcircles/?active=true&signup=open'
+    const url = 'https://learningcircles.p2pu.org/api/learningcircles/cities'
     jsonp(url, null, (err, res) => {
       if (err) {
         console.log(err)
@@ -36,17 +29,10 @@ export default class CitySelect extends Component {
     })
   }
 
-  filterCitiesFromResults = (courses) => {
-    let cities = courses.map(course => {
-      if (course.city.length > 0) {
-        return this.convertCityToSelectOption(course.city)
-      }
-    });
-
+  filterCitiesFromResults = (cities) => {
     cities = cities.filter( city => city );
-    const uniqBy = (arr, fn) => [...new Map(arr.reverse().map((x) => [typeof fn === 'function' ? fn(x) : x[fn], x])).values()]
+    const uniqBy = (arr, fn) => [...new Map(arr.map((x) => [typeof fn === 'function' ? fn(x) : x[fn], x])).values()]
     cities = uniqBy(cities, el => el.value);
-    cities.sort(el => el.label);
 
     this.setState({ cities });
   }

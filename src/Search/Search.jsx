@@ -36,7 +36,8 @@ export default class Search extends Component {
       hasMoreResults: false,
       appendResults: false,
       resultsTab: 0, // open for signup
-      signup: 'open'
+      signup: 'open',
+      order: this.props.searchSubject === 'learningCircles' ? 'first_meeting_date' : null
     }
 
     let parsedParams = queryString.parse(window.location.search, { arrayFormat: 'comma' });
@@ -78,6 +79,12 @@ export default class Search extends Component {
     };
 
     this.loadInitialData();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.city !== this.state.city) {
+      this.updateResultsTab(0)
+    }
   }
 
   _loadInitialData() {
@@ -144,9 +151,11 @@ export default class Search extends Component {
   }
 
   updateResultsTab = (tabIndex) => {
+    this.setState({ searchResults: [] })
     this.updateQueryParams({
       resultsTab: tabIndex,
       signup: tabIndex === 0 ? 'open' : 'closed',
+      order: tabIndex === 0 ? 'first_meeting_date' : 'last_meeting_date',
     })
   }
 
@@ -199,7 +208,7 @@ const DefaultNoResults = props => {
     const links = []
     if (props.updateResultsTab) {
       const otherTab = props.tabIndex === 0 ? 1 : 0
-      const otherTabName = otherTab === 0 ? 'open' : 'closed'
+      const otherTabName = otherTab === 0 ? 'open' : 'closed and completed'
       links.push(
         <button key="reset-btn" className='btn p2pu-btn btn-sm dark d-inline-flex align-items-center py-2 px-3' onClick={() => props.updateResultsTab(otherTab)}>
           <span className="material-icons mr-1">
