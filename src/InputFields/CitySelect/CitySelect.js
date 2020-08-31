@@ -24,7 +24,11 @@ export default class CitySelect extends Component {
       if (err) {
         console.log(err)
       } else {
-        this.filterCitiesFromResults(res.items);
+        if (res.items) {
+          this.filterCitiesFromResults(res.items);
+        } else {
+          console.log(res)
+        }
       }
     })
   }

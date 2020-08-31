@@ -12,13 +12,16 @@ const defaultBreakpoints = {
   768: 1
 };
 
+const openTabText = t`Open`
+const closedTabText = t`Closed and completed`
+
 const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoints, resultsCount, signupOpenCount, signupClosedCount, resultsTab, updateResultsTab, NoResultsComponent, showNoResultsComponent, contact }) => {
 
   return (
     <Tabs selectedIndex={resultsTab} onSelect={updateResultsTab}>
       <TabList>
-        <Tab><span className="minicaps bold text-xs">{`Signup open (${signupOpenCount})`}</span></Tab>
-        <Tab><span className="minicaps bold text-xs">{`Signup closed (${signupClosedCount})`}</span></Tab>
+        <Tab><span className="minicaps bold text-xs">{`${openTabText} (${signupOpenCount})`}</span></Tab>
+        <Tab><span className="minicaps bold text-xs">{`${closedTabText} (${signupClosedCount})`}</span></Tab>
       </TabList>
       <TabPanel>
         {results.length === 0 ?
