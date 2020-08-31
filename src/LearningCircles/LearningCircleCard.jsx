@@ -4,11 +4,23 @@ import { Card, CardTitle, CardBody } from '../Card';
 import { COLOR_CLASSES } from '../utils/constants';
 import { date, day, time } from '../utils/i18n';
 
-const coloursByStatus = {
-  startingSoon: 'p2pu-blue',
-  inProgressOpen: 'p2pu-green',
-  inProgressClosed: 'p2pu-yellow',
-  completed: 'p2pu-orange',
+const cardFormatting = {
+  startingSoon: {
+    color: 'p2pu-blue',
+    label: 'Starting soon'
+  },
+  inProgressOpen: {
+    color: 'p2pu-green',
+    label: 'In progress'
+  },
+  inProgressClosed: {
+    color: 'p2pu-yellow',
+    label: 'In progress'
+  },
+  completed: {
+    color: 'p2pu-orange',
+    label: 'Completed'
+  }
 }
 
 const LearningCircleCard = (props) => {
@@ -37,7 +49,8 @@ const LearningCircleCard = (props) => {
     status = 'completed'
   }
 
-  const colorClass = coloursByStatus[status]
+  const colorClass = cardFormatting[status].color
+  const cardLabel = cardFormatting[status].label
 
   const onClick = () => {
     if (onSelectResult) {
@@ -50,7 +63,7 @@ const LearningCircleCard = (props) => {
 
   return (
     <Card colorClass={colorClass} classes={`${props.classes}`} role='button' tabIndex={0} onClick={onClick}>
-      { isSignupOpen && <div className="status-tag minicaps bold">{ t`Registration open!`}</div> }
+      <div className="status-tag minicaps bold">{t(cardLabel)}</div>
       <CardTitle>{ name }</CardTitle>
       <CardBody>
         <p className="start-date bold m-0">

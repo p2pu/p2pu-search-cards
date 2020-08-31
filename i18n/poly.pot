@@ -9,7 +9,7 @@ msgid "Sign up for ${ course.title }"
 msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:34
-#: src/LearningCircles/LearningCircleCard.jsx:86
+#: src/LearningCircles/LearningCircleCard.jsx:99
 msgid "Facilitated by ${ learningCircle.facilitator }"
 msgstr ""
 
@@ -35,6 +35,14 @@ msgstr ""
 
 #: src/LearningCircleSignup/LearningCircleSignup.jsx:43
 msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
+msgstr ""
+
+#: src/LearningCircles/Browse.jsx:15
+msgid "Open"
+msgstr ""
+
+#: src/LearningCircles/Browse.jsx:16
+msgid "Closed and completed"
 msgstr ""
 
 #: src/Courses/Browse.jsx:32
@@ -105,47 +113,41 @@ msgstr ""
 msgid "There are no learning circles available right now."
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:21
+#: src/LearningCircles/LearningCircleCard.jsx:33
 #, javascript-format
 msgid ""
 "${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
 "learningCircle.time_zone })"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:22
+#: src/LearningCircles/LearningCircleCard.jsx:34
 #, javascript-format
 msgid "${ learningCircle.weeks } weeks starting ${ formattedStartDate }"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:53
-msgid "Registration open!"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:57
-#, javascript-format
+#: src/LearningCircles/LearningCircleCard.jsx:70
 msgid "Ended ${ formattedEndDate }"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:57
+#: src/LearningCircles/LearningCircleCard.jsx:70
+#, javascript-format
 msgid "Started ${ formattedStartDate }"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:57
-#, javascript-format
+#: src/LearningCircles/LearningCircleCard.jsx:70
 msgid "Starting ${ formattedStartDate }"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:90
-#, javascript-format
+#: src/LearningCircles/LearningCircleCard.jsx:103
 msgid "Meeting at ${ learningCircle.venue }"
 msgstr ""
 
 #: src/LearningCircleSignup/SignupForm.jsx:183
-#: src/LearningCircles/LearningCircleCard.jsx:96
+#: src/LearningCircles/LearningCircleCard.jsx:109
 msgid "Sign up"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:96
+#: src/LearningCircles/LearningCircleCard.jsx:109
 msgid "View details"
 msgstr ""
 
@@ -208,6 +210,28 @@ msgstr ""
 msgid "Title, subject, etc..."
 msgstr ""
 
+#: src/Filters/LocationFilterForm.jsx:96
+#: src/Search/SearchTags.jsx:111
+#, javascript-format
+msgid "Within ${ value } ${ unit }"
+msgstr ""
+
+#: src/Search/SearchTags.jsx:180
+#, javascript-format
+msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
+msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Search/SearchTags.jsx:218
+msgid "reset the search form"
+msgstr ""
+
+#: src/Search/SearchTags.jsx:227
+#, javascript-format
+msgid "To see more results, either remove some filters or ${ resetButton }"
+msgstr ""
+
 #: src/LearningCircleSignup/SignupForm.jsx:99
 msgid "More information."
 msgstr ""
@@ -260,36 +284,14 @@ msgstr ""
 msgid "Submitting..."
 msgstr ""
 
-#: src/Filters/LocationFilterForm.jsx:96
-#: src/Search/SearchTags.jsx:111
-#, javascript-format
-msgid "Within ${ value } ${ unit }"
-msgstr ""
-
-#: src/Search/SearchTags.jsx:180
-#, javascript-format
-msgid "Showing ${ props.searchResults.length } of ${ props.totalResults } result"
-msgid_plural "Showing ${ props.searchResults.length } of ${ props.totalResults } results"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/Search/SearchTags.jsx:218
-msgid "reset the search form"
-msgstr ""
-
-#: src/Search/SearchTags.jsx:227
-#, javascript-format
-msgid "To see more results, either remove some filters or ${ resetButton }"
+#: src/Search/SearchBar.jsx:17
+msgid "Search"
 msgstr ""
 
 #: src/LearningCircleSignup/SignupSuccess.jsx:8
 msgid ""
 "Thank you for signing up. We've sent you an email introducing you to your "
 "facilitator and we'll send you a reminder two days before each meeting."
-msgstr ""
-
-#: src/Search/SearchBar.jsx:17
-msgid "Search"
 msgstr ""
 
 #: src/Filters/FiltersSection.jsx:21
@@ -323,14 +325,6 @@ msgstr ""
 
 #: src/Filters/TopicsFilterForm.jsx:48
 msgid "Select as many topics as you want"
-msgstr ""
-
-#: src/Filters/LanguageFilterForm.jsx:43
-msgid "What languages are you interested in?"
-msgstr ""
-
-#: src/Filters/LanguageFilterForm.jsx:49
-msgid "Select as many languages as you want"
 msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:40
@@ -383,4 +377,12 @@ msgstr ""
 
 #: src/Filters/OerFilterForm.jsx:9
 msgid "All courses"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:43
+msgid "What languages are you interested in?"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:49
+msgid "Select as many languages as you want"
 msgstr ""
