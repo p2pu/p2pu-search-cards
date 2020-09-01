@@ -15,12 +15,12 @@ class BrowseCourses extends React.Component {
   }
 
   render() {
-    const { results, updateQueryParams, onSelectResult, columnBreakpoints } = this.props;
+    const { results, updateQueryParams, onSelectResult, columnBreakpoints, isLoading } = this.props;
 
     return (
       <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
         {
-          results.map((course, index) => (
+          !isLoading && results.map((course, index) => (
             <CourseCard
               key={`course-card-${index}`}
               id={`course-card-${index}`}

@@ -88,3 +88,6 @@ export const COLOR_CLASSES = [
   "p2pu-yellow",
   "p2pu-orange",
 ]
+
+export const OPEN_TAB_TEXT = t`Open`
+export const CLOSED_TAB_TEXT = t`Closed and completed`

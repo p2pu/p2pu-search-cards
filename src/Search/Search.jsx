@@ -4,10 +4,10 @@ import queryString from 'query-string';
 
 import SearchAndFilter from './SearchAndFilter'
 import SearchTags from './SearchTags'
-import { SEARCH_PROPS, API_ENDPOINTS } from '../utils/constants'
+import { SEARCH_PROPS, API_ENDPOINTS, OPEN_TAB_TEXT, CLOSED_TAB_TEXT } from '../utils/constants'
 import ApiHelper from '../utils/apiHelper'
 
-const SIGNUP_BY_TAB = ['open', 'closed']
+
 
 export default class Search extends Component {
   constructor(props) {
@@ -35,7 +35,6 @@ export default class Search extends Component {
       isLoading: false,
       hasMoreResults: false,
       appendResults: false,
-      signup: 'open',
       order: this.props.searchSubject === 'learningCircles' ? 'first_meeting_date' : null
     }
 
@@ -51,6 +50,7 @@ export default class Search extends Component {
     let resultsTab;
 
     if (this.props.searchSubject === 'learningCircles') {
+      defaults.signup = 'open'
       defaults.resultsTab = parsedParams.signup && parsedParams.signup == 'closed' ? 1 : 0
     }
 
@@ -196,6 +196,7 @@ export default class Search extends Component {
           updateResultsTab={this.updateResultsTab}
           resultsTab={this.state.resultsTab}
           showNoResultsComponent={true}
+          isLoading={this.state.isLoading}
           {...this.props}
         />
         {
@@ -208,12 +209,11 @@ export default class Search extends Component {
 }
 
 const DefaultNoResults = props => {
-  console.log(props)
   const renderLinks = () => {
     const links = []
     if (props.updateResultsTab) {
       const otherTab = props.tabIndex === 0 ? 1 : 0
-      const otherTabName = otherTab === 0 ? 'open' : 'closed and completed'
+      const otherTabName = otherTab === 0 ? OPEN_TAB_TEXT : CLOSED_TAB_TEXT
       links.push(
         <button key="reset-btn" className='btn p2pu-btn btn-sm dark d-inline-flex align-items-center py-2 px-3' onClick={() => props.updateResultsTab(otherTab)}>
           <span className="material-icons mr-1">
