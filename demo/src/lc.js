@@ -46,7 +46,7 @@ class App extends React.Component {
             locale="en"
             onSelectResult={this.handleLearningCircleSelection}
             Browse={BrowseLearningCircles}
-            origin={'https://learningcircles.p2pu.org'}
+            origin={'http://localhost:8000'}
             contact="sharon@p2pu.org"
           />
         </div>
