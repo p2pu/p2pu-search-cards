@@ -25,7 +25,7 @@ export default class Search extends Component {
   }
 
   setInitialState = () => {
-    const defaults = {
+    let defaults = {
       searchResults: [],
       totalResults: 0,
       distance: 50,
@@ -35,7 +35,6 @@ export default class Search extends Component {
       isLoading: false,
       hasMoreResults: false,
       appendResults: false,
-      resultsTab: 0, // open for signup
       signup: 'open',
       order: this.props.searchSubject === 'learningCircles' ? 'first_meeting_date' : null
     }
@@ -48,6 +47,12 @@ export default class Search extends Component {
         parsedParams[term] = [parsedParams[term]]
       }
     })
+
+    let resultsTab;
+
+    if (this.props.searchSubject === 'learningCircles') {
+      defaults.resultsTab = parsedParams.signup && parsedParams.signup == 'closed' ? 1 : 0
+    }
 
     return {
       ...defaults,

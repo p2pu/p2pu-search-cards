@@ -13,12 +13,16 @@ const cardFormatting = {
     color: 'p2pu-green',
     label: 'In progress'
   },
-  inProgressClosed: {
+  upcoming: {
     color: 'p2pu-yellow',
+    label: 'Upcoming'
+  },
+  inProgressClosed: {
+    color: 'p2pu-orange',
     label: 'In progress'
   },
   completed: {
-    color: 'p2pu-orange',
+    color: 'p2pu-gray',
     label: 'Completed'
   }
 }
@@ -33,14 +37,22 @@ const LearningCircleCard = (props) => {
   const schedule = t`${weekDay} from ${formattedStartTime} to ${formattedEndTime} (${learningCircle.time_zone})`;
   const duration = t`${learningCircle.weeks} weeks starting ${formattedStartDate}`;
   const name = learningCircle.name ? learningCircle.name : learningCircle.course.title;
+
   const isSignupOpen = props.isSignupOpen
-  const isCompleted = new Date(learningCircle.last_meeting_date) < new Date()
-  const isInProgress = !isCompleted && new Date(learningCircle.start_date) < new Date()
+  const today = new Date()
+  const startDate = new Date(learningCircle.start_date)
+  const endDate = new Date(learningCircle.last_meeting_date)
+
+  const isUpcoming = startDate > today
+  const isCompleted = endDate < today
+  const isInProgress = startDate < today && endDate > today
 
   let status;
 
-  if (isSignupOpen && new Date(learningCircle.start_date) > new Date()) {
+  if (isSignupOpen && isUpcoming) {
     status = 'startingSoon'
+  } else if (!isSignupOpen && isUpcoming) {
+    status = 'upcoming'
   } else if (isSignupOpen && isInProgress) {
     status = 'inProgressOpen'
   } else if (isInProgress) {
@@ -56,8 +68,7 @@ const LearningCircleCard = (props) => {
     if (onSelectResult) {
       onSelectResult(learningCircle)
     } else {
-      const url = `${learningCircle.url}?prev=${encodeURIComponent(window.location.href)}`
-      window.location.href = url;
+      window.location.href = learningCircle.url;
     }
   }
 
