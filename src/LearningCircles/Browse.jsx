@@ -3,6 +3,8 @@ import Masonry from 'react-masonry-css'
 import { t } from "ttag";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
+import { OPEN_TAB_TEXT, CLOSED_TAB_TEXT } from '../utils/constants'
+
 import LearningCircleCard from './LearningCircleCard.jsx'
 import 'react-tabs/style/react-tabs.css';
 
@@ -12,19 +14,17 @@ const defaultBreakpoints = {
   768: 1
 };
 
-const openTabText = t`Open`
-const closedTabText = t`Closed and completed`
 
-const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoints, resultsCount, signupOpenCount, signupClosedCount, resultsTab, updateResultsTab, NoResultsComponent, showNoResultsComponent, contact }) => {
+const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoints, resultsCount, signupOpenCount, signupClosedCount, resultsTab, updateResultsTab, NoResultsComponent, showNoResultsComponent, contact, isLoading }) => {
 
   return (
     <Tabs selectedIndex={resultsTab} onSelect={updateResultsTab}>
       <TabList>
-        <Tab><span className="minicaps bold text-xs">{`${openTabText} (${signupOpenCount})`}</span></Tab>
-        <Tab><span className="minicaps bold text-xs">{`${closedTabText} (${signupClosedCount})`}</span></Tab>
+        <Tab><span className="minicaps bold text-xs">{`${OPEN_TAB_TEXT} (${signupOpenCount})`}</span></Tab>
+        <Tab><span className="minicaps bold text-xs">{`${CLOSED_TAB_TEXT} (${signupClosedCount})`}</span></Tab>
       </TabList>
       <TabPanel>
-        {results.length === 0 ?
+        { !isLoading && results.length === 0 ?
           <NoResultsComponent updateResultsTab={updateResultsTab} tabIndex={resultsTab} contact={contact} /> :
           <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
             {
@@ -43,7 +43,7 @@ const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoi
         }
       </TabPanel>
       <TabPanel>
-        {results.length === 0 ?
+        { !isLoading && results.length === 0 ?
           <NoResultsComponent updateResultsTab={updateResultsTab} tabIndex={resultsTab} contact={contact} /> :
           <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
             {

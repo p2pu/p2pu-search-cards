@@ -14,12 +14,12 @@ const cardFormatting = {
     label: 'In progress'
   },
   upcoming: {
-    color: 'p2pu-yellow',
-    label: 'Upcoming'
+    color: 'p2pu-orange',
+    label: 'Sign up closed'
   },
   inProgressClosed: {
     color: 'p2pu-orange',
-    label: 'In progress'
+    label: 'Sign up closed'
   },
   completed: {
     color: 'p2pu-gray',
