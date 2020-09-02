@@ -57,7 +57,6 @@ const times = [
 
 
 const TimePickerWithLabel = (props) => {
-  const [errorMessage, setErrorMessage] = useState(null)
   const {
     name,
     id,
@@ -75,6 +74,8 @@ const TimePickerWithLabel = (props) => {
     isClearable,
     ...rest
   } = props
+
+  const [errorMessage, setErrorMessage] = useState(props.errorMessage)
 
   const convertTo24h = input => {
     const regex = /(1[0-2]|0?[1-9]):([0-5][0-9]) ?([AaPp][Mm])/
