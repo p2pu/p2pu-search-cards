@@ -37,6 +37,23 @@ msgstr ""
 msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
 msgstr ""
 
+#: src/Courses/Browse.jsx:32
+msgid "Use this course"
+msgstr ""
+
+#: src/Search/Search.jsx:222
+#, javascript-format
+msgid "View ${ otherTabName } learning circles"
+msgstr ""
+
+#: src/Search/Search.jsx:233
+msgid "Contact this team"
+msgstr ""
+
+#: src/Search/Search.jsx:243
+msgid "There are no learning circles available right now."
+msgstr ""
+
 #: src/Courses/CourseCard.jsx:13
 msgid "Always available"
 msgstr ""
@@ -86,23 +103,6 @@ msgstr ""
 
 #: src/Courses/CourseCard.jsx:94
 msgid "Course website"
-msgstr ""
-
-#: src/Courses/Browse.jsx:32
-msgid "Use this course"
-msgstr ""
-
-#: src/Search/Search.jsx:222
-#, javascript-format
-msgid "View ${ otherTabName } learning circles"
-msgstr ""
-
-#: src/Search/Search.jsx:233
-msgid "Contact this team"
-msgstr ""
-
-#: src/Search/Search.jsx:243
-msgid "There are no learning circles available right now."
 msgstr ""
 
 #: src/LearningCircles/LearningCircleCard.jsx:37
