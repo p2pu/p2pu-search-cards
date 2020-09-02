@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import InputWrapper from '../InputWrapper'
 import { Editor } from '@tinymce/tinymce-react';
@@ -18,12 +18,21 @@ const TextareaWithLabel = (props) => {
     placeholder,
     apiKey,
     tinymceScriptSrc,
+    maxLength,
     ...rest
   } = props;
 
-  const onChange = input => {
+  const [ charCount, setCharCount ] = useState()
+
+  const onChange = (input, editor) => {
+    const wordcount = editor.plugins.wordcount
+    const charCount = wordcount.body.getCharacterCount()
+
+    setCharCount(charCount)
     props.handleChange({ [props.name]: input })
   }
+
+  const erroMessageWithCharCount = charCount > maxLength ? `The text is too long: ${charCount}/${maxLength} characters.` : errorMessage
 
   return (
     <InputWrapper
@@ -32,7 +41,7 @@ const TextareaWithLabel = (props) => {
       id={id}
       required={required}
       disabled={disabled}
-      errorMessage={errorMessage}
+      errorMessage={erroMessageWithCharCount}
       helpText={helpText}
       classes={classes}
     >
@@ -45,7 +54,7 @@ const TextareaWithLabel = (props) => {
           height: 300,
           menubar: false,
           plugins: [
-            'link lists'
+            'link lists wordcount'
           ],
           toolbar: 'undo redo | formatselect | bold italic | bullist numlist | link | removeformat',
           'valid_elements': 'p,h3,h4,h5,h6,strong,em,a,a[href|target=_blank|rel=noopener],ul,ol,li,div,span',
@@ -64,7 +73,8 @@ TextareaWithLabel.defaultProps = {
   label: 'Textarea input',
   classes: '',
   apiKey: '',
-  handleChange: (input) => console.log("Implement a function to save input", input)
+  handleChange: (input) => console.log("Implement a function to save input", input),
+  maxLength: 1000,
 }
 
 TextareaWithLabel.propTypes = {
@@ -76,6 +86,7 @@ TextareaWithLabel.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
   classes: PropTypes.string,
+  maxLength: PropTypes.number,
 }
 
 export default TextareaWithLabel;
