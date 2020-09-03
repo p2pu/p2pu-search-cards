@@ -20,16 +20,34 @@ import TimePickerWithLabel from "../../src/InputFields/TimePickerWithLabel"
 import MobileInput from "../../src/InputFields/MobileInput"
 import RichTextWithLabel from "../../src/InputFields/RichTextWithLabel"
 
+const weekdays = [
+  { label: 'Sunday', value: RRule.SU },
+  { label: 'Monday', value: RRule.MO },
+  { label: 'Tuesday', value: RRule.TU },
+  { label: 'Wednesday', value: RRule.WE },
+  { label: 'Thursday', value: RRule.TH },
+  { label: 'Friday', value: RRule.FR },
+  { label: 'Saturday', value: RRule.SA },
+]
 
 const MeetingScheduler = (props) => {
 
   const [state, setState] = useState(props);
   const handleChange = (newContent) => {
+    let presets = {};
+    const key = Object.keys(newContent)[0]
+    if (key === 'startDate') {
+      const [year, month, day] = newContent.startDate.split('-')
+      const date = new Date(Date.UTC(year, month-1, day))
+      presets.weekday = [weekdays[date.getUTCDay()].value]
+      presets.date = date.getUTCDate()
+    }
     setState({
       ...state,
       content: {
         ...content,
-        ...newContent
+        ...newContent,
+        ...presets
       }
     })
   }
@@ -37,8 +55,10 @@ const MeetingScheduler = (props) => {
   const { content, meetings } = state;
 
   const generateMeetings = () => {
+    const [year, month, day] = content['startDate'].split('-')
+    const date = new Date(Date.UTC(year, month-1, day))
     let opts = {
-      dtstart: new Date(Date.UTC(2012, 1, 1, 10, 30)),
+      dtstart: date,
       count: parseInt(content.meetingCount),
     }
 
@@ -50,12 +70,17 @@ const MeetingScheduler = (props) => {
       opts.freq = RRule.WEEKLY
       opts.interval = 2
       opts.byweekday = content.weekday
-    } else if (content.freqency === 'monthly') {
+    } else if (content.frequency === 'monthly') {
       opts.freq = RRule.MONTHLY
       opts.interval = 1
+      delete opts.byweekday
+      if (content.monthday === 'byweekday') {
+        opts.byweekday = content.weekday
+        opts.bysetpos = 1
+      }
     }
 
-    console.log(opts)
+    console.log("opts", opts)
 
     const rule = new RRule(opts)
     const meetings = rule.all()
@@ -63,6 +88,7 @@ const MeetingScheduler = (props) => {
     setState({ ...state, meetings })
   }
 
+  console.log(content)
 
   return(
     <div className="container my-5">
@@ -113,9 +139,8 @@ const MeetingScheduler = (props) => {
         content['frequency'] === 'monthly' &&
         <SelectWithLabel
           options={[
-            { label: 'First weekday of the month', value: 'weekly' },
-            { label: 'Every 2 weeks', value: 'biweekly' },
-            { label: 'Every month', value: 'monthly' }
+            { label: `First ${weekdays[content.weekday[0].weekday].label} of the month`, value: 'byweekday' },
+            { label: `The ${content.date} of every month`, value: 'bydate' },
           ]}
           name='monthday'
           value={content['monthday']}
@@ -133,14 +158,7 @@ const MeetingScheduler = (props) => {
         type={'number'}
       />
 
-      <TimePickerWithLabel
-        name="startTime"
-        label="What time will your learning circle meet?"
-        value={content['startTime']}
-        handleChange={handleChange}
-      />
-
-      <button onClick={generateMeetings}>Generate meetings</button>
+      <button className="btn p2pu-btn" onClick={generateMeetings}>Generate meetings</button>
 
       <ul>
         {
@@ -157,7 +175,7 @@ MeetingScheduler.defaultProps = {
     meetingCount: 6,
     frequency: 'weekly',
     startTime: '14:00',
-
+    monthday: 'bydate'
   },
   meetings: [],
 }
