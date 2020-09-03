@@ -15,6 +15,7 @@ module.exports = ({locale}={}) => {
       index: path.join(__dirname, "demo/src/index.js"),
       lc: path.join(__dirname, "demo/src/lc.js"),
       "input-fields": path.join(__dirname, "demo/src/input-fields.js"),
+      "meetings": path.join(__dirname, "demo/src/meetings.js"),
     },
     output: {
       path: path.join(__dirname, "demo/dist"),
@@ -79,6 +80,11 @@ module.exports = ({locale}={}) => {
         template: path.join(__dirname, "demo/src/input-fields.html"),
         filename: "./input-fields.html",
         chunks: ['input-fields']
+      }),
+      new HtmlWebpackPlugin({
+        template: path.join(__dirname, "demo/src/meetings.html"),
+        filename: "./meetings.html",
+        chunks: ['meetings']
       })
     ],
     resolve: {
