@@ -92,16 +92,16 @@ msgstr ""
 msgid "Course website"
 msgstr ""
 
-#: src/Search/Search.jsx:222
+#: src/Search/Search.jsx:221
 #, javascript-format
 msgid "View ${ otherTabName } learning circles"
 msgstr ""
 
-#: src/Search/Search.jsx:233
+#: src/Search/Search.jsx:232
 msgid "Contact this team"
 msgstr ""
 
-#: src/Search/Search.jsx:243
+#: src/Search/Search.jsx:242
 msgid "There are no learning circles available right now."
 msgstr ""
 

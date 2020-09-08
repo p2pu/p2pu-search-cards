@@ -78,7 +78,8 @@ export default class Search extends Component {
       const clientHeight = window.innerHeight;
       const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
 
-      if (scrolledToBottom) {
+      if (scrolledToBottom && !this.state.isLoading) {
+        console.log("scrolled to bottom!!")
         this.updateQueryParams({ offset: this.state.searchResults.length, appendResults: true })
       }
     };
@@ -97,16 +98,14 @@ export default class Search extends Component {
   }
 
   _sendQuery(opts={}) {
-    this.setState({ isLoading: true }, () => {
-      const params = this.state;
-      const options = { params, callback: this.searchCallback, ...opts };
+    const params = this.state;
+    const options = { params, callback: this.searchCallback, ...opts };
 
-      this.apiHelper.fetchResource(options);
-    })
+    this.apiHelper.fetchResource(options);
   }
 
   _updateQueryParams(params) {
-    this.setState(params, () => {
+    this.setState({ ...params, isLoading: true }, () => {
       this.sendQuery()
       this.updateURL()
     })

@@ -14,7 +14,7 @@ class BrowseCourses extends React.Component {
     return (
       <Masonry className={"search-results row grid"}>
         {
-          !isLoading && results.map((course, index) => (
+          results.map((course, index) => (
             <CourseCard
               key={`course-card-${index}`}
               id={`course-card-${index}`}
