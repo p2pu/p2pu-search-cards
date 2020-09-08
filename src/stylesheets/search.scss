@@ -8,6 +8,10 @@ span.course-title {
   color: $p2pu-blue;
 }
 
+[role="button"] {
+  cursor: pointer;
+}
+
 .page {
   display: flex;
   flex-direction: column;
@@ -420,10 +424,6 @@ span.course-title {
           border-color: $p2pu-orange;
         }
 
-        .start-date {
-          color: $p2pu-orange;
-        }
-
         .image-container {
           .circle {
             background-color: $p2pu-light-orange;
@@ -451,10 +451,6 @@ span.course-title {
 
         .status-tag {
           border-color: $p2pu-yellow;
-        }
-
-        .start-date {
-          color: $p2pu-yellow;
         }
 
         .image-container {
@@ -486,10 +482,6 @@ span.course-title {
           border-color: $p2pu-blue;
         }
 
-        .start-date {
-          color: $p2pu-blue;
-        }
-
         .image-container {
           .circle {
             background-color: $p2pu-light-blue;
@@ -519,10 +511,6 @@ span.course-title {
           border-color: $p2pu-green;
         }
 
-        .start-date {
-          color: $p2pu-green;
-        }
-
         .image-container {
           .circle {
             background-color: $p2pu-light-green;
@@ -550,10 +538,6 @@ span.course-title {
 
         .status-tag {
           border-color: $gray-darker;
-        }
-
-        .start-date {
-          color: $gray-darker;
         }
 
         .image-container {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Masonry from 'react-masonry-css'
+import Masonry from 'react-masonry-component'
 import { t } from "ttag";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
@@ -7,13 +7,6 @@ import { OPEN_TAB_TEXT, CLOSED_TAB_TEXT } from '../utils/constants'
 
 import LearningCircleCard from './LearningCircleCard.jsx'
 import 'react-tabs/style/react-tabs.css';
-
-const defaultBreakpoints = {
-  default: 3,
-  992: 2,
-  768: 1
-};
-
 
 const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoints, resultsCount, signupOpenCount, signupClosedCount, resultsTab, updateResultsTab, NoResultsComponent, showNoResultsComponent, contact, isLoading }) => {
 
@@ -26,14 +19,14 @@ const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoi
       <TabPanel>
         { !isLoading && results.length === 0 ?
           <NoResultsComponent updateResultsTab={updateResultsTab} tabIndex={resultsTab} contact={contact} /> :
-          <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
+          <Masonry className={"search-results row grid"}>
             {
               results.map((circle, index) => (
                 <LearningCircleCard
                   key={`learning-circle-${index}`}
                   learningCircle={circle}
                   locale={locale}
-                  classes="col-12 mb-5 mt-4"
+                  classes="col-md-4 col-md-4 mb-5 mt-4"
                   onSelectResult={onSelectResult}
                   isSignupOpen={true}
                 />
@@ -45,14 +38,14 @@ const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoi
       <TabPanel>
         { !isLoading && results.length === 0 ?
           <NoResultsComponent updateResultsTab={updateResultsTab} tabIndex={resultsTab} contact={contact} /> :
-          <Masonry breakpointCols={columnBreakpoints || defaultBreakpoints} className="masonry-grid search-results row grid" columnClassName="masonry-grid_column">
+          <Masonry className={"search-results row grid"}>
             {
               results.map((circle, index) => (
                 <LearningCircleCard
                   key={`learning-circle-${index}`}
                   learningCircle={circle}
                   locale={locale}
-                  classes="col-12 mb-5 mt-4"
+                  classes="col-md-4 mb-5 mt-4"
                   onSelectResult={onSelectResult}
                   isSignupOpen={false}
                 />
