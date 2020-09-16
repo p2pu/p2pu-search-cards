@@ -79,7 +79,6 @@ export default class Search extends Component {
       const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
 
       if (scrolledToBottom && !this.state.isLoading) {
-        console.log("scrolled to bottom!!")
         this.updateQueryParams({ offset: this.state.searchResults.length, appendResults: true })
       }
     };

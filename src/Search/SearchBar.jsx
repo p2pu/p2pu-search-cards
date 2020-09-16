@@ -3,8 +3,9 @@ import {t} from 'ttag';
 
 const SearchBar = ({ placeholder, updateQueryParams, q }) => {
   const onChange = (e) => {
-    const value = e.currentTarget.value.trim() ;
-    updateQueryParams({q: value});
+    const value = e.currentTarget.value
+    const query = value.replace(/^\s+/g, '');
+    updateQueryParams({ q: query });
   }
 
   const onSubmit = e => {

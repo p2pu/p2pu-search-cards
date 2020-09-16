@@ -92,55 +92,17 @@ msgstr ""
 msgid "Course website"
 msgstr ""
 
-#: src/Search/Search.jsx:221
+#: src/Search/Search.jsx:220
 #, javascript-format
 msgid "View ${ otherTabName } learning circles"
 msgstr ""
 
-#: src/Search/Search.jsx:232
+#: src/Search/Search.jsx:231
 msgid "Contact this team"
 msgstr ""
 
-#: src/Search/Search.jsx:242
+#: src/Search/Search.jsx:241
 msgid "There are no learning circles available right now."
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:33
-#, javascript-format
-msgid ""
-"${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
-"learningCircle.time_zone })"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:34
-#, javascript-format
-msgid "${ learningCircle.weeks } weeks starting ${ formattedStartDate }"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:51
-msgid "Ended ${ formattedEndDate }"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:53
-#, javascript-format
-msgid "Started ${ formattedStartDate }"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:55
-msgid "Starting ${ formattedStartDate }"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:105
-msgid "Meeting at ${ learningCircle.venue }"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:183
-#: src/LearningCircles/LearningCircleCard.jsx:111
-msgid "Sign up"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:111
-msgid "View details"
 msgstr ""
 
 #: src/utils/constants.js:4
@@ -176,6 +138,96 @@ msgstr ""
 #: src/utils/constants.js:10
 #: src/utils/i18n.js:10
 msgid "Sunday"
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:99
+msgid "More information."
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:100
+msgid ""
+"I consent that P2PU may process my personal data provided here for the "
+"purpose of participating in this learning circle."
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:107
+msgid "Name"
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:116
+msgid "Email address"
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:126
+msgid ""
+"If you'd like to receive weekly text messages reminding you of upcoming "
+"learning circle meetings, put your phone number here."
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:134
+msgid "Your number won't be shared with other participants."
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:136
+msgid "Why do you want to learn this topic?"
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:145
+msgid ""
+"A successful study group requires the support of all of its members. How "
+"will you help your peers achieve their goals?"
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:175
+msgid ""
+"I would like to receive emails about other future learning opportunities "
+"from P2PU."
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:183
+#: src/LearningCircles/LearningCircleCard.jsx:111
+msgid "Sign up"
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:186
+msgid "Back to search"
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:190
+msgid "Submitting..."
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:33
+#, javascript-format
+msgid ""
+"${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
+"learningCircle.time_zone })"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:34
+#, javascript-format
+msgid "${ learningCircle.weeks } weeks starting ${ formattedStartDate }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:51
+msgid "Ended ${ formattedEndDate }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:53
+#, javascript-format
+msgid "Started ${ formattedStartDate }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:55
+msgid "Starting ${ formattedStartDate }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:105
+msgid "Meeting at ${ learningCircle.venue }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:111
+msgid "View details"
 msgstr ""
 
 #: src/utils/constants.js:14
@@ -232,66 +284,14 @@ msgstr ""
 msgid "To see more results, either remove some filters or ${ resetButton }"
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:99
-msgid "More information."
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:100
-msgid ""
-"I consent that P2PU may process my personal data provided here for the "
-"purpose of participating in this learning circle."
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:107
-msgid "Name"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:116
-msgid "Email address"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:126
-msgid ""
-"If you'd like to receive weekly text messages reminding you of upcoming "
-"learning circle meetings, put your phone number here."
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:134
-msgid "Your number won't be shared with other participants."
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:136
-msgid "Why do you want to learn this topic?"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:145
-msgid ""
-"A successful study group requires the support of all of its members. How "
-"will you help your peers achieve their goals?"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:175
-msgid ""
-"I would like to receive emails about other future learning opportunities "
-"from P2PU."
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:186
-msgid "Back to search"
-msgstr ""
-
-#: src/LearningCircleSignup/SignupForm.jsx:190
-msgid "Submitting..."
-msgstr ""
-
-#: src/Search/SearchBar.jsx:17
-msgid "Search"
-msgstr ""
-
 #: src/LearningCircleSignup/SignupSuccess.jsx:8
 msgid ""
 "Thank you for signing up. We've sent you an email introducing you to your "
 "facilitator and we'll send you a reminder two days before each meeting."
+msgstr ""
+
+#: src/Search/SearchBar.jsx:18
+msgid "Search"
 msgstr ""
 
 #: src/Filters/FiltersSection.jsx:21
