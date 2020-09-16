@@ -44,14 +44,14 @@ const LearningCircleCard = (props) => {
   const isInProgress = startDate < today && endDate > today
 
 
-
-  const colorClass = cardFormatting[learningCircle.status].color
-  const cardLabel = cardFormatting[learningCircle.status].label
+  const status = learningCircle.status || 'completed'
+  const colorClass = cardFormatting[status].color
+  const cardLabel = cardFormatting[status].label
 
   let dateLabel = t`Ended ${formattedEndDate}`
-  if (learningCircle.status === 'in_progress' || learningCircle.status === 'closed') {
+  if (status === 'in_progress' || status === 'closed') {
     dateLabel = t`Started ${formattedStartDate}`
-  } else if (learningCircle.status === 'upcoming') {
+  } else if (status === 'upcoming') {
     dateLabel = t`Starting ${formattedStartDate}`
   }
 

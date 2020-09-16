@@ -105,6 +105,44 @@ msgstr ""
 msgid "There are no learning circles available right now."
 msgstr ""
 
+#: src/LearningCircles/LearningCircleCard.jsx:33
+#, javascript-format
+msgid ""
+"${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
+"learningCircle.time_zone })"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:34
+#, javascript-format
+msgid "${ learningCircle.weeks } weeks starting ${ formattedStartDate }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:51
+msgid "Ended ${ formattedEndDate }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:53
+#, javascript-format
+msgid "Started ${ formattedStartDate }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:55
+msgid "Starting ${ formattedStartDate }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:105
+msgid "Meeting at ${ learningCircle.venue }"
+msgstr ""
+
+#: src/LearningCircleSignup/SignupForm.jsx:183
+#: src/LearningCircles/LearningCircleCard.jsx:111
+msgid "Sign up"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:111
+msgid "View details"
+msgstr ""
+
 #: src/utils/constants.js:4
 #: src/utils/i18n.js:4
 msgid "Monday"
@@ -138,6 +176,38 @@ msgstr ""
 #: src/utils/constants.js:10
 #: src/utils/i18n.js:10
 msgid "Sunday"
+msgstr ""
+
+#: src/utils/constants.js:14
+msgid "Course title"
+msgstr ""
+
+#: src/utils/constants.js:15
+msgid "Popularity"
+msgstr ""
+
+#: src/utils/constants.js:16
+msgid "Community rating"
+msgstr ""
+
+#: src/utils/constants.js:17
+msgid "Recently added"
+msgstr ""
+
+#: src/utils/constants.js:28
+msgid "Keyword, organization, facilitator, etc..."
+msgstr ""
+
+#: src/utils/constants.js:33
+msgid "Title, subject, etc..."
+msgstr ""
+
+#: src/utils/constants.js:92
+msgid "Open"
+msgstr ""
+
+#: src/utils/constants.js:93
+msgid "Closed and completed"
 msgstr ""
 
 #: src/LearningCircleSignup/SignupForm.jsx:99
@@ -184,82 +254,12 @@ msgid ""
 "from P2PU."
 msgstr ""
 
-#: src/LearningCircleSignup/SignupForm.jsx:183
-#: src/LearningCircles/LearningCircleCard.jsx:111
-msgid "Sign up"
-msgstr ""
-
 #: src/LearningCircleSignup/SignupForm.jsx:186
 msgid "Back to search"
 msgstr ""
 
 #: src/LearningCircleSignup/SignupForm.jsx:190
 msgid "Submitting..."
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:33
-#, javascript-format
-msgid ""
-"${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
-"learningCircle.time_zone })"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:34
-#, javascript-format
-msgid "${ learningCircle.weeks } weeks starting ${ formattedStartDate }"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:51
-msgid "Ended ${ formattedEndDate }"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:53
-#, javascript-format
-msgid "Started ${ formattedStartDate }"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:55
-msgid "Starting ${ formattedStartDate }"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:105
-msgid "Meeting at ${ learningCircle.venue }"
-msgstr ""
-
-#: src/LearningCircles/LearningCircleCard.jsx:111
-msgid "View details"
-msgstr ""
-
-#: src/utils/constants.js:14
-msgid "Course title"
-msgstr ""
-
-#: src/utils/constants.js:15
-msgid "Popularity"
-msgstr ""
-
-#: src/utils/constants.js:16
-msgid "Community rating"
-msgstr ""
-
-#: src/utils/constants.js:17
-msgid "Recently added"
-msgstr ""
-
-#: src/utils/constants.js:28
-msgid "Keyword, organization, facilitator, etc..."
-msgstr ""
-
-#: src/utils/constants.js:33
-msgid "Title, subject, etc..."
-msgstr ""
-
-#: src/utils/constants.js:92
-msgid "Open"
-msgstr ""
-
-#: src/utils/constants.js:93
-msgid "Closed and completed"
 msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:96
@@ -319,12 +319,20 @@ msgstr ""
 msgid "OER mode"
 msgstr ""
 
-#: src/Filters/TopicsFilterForm.jsx:42
-msgid "What topics are you interested in?"
+#: src/Filters/OerFilterForm.jsx:8
+msgid "Only open educational resources (OER)"
 msgstr ""
 
-#: src/Filters/TopicsFilterForm.jsx:48
-msgid "Select as many topics as you want"
+#: src/Filters/OerFilterForm.jsx:9
+msgid "All courses"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:43
+msgid "What languages are you interested in?"
+msgstr ""
+
+#: src/Filters/LanguageFilterForm.jsx:49
+msgid "Select as many languages as you want"
 msgstr ""
 
 #: src/Filters/LocationFilterForm.jsx:40
@@ -371,18 +379,10 @@ msgstr ""
 msgid "No results for this city"
 msgstr ""
 
-#: src/Filters/LanguageFilterForm.jsx:43
-msgid "What languages are you interested in?"
+#: src/Filters/TopicsFilterForm.jsx:42
+msgid "What topics are you interested in?"
 msgstr ""
 
-#: src/Filters/LanguageFilterForm.jsx:49
-msgid "Select as many languages as you want"
-msgstr ""
-
-#: src/Filters/OerFilterForm.jsx:8
-msgid "Only open educational resources (OER)"
-msgstr ""
-
-#: src/Filters/OerFilterForm.jsx:9
-msgid "All courses"
+#: src/Filters/TopicsFilterForm.jsx:48
+msgid "Select as many topics as you want"
 msgstr ""
