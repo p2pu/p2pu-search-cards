@@ -5,23 +5,19 @@ import { COLOR_CLASSES } from '../utils/constants';
 import { date, day, time } from '../utils/i18n';
 
 const cardFormatting = {
-  startingSoon: {
+  'upcoming': {
     color: 'p2pu-blue',
     label: 'Starting soon'
   },
-  inProgressOpen: {
+  'in_progress': {
     color: 'p2pu-green',
     label: 'In progress'
   },
-  upcoming: {
+  'closed': {
     color: 'p2pu-yellow',
     label: 'Sign up closed'
   },
-  inProgressClosed: {
-    color: 'p2pu-yellow',
-    label: 'Sign up closed'
-  },
-  completed: {
+  'completed': {
     color: 'p2pu-gray',
     label: 'Completed'
   }
@@ -47,22 +43,17 @@ const LearningCircleCard = (props) => {
   const isCompleted = endDate < today
   const isInProgress = startDate < today && endDate > today
 
-  let status;
 
-  if (isSignupOpen && isUpcoming) {
-    status = 'startingSoon'
-  } else if (!isSignupOpen && isUpcoming) {
-    status = 'upcoming'
-  } else if (isSignupOpen && isInProgress) {
-    status = 'inProgressOpen'
-  } else if (isInProgress) {
-    status = 'inProgressClosed'
-  } else {
-    status = 'completed'
+
+  const colorClass = cardFormatting[learningCircle.status].color
+  const cardLabel = cardFormatting[learningCircle.status].label
+
+  let dateLabel = t`Ended ${formattedEndDate}`
+  if (learningCircle.status === 'in_progress' || learningCircle.status === 'closed') {
+    dateLabel = t`Started ${formattedStartDate}`
+  } else if (learningCircle.status === 'upcoming') {
+    dateLabel = t`Starting ${formattedStartDate}`
   }
-
-  const colorClass = cardFormatting[status].color
-  const cardLabel = cardFormatting[status].label
 
   const onClick = () => {
     if (onSelectResult) {
@@ -78,7 +69,7 @@ const LearningCircleCard = (props) => {
       <CardTitle>{ name }</CardTitle>
       <CardBody>
         <p className="start-date bold m-0">
-          {isCompleted ? t`Ended ${formattedEndDate}` : isInProgress ? t`Started ${formattedStartDate}` : t`Starting ${formattedStartDate}`}
+          {dateLabel}
         </p>
       </CardBody>
       <CardBody>

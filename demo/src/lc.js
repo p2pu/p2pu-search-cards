@@ -47,6 +47,7 @@ class App extends React.Component {
             onSelectResult={this.handleLearningCircleSelection}
             Browse={BrowseLearningCircles}
             contact="sharon@p2pu.org"
+            origin="http://localhost:8000"
           />
         </div>
       </div>
