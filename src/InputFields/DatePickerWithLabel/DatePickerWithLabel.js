@@ -20,6 +20,7 @@ const DatePickerWithLabel = (props) => {
     id,
     value,
     handleChange,
+    handleBlur,
     required,
     disabled,
     classes,
@@ -43,6 +44,9 @@ const DatePickerWithLabel = (props) => {
   const checkValidity = () => {
     const validationMessage = inputEl.current.validationMessage
     setBrowserError(validationMessage)
+    if (handleBlur) {
+      handleBlur(inputEl.current.value)
+    }
   }
 
   const combinedErrorMessage = [browserError, errorMessage].filter(Boolean).join("; ")

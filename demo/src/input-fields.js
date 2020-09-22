@@ -92,6 +92,7 @@ const App = () => {
         label="Date picker"
         value={content['datepicker-demo']}
         handleChange={handleChange}
+        handleBlur={(val) => console.log(val)}
       />
       <TimePickerWithLabel
         name="timepicker-demo"
