@@ -30,8 +30,9 @@ const LearningCircleCard = (props) => {
   const formattedEndDate = date(learningCircle.last_meeting_date, locale);
   const formattedEndTime = time(learningCircle.end_time);
   const weekDay = day(learningCircle.day);
-  const schedule = t`${weekDay} from ${formattedStartTime} to ${formattedEndTime} (${learningCircle.time_zone})`;
-  const duration = t`${learningCircle.weeks} weeks starting ${formattedStartDate}`;
+
+  const schedule = t`${formattedStartTime} to ${formattedEndTime} (${learningCircle.time_zone})`;
+  const frequency = learningCircle.meeting_frequency ? t`${learningCircle.meeting_frequency} starting ${formattedStartDate}` : t`Every week on ${weekDay} for ${learningCircle.weeks} times starting ${formattedStartDate}`;
   const name = learningCircle.name ? learningCircle.name : learningCircle.course.title;
 
   const isSignupOpen = props.isSignupOpen
@@ -42,7 +43,6 @@ const LearningCircleCard = (props) => {
   const isUpcoming = startDate > today
   const isCompleted = endDate < today
   const isInProgress = startDate < today && endDate > today
-
 
   const status = learningCircle.status || 'completed'
   const colorClass = cardFormatting[status].color
@@ -90,7 +90,7 @@ const LearningCircleCard = (props) => {
         </p>
         <p className="duration">
           <i className="material-icons">today</i>
-          { duration }
+          <span className="capitalize">{ frequency }</span>
         </p>
         <p className="city-country">
           <i className="material-icons">place</i>

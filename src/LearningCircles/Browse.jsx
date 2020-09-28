@@ -26,7 +26,7 @@ const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoi
                   key={`learning-circle-${index}`}
                   learningCircle={circle}
                   locale={locale}
-                  classes="col-md-4 col-md-4 mb-5 mt-4"
+                  classes="col-md-4 col-md-4 my-3"
                   onSelectResult={onSelectResult}
                   isSignupOpen={true}
                 />
@@ -45,7 +45,7 @@ const BrowseLearningCircles = ({ results, onSelectResult, locale, columnBreakpoi
                   key={`learning-circle-${index}`}
                   learningCircle={circle}
                   locale={locale}
-                  classes="col-md-4 mb-5 mt-4"
+                  classes="col-md-4 my-4"
                   onSelectResult={onSelectResult}
                   isSignupOpen={false}
                 />

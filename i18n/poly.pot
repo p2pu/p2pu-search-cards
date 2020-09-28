@@ -37,10 +37,6 @@ msgstr ""
 msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
 msgstr ""
 
-#: src/Courses/Browse.jsx:26
-msgid "Use this course"
-msgstr ""
-
 #: src/Courses/CourseCard.jsx:13
 msgid "Always available"
 msgstr ""
@@ -92,6 +88,10 @@ msgstr ""
 msgid "Course website"
 msgstr ""
 
+#: src/Courses/Browse.jsx:26
+msgid "Use this course"
+msgstr ""
+
 #: src/Search/Search.jsx:220
 #, javascript-format
 msgid "View ${ otherTabName } learning circles"
@@ -105,16 +105,23 @@ msgstr ""
 msgid "There are no learning circles available right now."
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:33
+#: src/LearningCircles/LearningCircleCard.jsx:34
 #, javascript-format
 msgid ""
-"${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
+"${ formattedStartTime } to ${ formattedEndTime } (${ "
 "learningCircle.time_zone })"
 msgstr ""
 
-#: src/LearningCircles/LearningCircleCard.jsx:34
+#: src/LearningCircles/LearningCircleCard.jsx:35
 #, javascript-format
-msgid "${ learningCircle.weeks } weeks starting ${ formattedStartDate }"
+msgid "${ learningCircle.meeting_frequency } starting ${ formattedStartDate }"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:35
+#, javascript-format
+msgid ""
+"Every week on ${ weekDay } for ${ learningCircle.weeks } times starting ${ "
+"formattedStartDate }"
 msgstr ""
 
 #: src/LearningCircles/LearningCircleCard.jsx:51
