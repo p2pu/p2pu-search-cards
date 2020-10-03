@@ -11,7 +11,7 @@ The search interface currently appears on [the learning circles page on P2PU](ht
 
 ![GIF of search component](https://media.giphy.com/media/XOz4LJsgTATrsxaJxn/giphy.gif)
 
-#### Component structure
+### Component structure
 The main components are:
 - `Search`: the parent component that holds most of the state such as the search parameters and results, as well as the functions for querying the back end. 
 - `SearchAndFilter`: houses the `SearchBar` and `FiltersSection` components
@@ -19,10 +19,10 @@ The main components are:
 - `Browse`: shows the search results in an "infinite scroll", and in the case of Learning Circles, split between tabs. 
 - `LearningCircleCard` and `CourseCard`: displays a search result item 
 
-#### Styling
+### Styling
 The Search component requires the CSS build from `p2pu-components`
 
-#### Example
+### Example
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
