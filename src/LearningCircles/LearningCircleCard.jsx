@@ -31,8 +31,8 @@ const LearningCircleCard = (props) => {
   const formattedEndTime = time(learningCircle.end_time);
   const weekDay = day(learningCircle.day);
 
-  const schedule = t`${formattedStartTime} to ${formattedEndTime} (${learningCircle.time_zone})`;
-  const frequency = learningCircle.meeting_frequency ? t`${learningCircle.meeting_frequency} starting ${formattedStartDate}` : t`Every week on ${weekDay} for ${learningCircle.weeks} times starting ${formattedStartDate}`;
+  const schedule = learningCircle.meets_weekly ? t`${weekDay} from ${formattedStartTime} to ${formattedEndTime} (${learningCircle.time_zone})` : t`${formattedStartTime} to ${formattedEndTime} (${learningCircle.time_zone})`;
+  const frequency = learningCircle.meets_weekly ? t`${learningCircle.weeks} weeks starting ${formattedStartDate}` : t`${learningCircle.weeks} meetings starting ${formattedStartDate}`;
   const name = learningCircle.name ? learningCircle.name : learningCircle.course.title;
 
   const isSignupOpen = props.isSignupOpen

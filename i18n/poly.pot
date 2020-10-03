@@ -37,6 +37,10 @@ msgstr ""
 msgid "At ${ venueLink }, ${ learningCircle.venue_address }"
 msgstr ""
 
+#: src/Courses/Browse.jsx:26
+msgid "Use this course"
+msgstr ""
+
 #: src/Courses/CourseCard.jsx:13
 msgid "Always available"
 msgstr ""
@@ -88,10 +92,6 @@ msgstr ""
 msgid "Course website"
 msgstr ""
 
-#: src/Courses/Browse.jsx:26
-msgid "Use this course"
-msgstr ""
-
 #: src/Search/Search.jsx:220
 #, javascript-format
 msgid "View ${ otherTabName } learning circles"
@@ -108,20 +108,24 @@ msgstr ""
 #: src/LearningCircles/LearningCircleCard.jsx:34
 #, javascript-format
 msgid ""
+"${ weekDay } from ${ formattedStartTime } to ${ formattedEndTime } (${ "
+"learningCircle.time_zone })"
+msgstr ""
+
+#: src/LearningCircles/LearningCircleCard.jsx:34
+#, javascript-format
+msgid ""
 "${ formattedStartTime } to ${ formattedEndTime } (${ "
 "learningCircle.time_zone })"
 msgstr ""
 
 #: src/LearningCircles/LearningCircleCard.jsx:35
-#, javascript-format
-msgid "${ learningCircle.meeting_frequency } starting ${ formattedStartDate }"
+msgid "${ learningCircle.weeks } weeks starting ${ formattedStartDate }"
 msgstr ""
 
 #: src/LearningCircles/LearningCircleCard.jsx:35
 #, javascript-format
-msgid ""
-"Every week on ${ weekDay } for ${ learningCircle.weeks } times starting ${ "
-"formattedStartDate }"
+msgid "${ learningCircle.weeks } meetings starting ${ formattedStartDate }"
 msgstr ""
 
 #: src/LearningCircles/LearningCircleCard.jsx:51
@@ -301,13 +305,13 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#: src/Filters/FiltersSection.jsx:21
+msgid "Filter"
+msgstr ""
+
 #: src/Filters/FilterButton.jsx:10
 #: src/Filters/SortSection.jsx:30
 msgid "Sort by"
-msgstr ""
-
-#: src/Filters/FiltersSection.jsx:21
-msgid "Filter"
 msgstr ""
 
 #: src/Filters/FilterButton.jsx:6
