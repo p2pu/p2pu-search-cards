@@ -51,13 +51,13 @@ ReactDOM.render(
 ## Input Fields
 The input fields are used to standardize the appearance and behaviour of our React forms. The main use case is the form for creating a learning circle. The input fields come with a label, input, help text, and error message (for validation). 
 
-![screenshot of text input](https://imgur.com/a/tzqqmVE)
+![screenshot of text input](https://i.imgur.com/ELAFVsi.png)
 
 ### Components
 Here's a full list of the available input fields:
 
 | Component | Description |
-| --- | --- |
+| :--- | :--- |
 | CheckboxWithLabel | Checkbox with an inline label. The label can be to the right or left of the checkbox. | 
 | CitySelect | A dropdown select for all the cities where learning circles are offered | 
 | DatePickerWithLabel | Date picker using native date input field with validation for the date format | 
@@ -80,7 +80,7 @@ Here's a full list of the available input fields:
 Most of the components listed here have a common API, but check the PropTypes for additional props.
 
 | Prop | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | `name` (required) | string | This is used as the `name` and `id` attributes on the input component itself, and the `htmlFor` attribute on the label. It's also used in the return value of the change handler function, which should return the input value as `{ [name]: value }`. |
 | `label` (required) | string | The content of the label. This can be text or JSX. |
 | `handleChange` (required) | function | The change handler for the input. It will be called with the input name and value as `{ [name]: value }` |
@@ -107,7 +107,7 @@ The ApiHelper functions are:
 All of the above methods take an `options` argument which is an object that includes include the params and callback function. If the API request is successful, the callback function gets called with the response as well as options object.
 
 ### Example
-```
+```js
 import ApiHelper from '../utils/apiHelper'
 
 const apiHelper = new ApiHelper('courses', 'https://learningcircles.p2pu.org')
