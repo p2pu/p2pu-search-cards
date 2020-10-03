@@ -154,8 +154,11 @@ npm run build:main
 Make sure you've already built the main package and committed your changes
 
 `npm adduser` (only your first time)
+
 `npm version patch` (or specify a version number)
+
 `npm run deploy`
+
 
 You'll need the right credentials to publish to p2pu-components.
 
