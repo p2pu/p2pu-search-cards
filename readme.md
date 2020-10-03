@@ -6,9 +6,7 @@ The main uses are:
 - Search interface for learning circles and courses
 - Input fields for forms
 
-## Usage
-
-### Search Interface
+## Search Interface
 The search interface currently appears on [the learning circles page on P2PU](https://www.p2pu.org/en/learning-circles/), [the courses page on P2PU](https://www.p2pu.org/en/courses/) and the [learning circle creation form](https://learningcircles.p2pu.org/en/studygroup/create/).
 
 ![GIF of search component](https://media.giphy.com/media/XOz4LJsgTATrsxaJxn/giphy.gif)
