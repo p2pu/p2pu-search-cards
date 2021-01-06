@@ -23,7 +23,7 @@
   "author": "Sharon Kennedy <sharon@p2pu.org>",
   "license": "MIT",
   "peerDependencies": {
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "jsonp": "^0.2.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
@@ -45,7 +45,7 @@
     "@babel/polyfill": "^7.10.4",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "babel-jest": "^26.0.1",
     "babel-loader": "^8.0.6",
     "babel-plugin-module-resolver": "^3.2.0",
